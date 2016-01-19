@@ -1,8 +1,6 @@
 package com._2491nomythic.robot;
 
 import edu.wpi.first.wpilibj.Joystick;
-import edu.wpi.first.wpilibj.buttons.Button;
-
 import com._2491nomythic.robot.settings.Constants;
 
 /**
