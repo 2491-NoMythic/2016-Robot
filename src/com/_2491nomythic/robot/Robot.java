@@ -1,8 +1,6 @@
 
 package com._2491nomythic.robot;
 
-import com._2491nomythic.robot.subsystems.ExampleSubsystem;
-
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
@@ -18,7 +16,6 @@ import edu.wpi.first.wpilibj.smartdashboard.*;
  */
 public class Robot extends IterativeRobot {
 
-	public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
 	public static OI oi;
 	private Command autoCommand;
 	private SendableChooser autoChooser;
