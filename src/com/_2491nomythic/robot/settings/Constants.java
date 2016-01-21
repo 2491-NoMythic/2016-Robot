@@ -17,6 +17,9 @@ public class Constants {
 	public static final int driveEncoderRightChannel1 = (Integer) null;
 	public static final int driveEncoderRightChannel2 = (Integer) null;
 	
+	public static final int shooterTopChannel = (Integer) null;
+	public static final int shooterBottomChannel = (Integer) null;
+	
 	//Computation Constants
 	public static final double driveEncoderToFeet = (Integer) null;
 }
