@@ -65,13 +65,25 @@ public class OI {
 	}
 	
 	/**
+	 * Get an axis from a controller that is automatically deadzoned
+	 * 
+	 * @param joystickID The id of the controller. 0 = left or driver, 1 = right or driver
+	 * @param axisID The id of the axis (for use in getRawAxis)
+	 * @return the deadzoned result from running getRawAxis
+	 */
+	public double getAxisDeadzoned(int joystickID, int axisID) {
+		double result = controllers[joystickID].getRawAxis(axisID);
+		return Math.abs(result) > 0.05 ? result : 0;
+	}
+	
+	/**
 	 * Get an axis from a controller that is automatically squared and deadzoned
 	 * 
 	 * @param joystickID The id of the controller. 0 = left or driver, 1 = right or driver
 	 * @param axisID The id of the axis (for use in getRawAxis)
 	 * @return the squared, deadzoned result from running getRawAxis
 	 */
-	public double getAxisForDrive(int joystickID, int axisID) {
+	public double getAxisDeadzonedSquared(int joystickID, int axisID) {
 		double result = controllers[joystickID].getRawAxis(axisID);
 		result = result * Math.abs(result);
 		return Math.abs(result) > 0.05 ? result : 0;

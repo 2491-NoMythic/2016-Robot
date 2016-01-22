@@ -1,5 +1,6 @@
 package com._2491nomythic.robot.subsystems;
 
+import com._2491nomythic.robot.commands.drivetrain.Drive;
 import com._2491nomythic.robot.settings.Constants;
 import com._2491nomythic.robot.subsystems.Drivetrain;
 
@@ -51,20 +52,65 @@ public class Drivetrain extends Subsystem {
 	public void driveLeft(double speed) {
 		left1.set(speed);
 		left2.set(speed);
-		left3.set(-speed);
+		left3.set(-1.0 * speed);
 		currentLeftSpeed = speed;
 	}
 	
 	public void driveRight(double speed) {
-		right1.set(-speed);
-		right2.set(-speed);
+		right1.set(-1.0 * speed);
+		right2.set(-1.0 * speed);
 		right3.set(speed);
 		currentRightSpeed = speed;
+	}
+	
+	public Encoder getLeftEncoder() {
+		return encoderLeft;
+	}
+	
+	public Encoder getRightEncoder() {
+		return encoderRight;
+	}
+	
+	public CANTalon getLeft1Motor() {
+		return left1;
+	}
+	
+	public CANTalon getLeft2Motor() {
+		return left2;
+	}
+	
+	public CANTalon getLeft3Motor() {
+		return left3;
+	}
+	
+	public CANTalon getRight1Motor() {
+		return right1;
+	}
+	
+	public CANTalon getRight2Motor() {
+		return right2;
+	}
+	
+	public CANTalon getRight3Motor() {
+		return right3;
+	}
+	
+	public double getCurrentLeftSpeed() {
+		return currentLeftSpeed;
+	}
+	
+	public double getCurrentRightSpeed() {
+		return currentRightSpeed;
+	}
+	
+	public void stop() {
+		drive(0, 0);
 	}
 
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
+    	setDefaultCommand(new Drive());
     }
 }
 

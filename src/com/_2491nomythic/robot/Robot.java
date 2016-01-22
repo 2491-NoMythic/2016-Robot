@@ -1,6 +1,8 @@
 
 package com._2491nomythic.robot;
 
+import com._2491nomythic.robot.settings.Variables;
+
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
@@ -28,6 +30,7 @@ public class Robot extends IterativeRobot {
 		oi = new OI();
         // instantiate the command used for the autonomous period
 		autoChooser = new SendableChooser();
+		Variables.shooterRightToLeftRatio = SmartDashboard.getNumber("Shooter Right to Left Ratio", 1.0);
     }
 	
 	public void disabledPeriodic() {

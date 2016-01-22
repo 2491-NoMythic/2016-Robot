@@ -9,8 +9,8 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  *
  */
 public class Shooter extends Subsystem {
-    private CANTalon motorTop, motorBottom;
-    private double motorTopSpeed, motorBottomSpeed;
+    private CANTalon motorLeft, motorRight;
+    private double motorLeftSpeed, motorRightSpeed;
     
     public static Shooter instance;
     
@@ -25,31 +25,31 @@ public class Shooter extends Subsystem {
     }
     
     private Shooter() {
-    	motorTop = new CANTalon(Constants.shooterTopChannel);
-    	motorBottom = new CANTalon(Constants.shooterBottomChannel);
+    	motorLeft = new CANTalon(Constants.shooterTopChannel);
+    	motorRight = new CANTalon(Constants.shooterBottomChannel);
     }
     
-    public void setShooter(double speedTop, double speedBottom) {
-    	setShooterTop(speedTop);
-    	setShooterBottom(speedBottom);
+    public void setShooter(double speedLeft, double speedRight) {
+    	setShooterLeft(speedLeft);
+    	setShooterRight(speedRight);
     }
     
-    public void setShooterTop(double speed) {
-    	motorTopSpeed = speed;
-    	motorTop.set(speed);
+    public void setShooterLeft(double speed) {
+    	motorLeftSpeed = speed;
+    	motorLeft.set(speed);
     }
     
-    public void setShooterBottom(double speed) {
-    	motorBottomSpeed = speed;
-    	motorBottom.set(speed);
+    public void setShooterRight(double speed) {
+    	motorRightSpeed = speed;
+    	motorRight.set(speed);
     }
     
     public double getShooterTop() {
-    	return motorTopSpeed;
+    	return motorLeftSpeed;
     }
     
     public double getShooterBottom() {
-    	return motorBottomSpeed;
+    	return motorRightSpeed;
     }
 
     public void initDefaultCommand() {
