@@ -1,10 +1,10 @@
-package com._2491nomythic.robot.commands;
+package com._2491nomythic.ares.commands;
+
+import com._2491nomythic.ares.OI;
+import com._2491nomythic.ares.subsystems.*;
 
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-
-import com._2491nomythic.robot.OI;
-import com._2491nomythic.robot.subsystems.*;
 
 /**
  * The base for all commands. All atomic commands should subclass CommandBase.

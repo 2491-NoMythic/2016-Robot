@@ -1,19 +1,17 @@
-package com._2491nomythic.robot.commands.shooter;
+package com._2491nomythic.ares.commands.drivetrain;
 
-import com._2491nomythic.robot.commands.CommandBase;
-import com._2491nomythic.robot.settings.ControllerMap;
-import com._2491nomythic.robot.settings.Variables;
+import com._2491nomythic.ares.commands.CommandBase;
+import com._2491nomythic.ares.settings.ControllerMap;
 
 /**
  *
  */
-public class Shoot extends CommandBase {
-	private double leftPower, rightPower;
+public class Drive extends CommandBase {
+	double leftPower, rightPower;
 
-    public Shoot() {
+    public Drive() {
         // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
-    	requires(shooter);
+        requires(drivetrain);
     }
 
     // Called just before this Command runs the first time
@@ -22,9 +20,9 @@ public class Shoot extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	leftPower = oi.getAxisDeadzonedSquared(ControllerMap.shooterController, ControllerMap.shooterPowerAxis);
-    	rightPower = leftPower * Variables.shooterRightToLeftRatio;
-    	shooter.setShooter(leftPower, -1.0 * rightPower);
+    	leftPower = oi.getAxisDeadzoned(ControllerMap.driveController, ControllerMap.driveLeftAxis);
+    	rightPower = oi.getAxisDeadzoned(ControllerMap.driveController, ControllerMap.driveRightAxis);
+    	drivetrain.drive(leftPower, rightPower);
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -34,7 +32,7 @@ public class Shoot extends CommandBase {
 
     // Called once after isFinished returns true
     protected void end() {
-    	shooter.setShooter(0, 0);
+    	drivetrain.stop();
     }
 
     // Called when another command which requires one or more of the same

@@ -1,8 +1,8 @@
-package com._2491nomythic.robot.subsystems;
+package com._2491nomythic.ares.subsystems;
 
-import com._2491nomythic.robot.commands.drivetrain.Drive;
-import com._2491nomythic.robot.settings.Constants;
-import com._2491nomythic.robot.subsystems.Drivetrain;
+import com._2491nomythic.ares.commands.drivetrain.Drive;
+import com._2491nomythic.ares.settings.Constants;
+import com._2491nomythic.ares.subsystems.Drivetrain;
 
 import edu.wpi.first.wpilibj.CANTalon;
 import edu.wpi.first.wpilibj.Encoder;

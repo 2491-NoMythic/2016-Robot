@@ -1,7 +1,8 @@
-package com._2491nomythic.robot;
+package com._2491nomythic.ares;
+
+import com._2491nomythic.ares.settings.Constants;
 
 import edu.wpi.first.wpilibj.Joystick;
-import com._2491nomythic.robot.settings.Constants;
 
 /**
  * This class is the glue that binds the controls on the physical operator

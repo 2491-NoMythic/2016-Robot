@@ -1,7 +1,7 @@
 
-package com._2491nomythic.robot;
+package com._2491nomythic.ares;
 
-import com._2491nomythic.robot.settings.Variables;
+import com._2491nomythic.ares.settings.Variables;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;

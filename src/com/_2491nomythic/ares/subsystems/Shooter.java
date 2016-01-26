@@ -1,6 +1,6 @@
-package com._2491nomythic.robot.subsystems;
+package com._2491nomythic.ares.subsystems;
 
-import com._2491nomythic.robot.settings.Constants;
+import com._2491nomythic.ares.settings.Constants;
 
 import edu.wpi.first.wpilibj.CANTalon;
 import edu.wpi.first.wpilibj.command.Subsystem;
