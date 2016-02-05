@@ -22,7 +22,7 @@ public class Constants {
 	
 	//Computation Constants
 	public static final double driveEncoderToFeet = (Integer) null;
-	public static final double shooterVerticalDistance = (Integer) null;
-	public static final double shooterHorizontalDistance = (Integer) null;
-	public static final double shooterDirectDistance = (Integer) null;
+	public static final double shooterVerticalDistance = 84.25;
+	public static final double shooterHorizontalDistance = 134.75;
+	public static final double shooterDirectDistance = 158.92;
 }
