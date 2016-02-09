@@ -8,5 +8,5 @@ public class ControllerMap {
 	
 	//Shooter
 	public static final int shooterController = 0;
-	public static final int shooterPowerAxis = 7;
+	public static final int shooterButton = 7;
 }
