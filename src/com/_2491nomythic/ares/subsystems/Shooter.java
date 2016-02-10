@@ -56,6 +56,10 @@ public class Shooter extends Subsystem {
     public double getRight() {
     	return motorRightSpeed;
     }
+    
+    public void stop() {
+    	set(0);
+    }
 
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
