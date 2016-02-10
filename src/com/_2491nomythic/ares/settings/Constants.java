@@ -17,13 +17,15 @@ public class Constants {
 	public static final int driveEncoderRightChannel1 = (Integer) null;
 	public static final int driveEncoderRightChannel2 = (Integer) null;
 	
-	public static final int intakeArmatureChannel = (Integer) null;
-	public static final int intakeIntakeChannel = (Integer) null;
+	public static final int intakeArmatureChannel = 16;
+	public static final int intakeIntakeChannel = 17;
 	public static final int intakeArmatureEncoderChannel1 = (Integer) null;
 	public static final int intakeArmatureEncoderChannel2 = (Integer) null;
 	
-	public static final int shooterLeftChannel = (Integer) null;
-	public static final int shooterRightChannel = (Integer) null;
+	public static final int shooterTalonLeftChannel = 14;
+	public static final int shooterTalonRightChannel = 15;
+	public static final int shooterSolenoidChannel1 = (Integer) null;
+	public static final int shooterSolenoidChannel2 = (Integer) null;
 	
 	//Computation Constants
 	public static final double driveEncoderToFeet = (Integer) null;
