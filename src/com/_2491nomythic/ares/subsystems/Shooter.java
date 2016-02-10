@@ -25,8 +25,8 @@ public class Shooter extends Subsystem {
     }
     
     private Shooter() {
-    	motorLeft = new CANTalon(Constants.shooterTopChannel);
-    	motorRight = new CANTalon(Constants.shooterBottomChannel);
+    	motorLeft = new CANTalon(Constants.shooterLeftChannel);
+    	motorRight = new CANTalon(Constants.shooterRightChannel);
     }
     
     public void setShooter(double speedLeft, double speedRight) {

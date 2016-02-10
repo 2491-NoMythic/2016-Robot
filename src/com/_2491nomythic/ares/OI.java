@@ -1,8 +1,12 @@
 package com._2491nomythic.ares;
 
+import com._2491nomythic.ares.commands.shooter.Shoot;
 import com._2491nomythic.ares.settings.Constants;
+import com._2491nomythic.ares.settings.ControllerMap;
 
 import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.buttons.Button;
+import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -17,6 +21,7 @@ public class OI {
     // Button button = new JoystickButton(stick, buttonNumber);
     
 	private final Joystick[] controllers = new Joystick[2];
+	Button shoot;
 	
 	/**
 	 * Initiates some joysticks and buttons.
@@ -25,6 +30,8 @@ public class OI {
 		controllers[0] = new Joystick(Constants.ControllerOnePort);
 		controllers[1] = new Joystick(Constants.ControllerTwoPort);
 		
+		shoot = new JoystickButton(controllers[ControllerMap.shooterController], ControllerMap.shooterButton);
+		shoot.whenPressed(new Shoot());
 	}
 	
 	/**

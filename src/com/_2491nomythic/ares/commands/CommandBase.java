@@ -19,6 +19,7 @@ public abstract class CommandBase extends Command {
 	protected static OI oi;
 	protected static Drivetrain drivetrain;
 	protected static Shooter shooter;
+	protected static Intake intake;
 	
 	public static void init() {
 		drivetrain = Drivetrain.getInstance();
