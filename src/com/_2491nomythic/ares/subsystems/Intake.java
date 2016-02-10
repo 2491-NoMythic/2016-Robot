@@ -51,6 +51,14 @@ public class Intake extends Subsystem {
     public CANTalon getArmatureMotor() {
     	return motorArmature;
     }
+    
+    public void stopIntake() {
+    	setIntake(0);
+    }
+    
+    public void stopArmature() {
+    	setArmature(0);
+    }
 
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
