@@ -1,6 +1,7 @@
 
 package com._2491nomythic.ares;
 
+import com._2491nomythic.ares.commands.CommandBase;
 import com._2491nomythic.ares.settings.Variables;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
@@ -28,6 +29,7 @@ public class Robot extends IterativeRobot {
      */
     public void robotInit() {
 		oi = new OI();
+		CommandBase.init();
         // instantiate the command used for the autonomous period
 		autoChooser = new SendableChooser();
 		Variables.shooterRightToLeftRatio = SmartDashboard.getNumber("Shooter Right to Left Ratio", 1.0);

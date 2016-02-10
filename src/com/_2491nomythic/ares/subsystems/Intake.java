@@ -31,6 +31,26 @@ public class Intake extends Subsystem {
     	
     	armatureEncoder = new Encoder(Constants.intakeArmatureEncoderChannel1, Constants.intakeArmatureEncoderChannel2);
     }
+    
+    public void setIntake(double speed) {
+    	motorIntake.set(speed);
+    }
+    
+    public void setArmature(double speed) {
+    	motorArmature.set(speed);
+    }
+    
+    public Encoder getArmatureEncoder() {
+    	return armatureEncoder;
+    }
+    
+    public CANTalon getIntakeMotor() {
+    	return motorIntake;
+    }
+    
+    public CANTalon getArmatureMotor() {
+    	return motorArmature;
+    }
 
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.

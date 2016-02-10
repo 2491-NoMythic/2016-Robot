@@ -12,12 +12,12 @@ public class Shoot extends CommandGroup {
 	Timer timer;
     
     public  Shoot() {
+    	timer = new Timer();
     	timer.start();
     	timer.reset();
     	addSequential(new RunShooterTime(4));
     	while(timer.get() < 1.5) {}
     	addSequential(new RunIntakeTime(2));
-    	
     	
         // Add Commands here:
         // e.g. addSequential(new Command1());
