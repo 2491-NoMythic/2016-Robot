@@ -30,8 +30,13 @@ public class Shooter extends Subsystem {
     }
     
     public void set(double speedLeft, double speedRight) {
-    	setShooterLeft(speedLeft);
-    	setShooterRight(speedRight);
+    	setLeft(speedLeft);
+    	setRight(speedRight);
+    }
+    
+    public void set(double speed) {
+    	setLeft(speed);
+    	setRight(speed);
     }
     
     public void setLeft(double speed) {
