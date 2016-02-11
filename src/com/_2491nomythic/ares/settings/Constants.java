@@ -6,10 +6,10 @@ public class Constants {
 	public static final int ControllerTwoPort = 1;
 	
 	//Channels
-	public static final int driveTalonLeft1Channel = (Integer) null;
+	public static final int driveTalonLeft1Channel = 12;
 	public static final int driveTalonLeft2Channel = (Integer) null;
 	public static final int driveTalonLeft3Channel = (Integer) null;
-	public static final int driveTalonRight1Channel = (Integer) null;
+	public static final int driveTalonRight1Channel = 10;
 	public static final int driveTalonRight2Channel = (Integer) null;
 	public static final int driveTalonRight3Channel = (Integer) null;
 	public static final int driveEncoderLeftChannel1 = (Integer) null;
