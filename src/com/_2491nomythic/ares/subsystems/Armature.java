@@ -31,20 +31,20 @@ public class Armature extends Subsystem {
     	encoder = new Encoder(Constants.intakeArmatureEncoderChannel1, Constants.intakeArmatureEncoderChannel2);
     }
     
-    public void setArmature(double speed) {
+    public void set(double speed) {
     	motor.set(speed);
     }
     
-    public Encoder getArmatureEncoder() {
+    public Encoder getEncoder() {
     	return encoder;
     }
     
-    public CANTalon getArmatureMotor() {
+    public CANTalon get() {
     	return motor;
     }
     
-    public void stopArmature() {
-    	setArmature(0);
+    public void stop() {
+    	set(0);
     }
 
     public void initDefaultCommand() {

@@ -27,16 +27,16 @@ public class Intake extends Subsystem {
     	motorIntake = new CANTalon(Constants.intakeIntakeChannel);
     }
     
-    public void setIntake(double speed) {
+    public void set(double speed) {
     	motorIntake.set(speed);
     }
     
-    public CANTalon getIntakeMotor() {
+    public CANTalon get() {
     	return motorIntake;
     }
     
-    public void stopIntake() {
-    	setIntake(0);
+    public void stop() {
+    	set(0);
     }
     
     public void initDefaultCommand() {
