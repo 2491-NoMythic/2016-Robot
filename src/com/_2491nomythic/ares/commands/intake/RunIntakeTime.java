@@ -24,13 +24,13 @@ public class RunIntakeTime extends CommandBase {
 	protected void initialize() {
 		timer.start();
 		timer.reset();
-		intake.setIntake(Variables.intakeSpeed);
+		intake.set(Variables.intakeSpeed);
 	}
 
 	// Called repeatedly when this Command is scheduled to run
 	protected void execute() {
 		if(timer.get() > time) {
-			intake.stopIntake();
+			intake.stop();
 		}
 	}
 
@@ -42,7 +42,7 @@ public class RunIntakeTime extends CommandBase {
 	// Called once after isFinished returns true
 	protected void end() {
 		timer.stop();
-		intake.stopIntake();
+		intake.stop();
 	}
 
 	// Called when another command which requires one or more of the same
