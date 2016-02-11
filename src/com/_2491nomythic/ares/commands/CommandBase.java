@@ -20,10 +20,13 @@ public abstract class CommandBase extends Command {
 	protected static Drivetrain drivetrain;
 	protected static Shooter shooter;
 	protected static Intake intake;
+	protected static Armature armature;
 	
 	public static void init() {
 		drivetrain = Drivetrain.getInstance();
 		shooter = Shooter.getInstance();
+		intake = Intake.getInstance();
+		armature = Armature.getInstance();
 		// This MUST be here. If the OI creates Commands (which it very likely
 		// will), constructing it during the construction of CommandBase (from
 		// which commands extend), subsystems are not guaranteed to be
@@ -35,6 +38,8 @@ public abstract class CommandBase extends Command {
 		// Show what command your subsystem is running on the SmartDashboard
 		SmartDashboard.putData(drivetrain);
 		SmartDashboard.putData(shooter);
+		SmartDashboard.putData(intake);
+		SmartDashboard.putData(armature);
 	}
 	
 	/**

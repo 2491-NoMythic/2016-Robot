@@ -10,4 +10,8 @@ public class HandheldControllerMap {
 	public static final int shooterController = 0;
 	public static final int shootButton = 7;
 	public static final int manualShooterButton = 7;
+	
+	//Intake
+	public static final int intakeController = 0;
+	public static final int manualIntakeButton = 1;
 }
