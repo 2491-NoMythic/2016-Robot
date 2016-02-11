@@ -46,7 +46,7 @@ public class Shooter extends Subsystem {
     
     public void setRight(double speed) {
     	motorRightSpeed = speed;
-    	motorRight.set(speed);
+    	motorRight.set(-1.0 * speed);
     }
     
     public double getLeft() {
