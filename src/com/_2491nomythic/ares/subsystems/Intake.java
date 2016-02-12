@@ -9,7 +9,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  *
  */
 public class Intake extends Subsystem {
-    private CANTalon motorIntake;
+    private CANTalon motor;
     
     public static Intake instance;
 	
@@ -24,15 +24,15 @@ public class Intake extends Subsystem {
     }
     
     private Intake() {
-    	motorIntake = new CANTalon(Constants.intakeChannel);
+    	motor = new CANTalon(Constants.intakeChannel);
     }
     
     public void set(double speed) {
-    	motorIntake.set(-1.0 * speed);
+    	motor.set(-1.0 * speed);
     }
     
     public CANTalon get() {
-    	return motorIntake;
+    	return motor;
     }
     
     public void stop() {
