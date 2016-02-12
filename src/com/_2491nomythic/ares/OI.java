@@ -1,5 +1,6 @@
 package com._2491nomythic.ares;
 
+import com._2491nomythic.ares.commands.intake.ManualIntakeControl;
 import com._2491nomythic.ares.commands.shooter.ManualShooterControl;
 import com._2491nomythic.ares.settings.Constants;
 import com._2491nomythic.ares.settings.ControllerMap;
@@ -21,7 +22,7 @@ public class OI {
     // Button button = new JoystickButton(stick, buttonNumber);
     
 	private final Joystick[] controllers = new Joystick[2];
-	Button manualShooterControl;
+	Button manualShooterControl, manualIntakeControl;
 	
 	/**
 	 * Initiates some joysticks and buttons.
@@ -32,6 +33,9 @@ public class OI {
 		
 		manualShooterControl = new JoystickButton(controllers[ControllerMap.shooterController], ControllerMap.manualShooterButton);
 		manualShooterControl.whileHeld(new ManualShooterControl());
+		
+		manualIntakeControl = new JoystickButton(controllers[ControllerMap.intakeController], ControllerMap.manualIntakeButton);
+		manualIntakeControl.whileHeld(new ManualIntakeControl());
 	}
 	
 	/**

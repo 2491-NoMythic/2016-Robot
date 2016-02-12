@@ -24,7 +24,7 @@ public class Intake extends Subsystem {
     }
     
     private Intake() {
-    	motorIntake = new CANTalon(Constants.intakeIntakeChannel);
+    	motorIntake = new CANTalon(Constants.intakeChannel);
     }
     
     public void set(double speed) {

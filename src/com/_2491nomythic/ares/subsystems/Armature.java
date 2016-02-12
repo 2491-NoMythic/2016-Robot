@@ -26,9 +26,9 @@ public class Armature extends Subsystem {
     }
     
     private Armature() {
-    	motor = new CANTalon(Constants.intakeArmatureChannel);
+    	motor = new CANTalon(Constants.armatureChannel);
     	
-    	encoder = new Encoder(Constants.intakeArmatureEncoderChannel1, Constants.intakeArmatureEncoderChannel2);
+    	encoder = new Encoder(Constants.armatureEncoderChannel1, Constants.armatureEncoderChannel2);
     }
     
     public void set(double speed) {
