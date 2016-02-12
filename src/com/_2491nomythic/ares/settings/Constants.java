@@ -18,6 +18,7 @@ public class Constants {
 	public static final int driveEncoderRightChannel2 = 27;
 
 	public static final int intakeChannel = 17;
+	public static final int intakeLimitSwitchChannel = 33;
 
 	public static final int armatureChannel = 16;
 	public static final int armatureEncoderChannel1 = 28;
