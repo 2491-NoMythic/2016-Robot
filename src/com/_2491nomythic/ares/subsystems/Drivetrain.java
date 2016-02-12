@@ -27,18 +27,18 @@ public class Drivetrain extends Subsystem {
 	
 	private Drivetrain() {
 		left1 = new CANTalon(Constants.driveTalonLeft1Channel);
-		left2 = new CANTalon(Constants.driveTalonLeft2Channel);
-		left3 = new CANTalon(Constants.driveTalonLeft3Channel);
+//		left2 = new CANTalon(Constants.driveTalonLeft2Channel);
+//		left3 = new CANTalon(Constants.driveTalonLeft3Channel);
 		right1 = new CANTalon(Constants.driveTalonRight1Channel);
-		right2 = new CANTalon(Constants.driveTalonRight2Channel);
-		right3 = new CANTalon(Constants.driveTalonRight3Channel);
+//		right2 = new CANTalon(Constants.driveTalonRight2Channel);
+//		right3 = new CANTalon(Constants.driveTalonRight3Channel);
 		
-		encoderLeft = new Encoder(Constants.driveEncoderLeftChannel1, Constants.driveEncoderLeftChannel2);
-		encoderRight = new Encoder(Constants.driveEncoderRightChannel1, Constants.driveEncoderRightChannel2);
-		encoderLeft.setDistancePerPulse(Constants.driveEncoderToFeet);
-		encoderRight.setDistancePerPulse(Constants.driveEncoderToFeet);
-		encoderLeft.reset();
-		encoderRight.reset();
+//		encoderLeft = new Encoder(Constants.driveEncoderLeftChannel1, Constants.driveEncoderLeftChannel2);
+//		encoderRight = new Encoder(Constants.driveEncoderRightChannel1, Constants.driveEncoderRightChannel2);
+//		encoderLeft.setDistancePerPulse(Constants.driveEncoderToFeet);
+//		encoderRight.setDistancePerPulse(Constants.driveEncoderToFeet);
+//		encoderLeft.reset();
+//		encoderRight.reset();
 	}
 	
     // Put methods for controlling this subsystem
@@ -50,16 +50,16 @@ public class Drivetrain extends Subsystem {
 	}
 	
 	public void driveLeft(double speed) {
-		left1.set(speed);
-		left2.set(speed);
-		left3.set(-1.0 * speed);
+		left1.set(-1.0 * speed);
+//		left2.set(-1.0 * speed);
+//		left3.set(speed);
 		currentLeftSpeed = speed;
 	}
 	
 	public void driveRight(double speed) {
-		right1.set(-1.0 * speed);
-		right2.set(-1.0 * speed);
-		right3.set(speed);
+		right1.set(speed);
+//		right2.set(speed);
+//		right3.set(-1.0 * speed);
 		currentRightSpeed = speed;
 	}
 	

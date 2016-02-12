@@ -28,7 +28,7 @@ public class Intake extends Subsystem {
     }
     
     public void set(double speed) {
-    	motorIntake.set(speed);
+    	motorIntake.set(-1.0 * speed);
     }
     
     public CANTalon get() {

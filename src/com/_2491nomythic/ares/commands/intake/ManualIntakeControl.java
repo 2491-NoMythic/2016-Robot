@@ -1,6 +1,7 @@
 package com._2491nomythic.ares.commands.intake;
 
 import com._2491nomythic.ares.commands.CommandBase;
+import com._2491nomythic.ares.settings.Variables;
 
 /**
  *
@@ -15,7 +16,7 @@ public class ManualIntakeControl extends CommandBase {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	intake.set(1);
+    	intake.set(Variables.intakeSpeed);
     }
 
     // Called repeatedly when this Command is scheduled to run

@@ -1,14 +1,13 @@
 package com._2491nomythic.ares.commands.armature;
 
 import com._2491nomythic.ares.commands.CommandBase;
-import com._2491nomythic.ares.settings.Variables;
 
 /**
  *
  */
-public class ManualArmatureDownControl extends CommandBase {
+public class KeepArmatureStill extends CommandBase {
 
-    public ManualArmatureDownControl() {
+    public KeepArmatureStill() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(armature);
@@ -16,11 +15,11 @@ public class ManualArmatureDownControl extends CommandBase {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	armature.set(Variables.armatureSpeed);
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	armature.stop();
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -30,12 +29,10 @@ public class ManualArmatureDownControl extends CommandBase {
 
     // Called once after isFinished returns true
     protected void end() {
-    	armature.stop();
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-    	end();
     }
 }
