@@ -1,5 +1,7 @@
 package com._2491nomythic.ares;
 
+import com._2491nomythic.ares.commands.armature.ManualArmatureDownControl;
+import com._2491nomythic.ares.commands.armature.ManualArmatureUpControl;
 import com._2491nomythic.ares.commands.intake.ManualIntakeControl;
 import com._2491nomythic.ares.commands.shooter.ManualShooterControl;
 import com._2491nomythic.ares.settings.Constants;
@@ -22,7 +24,7 @@ public class OI {
     // Button button = new JoystickButton(stick, buttonNumber);
     
 	private final Joystick[] controllers = new Joystick[2];
-	Button manualShooterControl, manualIntakeControl;
+	Button manualShooterControl, manualIntakeControl, manualArmatureUpControl, manualArmatureDownControl;
 	
 	/**
 	 * Initiates some joysticks and buttons.
@@ -36,6 +38,12 @@ public class OI {
 		
 		manualIntakeControl = new JoystickButton(controllers[ControllerMap.intakeController], ControllerMap.manualIntakeButton);
 		manualIntakeControl.whileHeld(new ManualIntakeControl());
+		
+		manualArmatureUpControl = new JoystickButton(controllers[ControllerMap.armatureController], ControllerMap.manualArmatureUpButton);
+		manualArmatureUpControl.whileHeld(new ManualArmatureUpControl());
+		
+		manualArmatureDownControl = new JoystickButton(controllers[ControllerMap.armatureController], ControllerMap.manualArmatureDownButton);
+		manualArmatureDownControl.whileHeld(new ManualArmatureDownControl());
 	}
 	
 	/**
