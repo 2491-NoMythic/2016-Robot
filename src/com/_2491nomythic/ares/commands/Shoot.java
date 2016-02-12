@@ -1,6 +1,7 @@
-package com._2491nomythic.ares.commands.shooter;
+package com._2491nomythic.ares.commands;
 
 import com._2491nomythic.ares.commands.intake.RunIntakeTime;
+import com._2491nomythic.ares.commands.shooter.RunShooterTime;
 
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.CommandGroup;
