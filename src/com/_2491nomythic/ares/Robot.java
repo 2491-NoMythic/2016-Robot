@@ -2,8 +2,6 @@
 package com._2491nomythic.ares;
 
 import com._2491nomythic.ares.commands.CommandBase;
-import com._2491nomythic.ares.settings.Variables;
-
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
