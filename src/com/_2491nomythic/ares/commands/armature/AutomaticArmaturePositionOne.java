@@ -13,7 +13,21 @@ public class AutomaticArmaturePositionOne extends CommandBase{
 	
 	// Called just before this Command runs the first time
 	protected void initialize() {
-		armature.set(Constants.armatureSpeed);
+		double PositionFourEncoderValue = 100;
+		double CurentEncoderValue = armature.getEncoderPosition();
+		
+		if(CurentEncoderValue == PositionFourEncoderValue){
+			//the motor is in the correct position
+			end();
+		}
+		else if(CurentEncoderValue > PositionFourEncoderValue){
+			//motor position is greater then where it needs to be
+			armature.set(-1.0);
+		}
+		else{
+			//motor position is less then where it needs to be
+			armature.set(1.0);
+		}
 	}
 	
 	// Called repeatedly when this Command is scheduled to run
