@@ -33,5 +33,11 @@ public class IntakeBall extends CommandBase {
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
+    	end();
+    }
+    // button is held down and in take motor for ball will run until limit switch
+    //is pushed or until button is released
+    {
+    	
     }
 }

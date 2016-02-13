@@ -49,6 +49,22 @@ public class Shooter extends Subsystem {
     	motorRight.set(-1.0 * speed);
     }
     
+    public double getLeftEncoderPosition() {
+    	return motorLeft.getEncPosition();
+    }
+    
+    public double getLeftEncoderVelocity() {
+    	return motorLeft.getEncVelocity();
+    }
+    
+    public double getRightEncoderPosition() {
+    	return motorRight.getEncPosition();
+    }
+    
+    public double getRightEncoderVelocity() {
+    	return motorRight.getEncVelocity();
+    }
+    
     public double getLeft() {
     	return motorLeftSpeed;
     }
