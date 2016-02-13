@@ -2,10 +2,10 @@ package com._2491nomythic.ares.commands.armature;
 import com._2491nomythic.ares.commands.CommandBase;
 import com._2491nomythic.ares.settings.Constants;
 
-public class AtuomaticArmaturePositionFour extends CommandBase{
+public class AutomaticArmaturePositionThree extends CommandBase{
 	
 	
-	public AtuomaticArmaturePositionFour() {
+	public AutomaticArmaturePositionThree() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
 	requires(armature);
