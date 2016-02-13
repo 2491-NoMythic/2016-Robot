@@ -10,7 +10,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  */
 public class Shooter extends Subsystem {
     private CANTalon motorLeft, motorRight;
-    private double motorLeftSpeed, motorRightSpeed;
+    private double currentLeftSpeed, currentRightSpeed;
     
     public static Shooter instance;
     
@@ -40,12 +40,12 @@ public class Shooter extends Subsystem {
     }
     
     public void setLeft(double speed) {
-    	motorLeftSpeed = speed;
+    	currentLeftSpeed = speed;
     	motorLeft.set(speed);
     }
     
     public void setRight(double speed) {
-    	motorRightSpeed = speed;
+    	currentRightSpeed = speed;
     	motorRight.set(-1.0 * speed);
     }
     
@@ -65,12 +65,12 @@ public class Shooter extends Subsystem {
     	return motorRight.getEncVelocity();
     }
     
-    public double getLeft() {
-    	return motorLeftSpeed;
+    public double getLeftSpeed() {
+    	return currentLeftSpeed;
     }
     
-    public double getRight() {
-    	return motorRightSpeed;
+    public double getRightSpeed() {
+    	return currentRightSpeed;
     }
     
     public void stop() {
