@@ -13,10 +13,10 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  *
  */
 public class Drivetrain extends Subsystem {
-    CANTalon left1, left2, left3, right1, right2, right3;
-    Encoder encoderLeft, encoderRight;
-    Solenoid solenoidLeft, solenoidRight;
-    double currentLeftSpeed, currentRightSpeed;
+    private CANTalon left1, left2, left3, right1, right2, right3;
+    private Encoder encoderLeft, encoderRight;
+    private Solenoid solenoidLeft, solenoidRight;
+    private double currentLeftSpeed, currentRightSpeed;
     
 	private static Drivetrain instance;
 	
