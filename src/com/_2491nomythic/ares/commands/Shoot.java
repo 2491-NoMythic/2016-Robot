@@ -16,8 +16,14 @@ public class Shoot extends CommandGroup {
     	timer = new Timer();
     	timer.start();
     	timer.reset();
+    	
+    	if(CommandBase.shooter.getLeftSolenoidValue() == false) {
+    		CommandBase.shooter.raise();
+    		Timer.delay(1);
+    	}
+    	
     	addSequential(new RunShooterTime(4));
-    	while(timer.get() < 1.5) {}
+    	Timer.delay(1.5);
     	addSequential(new RunIntakeTime(2));
     	
         // Add Commands here:
