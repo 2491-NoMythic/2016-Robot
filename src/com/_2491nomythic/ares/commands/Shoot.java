@@ -1,6 +1,7 @@
 package com._2491nomythic.ares.commands;
 
 import com._2491nomythic.ares.commands.intake.RunIntakeTime;
+import com._2491nomythic.ares.commands.shooter.RaiseShooter;
 import com._2491nomythic.ares.commands.shooter.RunShooterTime;
 
 import edu.wpi.first.wpilibj.Timer;
@@ -18,7 +19,7 @@ public class Shoot extends CommandGroup {
     	timer.reset();
     	
     	if(CommandBase.shooter.getLeftSolenoidValue() == false) {
-    		CommandBase.shooter.raise();
+    		addSequential(new RaiseShooter());
     		Timer.delay(1);
     	}
     	
