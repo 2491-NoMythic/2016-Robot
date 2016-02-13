@@ -11,7 +11,6 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  */
 public class Armature extends Subsystem {
     private CANTalon motor;
-    private Encoder encoder;
     
     public static Armature instance;
 	
@@ -27,16 +26,18 @@ public class Armature extends Subsystem {
     
     private Armature() {
     	motor = new CANTalon(Constants.armatureChannel);
-    	
-    	encoder = new Encoder(Constants.armatureEncoderChannel1, Constants.armatureEncoderChannel2);
     }
     
     public void set(double speed) {
     	motor.set(speed);
     }
     
-    public Encoder getEncoder() {
-    	return encoder;
+    public double getEncoderPosition() {
+    	return motor.getEncPosition();
+    }
+    
+    public double getEncoderVelocity() {
+    	return motor.getEncVelocity();
     }
     
     public CANTalon get() {
