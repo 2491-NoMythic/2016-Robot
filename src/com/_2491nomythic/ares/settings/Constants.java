@@ -29,5 +29,5 @@ public class Constants {
 	public static final int shooterSolenoidChannel2 = 31;
 	
 	//Computation Constants
-	public static final double driveEncoderToFeet = (Integer) null;
+	public static final double driveEncoderToFeet = 1; //TODO get this value
 }
