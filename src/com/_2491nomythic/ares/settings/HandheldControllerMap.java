@@ -13,7 +13,8 @@ public class HandheldControllerMap {
 	
 	//Intake
 	public static final int intakeController = 0;
-	public static final int manualIntakeButton = 2;
+	public static final int intakeBallButton = 2;
+	public static final int manualIntakeButton = 3;
 	
 	//Armature
 	public static final int armatureController = 0;
