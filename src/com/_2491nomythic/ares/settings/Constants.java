@@ -31,4 +31,5 @@ public class Constants {
 	
 	//Computation Constants
 	public static final double driveEncoderToFeet = 1; //TODO get this value
+	public static double acceptableArmatureDifference = 5; //TODO get this value
 }
