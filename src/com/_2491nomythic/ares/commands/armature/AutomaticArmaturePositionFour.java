@@ -13,7 +13,8 @@ public class AutomaticArmaturePositionFour extends CommandBase{
 	
 	// Called just before this Command runs the first time
 	protected void initialize() {
-		armature.set(Constants.armatureSpeed);
+		armature.runMotorToPosition(Constants.armaturePositionEncoderValueOne);
+		end();
 	}
 	
 	// Called repeatedly when this Command is scheduled to run
