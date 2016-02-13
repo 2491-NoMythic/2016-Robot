@@ -16,18 +16,18 @@ public class Constants {
 	public static final int driveEncoderLeftChannel2 = 25;
 	public static final int driveEncoderRightChannel1 = 26;
 	public static final int driveEncoderRightChannel2 = 27;
+	public static final int driveSolenoidLeftChannel = 0;
+	public static final int driveSolenoidRightChannel = 1;
 
 	public static final int intakeChannel = 10;
 	public static final int intakeLimitSwitchChannel = 33;
 
 	public static final int armatureChannel = 19;
-	public static final int armatureEncoderChannel1 = 28;
-	public static final int armatureEncoderChannel2 = 29;
 	
 	public static final int shooterTalonLeftChannel = 15;
 	public static final int shooterTalonRightChannel = 14;
-	public static final int shooterSolenoidChannel1 = 30;
-	public static final int shooterSolenoidChannel2 = 31;
+	public static final int shooterSolenoidLeftChannel = 2;
+	public static final int shooterSolenoidRightChannel = 3;
 	
 	//Computation Constants
 	public static final double driveEncoderToFeet = 1; //TODO get this value
