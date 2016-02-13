@@ -1,7 +1,7 @@
 package com._2491nomythic.ares.commands.armature;
 
 import com._2491nomythic.ares.commands.CommandBase;
-import com._2491nomythic.ares.settings.Variables;
+import com._2491nomythic.ares.settings.Constants;
 
 /**
  *
@@ -16,7 +16,7 @@ public class ManualArmatureUpControl extends CommandBase {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	armature.set(-1.0 * Variables.armatureSpeed);
+    	armature.set(-1.0 * Constants.armatureSpeed);
     }
 
     // Called repeatedly when this Command is scheduled to run

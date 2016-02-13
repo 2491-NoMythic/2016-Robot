@@ -1,5 +1,6 @@
 package com._2491nomythic.ares.subsystems;
 
+import com._2491nomythic.ares.commands.armature.KeepArmatureStill;
 import com._2491nomythic.ares.settings.Constants;
 
 import edu.wpi.first.wpilibj.CANTalon;
@@ -50,6 +51,7 @@ public class Armature extends Subsystem {
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
+    	setDefaultCommand(new KeepArmatureStill());
     }
 }
 

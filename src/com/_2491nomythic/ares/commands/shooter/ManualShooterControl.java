@@ -1,7 +1,7 @@
 package com._2491nomythic.ares.commands.shooter;
 
 import com._2491nomythic.ares.commands.CommandBase;
-import com._2491nomythic.ares.settings.Variables;
+import com._2491nomythic.ares.settings.Constants;
 
 /**
  *
@@ -16,7 +16,7 @@ public class ManualShooterControl extends CommandBase {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	shooter.set(Variables.shooterSpeed);
+    	shooter.set(Constants.shooterSpeed);
     }
 
     // Called repeatedly when this Command is scheduled to run
