@@ -2,10 +2,10 @@ package com._2491nomythic.ares.commands.armature;
 import com._2491nomythic.ares.commands.CommandBase;
 import com._2491nomythic.ares.settings.Constants;
 
-public class AutomaticArmaturePositionTwo extends CommandBase{
+public class ArmatureIntakePosition extends CommandBase{
 	
 	
-	public AutomaticArmaturePositionTwo() {
+	public ArmatureIntakePosition() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
 	requires(armature);
@@ -13,7 +13,7 @@ public class AutomaticArmaturePositionTwo extends CommandBase{
 	
 	// Called just before this Command runs the first time
 	protected void initialize() {
-		armature.runMotorToPosition(Constants.armaturePositionEncoderValueTwo);
+		armature.runMotorToPosition(Constants.armatureIntakePositionValue);
 		end();
 	}
 	

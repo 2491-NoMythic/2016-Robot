@@ -36,9 +36,9 @@ public class Constants {
 	public static final double intakeSpeed = 1;
 	public static final double armatureSpeed = 0.5;
 	public static final long armatureRunTimeMs = 500;  // Time the armature will run trying to find the correct position
-	public static final double armaturePositionEncoderValueOne = 1; // TODO: figure out what this value should be
-	public static final double armaturePositionEncoderValueTwo = 1;
-	public static final double armaturePositionEncoderValueThree = 1;
-	public static final double armaturePositionEncoderValueFour = 1;
+	public static final double armatureUpPositionValue = 0; // TODO: figure out what this value should be
+	public static final double armatureDownPositionValue = 1;
+	public static final double armatureIntakePositionValue = 1;
+	public static final double armatureLowBarPositionValue = 1;
 
 }
