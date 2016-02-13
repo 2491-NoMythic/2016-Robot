@@ -26,6 +26,8 @@ public class Armature extends Subsystem {
     
     private Armature() {
     	motor = new CANTalon(Constants.armatureChannel);
+    	
+    	motor.setEncPosition(0);
     }
     
     public void set(double speed) {
