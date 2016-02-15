@@ -41,7 +41,7 @@ public class OI {
 		shoot.whenPressed(new Shoot());
 		
 		//Drivetrain
-		shiftGear = new JoystickButton(controllers[ControllerMap.driveController], ControllerMap.driveShift);
+		shiftGear = new JoystickButton(controllers[ControllerMap.driveController], ControllerMap.driveShiftButton);
 		shiftGear.whileHeld(new ShiftGear());
 		
 		//Shooter

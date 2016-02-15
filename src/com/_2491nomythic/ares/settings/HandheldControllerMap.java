@@ -5,7 +5,7 @@ public class HandheldControllerMap {
 	public static final int driveController = 0;
 	public static final int driveLeftAxis = 1;
 	public static final int driveRightAxis = 3;
-	public static final int driveShift = 8;
+	public static final int driveShiftButton = 8;
 	
 	//Shooter
 	public static final int shooterController = 0;
