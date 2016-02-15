@@ -5,7 +5,6 @@ import com._2491nomythic.ares.settings.Constants;
 import com._2491nomythic.ares.subsystems.Drivetrain;
 
 import edu.wpi.first.wpilibj.CANTalon;
-import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
@@ -14,7 +13,6 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  */
 public class Drivetrain extends Subsystem {
     private CANTalon left1, left2, left3, right1, right2, right3;
-    private Encoder encoderLeft, encoderRight;
     private Solenoid solenoidLeft, solenoidRight;
     private double currentLeftSpeed, currentRightSpeed;
     
@@ -35,12 +33,8 @@ public class Drivetrain extends Subsystem {
 		right2 = new CANTalon(Constants.driveTalonRight2Channel);
 		right3 = new CANTalon(Constants.driveTalonRight3Channel);
 		
-		encoderLeft = new Encoder(Constants.driveEncoderLeftChannel1, Constants.driveEncoderLeftChannel2);
-		encoderRight = new Encoder(Constants.driveEncoderRightChannel1, Constants.driveEncoderRightChannel2);
-		encoderLeft.setDistancePerPulse(Constants.driveEncoderToFeet);
-		encoderRight.setDistancePerPulse(Constants.driveEncoderToFeet);
-		encoderLeft.reset();
-		encoderRight.reset();
+		left1.configEncoderCodesPerRev(360);
+		right1.configEncoderCodesPerRev(360);
 		
 		solenoidLeft = new Solenoid(Constants.driveSolenoidLeftChannel);
 		solenoidRight = new Solenoid(Constants.driveSolenoidRightChannel);
@@ -80,12 +74,20 @@ public class Drivetrain extends Subsystem {
 		solenoidRight.set(false);
 	}
 	
-	public Encoder getLeftEncoder() {
-		return encoderLeft;
+	public double getLeftEncoderPosition() {
+		return left1.getEncPosition();
 	}
 	
-	public Encoder getRightEncoder() {
-		return encoderRight;
+	public double getLeftEncoderVelocity() {
+		return left1.getEncVelocity();
+	}
+	
+	public double getRightEncoderPosition() {
+		return right1.getEncPosition();
+	}
+	
+	public double getRightEncoderVelocity() {
+		return right1.getEncVelocity();
 	}
 	
 	public Solenoid getLeftSolenoid() {
