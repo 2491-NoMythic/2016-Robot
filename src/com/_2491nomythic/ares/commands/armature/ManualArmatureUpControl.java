@@ -23,6 +23,7 @@ public class ManualArmatureUpControl extends CommandBase {
     protected void execute() {
     	if(armature.armLimitSwitch()) {
 		armature.set(0);
+		
     	}
     }
 

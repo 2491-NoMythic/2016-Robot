@@ -6,9 +6,12 @@ import com._2491nomythic.ares.commands.armature.ManualArmatureUpControl;
 import com._2491nomythic.ares.commands.drivetrain.ShiftGear;
 import com._2491nomythic.ares.commands.intake.IntakeBall;
 import com._2491nomythic.ares.commands.intake.ManualIntakeControl;
+import com._2491nomythic.ares.commands.shooter.LowerShooter;
 import com._2491nomythic.ares.commands.shooter.ManualShooterControl;
+import com._2491nomythic.ares.commands.shooter.RaiseShooter;
 import com._2491nomythic.ares.settings.Constants;
 import com._2491nomythic.ares.settings.ControllerMap;
+import com._2491nomythic.util.JoystickPOVButton;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
@@ -27,7 +30,8 @@ public class OI {
     // Button button = new JoystickButton(stick, buttonNumber);
     
 	private final Joystick[] controllers = new Joystick[2];
-	Button shoot, shiftGear, manualShooterControl, manualIntakeControl, intakeBall, manualArmatureUpControl, manualArmatureDownControl;
+	Button shoot, shiftGear, manualShooterControl, manualIntakeControl, raiseShooter, lowerShooter, intakeBall, manualArmatureUpControl, manualArmatureDownControl;
+	
 	
 	/**
 	 * Initiates some joysticks and buttons.
@@ -47,6 +51,12 @@ public class OI {
 		//Shooter
 		manualShooterControl = new JoystickButton(controllers[ControllerMap.shooterController], ControllerMap.manualShooterButton);
 		manualShooterControl.whileHeld(new ManualShooterControl());
+		
+		raiseShooter = new JoystickPOVButton(controllers[ControllerMap.shooterController], ControllerMap.shooterRaisePOV);
+		raiseShooter.whenPressed(new RaiseShooter());
+		
+		lowerShooter = new JoystickPOVButton(controllers[ControllerMap.shooterController], ControllerMap.shooterLowerPOV);
+		lowerShooter.whenPressed(new LowerShooter());
 		
 		//Intake
 		manualIntakeControl = new JoystickButton(controllers[ControllerMap.intakeController], ControllerMap.manualIntakeButton);
