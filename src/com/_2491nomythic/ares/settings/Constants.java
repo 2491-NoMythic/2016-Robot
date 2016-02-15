@@ -20,10 +20,10 @@ public class Constants {
 	public static final int driveSolenoidRightChannel = 1;
 
 	public static final int intakeChannel = 10;
-	public static final int intakeLimitSwitchChannel = 33;
+	public static final int intakeLimitSwitchChannel = 33;//TODO real limit Switch to be added
 
 	public static final int armatureChannel = 19;
-	public static final int armatureLimitSwitchChannel = 34;
+	public static final int armatureLimitSwitchChannel = 34;//TODO real limit Switch to be added
 	
 	public static final int shooterTalonLeftChannel = 15;
 	public static final int shooterTalonRightChannel = 14;
