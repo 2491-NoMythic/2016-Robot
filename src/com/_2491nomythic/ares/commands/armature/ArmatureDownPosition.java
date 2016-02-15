@@ -1,4 +1,5 @@
 package com._2491nomythic.ares.commands.armature;
+
 import com._2491nomythic.ares.commands.CommandBase;
 import com._2491nomythic.ares.settings.Constants;
 

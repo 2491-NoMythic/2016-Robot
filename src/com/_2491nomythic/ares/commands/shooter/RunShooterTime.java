@@ -1,7 +1,7 @@
 package com._2491nomythic.ares.commands.shooter;
 
 import com._2491nomythic.ares.commands.CommandBase;
-import com._2491nomythic.ares.settings.Constants;
+import com._2491nomythic.ares.settings.Variables;
 
 import edu.wpi.first.wpilibj.Timer;
 
@@ -24,7 +24,7 @@ public class RunShooterTime extends CommandBase {
 	protected void initialize() {
 		timer.start();
 		timer.reset();
-		shooter.set(Constants.shooterSpeed);
+		shooter.set(Variables.shooterSpeed);
 	}
 
 	// Called repeatedly when this Command is scheduled to run

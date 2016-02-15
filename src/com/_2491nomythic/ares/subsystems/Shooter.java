@@ -30,10 +30,15 @@ public class Shooter extends Subsystem {
     	motorLeft = new CANTalon(Constants.shooterTalonLeftChannel);
     	motorRight = new CANTalon(Constants.shooterTalonRightChannel);
     	
+    	motorLeft.configEncoderCodesPerRev(1); //TODO check empirically if the encoder 4x edge reading impacts this.
+    	motorRight.configEncoderCodesPerRev(1);//I want one unit per rotation, not 4 units per rotation.
+    	
     	solenoidLeft = new Solenoid(Constants.shooterSolenoidLeftChannel);
     	solenoidRight = new Solenoid(Constants.shooterSolenoidRightChannel);
     	solenoidLeft.set(false);
     	solenoidRight.set(false);
+    	
+    	
     }
     
     public void set(double speedLeft, double speedRight) {
