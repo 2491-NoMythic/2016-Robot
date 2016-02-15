@@ -1,6 +1,7 @@
 package com._2491nomythic.ares.commands;
 
 import com._2491nomythic.ares.commands.intake.RunIntakeTime;
+import com._2491nomythic.ares.commands.shooter.LowerShooter;
 import com._2491nomythic.ares.commands.shooter.RaiseShooter;
 import com._2491nomythic.ares.commands.shooter.RunShooterTime;
 
@@ -26,6 +27,7 @@ public class Shoot extends CommandGroup {
     	addSequential(new RunShooterTime(4));
     	Timer.delay(1.5);
     	addSequential(new RunIntakeTime(2));
+    	addSequential(new LowerShooter());
     	
         // Add Commands here:
         // e.g. addSequential(new Command1());
