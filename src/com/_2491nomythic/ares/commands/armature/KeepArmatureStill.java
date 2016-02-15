@@ -1,28 +1,33 @@
-package com._2491nomythic.ares.commands.drivetrain;
+package com._2491nomythic.ares.commands.armature;
 
 import com._2491nomythic.ares.commands.CommandBase;
-import com._2491nomythic.ares.settings.ControllerMap;
+import com._2491nomythic.ares.settings.Constants;
 
 /**
  *
  */
-public class Drive extends CommandBase {
-	double leftPower, rightPower;
+public class KeepArmatureStill extends CommandBase {
+	double initialArmaturePosition;
 
-    public Drive() {
+    public KeepArmatureStill() {
         // Use requires() here to declare subsystem dependencies
-        requires(drivetrain);
+        // eg. requires(chassis);
+    	requires(armature);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	initialArmaturePosition = armature.getEncoderPosition();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	leftPower = oi.getAxisDeadzonedSquared(ControllerMap.driveController, ControllerMap.driveLeftAxis);
-    	rightPower = oi.getAxisDeadzonedSquared(ControllerMap.driveController, ControllerMap.driveRightAxis);
-    	drivetrain.drive(leftPower, rightPower);
+    	if (Math.abs(armature.getEncoderPosition() - initialArmaturePosition) > Constants.acceptableArmatureDifference) {
+    		armature.set(-0.1);
+    	}
+    	else {
+    		armature.stop();
+    	}
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -32,7 +37,7 @@ public class Drive extends CommandBase {
 
     // Called once after isFinished returns true
     protected void end() {
-    	drivetrain.stop();
+    	armature.stop();
     }
 
     // Called when another command which requires one or more of the same

@@ -1,8 +1,16 @@
 package com._2491nomythic.ares;
 
+import com._2491nomythic.ares.commands.armature.ManualArmatureDownControl;
+import com._2491nomythic.ares.commands.armature.ManualArmatureUpControl;
+import com._2491nomythic.ares.commands.intake.IntakeBall;
+import com._2491nomythic.ares.commands.intake.ManualIntakeControl;
+import com._2491nomythic.ares.commands.shooter.ManualShooterControl;
 import com._2491nomythic.ares.settings.Constants;
+import com._2491nomythic.ares.settings.ControllerMap;
 
 import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.buttons.Button;
+import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -17,6 +25,7 @@ public class OI {
     // Button button = new JoystickButton(stick, buttonNumber);
     
 	private final Joystick[] controllers = new Joystick[2];
+	Button manualShooterControl, manualIntakeControl, intakeBall, manualArmatureUpControl, manualArmatureDownControl;
 	
 	/**
 	 * Initiates some joysticks and buttons.
@@ -25,6 +34,23 @@ public class OI {
 		controllers[0] = new Joystick(Constants.ControllerOnePort);
 		controllers[1] = new Joystick(Constants.ControllerTwoPort);
 		
+		//Shooter
+		manualShooterControl = new JoystickButton(controllers[ControllerMap.shooterController], ControllerMap.manualShooterButton);
+		manualShooterControl.whileHeld(new ManualShooterControl());
+		
+		//Intake
+		manualIntakeControl = new JoystickButton(controllers[ControllerMap.intakeController], ControllerMap.manualIntakeButton);
+		manualIntakeControl.whileHeld(new ManualIntakeControl());
+		
+		intakeBall = new JoystickButton(controllers[ControllerMap.intakeController], ControllerMap.intakeBallButton);
+		intakeBall.whileHeld(new IntakeBall());
+		
+		//Armature
+		manualArmatureUpControl = new JoystickButton(controllers[ControllerMap.armatureController], ControllerMap.manualArmatureUpButton);
+		manualArmatureUpControl.whileHeld(new ManualArmatureUpControl());
+		
+		manualArmatureDownControl = new JoystickButton(controllers[ControllerMap.armatureController], ControllerMap.manualArmatureDownButton);
+		manualArmatureDownControl.whileHeld(new ManualArmatureDownControl());
 	}
 	
 	/**

@@ -1,30 +1,26 @@
-package com._2491nomythic.ares.commands.shooter;
+package com._2491nomythic.ares.commands.armature;
 
 import com._2491nomythic.ares.commands.CommandBase;
-import com._2491nomythic.ares.settings.ControllerMap;
-import com._2491nomythic.ares.settings.Variables;
+import com._2491nomythic.ares.settings.Constants;
 
 /**
  *
  */
-public class Shoot extends CommandBase {
-	private double leftPower, rightPower;
+public class ManualArmatureUpControl extends CommandBase {
 
-    public Shoot() {
+    public ManualArmatureUpControl() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	requires(shooter);
+    	requires(armature);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	armature.set(-1.0 * Constants.armatureSpeed);
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	leftPower = oi.getAxisDeadzonedSquared(ControllerMap.shooterController, ControllerMap.shooterPowerAxis);
-    	rightPower = leftPower * Variables.shooterRightToLeftRatio;
-    	shooter.setShooter(leftPower, -1.0 * rightPower);
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -34,7 +30,7 @@ public class Shoot extends CommandBase {
 
     // Called once after isFinished returns true
     protected void end() {
-    	shooter.setShooter(0, 0);
+    	armature.stop();
     }
 
     // Called when another command which requires one or more of the same

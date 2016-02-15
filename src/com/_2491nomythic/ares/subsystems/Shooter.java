@@ -3,6 +3,7 @@ package com._2491nomythic.ares.subsystems;
 import com._2491nomythic.ares.settings.Constants;
 
 import edu.wpi.first.wpilibj.CANTalon;
+import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
@@ -10,7 +11,8 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  */
 public class Shooter extends Subsystem {
     private CANTalon motorLeft, motorRight;
-    private double motorLeftSpeed, motorRightSpeed;
+    private Solenoid solenoidLeft, solenoidRight;
+    private double currentLeftSpeed, currentRightSpeed;
     
     public static Shooter instance;
     
@@ -25,31 +27,87 @@ public class Shooter extends Subsystem {
     }
     
     private Shooter() {
-    	motorLeft = new CANTalon(Constants.shooterTopChannel);
-    	motorRight = new CANTalon(Constants.shooterBottomChannel);
+    	motorLeft = new CANTalon(Constants.shooterTalonLeftChannel);
+    	motorRight = new CANTalon(Constants.shooterTalonRightChannel);
+    	
+    	solenoidLeft = new Solenoid(Constants.shooterSolenoidLeftChannel);
+    	solenoidRight = new Solenoid(Constants.shooterSolenoidRightChannel);
+    	solenoidLeft.set(false);
+    	solenoidRight.set(false);
     }
     
-    public void setShooter(double speedLeft, double speedRight) {
-    	setShooterLeft(speedLeft);
-    	setShooterRight(speedRight);
+    public void set(double speedLeft, double speedRight) {
+    	setLeft(speedLeft);
+    	setRight(speedRight);
     }
     
-    public void setShooterLeft(double speed) {
-    	motorLeftSpeed = speed;
+    public void set(double speed) {
+    	setLeft(speed);
+    	setRight(speed);
+    }
+    
+    public void setLeft(double speed) {
+    	currentLeftSpeed = speed;
     	motorLeft.set(speed);
     }
     
-    public void setShooterRight(double speed) {
-    	motorRightSpeed = speed;
-    	motorRight.set(speed);
+    public void setRight(double speed) {
+    	currentRightSpeed = speed;
+    	motorRight.set(-1.0 * speed);
     }
     
-    public double getShooterTop() {
-    	return motorLeftSpeed;
+    public void raise() {
+		solenoidLeft.set(true);
+		solenoidRight.set(true);
+	}
+	
+	public void lower() {
+		solenoidLeft.set(false);
+		solenoidRight.set(false);
+	}
+    
+    public double getLeftEncoderPosition() {
+    	return motorLeft.getEncPosition();
     }
     
-    public double getShooterBottom() {
-    	return motorRightSpeed;
+    public double getLeftEncoderVelocity() {
+    	return motorLeft.getEncVelocity();
+    }
+    
+    public double getRightEncoderPosition() {
+    	return motorRight.getEncPosition();
+    }
+    
+    public double getRightEncoderVelocity() {
+    	return motorRight.getEncVelocity();
+    }
+    
+    public Solenoid getLeftSolenoid() {
+		return solenoidLeft;
+	}
+	
+	public Solenoid getRightSolenoid() {
+		return solenoidRight;
+	}
+	
+	public boolean getLeftSolenoidValue() {
+		return solenoidLeft.get();
+	}
+	
+	public boolean getRightSolenoidValue() {
+		return solenoidRight.get();
+	}
+    
+    public double getLeftSpeed() {
+    	return currentLeftSpeed;
+    }
+    
+    public double getRightSpeed() {
+    	return currentRightSpeed;
+    }
+    
+    public void stop() {
+    	set(0);
     }
 
     public void initDefaultCommand() {
