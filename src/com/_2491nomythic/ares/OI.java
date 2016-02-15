@@ -9,6 +9,7 @@ import com._2491nomythic.ares.commands.intake.ManualIntakeControl;
 import com._2491nomythic.ares.commands.shooter.ManualShooterControl;
 import com._2491nomythic.ares.settings.Constants;
 import com._2491nomythic.ares.settings.ControllerMap;
+import com._2491nomythic.util.JoystickPOVButton;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
