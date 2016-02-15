@@ -29,6 +29,7 @@ public class Armature extends Subsystem {
     private Armature() {
     	motor = new CANTalon(Constants.armatureChannel);
     	
+    	motor.configEncoderCodesPerRev(360);
     	motor.setEncPosition(0);
     	
     	limitSwitch = new DigitalInput(Constants.armatureLimitSwitchChannel);

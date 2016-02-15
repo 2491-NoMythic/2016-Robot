@@ -32,7 +32,7 @@ public class Shooter extends Subsystem {
     	
     	motorLeft.configEncoderCodesPerRev(1); //TODO check empirically if the encoder 4x edge reading impacts this.
     	motorRight.configEncoderCodesPerRev(1);//I want one unit per rotation, not 4 units per rotation.
-    	
+    	motorLeft.setEncPosition(0);
     	solenoidLeft = new Solenoid(Constants.shooterSolenoidLeftChannel);
     	solenoidRight = new Solenoid(Constants.shooterSolenoidRightChannel);
     	solenoidLeft.set(false);
