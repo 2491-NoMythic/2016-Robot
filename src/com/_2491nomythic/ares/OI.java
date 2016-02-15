@@ -1,7 +1,9 @@
 package com._2491nomythic.ares;
 
+import com._2491nomythic.ares.commands.Shoot;
 import com._2491nomythic.ares.commands.armature.ManualArmatureDownControl;
 import com._2491nomythic.ares.commands.armature.ManualArmatureUpControl;
+import com._2491nomythic.ares.commands.drivetrain.ShiftGear;
 import com._2491nomythic.ares.commands.intake.IntakeBall;
 import com._2491nomythic.ares.commands.intake.ManualIntakeControl;
 import com._2491nomythic.ares.commands.shooter.ManualShooterControl;
@@ -25,7 +27,7 @@ public class OI {
     // Button button = new JoystickButton(stick, buttonNumber);
     
 	private final Joystick[] controllers = new Joystick[2];
-	Button manualShooterControl, manualIntakeControl, intakeBall, manualArmatureUpControl, manualArmatureDownControl;
+	Button shoot, shiftGear, manualShooterControl, manualIntakeControl, intakeBall, manualArmatureUpControl, manualArmatureDownControl;
 	
 	/**
 	 * Initiates some joysticks and buttons.
@@ -33,6 +35,14 @@ public class OI {
 	public void init() {
 		controllers[0] = new Joystick(Constants.ControllerOnePort);
 		controllers[1] = new Joystick(Constants.ControllerTwoPort);
+		
+		//Commands
+		shoot = new JoystickButton(controllers[ControllerMap.shooterController], ControllerMap.shootButton);
+		shoot.whenPressed(new Shoot());
+		
+		//Drivetrain
+		shiftGear = new JoystickButton(controllers[ControllerMap.driveController], ControllerMap.driveShiftButton);
+		shiftGear.whileHeld(new ShiftGear());
 		
 		//Shooter
 		manualShooterControl = new JoystickButton(controllers[ControllerMap.shooterController], ControllerMap.manualShooterButton);
