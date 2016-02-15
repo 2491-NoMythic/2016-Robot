@@ -5,11 +5,12 @@ public class HandheldControllerMap {
 	public static final int driveController = 0;
 	public static final int driveLeftAxis = 1;
 	public static final int driveRightAxis = 3;
+	public static final int driveShift = 8;
 	
 	//Shooter
 	public static final int shooterController = 0;
-	public static final int shootButton = 8;
-	public static final int manualShooterButton = 8;
+	public static final int shootButton = 7;
+	public static final int manualShooterButton = 4;
 	
 	//Intake
 	public static final int intakeController = 0;
