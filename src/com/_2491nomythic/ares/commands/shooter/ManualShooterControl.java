@@ -1,7 +1,7 @@
 package com._2491nomythic.ares.commands.shooter;
 
 import com._2491nomythic.ares.commands.CommandBase;
-import com._2491nomythic.ares.settings.Constants;
+import com._2491nomythic.ares.settings.Variables;
 
 /**
  *
@@ -16,11 +16,22 @@ public class ManualShooterControl extends CommandBase {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	shooter.set(Constants.shooterSpeed);
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	if(shooter.getLeftEncoderVelocity() > 5000) {
+    		shooter.setLeft(0);
+    	}
+    	else {
+    		shooter.setLeft(Variables.shooterSpeed);
+    	}
+    	if(shooter.getRightEncoderVelocity() > 5000) {
+    		shooter.setRight(0);
+    	}
+    	else {
+    		shooter.setRight(Variables.shooterSpeed);
+    	}
     }
 
     // Make this return true when this Command no longer needs to run execute()
