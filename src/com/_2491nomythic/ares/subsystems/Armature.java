@@ -4,6 +4,7 @@ import com._2491nomythic.ares.commands.armature.KeepArmatureStill;
 import com._2491nomythic.ares.settings.Constants;
 
 import edu.wpi.first.wpilibj.CANTalon;
+import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
@@ -11,6 +12,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  */
 public class Armature extends Subsystem {
     private CANTalon motor;
+    private DigitalInput limitSwitch;
     
     public static Armature instance;
 	
@@ -28,6 +30,8 @@ public class Armature extends Subsystem {
     	motor = new CANTalon(Constants.armatureChannel);
     	
     	motor.setEncPosition(0);
+    	
+    	limitSwitch = new DigitalInput(Constants.armatureLimitSwitchChannel);
     }
     
     public void set(double speed) {
@@ -83,6 +87,9 @@ public class Armature extends Subsystem {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
     	setDefaultCommand(new KeepArmatureStill());
+    }
+    public boolean armLimitSwitch(){
+    	return limitSwitch.get();
     }
 }
 
