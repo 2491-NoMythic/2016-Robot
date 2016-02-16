@@ -29,9 +29,18 @@ public class RunShooterTime extends CommandBase {
 
 	// Called repeatedly when this Command is scheduled to run
 	protected void execute() {
-		if(timer.get() > time) {
-			shooter.stop();
-		}
+		if(shooter.getLeftEncoderVelocity() > 5000) {
+    		shooter.setLeft(0);
+    	}
+    	else {
+    		shooter.setLeft(Variables.shooterSpeed);
+    	}
+    	if(shooter.getRightEncoderVelocity() > 5000) {
+    		shooter.setRight(0);
+    	}
+    	else {
+    		shooter.setRight(Variables.shooterSpeed);
+    	}
 	}
 
 	// Make this return true when this Command no longer needs to run execute()
