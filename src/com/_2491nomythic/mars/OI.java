@@ -1,6 +1,10 @@
 package com._2491nomythic.mars;
 
+import com._2491nomythic.mars.commands.ChevalDeFriseConfiguration;
+import com._2491nomythic.mars.commands.LowBarConfiguration;
+import com._2491nomythic.mars.commands.PickUpBallConfiguration;
 import com._2491nomythic.mars.commands.Shoot;
+import com._2491nomythic.mars.commands.StartingConfiguration;
 import com._2491nomythic.mars.commands.armature.ManualArmatureDownControl;
 import com._2491nomythic.mars.commands.armature.ManualArmatureUpControl;
 import com._2491nomythic.mars.commands.drivetrain.ShiftGear;
@@ -30,7 +34,7 @@ public class OI {
     // Button button = new JoystickButton(stick, buttonNumber);
     
 	private final Joystick[] controllers = new Joystick[2];
-	Button shoot, shiftGear, manualShooterControl, manualIntakeControl, raiseShooter, lowerShooter, intakeBall, manualArmatureUpControl, manualArmatureDownControl;
+	Button shoot, chevalDeFriseConfiguration, lowBarConfiguration, pickUpBallConfiguration, startingConfiguration, shiftGear, manualShooterControl, manualIntakeControl, raiseShooter, lowerShooter, intakeBall, manualArmatureUpControl, manualArmatureDownControl;
 	
 	
 	/**
@@ -43,6 +47,18 @@ public class OI {
 		//Commands
 		shoot = new JoystickButton(controllers[ControllerMap.shooterController], ControllerMap.shootButton);
 		shoot.whenPressed(new Shoot());
+		
+		chevalDeFriseConfiguration = new JoystickButton(controllers[ControllerMap.configurationController], ControllerMap.chevalDeFriseConfigutationButton);
+		chevalDeFriseConfiguration.whenPressed(new ChevalDeFriseConfiguration());
+		
+		lowBarConfiguration = new JoystickButton(controllers[ControllerMap.configurationController], ControllerMap.lowBarConfigurationButton);
+		lowBarConfiguration.whenPressed(new LowBarConfiguration());
+		
+		pickUpBallConfiguration = new JoystickButton(controllers[ControllerMap.configurationController], ControllerMap.pickUpBallConfigurationButton);
+		pickUpBallConfiguration.whenPressed(new PickUpBallConfiguration());
+		
+		startingConfiguration = new  JoystickButton(controllers[ControllerMap.configurationController], ControllerMap.startingConfigurationButton);
+		startingConfiguration.whenPressed(new StartingConfiguration());
 		
 		//Drivetrain
 		shiftGear = new JoystickButton(controllers[ControllerMap.driveController], ControllerMap.driveShiftButton);

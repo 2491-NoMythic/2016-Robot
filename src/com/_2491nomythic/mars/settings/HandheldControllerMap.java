@@ -1,6 +1,13 @@
 package com._2491nomythic.mars.settings;
 
 public class HandheldControllerMap {
+	//Configuration
+	public static final int configurationController = 1;
+	public static final int chevalDeFriseConfigutationButton = 1;
+	public static final int lowBarConfigurationButton = 2;
+	public static final int pickUpBallConfigurationButton = 3;
+	public static final int startingConfigurationButton = 4;
+	
 	//Drive
 	public static final int driveController = 0;
 	public static final int driveLeftAxis = 1;
