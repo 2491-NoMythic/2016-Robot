@@ -20,36 +20,33 @@ public class DriveTime extends CommandBase {
     	this.timeOut = timeOut;
     	this.leftPower = leftPower;
     	this.rightPower = rightPower;
+    	timer = new Timer();
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	timer = new Timer();
     	timer.start();
     	timer.reset();
+		drivetrain.drive(leftPower, rightPower);
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	if(timer.get()>timeOut){
-    		drivetrain.drive(0, 0);
-    	}
-    	else{
-    		drivetrain.drive(leftPower, rightPower);
-    	}
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        return timer.get() > timeOut;
     }
 
     // Called once after isFinished returns true
     protected void end() {
+    	drivetrain.stop();
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
+    	end();
     }
 }
