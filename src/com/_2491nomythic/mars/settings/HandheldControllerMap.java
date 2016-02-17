@@ -2,7 +2,7 @@ package com._2491nomythic.mars.settings;
 
 public class HandheldControllerMap {
 	//Configuration
-	public static final int configurationController = 1;
+	public static final int configurationController = 0;
 	public static final int chevalDeFriseConfigutationButton = 1;
 	public static final int lowBarConfigurationButton = 2;
 	public static final int pickUpBallConfigurationButton = 3;
@@ -16,18 +16,18 @@ public class HandheldControllerMap {
 	
 	//Shooter
 	public static final int shooterController = 0;
-	public static final int shootButton = 7;
+	public static final int shootButton = 6;
+	public static final int manualShooterController = 1;
 	public static final int manualShooterButton = 4;
-	public static final int shooterRaisePOV = 0;
-	public static final int shooterLowerPOV = 180;
+	public static final int manualShooterPositionAxis = 1;
 	
 	//Intake
 	public static final int intakeController = 0;
-	public static final int intakeBallButton = 2;
+	public static final int intakeBallButton = 7;
+	public static final int manualIntakeController = 1;
 	public static final int manualIntakeButton = 3;
 	
 	//Armature
-	public static final int armatureController = 0;
-	public static final int manualArmatureUpButton = 5;
-	public static final int manualArmatureDownButton = 6;
+	public static final int manualArmatureController = 1;
+	public static final int manualArmatureAxis = 3;
 }

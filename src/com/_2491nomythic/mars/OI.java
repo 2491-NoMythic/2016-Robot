@@ -15,8 +15,7 @@ import com._2491nomythic.mars.commands.shooter.ManualShooterControl;
 import com._2491nomythic.mars.commands.shooter.RaiseShooter;
 import com._2491nomythic.mars.settings.Constants;
 import com._2491nomythic.mars.settings.ControllerMap;
-import com._2491nomythic.util.JoystickPOVButton;
-
+import com._2491nomythic.util.JoystickAxisButton;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
@@ -65,27 +64,27 @@ public class OI {
 		shiftGear.whileHeld(new ShiftGear());
 		
 		//Shooter
-		manualShooterControl = new JoystickButton(controllers[ControllerMap.shooterController], ControllerMap.manualShooterButton);
+		manualShooterControl = new JoystickButton(controllers[ControllerMap.manualShooterController], ControllerMap.manualShooterButton);
 		manualShooterControl.whileHeld(new ManualShooterControl());
 		
-		raiseShooter = new JoystickPOVButton(controllers[ControllerMap.shooterController], ControllerMap.shooterRaisePOV);
+		raiseShooter = new JoystickAxisButton(controllers[ControllerMap.manualShooterController], ControllerMap.manualShooterPositionAxis, 0.8);
 		raiseShooter.whenPressed(new RaiseShooter());
 		
-		lowerShooter = new JoystickPOVButton(controllers[ControllerMap.shooterController], ControllerMap.shooterLowerPOV);
+		lowerShooter = new JoystickAxisButton(controllers[ControllerMap.manualShooterController], ControllerMap.manualShooterPositionAxis, -0.8);
 		lowerShooter.whenPressed(new LowerShooter());
 		
 		//Intake
-		manualIntakeControl = new JoystickButton(controllers[ControllerMap.intakeController], ControllerMap.manualIntakeButton);
+		manualIntakeControl = new JoystickButton(controllers[ControllerMap.manualIntakeController], ControllerMap.manualIntakeButton);
 		manualIntakeControl.whileHeld(new ManualIntakeControl());
 		
 		intakeBall = new JoystickButton(controllers[ControllerMap.intakeController], ControllerMap.intakeBallButton);
 		intakeBall.whileHeld(new IntakeBall());
 		
 		//Armature
-		manualArmatureUpControl = new JoystickButton(controllers[ControllerMap.armatureController], ControllerMap.manualArmatureUpButton);
+		manualArmatureUpControl = new JoystickAxisButton(controllers[ControllerMap.manualArmatureController], ControllerMap.manualArmatureAxis, 0.8);
 		manualArmatureUpControl.whileHeld(new ManualArmatureUpControl());
 		
-		manualArmatureDownControl = new JoystickButton(controllers[ControllerMap.armatureController], ControllerMap.manualArmatureDownButton);
+		manualArmatureDownControl = new JoystickAxisButton(controllers[ControllerMap.manualArmatureController], ControllerMap.manualArmatureAxis, -0.8);
 		manualArmatureDownControl.whileHeld(new ManualArmatureDownControl());
 	}
 	
