@@ -12,12 +12,8 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
  *
  */
 public class Shoot extends CommandGroup {
-	Timer timer;
     
     public  Shoot() {
-    	timer = new Timer();
-    	timer.start();
-    	timer.reset();
     	
     	if(CommandBase.shooter.getLeftSolenoidValue() == false) {
     		addSequential(new RaiseShooter());

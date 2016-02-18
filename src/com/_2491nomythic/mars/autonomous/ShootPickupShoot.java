@@ -11,6 +11,7 @@ import edu.wpi.first.wpilibj.command.Command;
 public class ShootPickupShoot extends Command {
 	RaiseShooter raiseShooter;
 	RunShooterTime shoot;
+	
     public ShootPickupShoot() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
