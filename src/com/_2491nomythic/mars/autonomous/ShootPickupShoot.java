@@ -1,7 +1,7 @@
 package com._2491nomythic.mars.autonomous;
 
-import com._2491nomythic.ares.commands.shooter.RaiseShooter;
-import com._2491nomythic.ares.commands.shooter.RunShooterTime;
+import com._2491nomythic.mars.commands.shooter.RaiseShooter;
+import com._2491nomythic.mars.commands.shooter.RunShooterTime;
 
 import edu.wpi.first.wpilibj.command.Command;
 

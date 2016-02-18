@@ -1,7 +1,7 @@
 package com._2491nomythic.mars.commands.drivetrain;
 
-import com._2491nomythic.ares.commands.CommandBase;
-import com._2491nomythic.ares.settings.Constants;
+import com._2491nomythic.mars.commands.CommandBase;
+import com._2491nomythic.mars.settings.Constants;
 
 /**
  *
