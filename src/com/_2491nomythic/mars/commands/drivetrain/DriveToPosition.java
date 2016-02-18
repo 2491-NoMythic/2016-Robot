@@ -29,7 +29,7 @@ public class DriveToPosition extends CommandBase {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return drivetrain.getLeftEncoderPosition() * Constants.driveEncoderToFeet < (initialEncoderFeetPos + distance);
+        return (drivetrain.getLeftEncoderPosition() * Constants.driveEncoderToFeet) > (initialEncoderFeetPos + distance);
     }
 
     // Called once after isFinished returns true
