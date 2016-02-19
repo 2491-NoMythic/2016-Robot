@@ -1,4 +1,4 @@
-package com._2491nomythic.mars.autonomous;
+package com._2491nomythic.mars.commands.autonomous;
 
 import com._2491nomythic.mars.commands.CommandBase;
 
