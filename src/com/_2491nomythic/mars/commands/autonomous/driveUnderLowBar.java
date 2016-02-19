@@ -8,10 +8,10 @@ import com._2491nomythic.mars.commands.drivetrain.DriveToPosition;
 /**
  *
  */
-public class driveUnderLowBar extends CommandBase {
+public class DriveUnderLowBar extends CommandBase {
 	DriveToPosition drive13Feet;
 
-    public driveUnderLowBar() {
+    public DriveUnderLowBar() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	drive13Feet = new DriveToPosition(13,0.7);
