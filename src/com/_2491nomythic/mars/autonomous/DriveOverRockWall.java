@@ -1,19 +1,25 @@
-package com._2491nomythic.mars.commands;
+package com._2491nomythic.mars.autonomous;
 
-import edu.wpi.first.wpilibj.command.Command;
+import com._2491nomythic.mars.commands.CommandBase;
+
+import com._2491nomythic.mars.commands.drivetrain.DriveToPosition;
+
 
 /**
  *
  */
-public class DriveOverRockWall extends Command {
+public class DriveOverRockWall extends CommandBase {
+	DriveToPosition drive13Feet;
 
     public DriveOverRockWall() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
+    	drive13Feet = new DriveToPosition(15,0.5);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	drive13Feet.start();
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -22,7 +28,7 @@ public class DriveOverRockWall extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        return (!drive13Feet.isRunning());
     }
 
     // Called once after isFinished returns true
@@ -32,5 +38,6 @@ public class DriveOverRockWall extends Command {
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
+    	drive13Feet.cancel();
     }
 }
