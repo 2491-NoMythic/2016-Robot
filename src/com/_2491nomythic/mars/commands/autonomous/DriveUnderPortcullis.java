@@ -10,7 +10,7 @@ import edu.wpi.first.wpilibj.Timer;
 /**
  *
  */
-public class Portcullis extends CommandBase {
+public class DriveUnderPortcullis extends CommandBase {
 	private ArmatureDownPosition lowerArmature;
 	private DriveToPosition driveToPortcullis;
 	private ArmatureUpPosition raiseArmature;
@@ -18,7 +18,7 @@ public class Portcullis extends CommandBase {
 	private int state;
 	Timer timer;
 
-    public Portcullis() {
+    public DriveUnderPortcullis() {
     	lowerArmature = new ArmatureDownPosition();
     	driveToPortcullis = new DriveToPosition(5.5, 0.5);
     	raiseArmature = new ArmatureUpPosition();
