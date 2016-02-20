@@ -29,6 +29,7 @@ public class Robot extends IterativeRobot {
 	private Command autoCommand;
 	private SendableChooser autoChooser;
 	public NetworkTable table;
+	double defaultvalue[];
 
     /**
      * This function is run when the robot is first started up and should be
@@ -36,7 +37,7 @@ public class Robot extends IterativeRobot {
      */
     public void robotInit() {
     	NetworkTable.getTable("GRIP/myCountoursReport");
-    	double[] defaultvalue= new double[0];
+    	defaultvalue = new double[0];
 		oi = new OI();
 		CommandBase.init();
         // instantiate the command used for the autonomous period
@@ -46,20 +47,6 @@ public class Robot extends IterativeRobot {
 		autoChooser.addObject("Drive Under Low Bar", new DriveUnderLowBar());
 		autoChooser.addObject("Drive Under Portcullis", new DriveUnderPortcullis());
 		Variables.shooterSpeed = SmartDashboard.getNumber("Shooter Speed", 5.0/6);
-		while (true) {
-    		double[] areas= table.getNumberArray("area", defaultvalue);
-    		double[] CenterY= table.getNumberArray("centerY", defaultvalue);
-    		System.out.print("areas: ");
-    		System.out.print("centerY: ");
-    		for (double area:areas) {
-    			System.out.print(area + " ");
-    		}
-    		for (double centerY:CenterY) {
-    			System.out.print(centerY + " ");
-    		}
-    		System.out.println();
-    		Timer.delay(1);
-    	}
     }
 	
 	public void disabledPeriodic() {
@@ -76,6 +63,21 @@ public class Robot extends IterativeRobot {
      */
     public void autonomousPeriodic() {
         Scheduler.getInstance().run();
+        
+        if (true) {
+    		double[] areas= table.getNumberArray("area", defaultvalue);
+    		double[] CenterY= table.getNumberArray("centerY", defaultvalue);
+    		System.out.print("areas: ");
+    		System.out.print("centerY: ");
+    		for (double area:areas) {
+    			System.out.print(area + " ");
+    		}
+    		for (double centerY:CenterY) {
+    			System.out.print(centerY + " ");
+    		}
+    		System.out.println();
+    		Timer.delay(1);
+    	}
     }
 
     public void teleopInit() {
@@ -100,6 +102,21 @@ public class Robot extends IterativeRobot {
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
         Variables.shooterSpeed = SmartDashboard.getNumber("Shooter Speed", 5./6);
+        
+        if (true) {
+    		double[] areas= table.getNumberArray("area", defaultvalue);
+    		double[] CenterY= table.getNumberArray("centerY", defaultvalue);
+    		System.out.print("areas: ");
+    		System.out.print("centerY: ");
+    		for (double area:areas) {
+    			System.out.print(area + " ");
+    		}
+    		for (double centerY:CenterY) {
+    			System.out.print(centerY + " ");
+    		}
+    		System.out.println();
+    		Timer.delay(1);
+    	}
     }
     
     /**
