@@ -9,7 +9,7 @@ import com._2491nomythic.mars.commands.armature.ManualArmatureDownControl;
 import com._2491nomythic.mars.commands.armature.ManualArmatureUpControl;
 import com._2491nomythic.mars.commands.drivetrain.ShiftGear;
 import com._2491nomythic.mars.commands.intake.IntakeBall;
-import com._2491nomythic.mars.commands.intake.ManualIntakeControl;
+import com._2491nomythic.mars.commands.intake.ManualTakeIn;
 import com._2491nomythic.mars.commands.shooter.LowerShooter;
 import com._2491nomythic.mars.commands.shooter.ManualShooterControl;
 import com._2491nomythic.mars.commands.shooter.RaiseShooter;
@@ -75,7 +75,7 @@ public class OI {
 		
 		//Intake
 		manualIntakeControl = new JoystickButton(controllers[ControllerMap.manualIntakeController], ControllerMap.manualIntakeButton);
-		manualIntakeControl.whileHeld(new ManualIntakeControl());
+		manualIntakeControl.whileHeld(new ManualTakeIn());
 		
 		intakeBall = new JoystickButton(controllers[ControllerMap.intakeController], ControllerMap.intakeBallButton);
 		intakeBall.whileHeld(new IntakeBall());

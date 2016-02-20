@@ -6,9 +6,9 @@ import com._2491nomythic.mars.settings.Constants;
 /**
  *
  */
-public class ManualIntakeControl extends CommandBase {
+public class ManualTakeIn extends CommandBase {
 
-    public ManualIntakeControl() {
+    public ManualTakeIn() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(intake);
