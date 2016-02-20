@@ -7,7 +7,6 @@ import com._2491nomythic.mars.commands.autonomous.DriveOverRockWall;
 import com._2491nomythic.mars.commands.autonomous.DriveUnderLowBar;
 import com._2491nomythic.mars.commands.autonomous.DriveUnderPortcullis;
 
-import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
@@ -26,7 +25,6 @@ public class Robot extends IterativeRobot {
 	public static OI oi;
 	private Command autoCommand;
 	private SendableChooser autoChooser;
-	Compressor compressor;
 
     /**
      * This function is run when the robot is first started up and should be
@@ -42,8 +40,6 @@ public class Robot extends IterativeRobot {
 		autoChooser.addObject("Drive Under Low Bar", new DriveUnderLowBar());
 		autoChooser.addObject("Drive Under Portcullis", new DriveUnderPortcullis());
 		SmartDashboard.putData("Autonomous", autoChooser);
-		compressor = new Compressor();
-		compressor.start();
 		
     }
 	
@@ -76,7 +72,6 @@ public class Robot extends IterativeRobot {
      * You can use it to reset subsystems before shutting down.
      */
     public void disabledInit(){
-    	compressor.stop();
     }
 
     /**
