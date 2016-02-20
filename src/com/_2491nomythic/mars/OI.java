@@ -10,6 +10,7 @@ import com._2491nomythic.mars.commands.armature.ManualArmatureUpControl;
 import com._2491nomythic.mars.commands.drivetrain.ShiftGear;
 import com._2491nomythic.mars.commands.intake.IntakeBall;
 import com._2491nomythic.mars.commands.intake.ManualIntakeControl;
+import com._2491nomythic.mars.commands.intake.ManualSpitOut;
 import com._2491nomythic.mars.commands.shooter.LowerShooter;
 import com._2491nomythic.mars.commands.shooter.ManualShooterControl;
 import com._2491nomythic.mars.commands.shooter.RaiseShooter;
@@ -33,7 +34,7 @@ public class OI {
     // Button button = new JoystickButton(stick, buttonNumber);
     
 	private final Joystick[] controllers = new Joystick[2];
-	Button shoot, chevalDeFriseConfiguration, lowBarConfiguration, pickUpBallConfiguration, startingConfiguration, shiftGear, manualShooterControl, manualIntakeControl, raiseShooter, lowerShooter, intakeBall, manualArmatureUpControl, manualArmatureDownControl;
+	Button shoot, chevalDeFriseConfiguration, lowBarConfiguration, pickUpBallConfiguration, startingConfiguration, shiftGear, manualShooterControl, manualTakeIn, manualSpitOut, raiseShooter, lowerShooter, intakeBall, manualArmatureUpControl, manualArmatureDownControl;
 	
 	
 	/**
@@ -74,8 +75,11 @@ public class OI {
 		lowerShooter.whenPressed(new LowerShooter());
 		
 		//Intake
-		manualIntakeControl = new JoystickButton(controllers[ControllerMap.manualIntakeController], ControllerMap.manualIntakeButton);
-		manualIntakeControl.whileHeld(new ManualIntakeControl());
+		manualTakeIn = new JoystickButton(controllers[ControllerMap.manualIntakeController], ControllerMap.manualTakeInButton);
+		manualTakeIn.whileHeld(new ManualIntakeControl());
+		
+		manualSpitOut = new JoystickButton(controllers[ControllerMap.manualIntakeController], ControllerMap.manualSpitOutButton);
+		manualSpitOut.whileHeld(new ManualSpitOut());
 		
 		intakeBall = new JoystickButton(controllers[ControllerMap.intakeController], ControllerMap.intakeBallButton);
 		intakeBall.whileHeld(new IntakeBall());

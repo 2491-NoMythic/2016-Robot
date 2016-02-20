@@ -18,14 +18,15 @@ public class HandheldControllerMap {
 	public static final int shooterController = 0;
 	public static final int shootButton = 6;
 	public static final int manualShooterController = 1;
-	public static final int manualShooterButton = 4;
+	public static final int manualShooterButton = 8;
 	public static final int manualShooterPositionAxis = 1;
 	
 	//Intake
 	public static final int intakeController = 0;
 	public static final int intakeBallButton = 7;
 	public static final int manualIntakeController = 1;
-	public static final int manualIntakeButton = 3;
+	public static final int manualTakeInButton = 7;
+	public static final int manualSpitOutButton = 5;
 	
 	//Armature
 	public static final int manualArmatureController = 1;
