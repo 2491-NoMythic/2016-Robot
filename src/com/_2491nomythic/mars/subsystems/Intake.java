@@ -11,7 +11,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  */
 public class Intake extends Subsystem {
     private CANTalon motor;
-    private DigitalInput limitSwitch;
+    private DigitalInput limitSwitch1, limitSwitch2;
     
     public static Intake instance;
 	
@@ -28,7 +28,8 @@ public class Intake extends Subsystem {
     private Intake() {
     	motor = new CANTalon(Constants.intakeChannel);
     	
-    	limitSwitch = new DigitalInput(Constants.intakeLimitSwitchChannel);
+    	limitSwitch1 = new DigitalInput(Constants.intakeLimitSwitch1Channel);
+    	limitSwitch2 = new DigitalInput(Constants.intakeLimitSwitch2Channel);
     }
     
     public void set(double speed) {
@@ -39,8 +40,12 @@ public class Intake extends Subsystem {
     	return motor;
     }
     
-    public boolean getLimitSwitchValue(){
-    	return limitSwitch.get();
+    public boolean getLimitSwitch1Value() {
+    	return limitSwitch1.get();
+    }
+    
+    public boolean getLimitSwitch2Value() {
+    	return limitSwitch2.get();
     }
     
     public void stop() {

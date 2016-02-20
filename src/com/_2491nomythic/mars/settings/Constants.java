@@ -7,8 +7,8 @@ public class Constants {
 	
 	//Digital I/O
 	public static final int armatureLimitSwitchChannel = 0;
-	public static final int intakeLimitSwitchChannel = 1;
-	public static final int intakeLimitSwitchChannel2 = 2;
+	public static final int intakeLimitSwitch1Channel = 1;
+	public static final int intakeLimitSwitch2Channel = 2;
 	
 	//Channels
 	public static final int driveTalonLeft1Channel = 18;
