@@ -6,9 +6,9 @@ import com._2491nomythic.mars.settings.Constants;
 /**
  *
  */
-public class SpitOut extends CommandBase {
+public class ManualSpitOut extends CommandBase {
 
-    public SpitOut() {
+    public ManualSpitOut() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(intake);
