@@ -16,6 +16,8 @@ import com._2491nomythic.mars.commands.shooter.RaiseShooter;
 import com._2491nomythic.mars.settings.Constants;
 import com._2491nomythic.mars.settings.ControllerMap;
 import com._2491nomythic.util.JoystickAxisButton;
+import com._2491nomythic.util.JoystickPOVButton;
+
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
@@ -81,10 +83,10 @@ public class OI {
 		intakeBall.whileHeld(new IntakeBall());
 		
 		//Armature
-		manualArmatureUpControl = new JoystickAxisButton(controllers[ControllerMap.manualArmatureController], ControllerMap.manualArmatureAxis, 0.8);
+		manualArmatureUpControl = new JoystickPOVButton(controllers[ControllerMap.manualArmatureController], ControllerMap.manualArmatureUpPOV);
 		manualArmatureUpControl.whileHeld(new ManualArmatureUpControl());
 		
-		manualArmatureDownControl = new JoystickAxisButton(controllers[ControllerMap.manualArmatureController], ControllerMap.manualArmatureAxis, -0.8);
+		manualArmatureDownControl = new JoystickPOVButton(controllers[ControllerMap.manualArmatureController], ControllerMap.manualArmatureDownPOV);
 		manualArmatureDownControl.whileHeld(new ManualArmatureDownControl());
 	}
 	
