@@ -21,12 +21,14 @@ public abstract class CommandBase extends Command {
 	protected static Shooter shooter;
 	protected static Intake intake;
 	protected static Armature armature;
+	protected static GRIP grip;
 	
 	public static void init() {
 		drivetrain = Drivetrain.getInstance();
 		shooter = Shooter.getInstance();
 		intake = Intake.getInstance();
 		armature = Armature.getInstance();
+		grip = GRIP.getInstance();
 		// This MUST be here. If the OI creates Commands (which it very likely
 		// will), constructing it during the construction of CommandBase (from
 		// which commands extend), subsystems are not guaranteed to be
