@@ -1,24 +1,22 @@
-package com._2491nomythic.mars.autonomous;
+package com._2491nomythic.mars.commands.intake;
 
-import com._2491nomythic.mars.commands.shooter.RaiseShooter;
-import com._2491nomythic.mars.commands.shooter.RunShooterTime;
-
-import edu.wpi.first.wpilibj.command.Command;
+import com._2491nomythic.mars.commands.CommandBase;
+import com._2491nomythic.mars.settings.Constants;
 
 /**
  *
  */
-public class ShootPickupShoot extends Command {
-	RaiseShooter raiseShooter;
-	RunShooterTime shoot;
-	RotateDrivetrain rotate90;
-    public ShootPickupShoot() {
+public class ManualSpitOut extends CommandBase {
+
+    public ManualSpitOut() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
+    	requires(intake);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	intake.set(-1.0 * Constants.intakeSpeed);
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -32,10 +30,12 @@ public class ShootPickupShoot extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
+    	intake.stop();
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
+    	end();
     }
 }

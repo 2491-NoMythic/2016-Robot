@@ -12,10 +12,6 @@ public class Constants {
 	public static final int driveTalonRight1Channel = 11;
 	public static final int driveTalonRight2Channel = 12;
 	public static final int driveTalonRight3Channel = 13;
-	public static final int driveEncoderLeftChannel1 = 24;
-	public static final int driveEncoderLeftChannel2 = 25;
-	public static final int driveEncoderRightChannel1 = 26;
-	public static final int driveEncoderRightChannel2 = 27;
 	public static final int driveSolenoidLeftChannel = 0;
 	public static final int driveSolenoidRightChannel = 1;
 
