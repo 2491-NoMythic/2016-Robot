@@ -37,6 +37,7 @@ public class ShootPickupShoot extends Command {
     	shoot = new RunShooterTime(5);
     	drive1ft = new DriveToPosition(0.7, 1);
     	lowerShooter = new LowerShooter();
+    	rotate90 = new RotateDrivetrain(90, 0.7, true);
     	
     	
     }

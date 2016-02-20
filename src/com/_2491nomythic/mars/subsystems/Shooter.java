@@ -3,6 +3,7 @@ package com._2491nomythic.mars.subsystems;
 import com._2491nomythic.mars.settings.Constants;
 
 import edu.wpi.first.wpilibj.CANTalon;
+import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
@@ -13,7 +14,7 @@ public class Shooter extends Subsystem {
     private CANTalon motorLeft, motorRight;
     private Solenoid solenoid;
     private double currentLeftSpeed, currentRightSpeed;
-    
+    private Compressor compressor;
     public static Shooter instance;
     
     // Put methods for controlling this subsystem
@@ -34,7 +35,10 @@ public class Shooter extends Subsystem {
     	motorRight.configEncoderCodesPerRev(1);//I want one unit per rotation, not 4 units per rotation.
     	motorLeft.setEncPosition(0);
     	solenoid = new Solenoid(Constants.shooterSolenoidChannel);
-    	solenoid.set(false);    	
+    	solenoid.set(false); 
+    	
+//    	compressor = new Compressor(1);
+//    	compressor.start();
     	
     }
     
@@ -100,6 +104,14 @@ public class Shooter extends Subsystem {
     
     public void stop() {
     	set(0);
+    }
+    
+    public void startCompressor() {
+    	compressor.start();
+    }
+    
+    public void stopCompressor() {
+    	compressor.stop();
     }
 
     public void initDefaultCommand() {
