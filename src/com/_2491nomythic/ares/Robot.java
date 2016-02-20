@@ -5,9 +5,11 @@ import com._2491nomythic.ares.commands.CommandBase;
 import com._2491nomythic.ares.settings.Variables;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
+import edu.wpi.first.wpilibj.networktables.NetworkTable;
 import edu.wpi.first.wpilibj.smartdashboard.*;
 
 /**
@@ -22,17 +24,34 @@ public class Robot extends IterativeRobot {
 	public static OI oi;
 	private Command autoCommand;
 	private SendableChooser autoChooser;
+	public NetworkTable table;
 
     /**
      * This function is run when the robot is first started up and should be
      * used for any initialization code.
      */
     public void robotInit() {
+    	NetworkTable.getTable("GRIP/myCountoursReport");
+    	double[] defaultvalue= new double[0];
 		oi = new OI();
 		CommandBase.init();
         // instantiate the command used for the autonomous period
 		autoChooser = new SendableChooser();
 		Variables.shooterSpeed = SmartDashboard.getNumber("Shooter Speed", 5.0/6);
+		while (true) {
+    		double[] areas= table.getNumberArray("area", defaultvalue);
+    		double[] CenterY= table.getNumberArray("centerY", defaultvalue);
+    		System.out.print("areas: ");
+    		System.out.print("centerY: ");
+    		for (double area:areas) {
+    			System.out.print(area + " ");
+    		}
+    		for (double centerY:CenterY) {
+    			System.out.print(centerY + " ");
+    		}
+    		System.out.println();
+    		Timer.delay(1);
+    	}
     }
 	
 	public void disabledPeriodic() {
@@ -72,7 +91,7 @@ public class Robot extends IterativeRobot {
      */
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
-        Variables.shooterSpeed = SmartDashboard.getNumber("Shooter Speed", 5.0/6);
+        Variables.shooterSpeed = SmartDashboard.getNumber("Shooter Speed", 5./6);
     }
     
     /**
