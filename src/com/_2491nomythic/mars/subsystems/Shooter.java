@@ -113,6 +113,13 @@ public class Shooter extends Subsystem {
     public void stopCompressor() {
     	compressor.stop();
     }
+    
+    public CANTalon getLeftMotor() {
+    	return motorLeft;
+    }
+    public CANTalon getRightMotor() {
+    	return motorRight;
+    }
 
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
