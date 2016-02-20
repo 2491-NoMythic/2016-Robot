@@ -1,6 +1,7 @@
 package com._2491nomythic.mars.commands;
 
 import com._2491nomythic.mars.settings.Constants;
+import com._2491nomythic.mars.settings.Variables;
 
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -31,7 +32,8 @@ public class UpdateDriverstation extends CommandBase {
     	if (timer.get() > nextRun) {
 			nextRun = nextRun + 0.1;
 			SmartDashboard.putBoolean("Tower in range: ", (Math.abs(Constants.visionCenterXValue - grip.getCenterX()[0]) < Constants.acceptableVisionCenterXDifference) && (Math.abs(Constants.visionCenterYValue - grip.getCenterY()[0]) < Constants.acceptableVisionCenterYDifference) && (Math.abs(Constants.visionAreaValue - grip.getArea()[0]) < Constants.acceptableVisionAreaDifference) && (Math.abs(Constants.visionHeightValue - grip.getHeight()[0]) < Constants.acceptableVisionHeightDifference) && (Math.abs(Constants.visionWidthValue - grip.getWidth()[0]) < Constants.acceptableVisionWidthDifference));
-		}
+			Variables.shooterSpeed = SmartDashboard.getNumber("Shooter Speed");
+    	}
     }
 
     // Make this return true when this Command no longer needs to run execute()

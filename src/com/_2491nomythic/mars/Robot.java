@@ -6,8 +6,6 @@ import com._2491nomythic.mars.commands.autonomous.DoNothing;
 import com._2491nomythic.mars.commands.autonomous.DriveOverRockWall;
 import com._2491nomythic.mars.commands.autonomous.DriveUnderLowBar;
 import com._2491nomythic.mars.commands.autonomous.DriveUnderPortcullis;
-import com._2491nomythic.mars.settings.Variables;
-
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
@@ -41,7 +39,6 @@ public class Robot extends IterativeRobot {
 		autoChooser.addObject("Drive Under Low Bar", new DriveUnderLowBar());
 		autoChooser.addObject("Drive Under Portcullis", new DriveUnderPortcullis());
 		SmartDashboard.putData("Autonomous", autoChooser);
-		Variables.shooterSpeed = SmartDashboard.getNumber("Shooter Speed", 5.0/6);
     }
 	
 	public void disabledPeriodic() {
@@ -81,7 +78,6 @@ public class Robot extends IterativeRobot {
      */
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
-        Variables.shooterSpeed = SmartDashboard.getNumber("Shooter Speed", 5./6);
     }
     
     /**
