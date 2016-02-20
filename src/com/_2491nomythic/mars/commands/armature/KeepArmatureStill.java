@@ -28,6 +28,8 @@ public class KeepArmatureStill extends CommandBase {
     	else {
     		armature.stop();
     	}
+    	System.out.print("Armature Encoder Value: ");
+    	System.out.println(armature.getEncoderPosition());
     }
 
     // Make this return true when this Command no longer needs to run execute()
