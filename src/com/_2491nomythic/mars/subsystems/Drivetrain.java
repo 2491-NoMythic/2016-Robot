@@ -13,7 +13,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  */
 public class Drivetrain extends Subsystem {
     private CANTalon left1, left2, left3, right1, right2, right3;
-    private Solenoid solenoidLeft, solenoidRight;
+    private Solenoid solenoid;
     private double currentLeftSpeed, currentRightSpeed;
     
 	private static Drivetrain instance;
@@ -36,10 +36,8 @@ public class Drivetrain extends Subsystem {
 		left1.configEncoderCodesPerRev(360);
 		right1.configEncoderCodesPerRev(360);
 		
-		solenoidLeft = new Solenoid(Constants.driveSolenoidLeftChannel);
-		solenoidRight = new Solenoid(Constants.driveSolenoidRightChannel);
-		solenoidLeft.set(false);
-		solenoidRight.set(false);
+		solenoid = new Solenoid(Constants.driveSolenoidChannel);
+		solenoid.set(false);
 	}
 	
     // Put methods for controlling this subsystem
@@ -51,27 +49,25 @@ public class Drivetrain extends Subsystem {
 	}
 	
 	public void driveLeft(double speed) {
-		left1.set(-1.0 * speed);
+		left1.set(speed);
 		left2.set(-1.0 * speed);
-		left3.set(speed);
+		left3.set(-1.0 * speed);
 		currentLeftSpeed = speed;
 	}
 	
 	public void driveRight(double speed) {
-		right1.set(speed);
+		right1.set(-1.0 *speed);
 		right2.set(speed);
-		right3.set(-1.0 * speed);
+		right3.set(speed);
 		currentRightSpeed = speed;
 	}
 	
 	public void shiftToHighGear() {
-		solenoidLeft.set(true);
-		solenoidRight.set(true);
+		solenoid.set(true);
 	}
 	
 	public void shiftToLowGear() {
-		solenoidLeft.set(false);
-		solenoidRight.set(false);
+		solenoid.set(false);
 	}
 	
 	public double getLeftEncoderPosition() {
@@ -90,20 +86,12 @@ public class Drivetrain extends Subsystem {
 		return right1.getEncVelocity();
 	}
 	
-	public Solenoid getLeftSolenoid() {
-		return solenoidLeft;
+	public Solenoid getSolenoid() {
+		return solenoid;
 	}
 	
-	public Solenoid getRightSolenoid() {
-		return solenoidRight;
-	}
-	
-	public boolean getLeftSolenoidValue() {
-		return solenoidLeft.get();
-	}
-	
-	public boolean getRightSolenoidValue() {
-		return solenoidRight.get();
+	public boolean getSolenoidValue() {
+		return solenoid.get();
 	}
 	
 	public CANTalon getLeft1Motor() {

@@ -11,7 +11,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  */
 public class Shooter extends Subsystem {
     private CANTalon motorLeft, motorRight;
-    private Solenoid solenoidLeft, solenoidRight;
+    private Solenoid solenoid;
     private double currentLeftSpeed, currentRightSpeed;
     
     public static Shooter instance;
@@ -33,11 +33,8 @@ public class Shooter extends Subsystem {
     	motorLeft.configEncoderCodesPerRev(1); //TODO check empirically if the encoder 4x edge reading impacts this.
     	motorRight.configEncoderCodesPerRev(1);//I want one unit per rotation, not 4 units per rotation.
     	motorLeft.setEncPosition(0);
-    	solenoidLeft = new Solenoid(Constants.shooterSolenoidLeftChannel);
-    	solenoidRight = new Solenoid(Constants.shooterSolenoidRightChannel);
-    	solenoidLeft.set(false);
-    	solenoidRight.set(false);
-    	
+    	solenoid = new Solenoid(Constants.shooterSolenoidChannel);
+    	solenoid.set(false);    	
     	
     }
     
@@ -62,13 +59,11 @@ public class Shooter extends Subsystem {
     }
     
     public void raise() {
-		solenoidLeft.set(true);
-		solenoidRight.set(true);
+		solenoid.set(true);
 	}
 	
 	public void lower() {
-		solenoidLeft.set(false);
-		solenoidRight.set(false);
+		solenoid.set(false);
 	}
     
     public double getLeftEncoderPosition() {
@@ -87,20 +82,12 @@ public class Shooter extends Subsystem {
     	return motorRight.getEncVelocity();
     }
     
-    public Solenoid getLeftSolenoid() {
-		return solenoidLeft;
+    public Solenoid getSolenoid() {
+		return solenoid;
 	}
 	
-	public Solenoid getRightSolenoid() {
-		return solenoidRight;
-	}
-	
-	public boolean getLeftSolenoidValue() {
-		return solenoidLeft.get();
-	}
-	
-	public boolean getRightSolenoidValue() {
-		return solenoidRight.get();
+	public boolean getSolenoidValue() {
+		return solenoid.get();
 	}
     
     public double getLeftSpeed() {

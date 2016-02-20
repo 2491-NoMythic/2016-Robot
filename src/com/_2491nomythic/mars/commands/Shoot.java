@@ -15,7 +15,7 @@ public class Shoot extends CommandGroup {
     
     public  Shoot() {
     	
-    	if(CommandBase.shooter.getLeftSolenoidValue() == false) {
+    	if(CommandBase.shooter.getSolenoidValue() == false) {
     		addSequential(new RaiseShooter());
     		Timer.delay(1);
     	}
