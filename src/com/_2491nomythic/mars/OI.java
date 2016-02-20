@@ -69,10 +69,10 @@ public class OI {
 		manualShooterControl = new JoystickButton(controllers[ControllerMap.manualShooterController], ControllerMap.manualShooterButton);
 		manualShooterControl.whileHeld(new ManualShooterControl());
 		
-		raiseShooter = new JoystickAxisButton(controllers[ControllerMap.manualShooterController], ControllerMap.manualShooterPositionAxis, 0.8);
+		raiseShooter = new JoystickPOVButton(controllers[ControllerMap.manualShooterController], ControllerMap.manualShooterPositionUpPOV);
 		raiseShooter.whenPressed(new RaiseShooter());
 		
-		lowerShooter = new JoystickAxisButton(controllers[ControllerMap.manualShooterController], ControllerMap.manualShooterPositionAxis, -0.8);
+		lowerShooter = new JoystickPOVButton(controllers[ControllerMap.manualShooterController], ControllerMap.manualShooterPositionDownPOV);
 		lowerShooter.whenPressed(new LowerShooter());
 		
 		//Intake
@@ -83,10 +83,10 @@ public class OI {
 		intakeBall.whileHeld(new IntakeBall());
 		
 		//Armature
-		manualArmatureUpControl = new JoystickPOVButton(controllers[ControllerMap.manualArmatureController], ControllerMap.manualArmatureUpPOV);
+		manualArmatureUpControl = new JoystickAxisButton(controllers[ControllerMap.manualArmatureController], ControllerMap.manualArmatureAxis, 0.8);
 		manualArmatureUpControl.whileHeld(new ManualArmatureUpControl());
 		
-		manualArmatureDownControl = new JoystickPOVButton(controllers[ControllerMap.manualArmatureController], ControllerMap.manualArmatureDownPOV);
+		manualArmatureDownControl = new JoystickAxisButton(controllers[ControllerMap.manualArmatureController], ControllerMap.manualArmatureAxis, -0.8);
 		manualArmatureDownControl.whileHeld(new ManualArmatureDownControl());
 	}
 	

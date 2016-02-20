@@ -19,7 +19,8 @@ public class HandheldControllerMap {
 	public static final int shootButton = 6;
 	public static final int manualShooterController = 1;
 	public static final int manualShooterButton = 8;
-	public static final int manualShooterPositionAxis = 1;
+	public static final int manualShooterPositionUpPOV = 0;
+	public static final int manualShooterPositionDownPOV = 180;
 	
 	//Intake
 	public static final int intakeController = 0;
@@ -30,6 +31,5 @@ public class HandheldControllerMap {
 	
 	//Armature
 	public static final int manualArmatureController = 1;
-	public static final int manualArmatureUpPOV = 0;
-	public static final int manualArmatureDownPOV = 180;
+	public static final int manualArmatureAxis = 3;
 }
