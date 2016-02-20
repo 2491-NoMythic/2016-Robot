@@ -23,7 +23,6 @@ public class Constants {
 
 	public static final int armatureChannel = 19;
 	
-	
 	public static final int shooterTalonLeftChannel = 15;
 	public static final int shooterTalonRightChannel = 14;
 	public static final int shooterSolenoidChannel = 7;
