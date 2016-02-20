@@ -74,7 +74,7 @@ public class OI {
 		lowerShooter.whenPressed(new LowerShooter());
 		
 		//Intake
-		manualIntakeControl = new JoystickButton(controllers[ControllerMap.manualIntakeController], ControllerMap.manualIntakeButton);
+		manualIntakeControl = new JoystickButton(controllers[ControllerMap.manualIntakeController], ControllerMap.manualTakeInButton);
 		manualIntakeControl.whileHeld(new ManualTakeIn());
 		
 		intakeBall = new JoystickButton(controllers[ControllerMap.intakeController], ControllerMap.intakeBallButton);
