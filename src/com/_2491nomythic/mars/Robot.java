@@ -5,6 +5,7 @@ import com._2491nomythic.mars.commands.CommandBase;
 import com._2491nomythic.mars.commands.autonomous.DoNothing;
 import com._2491nomythic.mars.commands.autonomous.DriveOverRockWall;
 import com._2491nomythic.mars.commands.autonomous.DriveUnderLowBar;
+import com._2491nomythic.mars.commands.autonomous.DriveUnderLowBarTime;
 import com._2491nomythic.mars.commands.autonomous.DriveUnderPortcullis;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
@@ -36,7 +37,7 @@ public class Robot extends IterativeRobot {
         // instantiate the command used for the autonomous period
 		autoChooser = new SendableChooser();
 		autoChooser.addDefault("Do Nothing", new DoNothing());
-//		autoChooser.addObject("Drive Under Low Bar Time", new DriveUnderLowBarTime());
+		autoChooser.addObject("Drive Under Low Bar Time", new DriveUnderLowBarTime());
 		autoChooser.addObject("Drive Over Rock Wall", new DriveOverRockWall());
 		autoChooser.addObject("Drive Under Low Bar", new DriveUnderLowBar());
 		autoChooser.addObject("Drive Under Portcullis", new DriveUnderPortcullis());
