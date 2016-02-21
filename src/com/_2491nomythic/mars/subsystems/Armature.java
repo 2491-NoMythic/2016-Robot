@@ -46,6 +46,10 @@ public class Armature extends Subsystem {
     	motor.set(speed);
     }
     
+    public void armatureSet(double speed) {
+    	motor.set(speed);
+    }
+    
     public double getEncoderPosition() {
     	return motor.getEncPosition();
     }
