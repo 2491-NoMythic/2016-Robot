@@ -20,7 +20,7 @@ public class Shoot extends CommandGroup {
     		Timer.delay(1);
     	}
     	
-    	addSequential(new RunShooterTime(4));
+    	addParallel(new RunShooterTime(4));
     	Timer.delay(1.5);
     	addSequential(new RunIntakeTime(2));
     	addSequential(new LowerShooter());

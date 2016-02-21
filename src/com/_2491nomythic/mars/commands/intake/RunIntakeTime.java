@@ -24,7 +24,7 @@ public class RunIntakeTime extends CommandBase {
 	protected void initialize() {
 		timer.start();
 		timer.reset();
-		intake.set(Constants.intakeSpeed);
+		intake.set(-1.0 * Constants.intakeSpeed);
 	}
 
 	// Called repeatedly when this Command is scheduled to run
