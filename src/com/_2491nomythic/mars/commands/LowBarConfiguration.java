@@ -1,7 +1,8 @@
 package com._2491nomythic.mars.commands;
 
-import com._2491nomythic.mars.commands.armature.ArmatureLowBarPosition;
+import com._2491nomythic.mars.commands.armature.ArmaturePositionSet;
 import com._2491nomythic.mars.commands.shooter.LowerShooter;
+import com._2491nomythic.mars.settings.Constants;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
@@ -11,7 +12,7 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 public class LowBarConfiguration extends CommandGroup {
     
     public  LowBarConfiguration() {
-    	addParallel(new ArmatureLowBarPosition());
+    	addParallel(new ArmaturePositionSet(Constants.armatureLowBarPositionValue));
     	addSequential(new LowerShooter());
     	
         // Add Commands here:

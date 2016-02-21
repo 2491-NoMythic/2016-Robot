@@ -47,21 +47,6 @@ public class Armature extends Subsystem {
     	return motor.getEncVelocity();
     }
     
-    public void runMotorToPosition(double position) {
-		double currentEncoderValue = getEncoderPosition();
-		
-		
-		
-		// Put the thread to sleep while we let the motor run
-		try {
-			Thread.sleep(Constants.armatureRunTimeMs);
-		} catch(InterruptedException e) {
-			System.out.print("Thread sleep error!");
-		}
-			
-		currentEncoderValue = getEncoderPosition();
-	}
-    
     public CANTalon get() {
     	return motor;
     }

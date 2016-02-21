@@ -1,6 +1,7 @@
 package com._2491nomythic.mars.commands;
 
-import com._2491nomythic.mars.commands.armature.ArmatureIntakePosition;
+import com._2491nomythic.mars.commands.armature.ArmaturePositionSet;
+import com._2491nomythic.mars.settings.Constants;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
@@ -10,7 +11,7 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 public class PickUpBallConfiguration extends CommandGroup {
     
     public  PickUpBallConfiguration() {
-    	addSequential(new ArmatureIntakePosition());
+    	addSequential(new ArmaturePositionSet(Constants.armatureIntakePositionValue));
     	
         // Add Commands here:
         // e.g. addSequential(new Command1());
