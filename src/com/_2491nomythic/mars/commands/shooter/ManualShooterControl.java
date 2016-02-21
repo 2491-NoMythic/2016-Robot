@@ -35,8 +35,8 @@ public class ManualShooterControl extends CommandBase {
     	
     	shooter.getLeftMotor().changeControlMode(TalonControlMode.Voltage);
     	shooter.getRightMotor().changeControlMode(TalonControlMode.Voltage);
-    	shooter.getLeftMotor().setVoltageCompensationRampRate(24.0);
-    	shooter.getRightMotor().setVoltageCompensationRampRate(24.0);
+    	shooter.getLeftMotor().setVoltageCompensationRampRate(12.0);
+    	shooter.getRightMotor().setVoltageCompensationRampRate(12.0);
     	shooter.getRightMotor().set(-1.0 * 11.0);
     	shooter.getLeftMotor().set(-1.0 * 11.0);
     }

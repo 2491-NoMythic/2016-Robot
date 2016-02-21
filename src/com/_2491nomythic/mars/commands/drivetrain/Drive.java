@@ -22,7 +22,7 @@ public class Drive extends CommandBase {
     protected void execute() {
     	leftPower = oi.getAxisDeadzonedSquared(ControllerMap.driveController, ControllerMap.driveLeftAxis);
     	rightPower = oi.getAxisDeadzonedSquared(ControllerMap.driveController, ControllerMap.driveRightAxis);
-    	drivetrain.drive(leftPower, rightPower);
+    	drivetrain.drive((leftPower / Math.abs(leftPower)) * (Math.pow(2, Math.abs(leftPower) * 10)/1024), (rightPower/ Math.abs(rightPower)) * (Math.pow(2, Math.abs(rightPower) * 10)/1024));
     }
 
     // Make this return true when this Command no longer needs to run execute()
