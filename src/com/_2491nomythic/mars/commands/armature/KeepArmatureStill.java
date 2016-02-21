@@ -12,7 +12,6 @@ public class KeepArmatureStill extends CommandBase {
     public KeepArmatureStill() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	requires(armature);
     }
 
     // Called just before this Command runs the first time
