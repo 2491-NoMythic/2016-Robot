@@ -8,6 +8,8 @@ import com._2491nomythic.mars.settings.ControllerMap;
  */
 public class Drive extends CommandBase {
 	double leftPower, rightPower;
+	double directionMultiplierLeft;
+	double directionMultiplierRight;
 
     public Drive() {
         // Use requires() here to declare subsystem dependencies
@@ -22,7 +24,9 @@ public class Drive extends CommandBase {
     protected void execute() {
     	leftPower = oi.getAxisDeadzonedSquared(ControllerMap.driveController, ControllerMap.driveLeftAxis);
     	rightPower = oi.getAxisDeadzonedSquared(ControllerMap.driveController, ControllerMap.driveRightAxis);
-    	drivetrain.drive(leftPower, rightPower);
+    	directionMultiplierLeft = leftPower / Math.abs(leftPower); //Multiply by -1 or 1 depending on joystick input
+    	directionMultiplierRight = rightPower / Math.abs(rightPower); //Multiply by -1 or 1 depending on joystick input
+    	drivetrain.drive(directionMultiplierLeft * (Math.pow(2, Math.abs(leftPower) * 10)/1024), directionMultiplierRight * (Math.pow(2, Math.abs(rightPower) * 10)/1024));
     }
 
     // Make this return true when this Command no longer needs to run execute()
