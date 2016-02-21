@@ -7,6 +7,7 @@ import com._2491nomythic.mars.commands.autonomous.DriveOverRockWall;
 import com._2491nomythic.mars.commands.autonomous.DriveUnderLowBar;
 import com._2491nomythic.mars.commands.autonomous.DriveUnderPortcullis;
 
+import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
@@ -25,12 +26,15 @@ public class Robot extends IterativeRobot {
 	public static OI oi;
 	private Command autoCommand;
 	private SendableChooser autoChooser;
+	private Compressor compressor;
 
     /**
      * This function is run when the robot is first started up and should be
      * used for any initialization code.
      */
     public void robotInit() {
+		compressor = new Compressor();
+		compressor.start();
 		oi = new OI();
 		CommandBase.init();
         // instantiate the command used for the autonomous period
@@ -72,6 +76,7 @@ public class Robot extends IterativeRobot {
      * You can use it to reset subsystems before shutting down.
      */
     public void disabledInit(){
+    	compressor.stop();
     }
 
     /**
