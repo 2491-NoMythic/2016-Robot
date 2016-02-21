@@ -47,33 +47,19 @@ public class Armature extends Subsystem {
     	return motor.getEncVelocity();
     }
     
-    public void runMotorToPosition(double Position) {
-		double CurrentEncoderValue = getEncoderPosition();
+    public void runMotorToPosition(double position) {
+		double currentEncoderValue = getEncoderPosition();
 		
-		while((CurrentEncoderValue >= (Position - Constants.acceptableArmatureDifference)) &&
-			  (CurrentEncoderValue <= (Position + Constants.acceptableArmatureDifference))){
-			if(CurrentEncoderValue == Position){
-				//the motor is in the correct position
-				set(0);
-			}
-			else if(CurrentEncoderValue > Position){
-				//motor position is greater then where it needs to be
-				set(-1.0 * Constants.armatureSpeed);
-			}
-			else{
-				//motor position is less then where it needs to be
-				set(Constants.armatureSpeed);
-			}
-			
-			// Put the thread to sleep while we let the motor run
-			try {
-				Thread.sleep(Constants.armatureRunTimeMs);
-			} catch(InterruptedException e) {
-				System.out.print("Thread sleep error!");
-			}
-			
-			CurrentEncoderValue = getEncoderPosition();
+		
+		
+		// Put the thread to sleep while we let the motor run
+		try {
+			Thread.sleep(Constants.armatureRunTimeMs);
+		} catch(InterruptedException e) {
+			System.out.print("Thread sleep error!");
 		}
+			
+		currentEncoderValue = getEncoderPosition();
 	}
     
     public CANTalon get() {
