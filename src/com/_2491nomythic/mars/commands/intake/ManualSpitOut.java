@@ -16,7 +16,7 @@ public class ManualSpitOut extends CommandBase {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	intake.set(-1.0 * Constants.intakeSpeed);
+    	intake.set(Constants.intakeSpeed);
     }
 
     // Called repeatedly when this Command is scheduled to run
