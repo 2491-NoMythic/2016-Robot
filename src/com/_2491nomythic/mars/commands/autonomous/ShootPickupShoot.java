@@ -1,8 +1,6 @@
 package com._2491nomythic.mars.commands.autonomous;
 
-import com._2491nomythic.mars.commands.armature.ArmatureIntakePosition;
-import com._2491nomythic.mars.commands.armature.ArmatureLowBarPosition;
-import com._2491nomythic.mars.commands.armature.ArmatureUpPosition;
+import com._2491nomythic.mars.commands.armature.ArmaturePositionSet;
 import com._2491nomythic.mars.commands.drivetrain.DriveToPosition;
 import com._2491nomythic.mars.commands.drivetrain.RotateDrivetrain;
 import com._2491nomythic.mars.commands.intake.IntakeBall;
@@ -23,9 +21,9 @@ public class ShootPickupShoot extends Command {
 	RotateDrivetrain rotateNeg90;
 	DriveToPosition drive24ft;
 	RotateDrivetrain rotate90;
-	ArmatureUpPosition armUp;
-	ArmatureIntakePosition armIntake;
-	ArmatureLowBarPosition armLowBar;
+	ArmaturePositionSet armUp;
+	ArmaturePositionSet armIntake;
+	ArmaturePositionSet armLowBar;
 	IntakeBall intakeBall;
 	DriveToPosition drive2ft;
 	DriveToPosition drive19ft;
