@@ -3,7 +3,6 @@ package com._2491nomythic.mars.subsystems;
 import com._2491nomythic.mars.settings.Constants;
 
 import edu.wpi.first.wpilibj.CANTalon;
-import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
