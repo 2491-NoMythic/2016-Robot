@@ -24,9 +24,7 @@ public class Drive extends CommandBase {
     protected void execute() {
     	leftPower = oi.getAxisDeadzonedSquared(ControllerMap.driveController, ControllerMap.driveLeftAxis);
     	rightPower = oi.getAxisDeadzonedSquared(ControllerMap.driveController, ControllerMap.driveRightAxis);
-    	directionMultiplierLeft = leftPower / Math.abs(leftPower); //Multiply by -1 or 1 depending on joystick input
-    	directionMultiplierRight = rightPower / Math.abs(rightPower); //Multiply by -1 or 1 depending on joystick input
-    	drivetrain.drive(directionMultiplierLeft * (Math.pow(2, Math.abs(leftPower) * 10)/1024), directionMultiplierRight * (Math.pow(2, Math.abs(rightPower) * 10)/1024));
+    	drivetrain.drive(leftPower, rightPower);
     }
 
     // Make this return true when this Command no longer needs to run execute()
