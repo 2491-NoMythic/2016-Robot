@@ -14,7 +14,6 @@ public class Shooter extends Subsystem {
     private CANTalon motorLeft, motorRight;
     private Solenoid solenoid;
     private double currentLeftSpeed, currentRightSpeed;
-    private Compressor compressor;
     public static Shooter instance;
     
     // Put methods for controlling this subsystem
@@ -36,10 +35,6 @@ public class Shooter extends Subsystem {
     	motorLeft.setEncPosition(0);
     	solenoid = new Solenoid(Constants.shooterSolenoidChannel);
     	solenoid.set(false); 
-    	
-//    	compressor = new Compressor(1);
-//    	compressor.start();
-    	
     }
     
     public void set(double speedLeft, double speedRight) {
@@ -104,14 +99,6 @@ public class Shooter extends Subsystem {
     
     public void stop() {
     	set(0);
-    }
-    
-    public void startCompressor() {
-    	compressor.start();
-    }
-    
-    public void stopCompressor() {
-    	compressor.stop();
     }
     
     public CANTalon getLeftMotor() {
