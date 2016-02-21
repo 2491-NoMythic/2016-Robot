@@ -36,6 +36,7 @@ public class Robot extends IterativeRobot {
         // instantiate the command used for the autonomous period
 		autoChooser = new SendableChooser();
 		autoChooser.addDefault("Do Nothing", new DoNothing());
+//		autoChooser.addObject("Drive Under Low Bar Time", new DriveUnderLowBarTime());
 		autoChooser.addObject("Drive Over Rock Wall", new DriveOverRockWall());
 		autoChooser.addObject("Drive Under Low Bar", new DriveUnderLowBar());
 		autoChooser.addObject("Drive Under Portcullis", new DriveUnderPortcullis());

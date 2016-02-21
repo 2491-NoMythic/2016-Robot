@@ -23,7 +23,7 @@ public class KeepArmatureStill extends CommandBase {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	if ((initialArmaturePosition - armature.getEncoderPosition()) > Constants.acceptableArmatureDifference) {
-    		armature.set(-0.5);
+    		armature.set(-0.3);
     	}
     	else {
     		armature.stop();
@@ -37,7 +37,6 @@ public class KeepArmatureStill extends CommandBase {
 
     // Called once after isFinished returns true
     protected void end() {
-    	armature.stop();
     }
 
     // Called when another command which requires one or more of the same

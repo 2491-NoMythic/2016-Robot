@@ -58,7 +58,7 @@ public class Armature extends Subsystem {
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
-    	setDefaultCommand(new KeepArmatureStill());
+//    	setDefaultCommand(new KeepArmatureStill());
     }
     public boolean armLimitSwitch(){
     	return limitSwitch.get();
