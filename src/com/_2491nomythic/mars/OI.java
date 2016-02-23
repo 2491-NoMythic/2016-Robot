@@ -157,6 +157,19 @@ public class OI {
 		return Math.abs(result) > 0.05 ? result : 0;
 	}
 	
+	/**
+	 * Get an axis from a controller that is automatically cubed and deadzoned
+	 * 
+	 * @param joystickID The id of the controller. 0 = left or driver, 1 = right or driver
+	 * @param axisID The id of the axis (for use in getRawAxis)
+	 * @return the cubed, deadzoned result from running getRawAxis
+	 */
+	public double getAxisDeadzonedCubed(int joystickID, int axisID) {
+		double result = controllers[joystickID].getRawAxis(axisID);
+		result = result * Math.pow(Math.abs(result), 2);
+		return Math.abs(result) > 0.05 ? result : 0;
+	}
+	
     // There are a few additional built in buttons you can use. Additionally,
     // by subclassing Button you can create custom triggers and bind those to
     // commands the same as any other Button.
