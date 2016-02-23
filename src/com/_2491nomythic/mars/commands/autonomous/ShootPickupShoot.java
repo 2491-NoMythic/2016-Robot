@@ -9,12 +9,14 @@ import com._2491nomythic.mars.commands.shooter.RaiseShooter;
 import com._2491nomythic.mars.commands.shooter.RunShooterTime;
 import com._2491nomythic.mars.settings.Constants;
 
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
  *
  */
 public class ShootPickupShoot extends Command {
+	int state = 0;
 	RaiseShooter raiseShooter;
 	RunShooterTime shoot;
 	DriveToPosition drive1ft;
@@ -29,9 +31,11 @@ public class ShootPickupShoot extends Command {
 	DriveToPosition drive2ft;
 	DriveToPosition drive19ft;
 	RotateDrivetrain rotateNeg22;
+	Timer timer;
     public ShootPickupShoot() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
+    	timer = new Timer();
     	raiseShooter = new RaiseShooter();
     	shoot = new RunShooterTime(5);
     	drive1ft = new DriveToPosition(0.7, 1);
@@ -55,6 +59,7 @@ public class ShootPickupShoot extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	
     }
 
     // Make this return true when this Command no longer needs to run execute()
