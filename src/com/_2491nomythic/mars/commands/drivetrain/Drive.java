@@ -22,8 +22,8 @@ public class Drive extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	leftPower = oi.getAxisDeadzonedSquared(ControllerMap.driveController, ControllerMap.driveLeftAxis);
-    	rightPower = oi.getAxisDeadzonedSquared(ControllerMap.driveController, ControllerMap.driveRightAxis);
+    	leftPower = oi.getAxisDeadzonedCubed(ControllerMap.driveController, ControllerMap.driveLeftAxis);
+    	rightPower = oi.getAxisDeadzonedCubed(ControllerMap.driveController, ControllerMap.driveRightAxis);
     	drivetrain.drive(leftPower, rightPower);
     }
 
