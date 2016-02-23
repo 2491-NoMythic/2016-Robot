@@ -20,10 +20,10 @@ public class Constants {
 	public static final int driveTalonRight1Channel = 11;
 	public static final int driveTalonRight2Channel = 12;
 	public static final int driveTalonRight3Channel = 13;
-	public static final int driveEncoderLeftChannel1 = 0;
-	public static final int driveEncoderLeftChannel2 = 1;
-	public static final int driveEncoderRightChannel1 = 2;
-	public static final int driveEncoderRightChannel2 = 3;
+	public static final int driveEncoderLeftChannel1 = 3;
+	public static final int driveEncoderLeftChannel2 = 4;
+	public static final int driveEncoderRightChannel1 = 5;
+	public static final int driveEncoderRightChannel2 = 6;
 	public static final int driveSolenoidChannel = 6;
 
 	public static final int intakeChannel = 10;
@@ -35,9 +35,9 @@ public class Constants {
 	public static final int shooterSolenoidChannel = 7;
 	
 	//Computation Constants
-	public static final double driveEncoderToFeet = 1; //TODO get this value
+	public static final double driveEncoderToFeet = 0.0957204011640640127344086655843;
 	public static final double driveHighGearDelay = 0.5;
-	public static final double acceptableArmatureDifference = 5; //TODO get this value
+	public static final double acceptableArmatureDifference = 5;
 	public static final double intakeSpeed = 1;
 	public static final double armatureSpeed = 0.3;
 	public static final long armatureRunTimeMs = 500;  // Time the armature will run trying to find the correct position
