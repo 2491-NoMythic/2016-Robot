@@ -19,9 +19,9 @@ public class Constants {
 	public static final int driveTalonRight3Channel = 13;
 	public static final int driveSolenoidChannel = 6;
 
-	public static final int intakeChannel = 19;
+	public static final int intakeChannel = 10;
 
-	public static final int armatureChannel = 10;
+	public static final int armatureChannel = 19;
 	
 	public static final int shooterTalonLeftChannel = 15;
 	public static final int shooterTalonRightChannel = 14;
