@@ -111,6 +111,28 @@ public class Drivetrain extends Subsystem {
 		return encoderRight;
 	}
 	
+	public double getLeftEncoderDistance() {
+		return encoderLeft.getDistance();
+	}
+	
+	public double getRightEncoderDistance() {
+		return encoderRight.getDistance();
+	}
+	
+	/**
+	 * @return The speed of the left motor in feet per second
+	 */
+	public double getLeftEncoderRate() {
+		return encoderLeft.getRate();
+	}
+	
+	/**
+	 * @return The speed of the right motor in feet per second
+	 */
+	public double getRightEncoderRate() {
+		return encoderRight.getRate();
+	}
+	
 	public Solenoid getSolenoid() {
 		return solenoid;
 	}
