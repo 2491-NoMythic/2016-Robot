@@ -35,6 +35,7 @@ public class ShootPickupShoot extends Command {
     public ShootPickupShoot() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
+    	state = 0;
     	timer = new Timer();
     	raiseShooter = new RaiseShooter();
     	shoot = new RunShooterTime(5);
@@ -59,7 +60,11 @@ public class ShootPickupShoot extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	
+    	switch(state) {
+    	case 0:
+    		raiseShooter.start();
+    		
+    	}
     }
 
     // Make this return true when this Command no longer needs to run execute()
