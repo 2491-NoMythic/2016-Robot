@@ -2,7 +2,7 @@ package com._2491nomythic.mars.settings;
 
 public class Constants {
 	//Regular Encoder ticks (non-talon)
-	public static final int talonTicksPerRev = 256;
+	public static final int ticksPerRev = 256;
 	
 	//Joysticks
 	public static final int ControllerOnePort = 0;
