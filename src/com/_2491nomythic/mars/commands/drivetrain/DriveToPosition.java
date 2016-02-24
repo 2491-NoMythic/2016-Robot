@@ -18,7 +18,7 @@ public class DriveToPosition extends CommandBase {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	initialEncoderFeetPos = drivetrain.getLeftEncoder().getDistance();
+    	initialEncoderFeetPos = drivetrain.getLeftEncoderDistance();
     	drivetrain.drive(speed, speed);
     }
 
@@ -29,13 +29,13 @@ public class DriveToPosition extends CommandBase {
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
     	if(distance + initialEncoderFeetPos > initialEncoderFeetPos) {
-    		return (drivetrain.getLeftEncoder().getDistance() > (initialEncoderFeetPos + distance));
+    		return (drivetrain.getLeftEncoderDistance() > (initialEncoderFeetPos + distance));
     	}
     	else {
     		if(speed > 0) {
     			drivetrain.drive(-1.0 * speed, -1.0 * speed);
     		}
-    		return (drivetrain.getLeftEncoder().getDistance() < (initialEncoderFeetPos + distance));
+    		return (drivetrain.getLeftEncoderDistance() < (initialEncoderFeetPos + distance));
     	}
     }
 
