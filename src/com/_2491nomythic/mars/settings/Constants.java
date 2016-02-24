@@ -35,27 +35,26 @@ public class Constants {
 	public static final int shooterSolenoidChannel = 7;
 	
 	//Computation Constants
-	public static final double driveEncoderToFeet = 0.0957204011640640127344086655843;
+	public static final double driveEncoderToFeet = 0.095720401164064;
 	public static final double driveHighGearDelay = 0.5;
 	public static final double acceptableArmatureDifference = 5;
 	public static final double intakeSpeed = 1;
 	public static final double armatureSpeed = 0.3;
-	public static final long armatureRunTimeMs = 500;  // Time the armature will run trying to find the correct position
 	public static final double armatureUpPositionValue = 0;
 	public static final double armatureDownPositionValue = -1816;
 	public static final double armatureIntakePositionValue = -1403;
 	public static final double armatureLowBarPositionValue = -1395;
 	
 	//Vision Constants
-	public static final double visionCenterXValue = 1; //TODO
-	public static final double visionCenterYValue = 1; //TODO
-	public static final double visionAreaValue = 1; //TODO
-	public static final double visionHeightValue = 1; //TODO
-	public static final double visionWidthValue = 1; //TODO
-	public static final double acceptableVisionCenterXDifference = 1; //TODO
-	public static final double acceptableVisionCenterYDifference = 1; //TODO
-	public static final double acceptableVisionAreaDifference = 1; //TODO
-	public static final double acceptableVisionHeightDifference = 1; //TODO
-	public static final double acceptableVisionWidthDifference = 1; //TODO
+//	public static final double visionCenterXValue = 1; //TODO
+//	public static final double visionCenterYValue = 1; //TODO
+//	public static final double visionAreaValue = 1; //TODO
+//	public static final double visionHeightValue = 1; //TODO
+//	public static final double visionWidthValue = 1; //TODO
+//	public static final double acceptableVisionCenterXDifference = 1; //TODO
+//	public static final double acceptableVisionCenterYDifference = 1; //TODO
+//	public static final double acceptableVisionAreaDifference = 1; //TODO
+//	public static final double acceptableVisionHeightDifference = 1; //TODO
+//	public static final double acceptableVisionWidthDifference = 1; //TODO
 
 }
