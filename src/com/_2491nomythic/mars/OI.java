@@ -37,7 +37,6 @@ public class OI {
 	private final Joystick[] controllers = new Joystick[2];
 	Button shoot, chevalDeFriseConfiguration, lowBarConfiguration, pickUpBallConfiguration, startingConfiguration, shiftGear, manualShooterControl, manualTakeIn, manualSpitOut, raiseShooter, lowerShooter, intakeBall, manualArmatureUpControl, manualArmatureDownControl;
 	
-	
 	/**
 	 * Initiates some joysticks and buttons.
 	 */
