@@ -36,7 +36,7 @@ public class Constants {
 	
 	//Computation Constants
 	public static final double driveEncoderToFeet = 0.095720401164064;
-	public static final double driveHighGearDelay = 0.5;
+	public static final double driveHighGearDelay = 1;
 	public static final double acceptableArmatureDifference = 5;
 	public static final double intakeSpeed = 1;
 	public static final double armatureSpeed = 0.3;
