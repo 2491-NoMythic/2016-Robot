@@ -2,6 +2,7 @@ package com._2491nomythic.mars.commands.armature;
 
 import com._2491nomythic.mars.commands.CommandBase;
 import com._2491nomythic.mars.settings.Constants;
+import com._2491nomythic.mars.settings.ControllerMap;
 
 /**
  *
@@ -19,10 +20,20 @@ public class ManualArmatureControl extends CommandBase {
     // Called just before this Command runs the first time
     protected void initialize() {
     	if (moveDown) {
+    		if (oi.getButton(ControllerMap.manualArmatureController, ControllerMap.manualArmatureFastButton)) {
+    			armature.set(Constants.armatureSpeedFast);
+    		}
+    		else {
     			armature.set(Constants.armatureSpeed);
+    		}
     	}
     	else {
+    		if (oi.getButton(ControllerMap.manualArmatureController, ControllerMap.manualArmatureFastButton)) {
+    			armature.set(-1.0 * Constants.armatureSpeedFast);
+    		}
+    		else {
     			armature.set(-1.0 * Constants.armatureSpeed);
+    		}
     	}
     }
 

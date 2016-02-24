@@ -40,6 +40,7 @@ public class Constants {
 	public static final double acceptableArmatureDifference = 5;
 	public static final double intakeSpeed = 1;
 	public static final double armatureSpeed = 0.3;
+	public static final double armatureSpeedFast = 1;
 	public static final double armatureUpPositionValue = 0;
 	public static final double armatureDownPositionValue = -1816;
 	public static final double armatureIntakePositionValue = -1403;

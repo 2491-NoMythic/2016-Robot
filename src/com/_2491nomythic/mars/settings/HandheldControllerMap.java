@@ -32,4 +32,5 @@ public class HandheldControllerMap {
 	//Armature
 	public static final int manualArmatureController = 1;
 	public static final int manualArmatureAxis = 3;
+	public static final int manualArmatureFastButton = 6;
 }
