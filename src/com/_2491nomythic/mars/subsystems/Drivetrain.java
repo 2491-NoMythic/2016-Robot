@@ -79,6 +79,14 @@ public class Drivetrain extends Subsystem {
 		solenoid.set(false);
 	}
 	
+	public void resetLeftEncoder() {
+		encoderLeft.reset();
+	}
+	
+	public void resetRightEncoder() {
+		encoderRight.reset();
+	}
+	
 //	public double getLeftEncoderPosition() {
 //		return left1.getEncPosition();
 //	}
