@@ -164,9 +164,9 @@ public class OI {
 	 * @param axisID The id of the axis (for use in getRawAxis)
 	 * @return the cubed, deadzoned result from running getRawAxis
 	 */
-	public double getAxisDeadzonedCubed(int joystickID, int axisID) {
+	public double getAxisDeadzonedToTheFourth(int joystickID, int axisID) {
 		double result = controllers[joystickID].getRawAxis(axisID);
-		result = result * Math.pow(Math.abs(result), 2);
+		result = result * Math.pow(Math.abs(result), 3);
 		return Math.abs(result) > 0.05 ? result : 0;
 	}
 	
