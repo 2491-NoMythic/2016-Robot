@@ -45,10 +45,10 @@ public class ShiftGear extends CommandBase {
     				hasBeenShifted = true;
     				hasBeenDelayed = false;
     			}
-    			else {
-    				hasBeenDelayed = false;
-    			}
     		}
+    		else { //stops the delay because the drivetrain is stopped
+				hasBeenDelayed = false;
+			}
     	}
     	else if ((drivetrain.getCurrentLeftSpeed() == 0) || (drivetrain.getCurrentRightSpeed() == 0)) { //Provides a catch for starting and stopping while this command is running
     		drivetrain.shiftToLowGear();
