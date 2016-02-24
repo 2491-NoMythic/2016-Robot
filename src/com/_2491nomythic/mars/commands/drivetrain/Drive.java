@@ -25,6 +25,9 @@ public class Drive extends CommandBase {
     	leftPower = oi.getAxisDeadzonedToTheFourth(ControllerMap.driveController, ControllerMap.driveLeftAxis);
     	rightPower = oi.getAxisDeadzonedToTheFourth(ControllerMap.driveController, ControllerMap.driveRightAxis);
     	drivetrain.drive(leftPower, rightPower);
+    	
+    	System.out.println(drivetrain.getLeftEncoder().getRaw());
+    	System.out.println(drivetrain.getRightEncoder().getRaw());
     }
 
     // Make this return true when this Command no longer needs to run execute()
