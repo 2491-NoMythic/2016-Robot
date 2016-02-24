@@ -76,10 +76,10 @@ public class OI {
 		lowerShooter.whenPressed(new LowerShooter());
 		
 		//Intake
-		manualTakeIn = new JoystickButton(controllers[ControllerMap.manualIntakeController], ControllerMap.manualTakeInButton);
+		manualTakeIn = new JoystickAxisButton(controllers[ControllerMap.manualIntakeController], ControllerMap.manualIntakeAxis, 0.8);
 		manualTakeIn.whileHeld(new ManualTakeIn());
 		
-		manualSpitOut = new JoystickButton(controllers[ControllerMap.manualIntakeController], ControllerMap.manualSpitOutButton);
+		manualSpitOut = new JoystickAxisButton(controllers[ControllerMap.manualIntakeController], ControllerMap.manualIntakeAxis, -0.8);
 		manualSpitOut.whileHeld(new ManualSpitOut());
 		
 		intakeBall = new JoystickButton(controllers[ControllerMap.intakeController], ControllerMap.intakeBallButton);
