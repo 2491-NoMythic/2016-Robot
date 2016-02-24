@@ -6,25 +6,31 @@ import com._2491nomythic.mars.settings.Constants;
 /**
  *
  */
-public class ManualArmatureUpControl extends CommandBase {
+public class ManualArmatureControl extends CommandBase {
+	boolean moveDown;
 
-    public ManualArmatureUpControl() {
+    public ManualArmatureControl(boolean moveDown) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
+    	this.moveDown = moveDown;
     	requires(armature);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	armature.set(-1.0 * Constants.armatureSpeed);
+    	if (moveDown) {
+    			armature.set(Constants.armatureSpeed);
+    	}
+    	else {
+    			armature.set(-1.0 * Constants.armatureSpeed);
+    	}
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	if(armature.armLimitSwitch()) {
-		armature.set(0);
-		
-    	}
+//    	if(armature.armLimitSwitch()) {
+//    		armature.set(0);
+//    	}
     }
 
     // Make this return true when this Command no longer needs to run execute()
