@@ -87,11 +87,11 @@ public class OI {
 		intakeBall.whileHeld(new IntakeBall());
 		
 		//Armature
-		manualArmatureUpControl = new JoystickAxisButton(controllers[ControllerMap.manualArmatureController], ControllerMap.manualArmatureAxis, 0.8);
-		manualArmatureUpControl.whileHeld(new ManualArmatureUpControl());
+		manualArmatureUpControl = new JoystickAxisButton(controllers[ControllerMap.manualArmatureController], ControllerMap.manualArmatureAxis, -0.8);
+		manualArmatureUpControl.whileHeld(new ManualArmatureControl(false));
 		
-		manualArmatureDownControl = new JoystickAxisButton(controllers[ControllerMap.manualArmatureController], ControllerMap.manualArmatureAxis, -0.8);
-		manualArmatureDownControl.whileHeld(new ManualArmatureDownControl());
+		manualArmatureDownControl = new JoystickAxisButton(controllers[ControllerMap.manualArmatureController], ControllerMap.manualArmatureAxis, 0.8);
+		manualArmatureDownControl.whileHeld(new ManualArmatureControl(true));
 	}
 	
 	/**
