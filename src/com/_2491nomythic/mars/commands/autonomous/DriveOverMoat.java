@@ -9,8 +9,8 @@ import com._2491nomythic.mars.commands.drivetrain.DriveToPosition;
  *
  */
 public class DriveOverMoat extends CommandBase {
-	DriveToPosition drive7Feet;
-	DriveToPosition drive8Feet;
+	DriveToPosition drive7Feet, drive8Feet;
+	boolean highGear;
 
     public DriveOverMoat() {
         // Use requires() here to declare subsystem dependencies
@@ -22,19 +22,21 @@ public class DriveOverMoat extends CommandBase {
     // Called just before this Command runs the first time
     protected void initialize() {
     	drive7Feet.start();
-    	if(!drive7Feet.isRunning()){
-    		drivetrain.shiftToHighGear();
-    		drive8Feet.start();
-    	}
+    	highGear = false;
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	if(!drive7Feet.isRunning() && !highGear){
+    		drivetrain.shiftToHighGear();
+    		drive8Feet.start();
+    		highGear = true;
+    	}
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return (!drive8Feet.isRunning());
+        return (!drive8Feet.isRunning() && highGear);
     }
 
     // Called once after isFinished returns true
