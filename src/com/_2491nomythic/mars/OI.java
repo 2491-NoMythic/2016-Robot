@@ -5,8 +5,7 @@ import com._2491nomythic.mars.commands.LowBarConfiguration;
 import com._2491nomythic.mars.commands.PickUpBallConfiguration;
 import com._2491nomythic.mars.commands.Shoot;
 import com._2491nomythic.mars.commands.StartingConfiguration;
-import com._2491nomythic.mars.commands.armature.ManualArmatureDownControl;
-import com._2491nomythic.mars.commands.armature.ManualArmatureUpControl;
+import com._2491nomythic.mars.commands.armature.ManualArmatureControl;
 import com._2491nomythic.mars.commands.drivetrain.ShiftGear;
 import com._2491nomythic.mars.commands.intake.IntakeBall;
 import com._2491nomythic.mars.commands.intake.ManualSpitOut;
@@ -37,7 +36,6 @@ public class OI {
     
 	private final Joystick[] controllers = new Joystick[2];
 	Button shoot, chevalDeFriseConfiguration, lowBarConfiguration, pickUpBallConfiguration, startingConfiguration, shiftGear, manualShooterControl, manualTakeIn, manualSpitOut, raiseShooter, lowerShooter, intakeBall, manualArmatureUpControl, manualArmatureDownControl;
-	
 	
 	/**
 	 * Initiates some joysticks and buttons.
@@ -77,21 +75,21 @@ public class OI {
 		lowerShooter.whenPressed(new LowerShooter());
 		
 		//Intake
-		manualTakeIn = new JoystickButton(controllers[ControllerMap.manualIntakeController], ControllerMap.manualTakeInButton);
+		manualTakeIn = new JoystickAxisButton(controllers[ControllerMap.manualIntakeController], ControllerMap.manualIntakeAxis, 0.8);
 		manualTakeIn.whileHeld(new ManualTakeIn());
 		
-		manualSpitOut = new JoystickButton(controllers[ControllerMap.manualIntakeController], ControllerMap.manualSpitOutButton);
+		manualSpitOut = new JoystickAxisButton(controllers[ControllerMap.manualIntakeController], ControllerMap.manualIntakeAxis, -0.8);
 		manualSpitOut.whileHeld(new ManualSpitOut());
 		
 		intakeBall = new JoystickButton(controllers[ControllerMap.intakeController], ControllerMap.intakeBallButton);
 		intakeBall.whileHeld(new IntakeBall());
 		
 		//Armature
-		manualArmatureUpControl = new JoystickAxisButton(controllers[ControllerMap.manualArmatureController], ControllerMap.manualArmatureAxis, 0.8);
-		manualArmatureUpControl.whileHeld(new ManualArmatureUpControl());
+		manualArmatureUpControl = new JoystickAxisButton(controllers[ControllerMap.manualArmatureController], ControllerMap.manualArmatureAxis, -0.8);
+		manualArmatureUpControl.whileHeld(new ManualArmatureControl(false));
 		
-		manualArmatureDownControl = new JoystickAxisButton(controllers[ControllerMap.manualArmatureController], ControllerMap.manualArmatureAxis, -0.8);
-		manualArmatureDownControl.whileHeld(new ManualArmatureDownControl());
+		manualArmatureDownControl = new JoystickAxisButton(controllers[ControllerMap.manualArmatureController], ControllerMap.manualArmatureAxis, 0.8);
+		manualArmatureDownControl.whileHeld(new ManualArmatureControl(true));
 	}
 	
 	/**
@@ -154,6 +152,19 @@ public class OI {
 	public double getAxisDeadzonedSquared(int joystickID, int axisID) {
 		double result = controllers[joystickID].getRawAxis(axisID);
 		result = result * Math.abs(result);
+		return Math.abs(result) > 0.05 ? result : 0;
+	}
+	
+	/**
+	 * Get an axis from a controller that is automatically cubed and deadzoned
+	 * 
+	 * @param joystickID The id of the controller. 0 = left or driver, 1 = right or driver
+	 * @param axisID The id of the axis (for use in getRawAxis)
+	 * @return the cubed, deadzoned result from running getRawAxis
+	 */
+	public double getAxisDeadzonedToTheFourth(int joystickID, int axisID) {
+		double result = controllers[joystickID].getRawAxis(axisID);
+		result = result * Math.pow(Math.abs(result), 3);
 		return Math.abs(result) > 0.05 ? result : 0;
 	}
 	

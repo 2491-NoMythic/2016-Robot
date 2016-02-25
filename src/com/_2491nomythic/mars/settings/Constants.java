@@ -1,6 +1,9 @@
 package com._2491nomythic.mars.settings;
 
 public class Constants {
+	//Regular Encoder ticks (non-talon)
+	public static final int ticksPerRev = 256;
+	
 	//Joysticks
 	public static final int ControllerOnePort = 0;
 	public static final int ControllerTwoPort = 1;
@@ -17,37 +20,43 @@ public class Constants {
 	public static final int driveTalonRight1Channel = 11;
 	public static final int driveTalonRight2Channel = 12;
 	public static final int driveTalonRight3Channel = 13;
+	public static final int driveEncoderLeftChannel1 = 3;
+	public static final int driveEncoderLeftChannel2 = 4;
+	public static final int driveEncoderRightChannel1 = 5;
+	public static final int driveEncoderRightChannel2 = 6;
 	public static final int driveSolenoidChannel = 6;
 
-	public static final int intakeChannel = 19;
+	public static final int intakeChannel = 10;
 
-	public static final int armatureChannel = 10;
+	public static final int armatureChannel = 19;
 	
 	public static final int shooterTalonLeftChannel = 15;
 	public static final int shooterTalonRightChannel = 14;
 	public static final int shooterSolenoidChannel = 7;
 	
 	//Computation Constants
-	public static final double driveEncoderToFeet = 1; //TODO get this value
-	public static final double acceptableArmatureDifference = 5; //TODO get this value
+	public static final double driveEncoderToFeet = 0.095720401164064;
+	public static final double driveHighGearDelay = 1;
+	public static final double driveHighGearShiftSpeed = 500; //TODO find actual speed
+	public static final double acceptableArmatureDifference = 5;
 	public static final double intakeSpeed = 1;
 	public static final double armatureSpeed = 0.3;
-	public static final long armatureRunTimeMs = 500;  // Time the armature will run trying to find the correct position
+	public static final double armatureSpeedFast = 1;
 	public static final double armatureUpPositionValue = 0;
 	public static final double armatureDownPositionValue = -1816;
 	public static final double armatureIntakePositionValue = -1403;
 	public static final double armatureLowBarPositionValue = -1395;
 	
 	//Vision Constants
-	public static final double visionCenterXValue = 1; //TODO
-	public static final double visionCenterYValue = 1; //TODO
-	public static final double visionAreaValue = 1; //TODO
-	public static final double visionHeightValue = 1; //TODO
-	public static final double visionWidthValue = 1; //TODO
-	public static final double acceptableVisionCenterXDifference = 1; //TODO
-	public static final double acceptableVisionCenterYDifference = 1; //TODO
-	public static final double acceptableVisionAreaDifference = 1; //TODO
-	public static final double acceptableVisionHeightDifference = 1; //TODO
-	public static final double acceptableVisionWidthDifference = 1; //TODO
+//	public static final double visionCenterXValue = 1; //TODO
+//	public static final double visionCenterYValue = 1; //TODO
+//	public static final double visionAreaValue = 1; //TODO
+//	public static final double visionHeightValue = 1; //TODO
+//	public static final double visionWidthValue = 1; //TODO
+//	public static final double acceptableVisionCenterXDifference = 1; //TODO
+//	public static final double acceptableVisionCenterYDifference = 1; //TODO
+//	public static final double acceptableVisionAreaDifference = 1; //TODO
+//	public static final double acceptableVisionHeightDifference = 1; //TODO
+//	public static final double acceptableVisionWidthDifference = 1; //TODO
 
 }

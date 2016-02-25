@@ -6,7 +6,7 @@ import com._2491nomythic.mars.commands.CommandBase;
  *
  */
 public class RotateDrivetrain extends CommandBase {
-	double distance;
+	double distance, initialLeftEncoder, initialRightEncoder;
 	double power;
 	boolean turnLeft;
 
@@ -14,6 +14,8 @@ public class RotateDrivetrain extends CommandBase {
 		// Use requires() here to declare subsystem dependencies
 		// eg. requires(chassis);
 		requires(drivetrain);
+		initialLeftEncoder = drivetrain.getLeftEncoderDistance();
+		initialRightEncoder = drivetrain.getRightEncoderDistance();
 		distance = (angleInDegrees * (Math.PI / 180)) * 24.42;
 		this.power = power;
 	}
@@ -35,10 +37,10 @@ public class RotateDrivetrain extends CommandBase {
 	// Make this return true when this Command no longer needs to run execute()
 	protected boolean isFinished() {
 		if(turnLeft) {
-			return drivetrain.getLeftEncoderPosition() > distance;
+			return Math.abs(drivetrain.getLeftEncoderDistance() - initialLeftEncoder) > distance;
 		}
 		else {
-			return drivetrain.getRightEncoderPosition() > distance;
+			return Math.abs(drivetrain.getRightEncoderDistance() - initialRightEncoder) > distance;
 		}
 	}
 

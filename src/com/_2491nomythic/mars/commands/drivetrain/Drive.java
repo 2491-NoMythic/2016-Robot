@@ -22,11 +22,12 @@ public class Drive extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	leftPower = oi.getAxisDeadzonedSquared(ControllerMap.driveController, ControllerMap.driveLeftAxis);
-    	rightPower = oi.getAxisDeadzonedSquared(ControllerMap.driveController, ControllerMap.driveRightAxis);
-    	directionMultiplierLeft = leftPower / Math.abs(leftPower); //Multiply by -1 or 1 depending on joystick input
-    	directionMultiplierRight = rightPower / Math.abs(rightPower); //Multiply by -1 or 1 depending on joystick input
-    	drivetrain.drive(directionMultiplierLeft * (Math.pow(2, Math.abs(leftPower) * 10)/1024), directionMultiplierRight * (Math.pow(2, Math.abs(rightPower) * 10)/1024));
+    	leftPower = oi.getAxisDeadzonedToTheFourth(ControllerMap.driveController, ControllerMap.driveLeftAxis);
+    	rightPower = oi.getAxisDeadzonedToTheFourth(ControllerMap.driveController, ControllerMap.driveRightAxis);
+    	drivetrain.drive(leftPower, rightPower);
+    	
+    	System.out.println(drivetrain.getLeftEncoder().getRaw());
+    	System.out.println(drivetrain.getRightEncoder().getRaw());
     }
 
     // Make this return true when this Command no longer needs to run execute()
