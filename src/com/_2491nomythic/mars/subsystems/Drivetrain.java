@@ -10,7 +10,7 @@ import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
- *
+ * The system used to move the robot
  */
 public class Drivetrain extends Subsystem {
     private CANTalon left1, left2, left3, right1, right2, right3;
@@ -27,6 +27,9 @@ public class Drivetrain extends Subsystem {
 		return instance;
 	}
 	
+	/**
+	 * The system used to move the robot
+	 */
 	private Drivetrain() {
 		left1 = new CANTalon(Constants.driveTalonLeft1Channel);
 		left2 = new CANTalon(Constants.driveTalonLeft2Channel);
