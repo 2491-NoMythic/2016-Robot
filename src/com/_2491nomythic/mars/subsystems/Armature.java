@@ -9,7 +9,7 @@ import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
- *
+ * The rotating protrusion on the end of the intake system.
  */
 public class Armature extends Subsystem {
     private CANTalon motor;
@@ -39,6 +39,10 @@ public class Armature extends Subsystem {
     	keepArmatureStill = new KeepArmatureStill();
     }
     
+    /**
+     * Sets the armature motor to a constant speed and stops the KeepArmatureStill command.
+     * @param speed The power fed to the motor, ranging from -1 to 1, where negative values run the motor backwards.
+     */
     public void set(double speed) {
     	if(keepArmatureStill.isRunning()) {
     		keepArmatureStill.cancel();
@@ -46,26 +50,46 @@ public class Armature extends Subsystem {
     	motor.set(speed);
     }
     
+    /**
+     * Sets the armature motor to a constant speed.
+     * @param speed The power fed to the motor, ranging from -1 to 1, where negative values run the motor backwards.
+     */
     public void armatureSet(double speed) {
     	motor.set(speed);
     }
     
+    /**
+     * @return The current position of the armature encoder.
+     */
     public double getEncoderPosition() {
     	return motor.getEncPosition();
     }
     
+    /**
+     * @return The current velocity of the armature encoder.
+     */
     public double getEncoderVelocity() {
     	return motor.getEncVelocity();
     }
     
+    /**
+     * @return The armature motor.
+     */
     public CANTalon get() {
     	return motor;
     }
     
+    /**
+     * Stops the armature motor and then starts the KeepArmatureStill command.
+     */
     public void stop() {
     	set(0);
     	keepArmatureStill.start();
     }
+    
+    /**
+     * @return Returns whether the armature limit switch is pressed;
+     */
     public boolean getLimitSwitch(){
     	return limitSwitch.get();
     }
