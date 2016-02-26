@@ -19,19 +19,13 @@ public class ShootPickupShoot extends Command {
 	int state = 0;
 	RaiseShooter raiseShooter;
 	RunShooterTime shoot;
-	DriveToPosition drive1ft;
+	DriveToPosition drive1ft, drive2ft, drive24ft, drive19ft;
 	LowerShooter lowerShooter;
-	RotateDrivetrain rotateNeg90;
-	DriveToPosition drive24ft;
-	RotateDrivetrain rotate90;
-	ArmaturePositionSet armUp;
-	ArmaturePositionSet armIntake;
-	ArmaturePositionSet armLowBar;
+	RotateDrivetrain rotateNeg90,rotate90, rotateNeg22;
+	ArmaturePositionSet armUp, armIntake, armLowBar;
 	IntakeBall intakeBall;
-	DriveToPosition drive2ft;
-	DriveToPosition drive19ft;
-	RotateDrivetrain rotateNeg22;
 	Timer timer;
+	
     public ShootPickupShoot() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
