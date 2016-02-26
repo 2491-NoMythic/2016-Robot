@@ -28,6 +28,9 @@ public class Armature extends Subsystem {
     	return instance;
     }
     
+    /**
+     * The rotating protrusion on the end of the intake system.
+     */
     private Armature() {
     	motor = new CANTalon(Constants.armatureChannel);
     	
