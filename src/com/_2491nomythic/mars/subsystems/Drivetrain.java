@@ -91,22 +91,6 @@ public class Drivetrain extends Subsystem {
 		encoderRight.reset();
 	}
 	
-//	public double getLeftEncoderPosition() {
-//		return left1.getEncPosition();
-//	}
-//	
-//	public double getLeftEncoderVelocity() {
-//		return left1.getEncVelocity();
-//	}
-//	
-//	public double getRightEncoderPosition() {
-//		return right1.getEncPosition();
-//	}
-//	
-//	public double getRightEncoderVelocity() {
-//		return right1.getEncVelocity();
-//	}
-	
 	public Encoder getLeftEncoder() {
 		return encoderLeft;
 	}
