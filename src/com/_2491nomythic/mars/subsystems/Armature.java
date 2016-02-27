@@ -1,6 +1,5 @@
 package com._2491nomythic.mars.subsystems;
 
-import com._2491nomythic.mars.commands.armature.KeepArmatureStill;
 //import com._2491nomythic.mars.commands.armature.KeepArmatureStill;
 import com._2491nomythic.mars.settings.Constants;
 
@@ -14,7 +13,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 public class Armature extends Subsystem {
     private CANTalon motor;
     private DigitalInput limitSwitch;
-    private KeepArmatureStill keepArmatureStill;
+//    private KeepArmatureStill keepArmatureStill;
     
     public static Armature instance;
 	
@@ -39,7 +38,7 @@ public class Armature extends Subsystem {
     	
     	limitSwitch = new DigitalInput(Constants.armatureLimitSwitchChannel);
     	
-    	keepArmatureStill = new KeepArmatureStill();
+    	//keepArmatureStill = new KeepArmatureStill();
     }
     
     /**
@@ -47,9 +46,9 @@ public class Armature extends Subsystem {
      * @param speed The power fed to the motor, ranging from -1 to 1, where negative values run the motor backwards
      */
     public void set(double speed) {
-    	if(keepArmatureStill.isRunning()) {
-    		keepArmatureStill.cancel();
-    	}
+//    	if(keepArmatureStill.isRunning()) {
+//    		keepArmatureStill.cancel();
+//    	}
     	motor.set(speed);
     }
     
@@ -87,7 +86,7 @@ public class Armature extends Subsystem {
      */
     public void stop() {
     	set(0);
-    	keepArmatureStill.start();
+    	//keepArmatureStill.start();
     }
     
     /**

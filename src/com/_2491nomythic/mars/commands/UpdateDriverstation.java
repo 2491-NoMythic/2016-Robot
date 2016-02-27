@@ -1,11 +1,9 @@
 package com._2491nomythic.mars.commands;
 
-import java.util.Comparator;
-import java.util.Vector;
 
 //import com._2491nomythic.mars.settings.Constants;
 import com._2491nomythic.mars.settings.Variables;
-import com.ni.vision.NIVision;
+//import com.ni.vision.NIVision;
 
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -16,34 +14,14 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 public class UpdateDriverstation extends CommandBase {
 	private Timer timer;
 	private double nextRun;
-	NIVision.ParticleFilterCriteria2 criteria[];
-	NIVision.ParticleFilterOptions2 filterOptions;
-	Scores scores;
-	Vector<ParticleReport> particles;
-	private int numOfParticles;
-	public class ParticleReport implements Comparator<ParticleReport>, Comparable<ParticleReport>{
-		double PercentAreaToImageArea;
-		double Area;
-		double BoundingRectLeft;
-		double BoundingRectTop;
-		double BoundingRectRight;
-		double BoundingRectBottom;
-		
-		public int compareTo(ParticleReport r)
-		{
-			return (int)(r.Area - this.Area);
-		}
-		
-		public int compare(ParticleReport r1, ParticleReport r2)
-		{
-			return (int)(r1.Area - r2.Area);
-		}
-	};
-	public class Scores {
-		double Area;
-		double Aspect;
-	};
-	
+//	private int numOfParticles;
+	public class ParticleInfo {
+		double Width;
+		double Height;
+		double CenterX;
+		double CenterY;
+	}
+
 	/**
 	 * Updates the Values going between the DriverStation, the SmartDashboard, and the roboRIO
 	 */
@@ -52,10 +30,6 @@ public class UpdateDriverstation extends CommandBase {
         // eg. requires(chassis);
 //    	requires(grip);
     	timer = new Timer();
-    	criteria = new NIVision.ParticleFilterCriteria2[1];
-		filterOptions = new NIVision.ParticleFilterOptions2(0,0,1,1);
-		scores = new Scores();
-    	particles = new Vector<ParticleReport>();
     }
 
     // Called just before this Command runs the first time
@@ -74,11 +48,20 @@ public class UpdateDriverstation extends CommandBase {
 			Variables.shooterSpeed = SmartDashboard.getNumber("Shooter Speed");
 			
 			//Vision code starts here
-			//numOfParticles = grip.getArea().length;
-//	    	for(int particleIndex = 0; particleIndex < numOfParticles; particleIndex++) {
-//	    		ParticleReport par = new ParticleReport();
-//	    		
+			//It runs off of grip, so we are simply taking the biggest target
+//			numOfParticles = grip.getArea().length;
+//			if(numOfParticles == 0) {
+//				//do nothing	    		
 //	    	}
+//			else {
+//				//grab the data values of the largest particle
+//				ParticleInfo particleInfo = new ParticleInfo();
+//				particleInfo.Area = grip.getArea()[0];
+//				particleInfo.CenterX = grip.getCenterX()[0];
+//				particleInfo.CenterY = grip.getCenterY()[0];
+//				particleInfo.Height = grip.getHeight()[0];
+//				particleInfo.Width = grip.getWidth()[0];
+//			}
     	}
     }
 
