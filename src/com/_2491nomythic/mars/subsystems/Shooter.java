@@ -7,7 +7,7 @@ import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
- * The system that shoots boulders into the high goal.
+ * The system that shoots boulders into the high goal
  */
 public class Shooter extends Subsystem {
     private CANTalon motorLeft, motorRight;
@@ -26,7 +26,7 @@ public class Shooter extends Subsystem {
     }
     
     /**
-     * The system that shoots boulders into the high goal.
+     * The system that shoots boulders into the high goal
      */
     private Shooter() {
     	motorLeft = new CANTalon(Constants.shooterTalonLeftChannel);
@@ -40,9 +40,9 @@ public class Shooter extends Subsystem {
     }
     
     /**
-	 * Sets the shooter motors to independent specific speeds.
-	 * @param speedLeft The power fed to the left shooter motor, ranging from -1 to 1, where negative values run the motor backwards.
-	 * @param speedRight The power fed to the right shooter motor, ranging from -1 to 1, where negative values run the motor backwards.
+	 * Sets the shooter motors to independent specific speeds
+	 * @param speedLeft The power fed to the left shooter motor, ranging from -1 to 1, where negative values run the motor backwards
+	 * @param speedRight The power fed to the right shooter motor, ranging from -1 to 1, where negative values run the motor backwards
 	 */
     public void set(double speedLeft, double speedRight) {
     	setLeft(speedLeft);
@@ -50,8 +50,8 @@ public class Shooter extends Subsystem {
     }
     
     /**
-	 * Sets the shooter motors to a unified specific speed.
-	 * @param speed The power fed to both shooter motors, ranging from -1 to 1, where negative values run the motors backwards.
+	 * Sets the shooter motors to a unified specific speed
+	 * @param speed The power fed to both shooter motors, ranging from -1 to 1, where negative values run the motors backwards
 	 */
     public void set(double speed) {
     	setLeft(speed);
@@ -59,8 +59,8 @@ public class Shooter extends Subsystem {
     }
     
     /**
-	 * Sets the left shooter motor to a specific speed.
-	 * @param speed The power fed to the left shooter motor, ranging from -1 to 1, where negative values run the motor backwards.
+	 * Sets the left shooter motor to a specific speed
+	 * @param speed The power fed to the left shooter motor, ranging from -1 to 1, where negative values run the motor backwards
 	 */
     public void setLeft(double speed) {
     	currentLeftSpeed = speed;
@@ -68,8 +68,8 @@ public class Shooter extends Subsystem {
     }
     
     /**
-	 * Sets the right shooter motor to a specific speed.
-	 * @param speed The power fed to the right shooter motor, ranging from -1 to 1, where negative values run the motor backwards.
+	 * Sets the right shooter motor to a specific speed
+	 * @param speed The power fed to the right shooter motor, ranging from -1 to 1, where negative values run the motor backwards
 	 */
     public void setRight(double speed) {
     	currentRightSpeed = speed;
@@ -77,91 +77,91 @@ public class Shooter extends Subsystem {
     }
     
     /**
-     * Raises the shooter so that we can shoot.
+     * Raises the shooter so that we can shoot
      */
     public void raise() {
 		solenoid.set(true);
 	}
 	
     /**
-     * Lowers the shooter so that we can fit under the low bar.
+     * Lowers the shooter so that we can fit under the low bar
      */
 	public void lower() {
 		solenoid.set(false);
 	}
     
 	/**
-	 * @return The current value of the left shooter encoder.
+	 * @return The current value of the left shooter encoder
 	 */
     public double getLeftEncoderPosition() {
     	return motorLeft.getEncPosition();
     }
     
     /**
-     * @return The current velocity of the left shooter encoder.
+     * @return The current velocity of the left shooter encoder
      */
     public double getLeftEncoderVelocity() {
     	return motorLeft.getEncVelocity();
     }
     
     /**
-     * @return The current value of the right shooter encoder.
+     * @return The current value of the right shooter encoder
      */
     public double getRightEncoderPosition() {
     	return motorRight.getEncPosition();
     }
     
     /**
-     * @return The current velocity of the right shooter velocity.
+     * @return The current velocity of the right shooter velocity
      */
     public double getRightEncoderVelocity() {
     	return motorRight.getEncVelocity();
     }
     
     /**
-     * @return The solenoid that holds the shooter down.
+     * @return The solenoid that holds the shooter down
      */
     public Solenoid getSolenoid() {
 		return solenoid;
 	}
 	
     /**
-     * @return Whether the solenoid holding the shooter down is extended.
+     * @return Whether the solenoid holding the shooter down is extended
      */
 	public boolean getSolenoidValue() {
 		return solenoid.get();
 	}
 	
 	/**
-	 * @return The left shooter motor.
+	 * @return The left shooter motor
 	 */
     public CANTalon getLeftMotor() {
     	return motorLeft;
     }
     
     /**
-     * @return the right shooter motor.
+     * @return the right shooter motor
      */
     public CANTalon getRightMotor() {
     	return motorRight;
     }
     
 	/**
-	 * @return The current power being fed to the left shooter motor, ranging from -1 to 1, where negative values run the motor backwards.
+	 * @return The current power being fed to the left shooter motor, ranging from -1 to 1, where negative values run the motor backwards
 	 */
     public double getLeftSpeed() {
     	return currentLeftSpeed;
     }
     
     /**
-	 * @return The current power being fed to the right shooter motor, ranging from -1 to 1, where negative values run the motor backwards.
+	 * @return The current power being fed to the right shooter motor, ranging from -1 to 1, where negative values run the motor backwards
      */
     public double getRightSpeed() {
     	return currentRightSpeed;
     }
     
     /**
-     * Stops the shooter motors.
+     * Stops the shooter motors
      */
     public void stop() {
     	set(0);
