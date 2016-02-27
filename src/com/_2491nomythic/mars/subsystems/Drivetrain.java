@@ -5,6 +5,7 @@ import com._2491nomythic.mars.settings.Constants;
 import com._2491nomythic.mars.subsystems.Drivetrain;
 
 import edu.wpi.first.wpilibj.CANTalon;
+import edu.wpi.first.wpilibj.CounterBase;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;
@@ -38,8 +39,8 @@ public class Drivetrain extends Subsystem {
 		right2 = new CANTalon(Constants.driveTalonRight2Channel);
 		right3 = new CANTalon(Constants.driveTalonRight3Channel);
 		
-		encoderLeft = new Encoder(Constants.driveEncoderLeftChannel1, Constants.driveEncoderLeftChannel2);
-		encoderRight = new Encoder(Constants.driveEncoderRightChannel1, Constants.driveEncoderRightChannel2);
+		encoderLeft = new Encoder(Constants.driveEncoderLeftChannel1, Constants.driveEncoderLeftChannel2,  false, CounterBase.EncodingType.k1X);
+		encoderRight = new Encoder(Constants.driveEncoderRightChannel1, Constants.driveEncoderRightChannel2, false, CounterBase.EncodingType.k1X);
 		encoderLeft.setDistancePerPulse(Constants.driveEncoderToFeet);
 		encoderRight.setDistancePerPulse(Constants.driveEncoderToFeet);
 		encoderLeft.reset();
