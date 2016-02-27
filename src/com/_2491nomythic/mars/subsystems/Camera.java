@@ -9,7 +9,7 @@ import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
- * The camera used to help the drivers shoot.
+ * The camera used to help the drivers shoot
  */
 public class Camera extends Subsystem {
 	
@@ -26,7 +26,7 @@ public class Camera extends Subsystem {
 	}
 	
 	/**
-	 * The camera used to help the drivers shoot.
+	 * The camera used to help the drivers shoot
 	 */
 	private Camera() {
 		frame = NIVision.imaqCreateImage(NIVision.ImageType.IMAGE_HSL, 0);
@@ -43,7 +43,7 @@ public class Camera extends Subsystem {
 	}
 	
 	/**
-	 * Starts receiving video from the Camera.
+	 * Starts receiving video from the Camera
 	 */
 	public void startImageAcquisition() {
 		if (cameraFound) {
@@ -52,7 +52,7 @@ public class Camera extends Subsystem {
 	}
 	
 	/**
-	 * Stops receiving video from the camera.
+	 * Stops receiving video from the camera
 	 */
 	public void stopImageAcquisition() {
 		if (cameraFound) {
@@ -61,7 +61,7 @@ public class Camera extends Subsystem {
 	}
 	
 	/**
-	 * Updates the current image to the Driver Station.
+	 * Updates the current image to the Driver Station
 	 */
 	public void updateDriverstationImage() {
 		if (cameraFound) {
