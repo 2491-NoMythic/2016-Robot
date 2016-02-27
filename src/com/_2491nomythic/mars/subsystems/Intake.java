@@ -7,7 +7,7 @@ import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
- * The system that loads boulders into the robot.
+ * The system that loads boulders into the robot
  */
 public class Intake extends Subsystem {
     private CANTalon motor;
@@ -26,7 +26,7 @@ public class Intake extends Subsystem {
     }
     
     /**
-     * The system that loads boulders into the robot.
+     * The system that loads boulders into the robot
      */
     private Intake() {
     	motor = new CANTalon(Constants.intakeChannel);
@@ -36,36 +36,36 @@ public class Intake extends Subsystem {
     }
     
     /**
-     * Sets the intake motor to a specific speed.
-	 * @param speed The power fed to the intake motor, ranging from -1 to 1, where negative values run the motor backwards.
+     * Sets the intake motor to a specific speed
+	 * @param speed The power fed to the intake motor, ranging from -1 to 1, where negative values run the motor backwards
      */
     public void set(double speed) {
     	motor.set(-1.0 * speed);
     }
     
     /**
-     * @return The intake motor.
+     * @return The intake motor
      */
     public CANTalon get() {
     	return motor;
     }
     
     /**
-     * @return Whether the first of two limit switches is pressed.
+     * @return Whether the first of two limit switches is pressed
      */
     public boolean getLimitSwitch1Value() {
     	return limitSwitch1.get();
     }
     
     /**
-     * @return Whether the second of two limit switches is pressed.
+     * @return Whether the second of two limit switches is pressed
      */
     public boolean getLimitSwitch2Value() {
     	return limitSwitch2.get();
     }
     
     /**
-     * Stops the intake motor.
+     * Stops the intake motor
      */
     public void stop() {
     	set(0);
