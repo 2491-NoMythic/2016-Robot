@@ -9,10 +9,13 @@ import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
- *
+ * Shoots a loaded boulder
  */
 public class Shoot extends CommandGroup {
     
+	/**
+	 * Shoots a loaded boulder
+	 */
     public  Shoot() {
     	
     	if(CommandBase.shooter.getSolenoidValue() == false) {
