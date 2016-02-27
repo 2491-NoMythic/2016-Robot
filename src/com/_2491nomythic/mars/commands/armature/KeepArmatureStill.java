@@ -22,7 +22,7 @@ public class KeepArmatureStill extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	System.out.println(armature.getEncoderPosition());
+    	//System.out.println(armature.getEncoderPosition());
     	
     	if (Math.abs(initialArmaturePosition - armature.getEncoderPosition()) > Constants.acceptableArmatureDifference) {
     		armature.armatureSet(-0.1);

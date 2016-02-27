@@ -21,18 +21,18 @@ public class ManualArmatureControl extends CommandBase {
     protected void initialize() {
     	if (moveDown) {
     		if (oi.getButton(ControllerMap.manualArmatureController, ControllerMap.manualArmatureFastButton)) {
-    			armature.set(Constants.armatureSpeedFast);
-    		}
-    		else {
-    			armature.set(Constants.armatureSpeed);
-    		}
-    	}
-    	else {
-    		if (oi.getButton(ControllerMap.manualArmatureController, ControllerMap.manualArmatureFastButton)) {
     			armature.set(-1.0 * Constants.armatureSpeedFast);
     		}
     		else {
     			armature.set(-1.0 * Constants.armatureSpeed);
+    		}
+    	}
+    	else {
+    		if (oi.getButton(ControllerMap.manualArmatureController, ControllerMap.manualArmatureFastButton)) {
+    			armature.set(Constants.armatureSpeedFast);
+    		}
+    		else {
+    			armature.set(Constants.armatureSpeed);
     		}
     	}
     }

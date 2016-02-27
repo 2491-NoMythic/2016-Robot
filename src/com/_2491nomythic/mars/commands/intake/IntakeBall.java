@@ -26,7 +26,8 @@ public class IntakeBall extends CommandBase {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return intake.getLimitSwitch1Value() || intake.getLimitSwitch2Value();
+        //return intake.getLimitSwitch1Value() || intake.getLimitSwitch2Value();
+    	return false;
     }
 
     // Called once after isFinished returns true
