@@ -43,18 +43,30 @@ public class Intake extends Subsystem {
     	motor.set(-1.0 * speed);
     }
     
+    /**
+     * @return The intake motor.
+     */
     public CANTalon get() {
     	return motor;
     }
     
+    /**
+     * @return Whether the first of two limit switches is pressed.
+     */
     public boolean getLimitSwitch1Value() {
     	return limitSwitch1.get();
     }
     
+    /**
+     * @return Whether the second of two limit switches is pressed.
+     */
     public boolean getLimitSwitch2Value() {
     	return limitSwitch2.get();
     }
     
+    /**
+     * Stops the intake motor.
+     */
     public void stop() {
     	set(0);
     }
