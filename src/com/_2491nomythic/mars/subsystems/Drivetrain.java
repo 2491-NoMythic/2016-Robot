@@ -241,7 +241,7 @@ public class Drivetrain extends Subsystem {
 	 * Stops the drive motors
 	 */
 	public void stop() {
-		drive(0, 0);
+		drive(0);
 	}
 
     public void initDefaultCommand() {
