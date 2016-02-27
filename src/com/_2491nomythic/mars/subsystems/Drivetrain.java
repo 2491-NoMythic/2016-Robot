@@ -39,7 +39,7 @@ public class Drivetrain extends Subsystem {
 		right2 = new CANTalon(Constants.driveTalonRight2Channel);
 		right3 = new CANTalon(Constants.driveTalonRight3Channel);
 		
-		encoderLeft = new Encoder(Constants.driveEncoderLeftChannel1, Constants.driveEncoderLeftChannel2, false, CounterBase.EncodingType.k1X);
+		encoderLeft = new Encoder(Constants.driveEncoderLeftChannel1, Constants.driveEncoderLeftChannel2,  false, CounterBase.EncodingType.k1X);
 		encoderRight = new Encoder(Constants.driveEncoderRightChannel1, Constants.driveEncoderRightChannel2, false, CounterBase.EncodingType.k1X);
 		encoderLeft.setDistancePerPulse(Constants.driveEncoderToFeet);
 		encoderRight.setDistancePerPulse(Constants.driveEncoderToFeet);
