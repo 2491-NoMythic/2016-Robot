@@ -6,7 +6,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.networktables.NetworkTable;
 
 /**
- *
+ * The values sent to us by the GRIP vision system running on the Raspberry Pi.
  */
 public class GRIP extends Subsystem {
 	double[] area, centerX, centerY, defaultValue;
@@ -21,30 +21,51 @@ public class GRIP extends Subsystem {
 		return instance;
 	}
 	
+	/**
+	 * The values sent to us by the GRIP vision system running on the Raspberry Pi.
+	 */
 	private GRIP() {
     	defaultValue = new double[0];
 	}
 	
+	/**
+	 * @return The NetworkTable sent to us by the Raspberry Pi.
+	 */
 	public NetworkTable getTable() {
-		return NetworkTable.getTable("GRIP/myCountoursReport");
+		return NetworkTable.getTable("GRIP/myCountoursReport"); //TODO get path
 	}
 	
+	/**
+	 * @return An array of the horizontal locations of the center of the identified targets.
+	 */
 	public double[] getCenterX() {
 		return getTable().getNumberArray("centerX", defaultValue);
 	}
 	
+	/**
+	 * @return An array of the vertical locations of the center of the identified targets.
+	 */
 	public double[] getCenterY() {
 		return getTable().getNumberArray("centerY", defaultValue);
 	}
 	
+	/**
+	 * @return An array of the areas of the identified targets.
+	 */
 	public double[] getArea() {
 		return getTable().getNumberArray("area", defaultValue);
 	}
 	
+	/**
+	 * @return An array of the heights of the identified targets.
+	 */
 	public double[] getHeight() {
 		return getTable().getNumberArray("height", defaultValue);
 	}
 	
+	/**
+	 * @return An array of the widths of the identified targets.
+	 */
 	public double[] getWidth() {
 		return getTable().getNumberArray("width", defaultValue);
 	}
