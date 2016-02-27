@@ -57,9 +57,9 @@ public class Drivetrain extends Subsystem {
     // here. Call these from Commands.
 	
 	/**
-	 * Sets the drive motors to independent specific speeds.
-	 * @param leftSpeed The power fed to the left drive motors, ranging from -1 to 1, where negative values run the motors backwards.
-	 * @param rightSpeed The power fed to the right drive motors, ranging from -1 to 1, where negative values run the motors backwards.
+	 * Sets the drive motors to independent specific speeds
+	 * @param leftSpeed The power fed to the left drive motors, ranging from -1 to 1, where negative values run the motors backwards
+	 * @param rightSpeed The power fed to the right drive motors, ranging from -1 to 1, where negative values run the motors backwards
 	 */
 	public void drive(double leftSpeed, double rightSpeed) {
 		driveLeft(leftSpeed);
@@ -67,8 +67,8 @@ public class Drivetrain extends Subsystem {
 	}
 	
 	/**
-	 * Sets the drive motors to a unified specific speed.
-	 * @param speed The power fed to all drive motors, ranging from -1 to 1, where negative values run the motors backwards.
+	 * Sets the drive motors to a unified specific speed
+	 * @param speed The power fed to all drive motors, ranging from -1 to 1, where negative values run the motors backwards
 	 */
 	public void drive(double speed) {
 		driveLeft(speed);
@@ -76,8 +76,8 @@ public class Drivetrain extends Subsystem {
 	}
 	
 	/**
-	 * Sets the left drive motors to a specific speed.
-	 * @param speed The power fed to the left drive motors, ranging from -1 to 1, where negative values run the motors backwards.
+	 * Sets the left drive motors to a specific speed
+	 * @param speed The power fed to the left drive motors, ranging from -1 to 1, where negative values run the motors backwards
 	 */
 	public void driveLeft(double speed) {
 		left1.set(speed);
@@ -87,8 +87,8 @@ public class Drivetrain extends Subsystem {
 	}
 	
 	/**
-	 * Sets the right drive motors to a specific speed.
-	 * @param speed The power fed to the right drive motors, ranging from -1 to 1, where negative values run the motors backwards.
+	 * Sets the right drive motors to a specific speed
+	 * @param speed The power fed to the right drive motors, ranging from -1 to 1, where negative values run the motors backwards
 	 */
 	public void driveRight(double speed) {
 		right1.set(-1.0 * speed);
@@ -98,56 +98,56 @@ public class Drivetrain extends Subsystem {
 	}
 	
 	/**
-	 * Shifts the drivetrain to high gear, giving it more speed but less torque.
+	 * Shifts the drivetrain to high gear, giving it more speed but less torque
 	 */
 	public void shiftToHighGear() {
 		solenoid.set(true);
 	}
 	
 	/**
-	 * Shifts the drivetrain to low gear, giving it more torque but less speed.
+	 * Shifts the drivetrain to low gear, giving it more torque but less speed
 	 */
 	public void shiftToLowGear() {
 		solenoid.set(false);
 	}
 	
 	/**
-	 * Resets the left drive encoder value to 0.
+	 * Resets the left drive encoder value to 0
 	 */
 	public void resetLeftEncoder() {
 		encoderLeft.reset();
 	}
 	
 	/**
-	 * Resets the right drive encoder value to 0.
+	 * Resets the right drive encoder value to 0
 	 */
 	public void resetRightEncoder() {
 		encoderRight.reset();
 	}
 	
 	/**
-	 * @return The left drive encoder.
+	 * @return The left drive encoder
 	 */
 	public Encoder getLeftEncoder() {
 		return encoderLeft;
 	}
 	
 	/**
-	 * @return the right drive encoder.
+	 * @return the right drive encoder
 	 */
 	public Encoder getRightEncoder() {
 		return encoderRight;
 	}
 	
 	/**
-	 * @return The value of the left drive encoder.
+	 * @return The value of the left drive encoder
 	 */
 	public double getLeftEncoderDistance() {
 		return encoderLeft.getDistance();
 	}
 	
 	/**
-	 * @return The value of the right drive encoder.
+	 * @return The value of the right drive encoder
 	 */
 	public double getRightEncoderDistance() {
 		return encoderRight.getDistance();
@@ -168,77 +168,77 @@ public class Drivetrain extends Subsystem {
 	}
 	
 	/**
-	 * @return The solenoid that shifts the drive gears.
+	 * @return The solenoid that shifts the drive gears
 	 */
 	public Solenoid getSolenoid() {
 		return solenoid;
 	}
 	
 	/**
-	 * @return Whether the drive solenoid is extended.
+	 * @return Whether the drive solenoid is extended
 	 */
 	public boolean getSolenoidValue() {
 		return solenoid.get();
 	}
 	
 	/**
-	 * @return The first of three drive motors on the left side of the robot.
+	 * @return The first of three drive motors on the left side of the robot
 	 */
 	public CANTalon getLeft1Motor() {
 		return left1;
 	}
 	
 	/**
-	 * @return The second of three drive motors on the left side of the robot.
+	 * @return The second of three drive motors on the left side of the robot
 	 */
 	public CANTalon getLeft2Motor() {
 		return left2;
 	}
 	
 	/**
-	 * @return The third of three drive motors on the left side of the robot.
+	 * @return The third of three drive motors on the left side of the robot
 	 */
 	public CANTalon getLeft3Motor() {
 		return left3;
 	}
 	
 	/**
-	 * @return The first of three drive motors on the right side of the robot.
+	 * @return The first of three drive motors on the right side of the robot
 	 */
 	public CANTalon getRight1Motor() {
 		return right1;
 	}
 	
 	/**
-	 * @return The second of three drive motors on the right side of the robot.
+	 * @return The second of three drive motors on the right side of the robot
 	 */
 	public CANTalon getRight2Motor() {
 		return right2;
 	}
 	
 	/**
-	 * @return The third of three drive motors on the right side of the robot.
+	 * @return The third of three drive motors on the right side of the robot
 	 */
 	public CANTalon getRight3Motor() {
 		return right3;
 	}
 	
 	/**
-	 * @return The current power being fed to the left drive motors, ranging from -1 to 1, where negative values run the motors backwards.
+	 * @return The current power being fed to the left drive motors, ranging from -1 to 1, where negative values run the motors backwards
 	 */
 	public double getCurrentLeftSpeed() {
 		return currentLeftSpeed;
 	}
 	
 	/**
-	 * @return The current power being fed to the right drive motors, ranging from -1 to 1, where negative values run the motors backwards.
+	 * @return The current power being fed to the right drive motors, ranging from -1 to 1, where negative values run the motors backwards
 	 */
 	public double getCurrentRightSpeed() {
 		return currentRightSpeed;
 	}
 	
 	/**
-	 * Stops the drive motors.
+	 * Stops the drive motors
 	 */
 	public void stop() {
 		drive(0, 0);
