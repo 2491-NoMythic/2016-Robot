@@ -94,7 +94,6 @@ public class OI {
 	
 	/**
 	 * Get a controller
-	 * 
 	 * @param id the ID of the controller. 0 = left or driver, 1 = right or codriver.
 	 * @return the instance of the controller requested
 	 */
@@ -104,12 +103,8 @@ public class OI {
 	
 	/**
 	 * Get a button from a controller
-	 * 
-	 * @param joystickID
-	 *            The id of the controller. 0 = left or driver, 1 = right or
-	 *            codriver.
-	 * @param axisID
-	 *            The id of the button (for use in getRawButton)
+	 * @param joystickID The id of the controller. 0 = left or driver, 1 = right or codriver.
+	 * @param axisID The id of the button (for use in getRawButton)
 	 * @return the result from running getRawButton(button)
 	 */
 	public boolean getButton(int joystickID, int buttonID) {
@@ -118,12 +113,8 @@ public class OI {
 	
 	/**
 	 * Get an axis from a controller
-	 * 
-	 * @param joystickID
-	 *            The id of the controller. 0 = left or driver, 1 = right or
-	 *            codriver.
-	 * @param axisID
-	 *            The id of the axis (for use in getRawAxis)
+	 * @param joystickID The id of the controller. 0 = left or driver, 1 = right or codriver.
+	 * @param axisID The id of the axis (for use in getRawAxis)
 	 * @return the result from running getRawAxis(axis)
 	 */
 	public double getAxis(int joystickID, int axisID) {
@@ -132,7 +123,6 @@ public class OI {
 	
 	/**
 	 * Get an axis from a controller that is automatically deadzoned
-	 * 
 	 * @param joystickID The id of the controller. 0 = left or driver, 1 = right or driver
 	 * @param axisID The id of the axis (for use in getRawAxis)
 	 * @return the deadzoned result from running getRawAxis
@@ -144,7 +134,6 @@ public class OI {
 	
 	/**
 	 * Get an axis from a controller that is automatically squared and deadzoned
-	 * 
 	 * @param joystickID The id of the controller. 0 = left or driver, 1 = right or driver
 	 * @param axisID The id of the axis (for use in getRawAxis)
 	 * @return the squared, deadzoned result from running getRawAxis
@@ -157,7 +146,6 @@ public class OI {
 	
 	/**
 	 * Get an axis from a controller that is automatically cubed and deadzoned
-	 * 
 	 * @param joystickID The id of the controller. 0 = left or driver, 1 = right or driver
 	 * @param axisID The id of the axis (for use in getRawAxis)
 	 * @return the cubed, deadzoned result from running getRawAxis
