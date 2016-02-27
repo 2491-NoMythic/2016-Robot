@@ -9,7 +9,7 @@ import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
- * The rotating protrusion on the end of the intake system.
+ * The rotating protrusion on the end of the intake system
  */
 public class Armature extends Subsystem {
     private CANTalon motor;
@@ -29,7 +29,7 @@ public class Armature extends Subsystem {
     }
     
     /**
-     * The rotating protrusion on the end of the intake system.
+     * The rotating protrusion on the end of the intake system
      */
     private Armature() {
     	motor = new CANTalon(Constants.armatureChannel);
@@ -43,8 +43,8 @@ public class Armature extends Subsystem {
     }
     
     /**
-     * Sets the armature motor to a constant speed and stops the KeepArmatureStill command.
-     * @param speed The power fed to the motor, ranging from -1 to 1, where negative values run the motor backwards.
+     * Sets the armature motor to a constant speed and stops the KeepArmatureStill command
+     * @param speed The power fed to the motor, ranging from -1 to 1, where negative values run the motor backwards
      */
     public void set(double speed) {
     	if(keepArmatureStill.isRunning()) {
@@ -54,36 +54,36 @@ public class Armature extends Subsystem {
     }
     
     /**
-     * Sets the armature motor to a constant speed.
-     * @param speed The power fed to the motor, ranging from -1 to 1, where negative values run the motor backwards.
+     * Sets the armature motor to a constant speed
+     * @param speed The power fed to the motor, ranging from -1 to 1, where negative values run the motor backwards
      */
     public void armatureSet(double speed) {
     	motor.set(speed);
     }
     
     /**
-     * @return The current position of the armature encoder.
+     * @return The current position of the armature encoder
      */
     public double getEncoderPosition() {
     	return motor.getEncPosition();
     }
     
     /**
-     * @return The current velocity of the armature encoder.
+     * @return The current velocity of the armature encoder
      */
     public double getEncoderVelocity() {
     	return motor.getEncVelocity();
     }
     
     /**
-     * @return The armature motor.
+     * @return The armature motor
      */
     public CANTalon get() {
     	return motor;
     }
     
     /**
-     * Stops the armature motor and then starts the KeepArmatureStill command.
+     * Stops the armature motor and then starts the KeepArmatureStill command
      */
     public void stop() {
     	set(0);
@@ -91,7 +91,7 @@ public class Armature extends Subsystem {
     }
     
     /**
-     * @return Returns whether the armature limit switch is pressed;
+     * @return Returns whether the armature limit switch is pressed
      */
     public boolean getLimitSwitch(){
     	return limitSwitch.get();
