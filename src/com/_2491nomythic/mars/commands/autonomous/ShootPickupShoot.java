@@ -33,17 +33,17 @@ public class ShootPickupShoot extends Command {
     	timer = new Timer();
     	raiseShooter = new RaiseShooter();
     	shoot = new RunShooterTime(5);
-    	drive1ft = new DriveToPosition(0.7, 1);
+    	drive1ft = new DriveToPosition(1,0.7);
     	lowerShooter = new LowerShooter();
     	rotate90 = new RotateDrivetrain(90, 0.7, true);
     	rotateNeg90 = new RotateDrivetrain(90, 0.7, false);
-    	drive24ft = new DriveToPosition(0.7, 24);
+    	drive24ft = new DriveToPosition(24,0.7);
     	armUp = new ArmaturePositionSet(Constants.armatureUpPositionValue);
     	armIntake = new ArmaturePositionSet(Constants.armatureIntakePositionValue);
     	armLowBar = new ArmaturePositionSet(Constants.armatureLowBarPositionValue);
     	intakeBall = new IntakeBall();
-    	drive2ft = new DriveToPosition(0.7, 2);
-    	drive19ft = new DriveToPosition(0.7, 19);
+    	drive2ft = new DriveToPosition(2,0.7);
+    	drive19ft = new DriveToPosition(19,0.7);
     	rotateNeg22 = new RotateDrivetrain(22, 0.7, false);
     	
     }
@@ -56,7 +56,7 @@ public class ShootPickupShoot extends Command {
     protected void execute() {
     	switch(state) {
     	case 0:
-    		raiseShooter.start();
+    		
     		
     	}
     }
