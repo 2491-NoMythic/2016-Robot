@@ -87,6 +87,14 @@ public class Shooter extends Subsystem {
 	public boolean getSolenoidValue() {
 		return solenoid.get();
 	}
+	
+    public CANTalon getLeftMotor() {
+    	return motorLeft;
+    }
+    
+    public CANTalon getRightMotor() {
+    	return motorRight;
+    }
     
     public double getLeftSpeed() {
     	return currentLeftSpeed;
@@ -100,12 +108,6 @@ public class Shooter extends Subsystem {
     	set(0);
     }
     
-    public CANTalon getLeftMotor() {
-    	return motorLeft;
-    }
-    public CANTalon getRightMotor() {
-    	return motorRight;
-    }
 
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
