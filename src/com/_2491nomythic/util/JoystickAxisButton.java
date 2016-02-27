@@ -9,7 +9,7 @@ import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.buttons.Button;
 
 /**
- * Create a joystick button for triggering commands
+ * Creates a joystick button for triggering commands using an axis
  */
 public class JoystickAxisButton extends Button {
 	
@@ -19,14 +19,10 @@ public class JoystickAxisButton extends Button {
 	boolean m_isNegative;
 	
 	/**
-	 * Create a joystick button for triggering commands
-	 * 
-	 * @param joystick
-	 *            The GenericHID object that has the button (e.g. Joystick, KinectStick, etc)
-	 * @param buttonNumber
-	 *            The button number (see {@link GenericHID#getRawButton(int) })
-	 * @param cutoff
-	 *            The cutoff point between off and on
+	 * Creates a joystick button for triggering commands using an axis
+	 * @param joystick The GenericHID object that has the button (e.g. Joystick, KinectStick, etc)
+	 * @param buttonNumber The button number (see {@link GenericHID#getRawButton(int) })
+	 * @param cutoff The cutoff point between off and on
 	 */
 	public JoystickAxisButton(GenericHID joystick, int buttonNumber, double cutoff) {
 		m_joystick = joystick;
@@ -36,9 +32,8 @@ public class JoystickAxisButton extends Button {
 	}
 	
 	/**
-	 * Gets the value of the joystick button
-	 * 
-	 * @return The value of the joystick button
+	 * Gets the value of the joystick axis button
+	 * @return The value of the joystick axis button
 	 */
 	public boolean get() {
 		double currentValue = m_joystick.getRawAxis(m_buttonNumber);

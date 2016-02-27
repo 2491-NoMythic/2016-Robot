@@ -19,7 +19,7 @@ public class DriveToPosition extends CommandBase {
     // Called just before this Command runs the first time
     protected void initialize() {
     	initialEncoderFeetPos = drivetrain.getLeftEncoderDistance();
-    	drivetrain.drive(speed, speed);
+    	drivetrain.drive(speed);
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -33,7 +33,7 @@ public class DriveToPosition extends CommandBase {
     	}
     	else {
     		if(speed > 0) {
-    			drivetrain.drive(-1.0 * speed, -1.0 * speed);
+    			drivetrain.drive(-1.0 * speed);
     		}
     		return (drivetrain.getLeftEncoderDistance() < (initialEncoderFeetPos + distance));
     	}
