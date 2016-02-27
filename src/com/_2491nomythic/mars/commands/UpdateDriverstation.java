@@ -11,7 +11,7 @@ import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
- *
+ * Updates the Values going between the DriverStation, the SmartDashboard, and the roboRIO
  */
 public class UpdateDriverstation extends CommandBase {
 	private Timer timer;
@@ -43,7 +43,10 @@ public class UpdateDriverstation extends CommandBase {
 		double Area;
 		double Aspect;
 	};
-
+	
+	/**
+	 * Updates the Values going between the DriverStation, the SmartDashboard, and the roboRIO
+	 */
     public UpdateDriverstation() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
