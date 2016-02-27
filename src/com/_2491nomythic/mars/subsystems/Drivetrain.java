@@ -58,8 +58,8 @@ public class Drivetrain extends Subsystem {
 	
 	/**
 	 * Sets the drive motors to independent specific speeds.
-	 * @param leftSpeed The power fed to the left drive motor, ranging from -1 to 1, where negative values run the motor backwards.
-	 * @param rightSpeed The power fed to the right drive motor, ranging from -1 to 1, where negative values run the motor backwards.
+	 * @param leftSpeed The power fed to the left drive motors, ranging from -1 to 1, where negative values run the motors backwards.
+	 * @param rightSpeed The power fed to the right drive motors, ranging from -1 to 1, where negative values run the motors backwards.
 	 */
 	public void drive(double leftSpeed, double rightSpeed) {
 		driveLeft(leftSpeed);
