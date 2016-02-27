@@ -61,6 +61,11 @@ public class Drivetrain extends Subsystem {
 		driveRight(rightSpeed);
 	}
 	
+	public void drive(double speed) {
+		driveLeft(speed);
+		driveRight(speed);
+	}
+	
 	public void driveLeft(double speed) {
 		left1.set(speed);
 		left2.set(-1.0 * speed);
