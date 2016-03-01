@@ -1,20 +1,19 @@
 package com._2491nomythic.mars.commands.autonomous;
 
-import com._2491nomythic.mars.commands.CommandBase;
-
 import com._2491nomythic.mars.commands.drivetrain.DriveToPosition;
 
+import edu.wpi.first.wpilibj.command.Command;
 
 /**
  *
  */
-public class DriveUnderLowBar extends CommandBase {
+public class DriveOverRoughTerrain extends Command {
 	DriveToPosition drive13Feet;
 
-    public DriveUnderLowBar() {
+    public DriveOverRoughTerrain() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	drive13Feet = new DriveToPosition(13,0.7);
+    	drive13Feet = new DriveToPosition(13, 0.7);
     }
 
     // Called just before this Command runs the first time

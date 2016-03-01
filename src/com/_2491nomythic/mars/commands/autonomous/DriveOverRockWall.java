@@ -9,8 +9,8 @@ import com._2491nomythic.mars.commands.drivetrain.DriveToPosition;
  *
  */
 public class DriveOverRockWall extends CommandBase {
-	DriveToPosition drive7Feet;
-	DriveToPosition drive8Feet;
+	DriveToPosition drive7Feet, drive8Feet;
+	boolean fullSpeed;
 
     public DriveOverRockWall() {
         // Use requires() here to declare subsystem dependencies
@@ -22,18 +22,20 @@ public class DriveOverRockWall extends CommandBase {
     // Called just before this Command runs the first time
     protected void initialize() {
     	drive7Feet.start();
-    	if(!drive7Feet.isRunning()){
-    		drive8Feet.start();
-    	}
+    	fullSpeed = false;
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	if(!drive7Feet.isRunning() && !fullSpeed){
+    		drive8Feet.start();
+    		fullSpeed = true;
+    	}
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return (!drive8Feet.isRunning());
+        return (!drive8Feet.isRunning() && fullSpeed);
     }
 
     // Called once after isFinished returns true

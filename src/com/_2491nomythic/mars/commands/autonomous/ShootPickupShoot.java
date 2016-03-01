@@ -19,19 +19,13 @@ public class ShootPickupShoot extends Command {
 	int state = 0;
 	RaiseShooter raiseShooter;
 	RunShooterTime shoot;
-	DriveToPosition drive1ft;
+	DriveToPosition drive13ft, drive5ft;
 	LowerShooter lowerShooter;
-	RotateDrivetrain rotateNeg90;
-	DriveToPosition drive24ft;
-	RotateDrivetrain rotate90;
-	ArmaturePositionSet armUp;
-	ArmaturePositionSet armIntake;
-	ArmaturePositionSet armLowBar;
+	RotateDrivetrain rotateNeg45,rotate45, rotate180;
+	ArmaturePositionSet armUp, armIntake, armLowBar;
 	IntakeBall intakeBall;
-	DriveToPosition drive2ft;
-	DriveToPosition drive19ft;
-	RotateDrivetrain rotateNeg22;
 	Timer timer;
+	
     public ShootPickupShoot() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
@@ -39,18 +33,16 @@ public class ShootPickupShoot extends Command {
     	timer = new Timer();
     	raiseShooter = new RaiseShooter();
     	shoot = new RunShooterTime(5);
-    	drive1ft = new DriveToPosition(0.7, 1);
+    	drive13ft = new DriveToPosition(13,0.7);
     	lowerShooter = new LowerShooter();
-    	rotate90 = new RotateDrivetrain(90, 0.7, true);
-    	rotateNeg90 = new RotateDrivetrain(90, 0.7, false);
-    	drive24ft = new DriveToPosition(0.7, 24);
+    	rotate45 = new RotateDrivetrain(45, 0.7, true);
+    	rotateNeg45 = new RotateDrivetrain(45, 0.7, false);
+    	drive5ft = new DriveToPosition(5,0.7);
+    	rotate180 = new RotateDrivetrain(180,0.7,true);
     	armUp = new ArmaturePositionSet(Constants.armatureUpPositionValue);
     	armIntake = new ArmaturePositionSet(Constants.armatureIntakePositionValue);
     	armLowBar = new ArmaturePositionSet(Constants.armatureLowBarPositionValue);
     	intakeBall = new IntakeBall();
-    	drive2ft = new DriveToPosition(0.7, 2);
-    	drive19ft = new DriveToPosition(0.7, 19);
-    	rotateNeg22 = new RotateDrivetrain(22, 0.7, false);
     	
     }
 
@@ -62,7 +54,10 @@ public class ShootPickupShoot extends Command {
     protected void execute() {
     	switch(state) {
     	case 0:
-    		raiseShooter.start();
+    		drive13ft.start();
+    	case 1:
+    		rotate45.start();
+    	case 2:
     		
     	}
     }

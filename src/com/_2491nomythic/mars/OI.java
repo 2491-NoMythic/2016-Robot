@@ -3,20 +3,20 @@ package com._2491nomythic.mars;
 import com._2491nomythic.mars.commands.ChevalDeFriseConfiguration;
 import com._2491nomythic.mars.commands.LowBarConfiguration;
 import com._2491nomythic.mars.commands.PickUpBallConfiguration;
-import com._2491nomythic.mars.commands.Shoot;
+//import com._2491nomythic.mars.commands.Shoot;
 import com._2491nomythic.mars.commands.StartingConfiguration;
 import com._2491nomythic.mars.commands.armature.ManualArmatureControl;
 import com._2491nomythic.mars.commands.drivetrain.ShiftGear;
 import com._2491nomythic.mars.commands.intake.IntakeBall;
 import com._2491nomythic.mars.commands.intake.ManualSpitOut;
 import com._2491nomythic.mars.commands.intake.ManualTakeIn;
-import com._2491nomythic.mars.commands.shooter.LowerShooter;
+//import com._2491nomythic.mars.commands.shooter.LowerShooter;
 import com._2491nomythic.mars.commands.shooter.ManualShooterControl;
-import com._2491nomythic.mars.commands.shooter.RaiseShooter;
+//import com._2491nomythic.mars.commands.shooter.RaiseShooter;
 import com._2491nomythic.mars.settings.Constants;
 import com._2491nomythic.mars.settings.ControllerMap;
 import com._2491nomythic.util.JoystickAxisButton;
-import com._2491nomythic.util.JoystickPOVButton;
+//import com._2491nomythic.util.JoystickPOVButton;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
@@ -45,8 +45,8 @@ public class OI {
 		controllers[1] = new Joystick(Constants.ControllerTwoPort);
 		
 		//Commands
-		shoot = new JoystickButton(controllers[ControllerMap.shooterController], ControllerMap.shootButton);
-		shoot.whenPressed(new Shoot());
+//		shoot = new JoystickButton(controllers[ControllerMap.shooterController], ControllerMap.shootButton);
+//		shoot.whenPressed(new Shoot());
 		
 		chevalDeFriseConfiguration = new JoystickButton(controllers[ControllerMap.configurationController], ControllerMap.chevalDeFriseConfigutationButton);
 		chevalDeFriseConfiguration.whenPressed(new ChevalDeFriseConfiguration());
@@ -68,11 +68,11 @@ public class OI {
 		manualShooterControl = new JoystickButton(controllers[ControllerMap.manualShooterController], ControllerMap.manualShooterButton);
 		manualShooterControl.whileHeld(new ManualShooterControl());
 		
-		raiseShooter = new JoystickPOVButton(controllers[ControllerMap.manualShooterController], ControllerMap.manualShooterPositionUpPOV);
-		raiseShooter.whenPressed(new RaiseShooter());
-		
-		lowerShooter = new JoystickPOVButton(controllers[ControllerMap.manualShooterController], ControllerMap.manualShooterPositionDownPOV);
-		lowerShooter.whenPressed(new LowerShooter());
+//		raiseShooter = new JoystickPOVButton(controllers[ControllerMap.manualShooterController], ControllerMap.manualShooterPositionUpPOV);
+//		raiseShooter.whenPressed(new RaiseShooter());
+//		
+//		lowerShooter = new JoystickPOVButton(controllers[ControllerMap.manualShooterController], ControllerMap.manualShooterPositionDownPOV);
+//		lowerShooter.whenPressed(new LowerShooter());
 		
 		//Intake
 		manualTakeIn = new JoystickAxisButton(controllers[ControllerMap.manualIntakeController], ControllerMap.manualIntakeAxis, 0.8);
@@ -94,7 +94,6 @@ public class OI {
 	
 	/**
 	 * Get a controller
-	 * 
 	 * @param id the ID of the controller. 0 = left or driver, 1 = right or codriver.
 	 * @return the instance of the controller requested
 	 */
@@ -104,12 +103,8 @@ public class OI {
 	
 	/**
 	 * Get a button from a controller
-	 * 
-	 * @param joystickID
-	 *            The id of the controller. 0 = left or driver, 1 = right or
-	 *            codriver.
-	 * @param axisID
-	 *            The id of the button (for use in getRawButton)
+	 * @param joystickID The id of the controller. 0 = left or driver, 1 = right or codriver.
+	 * @param axisID The id of the button (for use in getRawButton)
 	 * @return the result from running getRawButton(button)
 	 */
 	public boolean getButton(int joystickID, int buttonID) {
@@ -118,12 +113,8 @@ public class OI {
 	
 	/**
 	 * Get an axis from a controller
-	 * 
-	 * @param joystickID
-	 *            The id of the controller. 0 = left or driver, 1 = right or
-	 *            codriver.
-	 * @param axisID
-	 *            The id of the axis (for use in getRawAxis)
+	 * @param joystickID The id of the controller. 0 = left or driver, 1 = right or codriver.
+	 * @param axisID The id of the axis (for use in getRawAxis)
 	 * @return the result from running getRawAxis(axis)
 	 */
 	public double getAxis(int joystickID, int axisID) {
@@ -132,7 +123,6 @@ public class OI {
 	
 	/**
 	 * Get an axis from a controller that is automatically deadzoned
-	 * 
 	 * @param joystickID The id of the controller. 0 = left or driver, 1 = right or driver
 	 * @param axisID The id of the axis (for use in getRawAxis)
 	 * @return the deadzoned result from running getRawAxis
@@ -144,7 +134,6 @@ public class OI {
 	
 	/**
 	 * Get an axis from a controller that is automatically squared and deadzoned
-	 * 
 	 * @param joystickID The id of the controller. 0 = left or driver, 1 = right or driver
 	 * @param axisID The id of the axis (for use in getRawAxis)
 	 * @return the squared, deadzoned result from running getRawAxis
@@ -157,7 +146,6 @@ public class OI {
 	
 	/**
 	 * Get an axis from a controller that is automatically cubed and deadzoned
-	 * 
 	 * @param joystickID The id of the controller. 0 = left or driver, 1 = right or driver
 	 * @param axisID The id of the axis (for use in getRawAxis)
 	 * @return the cubed, deadzoned result from running getRawAxis

@@ -1,18 +1,30 @@
 package com._2491nomythic.mars.commands;
 
+
 //import com._2491nomythic.mars.settings.Constants;
 import com._2491nomythic.mars.settings.Variables;
+//import com.ni.vision.NIVision;
 
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
- *
+ * Updates the Values going between the DriverStation, the SmartDashboard, and the roboRIO
  */
 public class UpdateDriverstation extends CommandBase {
 	private Timer timer;
 	private double nextRun;
+//	private int numOfParticles;
+	public class ParticleInfo {
+		double Width;
+		double Height;
+		double CenterX;
+		double CenterY;
+	}
 
+	/**
+	 * Updates the Values going between the DriverStation, the SmartDashboard, and the roboRIO
+	 */
     public UpdateDriverstation() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
@@ -25,14 +37,31 @@ public class UpdateDriverstation extends CommandBase {
     	timer.start();
     	timer.reset();
     	nextRun = timer.get();
+    	
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	if (timer.get() > nextRun) {
 			nextRun = nextRun + 0.1;
-//			SmartDashboard.putBoolean("Tower in range: ", (Math.abs(Constants.visionCenterXValue - grip.getCenterX()[0]) < Constants.acceptableVisionCenterXDifference) && (Math.abs(Constants.visionCenterYValue - grip.getCenterY()[0]) < Constants.acceptableVisionCenterYDifference) && (Math.abs(Constants.visionAreaValue - grip.getArea()[0]) < Constants.acceptableVisionAreaDifference) && (Math.abs(Constants.visionHeightValue - grip.getHeight()[0]) < Constants.acceptableVisionHeightDifference) && (Math.abs(Constants.visionWidthValue - grip.getWidth()[0]) < Constants.acceptableVisionWidthDifference));
+//			SmartDashboard.putBoolean("Tower in range: ", (Math.abs(Constants.visionCenterXValue - grip.getCenterX()[0]) < Constants.acceptableVisionCenterXDifference) && (Math.abs(Constants.visionCenterYValue - grip.getCenterY()[0]) < Constants.acceptableVisionCenterYDifference) && (Math.abs(Constants.visionAreaValue - grip.getArea()[0]) < Constants.acceptableVisionAreaDifference));
 			Variables.shooterSpeed = SmartDashboard.getNumber("Shooter Speed");
+			
+			//Vision code starts here
+			//It runs off of grip, so we are simply taking the biggest target
+//			numOfParticles = grip.getArea().length;
+//			if(numOfParticles == 0) {
+//				//do nothing	    		
+//	    	}
+//			else {
+//				//grab the data values of the largest particle
+//				ParticleInfo particleInfo = new ParticleInfo();
+//				particleInfo.Area = grip.getArea()[0];
+//				particleInfo.CenterX = grip.getCenterX()[0];
+//				particleInfo.CenterY = grip.getCenterY()[0];
+//				particleInfo.Height = grip.getHeight()[0];
+//				particleInfo.Width = grip.getWidth()[0];
+//			}
     	}
     }
 

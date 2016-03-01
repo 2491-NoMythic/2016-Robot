@@ -7,10 +7,13 @@ import com._2491nomythic.mars.settings.Constants;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
- *
+ * Sets the robot to the configuration it starts in
  */
 public class StartingConfiguration extends CommandGroup {
     
+	/**
+	 * Sets the robot to the configuration it starts in
+	 */
     public  StartingConfiguration() {
     	addParallel(new ArmaturePositionSet(Constants.armatureUpPositionValue));
     	addSequential(new LowerShooter());
