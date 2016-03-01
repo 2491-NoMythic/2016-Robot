@@ -58,5 +58,7 @@ public class Constants {
 //	public static final double acceptableVisionAreaDifference = 1; //TODO
 //	public static final double acceptableVisionHeightDifference = 1; //TODO
 //	public static final double acceptableVisionWidthDifference = 1; //TODO
+//	public static final double visionCompensationXDifference = 1; //TODO
+//  public static final double visionCompensationYDifference = 1; //TODO
 
 }
