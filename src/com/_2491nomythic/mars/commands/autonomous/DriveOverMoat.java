@@ -6,14 +6,14 @@ import com._2491nomythic.mars.commands.drivetrain.DriveToPosition;
 
 
 /**
- * An autonomous that drives over the moat, starting from directly in front of it on the starting
+ * An autonomous that drives over the moat, starting from directly in front of it on the starting line
  */
 public class DriveOverMoat extends CommandBase {
 	DriveToPosition drive7Feet, drive8Feet;
 	boolean highGear;
 	
 	/**
-	 * An autonomous that drives over the moat, starting from directly in front of it on the starting
+	 * An autonomous that drives over the moat, starting from directly in front of it on the starting line
 	 */
     public DriveOverMoat() {
         // Use requires() here to declare subsystem dependencies
