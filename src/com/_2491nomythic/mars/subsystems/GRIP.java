@@ -1,8 +1,6 @@
 package com._2491nomythic.mars.subsystems;
 
 import com._2491nomythic.mars.commands.UpdateDriverstation;
-import com._2491nomythic.mars.settings.Constants;
-
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.networktables.NetworkTable;
 
