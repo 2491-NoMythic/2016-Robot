@@ -5,11 +5,15 @@ import com._2491nomythic.mars.settings.Constants;
 import com._2491nomythic.mars.settings.ControllerMap;
 
 /**
- *
+ * Moves the armature in a specified direction
  */
 public class ManualArmatureControl extends CommandBase {
 	boolean moveDown;
-
+	
+	/**
+	 * Moves the armature in a specified direction
+	 * @param moveDown Whether the armature moves down (false moves the armature up)
+	 */
     public ManualArmatureControl(boolean moveDown) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
