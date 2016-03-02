@@ -17,7 +17,7 @@ public class DriveUnderLowBarTime extends Command {
     public DriveUnderLowBarTime() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	drive5SecsForeward = new DriveTime(5, 0.7, 0.7);
+    	drive5SecsForeward = new DriveTime(5, 0.7);
     }
 
     // Called just before this Command runs the first time
