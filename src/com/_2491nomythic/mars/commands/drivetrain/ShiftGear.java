@@ -6,12 +6,15 @@ import com._2491nomythic.mars.settings.Constants;
 import edu.wpi.first.wpilibj.Timer;
 
 /**
- *
+ * Shifts the drivetrain to high gear, giving it more speed but less torque
  */
 public class ShiftGear extends CommandBase {
 	boolean hasBeenShifted;
 	Timer timer;
 	
+	/**
+	 * Shifts the drivetrain to high gear, giving it more speed but less torque
+	 */
     public ShiftGear() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
