@@ -4,10 +4,13 @@ import com._2491nomythic.mars.commands.CommandBase;
 import com._2491nomythic.mars.settings.Constants;
 
 /**
- *
+ * Runs intake forwards
  */
 public class ManualTakeIn extends CommandBase {
 
+	/**
+	 * Runs intake forwards
+	 */
     public ManualTakeIn() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
