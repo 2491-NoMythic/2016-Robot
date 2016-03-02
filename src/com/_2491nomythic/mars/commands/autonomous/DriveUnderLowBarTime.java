@@ -5,11 +5,15 @@ import com._2491nomythic.mars.commands.drivetrain.DriveTime;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- *
+ * An autonomous that drives under the low bar, starting from directly in front of it on the starting line (based on time)
  */
 public class DriveUnderLowBarTime extends Command {
 	
 	DriveTime drive5SecsForeward;
+	
+	/**
+	 * An autonomous that drives under the low bar, starting from directly in front of it on the starting line (based on time)
+	 */
     public DriveUnderLowBarTime() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
