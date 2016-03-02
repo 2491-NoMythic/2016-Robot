@@ -3,13 +3,19 @@ package com._2491nomythic.mars.commands.drivetrain;
 import com._2491nomythic.mars.commands.CommandBase;
 
 /**
- *
+ * Rotates the robot by a specified angle in a specified direction
  */
 public class RotateDrivetrain extends CommandBase {
 	double distance, initialLeftEncoder, initialRightEncoder;
 	double power;
 	boolean turnLeft;
 
+	/**
+	 * Rotates the robot by a specified angle in a specified direction
+	 * @param angleInDegrees The angle for the robot to turn
+	 * @param power The power fed to all drive motors, ranging from 0 to 1
+	 * @param turnLeft Whether or not the robot rotates to the left (false rotates to the right)
+	 */
 	public RotateDrivetrain(double angleInDegrees, double power, boolean turnLeft) {
 		// Use requires() here to declare subsystem dependencies
 		// eg. requires(chassis);
