@@ -1,6 +1,7 @@
 package com._2491nomythic.mars.commands;
 
 
+import com._2491nomythic.mars.settings.Constants;
 //import com._2491nomythic.mars.settings.Constants;
 import com._2491nomythic.mars.settings.Variables;
 //import com.ni.vision.NIVision;
@@ -14,7 +15,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 public class UpdateDriverstation extends CommandBase {
 	private Timer timer;
 	private double nextRun;
-//	private int numOfParticles;
+	private int numOfParticles;
 	public class ParticleInfo {
 		double Width;
 		double Height;
@@ -49,19 +50,13 @@ public class UpdateDriverstation extends CommandBase {
 			
 			//Vision code starts here
 			//It runs off of grip, so we are simply taking the biggest target
-//			numOfParticles = grip.getArea().length;
-//			if(numOfParticles == 0) {
-//				//do nothing	    		
-//	    	}
-//			else {
-//				//grab the data values of the largest particle
-//				ParticleInfo particleInfo = new ParticleInfo();
-//				particleInfo.Area = grip.getArea()[0];
-//				particleInfo.CenterX = grip.getCenterX()[0];
-//				particleInfo.CenterY = grip.getCenterY()[0];
-//				particleInfo.Height = grip.getHeight()[0];
-//				particleInfo.Width = grip.getWidth()[0];
-//			}
+			numOfParticles = grip.getArea().length;
+			if(numOfParticles == 0) {
+				//do nothing	    		
+	    	}
+			else {
+				SmartDashboard.putNumber("Deviation From Target", (-1.0 * (grip.getCenterX()[0] - 400) * Constants.degreesPerPixel) + (Constants.degreesPerPixel * Constants.visionHorizontalCompensation));
+			}
     	}
     }
 

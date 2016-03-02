@@ -58,11 +58,10 @@ public class Constants {
 //	public static final double acceptableVisionAreaDifference = 1; //TODO
 //	public static final double acceptableVisionHeightDifference = 1; //TODO
 //	public static final double acceptableVisionWidthDifference = 1; //TODO
-//	public static final double visionHorizontalCompensation = 1; //TODO
-//  public static final double areaMinimum = 1; //TODO will filter out all the particles that are below a certain
-												//Percentage of the camera's area
+	public static final double visionHorizontalCompensation = 1; //TODO
 	public static final double cameraArea = 800 * 600;
 	public static final double cameraHorizontalViewAngle = 67; //degrees
 	public static final double targetWidthToHeightAspectRatio = 10/7; //width / height in feet
+	public static final double degreesPerPixel = 67/800;
 
 }

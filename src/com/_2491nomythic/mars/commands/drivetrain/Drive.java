@@ -7,10 +7,11 @@ import com._2491nomythic.mars.settings.ControllerMap;
  *
  */
 public class Drive extends CommandBase {
-	double leftPower, rightPower;
+	double currentLeftPower, currentRightPower;
 	double directionMultiplierLeft;
 	double directionMultiplierRight;
-
+	double lastRightPower;
+	double lastLeftPower;
     public Drive() {
         // Use requires() here to declare subsystem dependencies
         requires(drivetrain);
@@ -22,9 +23,14 @@ public class Drive extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	leftPower = oi.getAxisDeadzonedToTheFourth(ControllerMap.driveController, ControllerMap.driveLeftAxis);
-    	rightPower = oi.getAxisDeadzonedToTheFourth(ControllerMap.driveController, ControllerMap.driveRightAxis);
-    	drivetrain.drive(leftPower, rightPower);
+    	lastLeftPower = currentLeftPower;
+    	lastRightPower = currentRightPower;
+    	currentLeftPower = oi.getAxisDeadzonedSquared(ControllerMap.driveController, ControllerMap.driveLeftAxis);
+    	currentRightPower = oi.getAxisDeadzonedSquared(ControllerMap.driveController, ControllerMap.driveRightAxis);
+//    	if(Math.abs(lastLeftPower - currentLeftPower) > 0.05) {
+//    		
+//    	}
+    	drivetrain.drive(currentLeftPower, currentRightPower);
     	
     	System.out.println(drivetrain.getLeftEncoderDistance());
     	System.out.println(drivetrain.getRightEncoderDistance());

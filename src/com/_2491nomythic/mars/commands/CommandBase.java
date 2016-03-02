@@ -19,7 +19,7 @@ public abstract class CommandBase extends Command {
 	protected static Shooter shooter;
 	protected static Intake intake;
 	protected static Armature armature;
-//	protected static GRIP grip;
+	protected static GRIP grip;
 	
 	public static void init() {
 		drivetrain = Drivetrain.getInstance();

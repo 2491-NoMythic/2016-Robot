@@ -9,6 +9,7 @@ import com._2491nomythic.mars.commands.autonomous.DriveUnderLowBarTime;
 import com._2491nomythic.mars.commands.autonomous.DriveUnderPortcullis;
 import com._2491nomythic.mars.commands.drivetrain.ResetDriveEncoders;
 import com._2491nomythic.mars.commands.drivetrain.RotateDrivetrain;
+import com._2491nomythic.mars.settings.Variables;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
@@ -46,6 +47,7 @@ public class Robot extends IterativeRobot {
 		SmartDashboard.putData("Autonomous", autoChooser);
 		SmartDashboard.putData("Reset Drive Encoders", new ResetDriveEncoders());
 		SmartDashboard.putData("Rotate90Degrees",new RotateDrivetrain(90,0.5,true));
+		SmartDashboard.putNumber("Devation From Target", Variables.degreeDeviationFromTarget);
 		
     }
 	
