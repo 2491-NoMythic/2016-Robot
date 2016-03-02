@@ -1,5 +1,8 @@
 package com._2491nomythic.mars.settings;
 
+/**
+ * All of the constants that we use to control the robot
+ */
 public class Constants {
 	//Regular Encoder ticks (non-talon)
 	public static final int ticksPerRev = 256;
