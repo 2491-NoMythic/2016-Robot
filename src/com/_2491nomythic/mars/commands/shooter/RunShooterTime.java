@@ -7,12 +7,16 @@ import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.CANTalon.TalonControlMode;
 
 /**
- *
+ * Runs the shooter for a specified amount of time with a two second ramp-up
  */
 public class RunShooterTime extends CommandBase {
 	double time;
 	Timer timer;
 
+	/**
+	 * Runs the shooter for a specified amount of time with a two second ramp-up
+	 * @param time The amount of time for the shooter to run
+	 */
 	public RunShooterTime(double time) {
 		// Use requires() here to declare subsystem dependencies
 		// eg. requires(chassis);
