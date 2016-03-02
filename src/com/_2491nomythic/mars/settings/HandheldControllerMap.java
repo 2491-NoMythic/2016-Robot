@@ -1,5 +1,8 @@
 package com._2491nomythic.mars.settings;
 
+/**
+ * Assigns the handheld controller buttons to variables for consistency across files and convenience
+ */
 public class HandheldControllerMap {
 	//Configuration
 	public static final int configurationController = 0;
