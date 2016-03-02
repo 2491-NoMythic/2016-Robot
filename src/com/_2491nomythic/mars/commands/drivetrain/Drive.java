@@ -4,7 +4,7 @@ import com._2491nomythic.mars.commands.CommandBase;
 import com._2491nomythic.mars.settings.ControllerMap;
 
 /**
- *
+ * Moves the robot based on joystick tank drive control
  */
 public class Drive extends CommandBase {
 	double currentLeftPower, currentRightPower;
@@ -12,6 +12,10 @@ public class Drive extends CommandBase {
 	double directionMultiplierRight;
 	double lastRightPower;
 	double lastLeftPower;
+
+	/**
+	 * Moves the robot based on joystick tank drive control
+	 */
     public Drive() {
         // Use requires() here to declare subsystem dependencies
         requires(drivetrain);

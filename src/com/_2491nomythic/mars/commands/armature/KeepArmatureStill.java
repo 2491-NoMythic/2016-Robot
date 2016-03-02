@@ -4,7 +4,7 @@ import com._2491nomythic.mars.commands.CommandBase;
 import com._2491nomythic.mars.settings.Constants;
 
 /**
- *
+ * <b>[DEPRECATED]</b> Keeps the armature still so that it doesn't fall due to gravity
  */
 public class KeepArmatureStill extends CommandBase {
 	double initialArmaturePosition;

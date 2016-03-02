@@ -6,12 +6,15 @@ import com._2491nomythic.mars.commands.drivetrain.DriveToPosition;
 
 
 /**
- *
+ * An autonomous that drives over the rock wall, starting from directly in front of it on the starting line
  */
 public class DriveOverRockWall extends CommandBase {
 	DriveToPosition drive7Feet, drive8Feet;
 	boolean fullSpeed;
-
+	
+	/**
+	 * An autonomous that drives over the rock wall, starting from directly in front of it on the starting line
+	 */
     public DriveOverRockWall() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);

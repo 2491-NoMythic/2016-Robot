@@ -1,5 +1,6 @@
 package com._2491nomythic.mars.commands.autonomous;
 
+import com._2491nomythic.mars.commands.CommandBase;
 import com._2491nomythic.mars.commands.armature.ArmaturePositionSet;
 import com._2491nomythic.mars.commands.drivetrain.DriveToPosition;
 import com._2491nomythic.mars.commands.drivetrain.RotateDrivetrain;
@@ -13,19 +14,22 @@ import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- *
+ * <b>[In Progress]</b> An autonomous that shoots a ball from the spy zone, then crosses under the low bar, picks up another ball, and comes back to shoot again
  */
-public class ShootPickupShoot extends Command {
+public class ShootPickupShoot extends CommandBase {
 	int state = 0;
 	RaiseShooter raiseShooter;
 	RunShooterTime shoot;
 	DriveToPosition drive13ft, drive5ft;
 	LowerShooter lowerShooter;
-	RotateDrivetrain rotateNeg45,rotate45, rotate180;
+	RotateDrivetrain rotateNeg45,rotate45, rotate90, rotate180;
 	ArmaturePositionSet armUp, armIntake, armLowBar;
 	IntakeBall intakeBall;
 	Timer timer;
 	
+	/**
+	 * <b>[In Progress]</b> An autonomous that shoots a ball from the spy zone, then crosses under the low bar, picks up another ball, and comes back to shoot again
+	 */
     public ShootPickupShoot() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
@@ -37,6 +41,7 @@ public class ShootPickupShoot extends Command {
     	lowerShooter = new LowerShooter();
     	rotate45 = new RotateDrivetrain(45, 0.7, true);
     	rotateNeg45 = new RotateDrivetrain(45, 0.7, false);
+    	rotate90 = new RotateDrivetrain(90, 0.7, true);
     	drive5ft = new DriveToPosition(5,0.7);
     	rotate180 = new RotateDrivetrain(180,0.7,true);
     	armUp = new ArmaturePositionSet(Constants.armatureUpPositionValue);
@@ -56,9 +61,39 @@ public class ShootPickupShoot extends Command {
     	case 0:
     		drive13ft.start();
     	case 1:
-    		rotate45.start();
+    		rotateNeg45.start();
     	case 2:
-    		
+    		drive5ft.start();
+    	case 3:
+    		rotate180.start();
+    	case 4:
+    		raiseShooter.start();
+    	case 5:
+    		shoot.start();
+    	case 6:
+    		lowerShooter.start();
+    	case 7:
+    		drive5ft.start();
+    	case 8:
+    		rotate45.start();
+    	case 9:
+    		drive13ft.start();
+    	case 10:
+    		rotate90.start();
+    	case 11:
+    		intakeBall.start();
+    	case 12:
+    		rotate90.start();
+    	case 13:
+    		drive13ft.start();
+    	case 14:
+    		rotate45.start();
+    	case 15:
+    		drive5ft.start();
+    	case 16:
+    		raiseShooter.start();
+    	case 17:
+    		shoot.start();
     	}
     }
 

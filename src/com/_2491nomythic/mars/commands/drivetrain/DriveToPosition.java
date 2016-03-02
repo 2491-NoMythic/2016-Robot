@@ -3,12 +3,18 @@ package com._2491nomythic.mars.commands.drivetrain;
 import com._2491nomythic.mars.commands.CommandBase;
 
 /**
- *
+ * Moves the robot in a specified direction for a specified distance
  */
 public class DriveToPosition extends CommandBase {
 	double distance;
 	double initialEncoderFeetPos;
 	double speed;
+	
+	/**
+	 * Moves the robot in a specified direction for a specified distance
+	 * @param feet The distance for the robot to move (in feet)
+	 * @param power The power fed to all drive motors, ranging from -1 to 1, where negative values run the motors backwards
+	 */
     public DriveToPosition(double feet, double power) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
