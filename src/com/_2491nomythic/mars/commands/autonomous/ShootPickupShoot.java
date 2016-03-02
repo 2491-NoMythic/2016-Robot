@@ -1,5 +1,6 @@
 package com._2491nomythic.mars.commands.autonomous;
 
+import com._2491nomythic.mars.commands.CommandBase;
 import com._2491nomythic.mars.commands.armature.ArmaturePositionSet;
 import com._2491nomythic.mars.commands.drivetrain.DriveToPosition;
 import com._2491nomythic.mars.commands.drivetrain.RotateDrivetrain;
@@ -15,7 +16,7 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  * <b>[In Progress]</b> An autonomous that shoots a ball from the spy zone, then crosses under the low bar, picks up another ball, and comes back to shoot again
  */
-public class ShootPickupShoot extends Command {
+public class ShootPickupShoot extends CommandBase {
 	int state = 0;
 	RaiseShooter raiseShooter;
 	RunShooterTime shoot;
