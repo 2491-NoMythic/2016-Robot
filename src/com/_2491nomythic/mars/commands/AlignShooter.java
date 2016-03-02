@@ -3,8 +3,6 @@ package com._2491nomythic.mars.commands;
 import com._2491nomythic.mars.commands.drivetrain.RotateDrivetrain;
 import com._2491nomythic.mars.settings.Constants;
 
-import edu.wpi.first.wpilibj.command.Command;
-
 /**
  *
  */

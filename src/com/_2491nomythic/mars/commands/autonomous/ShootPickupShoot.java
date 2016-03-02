@@ -11,7 +11,6 @@ import com._2491nomythic.mars.commands.shooter.RunShooterTime;
 import com._2491nomythic.mars.settings.Constants;
 
 import edu.wpi.first.wpilibj.Timer;
-import edu.wpi.first.wpilibj.command.Command;
 
 /**
  * <b>[In Progress]</b> An autonomous that shoots a ball from the spy zone, then crosses under the low bar, picks up another ball, and comes back to shoot again
