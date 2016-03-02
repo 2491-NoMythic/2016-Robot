@@ -13,7 +13,7 @@ import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- *
+ * <b>[In Progress]</b> An autonomous that shoots a ball from the spy zone, then crosses under the low bar, picks up another ball, and comes back to shoot again
  */
 public class ShootPickupShoot extends Command {
 	int state = 0;
@@ -26,6 +26,9 @@ public class ShootPickupShoot extends Command {
 	IntakeBall intakeBall;
 	Timer timer;
 	
+	/**
+	 * <b>[In Progress]</b> An autonomous that shoots a ball from the spy zone, then crosses under the low bar, picks up another ball, and comes back to shoot again
+	 */
     public ShootPickupShoot() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
