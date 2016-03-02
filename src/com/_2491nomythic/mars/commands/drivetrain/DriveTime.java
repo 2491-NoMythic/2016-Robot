@@ -22,6 +22,14 @@ public class DriveTime extends CommandBase {
     	this.rightPower = rightPower;
     	timer = new Timer();
     }
+    
+    public DriveTime(double timeOut, double power) {
+    	requires(drivetrain);
+    	this.timeOut = timeOut;
+    	this.leftPower = power;
+    	this.rightPower = power;
+    	timer = new Timer();
+    }
 
     // Called just before this Command runs the first time
     protected void initialize() {
