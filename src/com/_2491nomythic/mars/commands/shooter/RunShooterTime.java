@@ -7,12 +7,16 @@ import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.CANTalon.TalonControlMode;
 
 /**
- *
+ * Runs the shooter for a specified amount of time with a two second ramp-up
  */
 public class RunShooterTime extends CommandBase {
 	double time;
 	Timer timer;
 
+	/**
+	 * Runs the shooter for a specified amount of time with a two second ramp-up
+	 * @param time The amount of time for the shooter to run
+	 */
 	public RunShooterTime(double time) {
 		// Use requires() here to declare subsystem dependencies
 		// eg. requires(chassis);
@@ -45,10 +49,10 @@ public class RunShooterTime extends CommandBase {
 		
 		shooter.getLeftMotor().changeControlMode(TalonControlMode.Voltage);
     	shooter.getRightMotor().changeControlMode(TalonControlMode.Voltage);
-    	shooter.getLeftMotor().setVoltageCompensationRampRate(24.0);
-    	shooter.getRightMotor().setVoltageCompensationRampRate(24.0);
-    	shooter.getRightMotor().set(-1.0 * 11.0);
-    	shooter.getLeftMotor().set(-1.0 * 11.0);
+    	shooter.getLeftMotor().setVoltageCompensationRampRate(6.0);
+    	shooter.getRightMotor().setVoltageCompensationRampRate(6.0);
+    	shooter.getRightMotor().set(-1.0 * 9.0);
+    	shooter.getLeftMotor().set(-1.0 * 9.0);
 	}
 
 	// Make this return true when this Command no longer needs to run execute()
