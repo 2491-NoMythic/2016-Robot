@@ -11,6 +11,9 @@ public class HandheldControllerMap {
 	public static final int pickUpBallConfigurationButton = 3;
 	public static final int startingConfigurationButton = 4;
 	
+	//Vision
+	public static final int alignShooterButton = 5;
+	
 	//Drive
 	public static final int driveController = 0;
 	public static final int driveLeftAxis = 1;

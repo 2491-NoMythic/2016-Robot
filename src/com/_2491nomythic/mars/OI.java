@@ -1,5 +1,6 @@
 package com._2491nomythic.mars;
 
+import com._2491nomythic.mars.commands.AlignShooter;
 import com._2491nomythic.mars.commands.ChevalDeFriseConfiguration;
 import com._2491nomythic.mars.commands.LowBarConfiguration;
 import com._2491nomythic.mars.commands.PickUpBallConfiguration;
@@ -35,7 +36,7 @@ public class OI {
     // Button button = new JoystickButton(stick, buttonNumber);
     
 	private final Joystick[] controllers = new Joystick[2];
-	Button shoot, chevalDeFriseConfiguration, lowBarConfiguration, pickUpBallConfiguration, startingConfiguration, shiftGear, manualShooterControl, manualTakeIn, manualSpitOut, raiseShooter, lowerShooter, intakeBall, manualArmatureUpControl, manualArmatureDownControl;
+	Button shoot, chevalDeFriseConfiguration, lowBarConfiguration, pickUpBallConfiguration, startingConfiguration, alignShooter, shiftGear, manualShooterControl, manualTakeIn, manualSpitOut, raiseShooter, lowerShooter, intakeBall, manualArmatureUpControl, manualArmatureDownControl;
 	
 	/**
 	 * Initiates some joysticks and buttons.
@@ -59,6 +60,9 @@ public class OI {
 		
 		startingConfiguration = new  JoystickButton(controllers[ControllerMap.configurationController], ControllerMap.startingConfigurationButton);
 		startingConfiguration.whenPressed(new StartingConfiguration());
+		
+		alignShooter = new JoystickButton(controllers[ControllerMap.shooterController], ControllerMap.alignShooterButton);
+		alignShooter.whenPressed(new AlignShooter());
 		
 		//Drivetrain
 		shiftGear = new JoystickButton(controllers[ControllerMap.driveController], ControllerMap.driveShiftButton);
