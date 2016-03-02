@@ -6,11 +6,14 @@ import com._2491nomythic.mars.commands.drivetrain.DriveToPosition;
 
 
 /**
- *
+ * An autonomous that drives under the low bar, starting from directly in front of it on the starting line
  */
 public class DriveUnderLowBar extends CommandBase {
 	DriveToPosition drive13Feet;
-
+	
+	/**
+	 * An autonomous that drives under the low bar, starting from directly in front of it on the starting line
+	 */
     public DriveUnderLowBar() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
