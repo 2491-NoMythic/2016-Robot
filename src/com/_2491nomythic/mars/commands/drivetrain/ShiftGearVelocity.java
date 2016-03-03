@@ -8,11 +8,11 @@ import edu.wpi.first.wpilibj.Timer;
 /**
  *
  */
-public class ShiftGear extends CommandBase {
+public class ShiftGearVelocity extends CommandBase {
 	boolean hasBeenShifted;
 	Timer timer;
 	
-    public ShiftGear() {
+    public ShiftGearVelocity() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	timer= new Timer();
