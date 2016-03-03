@@ -56,6 +56,7 @@ public class UpdateDriverstation extends CommandBase {
 	    	}
 			else {
 				SmartDashboard.putNumber("Deviation From Target", (-1.0 * (grip.getCenterX()[0] - 400) * Constants.degreesPerPixel) + (Constants.degreesPerPixel * Constants.visionHorizontalCompensation));
+				SmartDashboard.putNumber("Pixel Deviation From Target", (grip.getCenterX()[0] - 400));
 			}
     	}
     }
