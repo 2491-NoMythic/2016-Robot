@@ -1,6 +1,7 @@
 
 package com._2491nomythic.mars;
 
+import com._2491nomythic.mars.commands.AlignShooter;
 import com._2491nomythic.mars.commands.CommandBase;
 import com._2491nomythic.mars.commands.autonomous.DoNothing;
 import com._2491nomythic.mars.commands.autonomous.DriveOverRockWall;
@@ -47,6 +48,7 @@ public class Robot extends IterativeRobot {
 		SmartDashboard.putData("Autonomous", autoChooser);
 		SmartDashboard.putData("Reset Drive Encoders", new ResetDriveEncoders());
 		SmartDashboard.putData("Rotate90Degrees",new RotateDrivetrain(90,0.5,true));
+		SmartDashboard.putData("Align Shooter", new AlignShooter());
 		SmartDashboard.putNumber("Devation From Target", Variables.degreeDeviationFromTarget);
 		
     }
