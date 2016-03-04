@@ -38,13 +38,8 @@ public class OI {
     // Button button = new JoystickButton(stick, buttonNumber);
     
 	private final Joystick[] controllers = new Joystick[2];
-<<<<<<< HEAD
-	Button shoot, chevalDeFriseConfiguration, lowBarConfiguration, pickUpBallConfiguration, startingConfiguration, shiftGear, manualShooterControl, manualTakeIn, manualSpitOut, raiseShooter, lowerShooter, intakeBall, manualArmatureUpControl, manualArmatureDownControl;
-	private SendableChooser shiftVelocityOrDelay;
-=======
-	Button shoot, chevalDeFriseConfiguration, lowBarConfiguration, pickUpBallConfiguration, startingConfiguration, alignShooter, shiftGear, manualShooterControl, manualTakeIn, manualSpitOut, raiseShooter, lowerShooter, intakeBall, manualArmatureUpControl, manualArmatureDownControl;
->>>>>>> refs/remotes/origin/master
-	
+	Button shoot, chevalDeFriseConfiguration, lowBarConfiguration, alignShooter, pickUpBallConfiguration, startingConfiguration, shiftGear, manualShooterControl, manualTakeIn, manualSpitOut, raiseShooter, lowerShooter, intakeBall, manualArmatureUpControl, manualArmatureDownControl;
+	private SendableChooser shiftVelocityOrDelay;	
 	/**
 	 * Initiates some joysticks and buttons.
 	 */
@@ -83,11 +78,7 @@ public class OI {
 		
 		raiseShooter = new JoystickPOVButton(controllers[ControllerMap.manualShooterController], ControllerMap.manualShooterPositionUpPOV);
 		raiseShooter.whenPressed(new RaiseShooter());
-<<<<<<< HEAD
-		
-=======
-//		
->>>>>>> refs/remotes/origin/master
+
 		lowerShooter = new JoystickPOVButton(controllers[ControllerMap.manualShooterController], ControllerMap.manualShooterPositionDownPOV);
 		lowerShooter.whenPressed(new LowerShooter());
 		

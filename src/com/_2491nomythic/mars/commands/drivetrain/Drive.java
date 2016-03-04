@@ -30,11 +30,10 @@ public class Drive extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-<<<<<<< HEAD
-    	leftPower = oi.getAxisDeadzonedSquared(ControllerMap.driveController, ControllerMap.driveLeftAxis);
-    	rightPower = oi.getAxisDeadzonedSquared(ControllerMap.driveController, ControllerMap.driveRightAxis);
-    	drivetrain.drive(leftPower, rightPower);
-=======
+
+    	lastLeftPower = oi.getAxisDeadzonedSquared(ControllerMap.driveController, ControllerMap.driveLeftAxis);
+    	lastRightPower = oi.getAxisDeadzonedSquared(ControllerMap.driveController, ControllerMap.driveRightAxis);
+    	drivetrain.drive(lastLeftPower, lastRightPower);
     	lastLeftPower = currentLeftPower;
     	lastRightPower = currentRightPower;
     	currentLeftPower = oi.getAxisDeadzonedSquared(ControllerMap.driveController, ControllerMap.driveLeftAxis);
@@ -52,7 +51,6 @@ public class Drive extends CommandBase {
     		//...the power is below 0.05 accel and is fine
     	}
     	drivetrain.drive(currentLeftPower, currentRightPower);
->>>>>>> refs/remotes/origin/master
     	
     	System.out.println(drivetrain.getLeftEncoderDistance());
     	System.out.println(drivetrain.getRightEncoderDistance());

@@ -5,16 +5,12 @@ import com._2491nomythic.mars.commands.AlignShooter;
 import com._2491nomythic.mars.commands.CommandBase;
 import com._2491nomythic.mars.commands.autonomous.DoNothing;
 import com._2491nomythic.mars.commands.autonomous.DriveOverRockWall;
-import com._2491nomythic.mars.commands.autonomous.DriveUnderLowBar;
 import com._2491nomythic.mars.commands.autonomous.DriveUnderLowBarTime;
 import com._2491nomythic.mars.commands.autonomous.DriveUnderPortcullis;
 import com._2491nomythic.mars.commands.drivetrain.ResetDriveEncoders;
 import com._2491nomythic.mars.commands.drivetrain.RotateDrivetrain;
-<<<<<<< HEAD
 import com._2491nomythic.mars.commands.shooter.RaiseShooter;
-=======
 import com._2491nomythic.mars.settings.Variables;
->>>>>>> refs/remotes/origin/master
 
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
@@ -47,17 +43,13 @@ public class Robot extends IterativeRobot {
 		autoChooser.addDefault("Do Nothing", new DoNothing());
 		autoChooser.addObject("Drive Under Low Bar Time", new DriveUnderLowBarTime());
 		autoChooser.addObject("Drive Over Rock Wall", new DriveOverRockWall());
-		autoChooser.addObject("Drive Under Low Bar", new DriveUnderLowBar());
 		autoChooser.addObject("Drive Under Portcullis", new DriveUnderPortcullis());
 		SmartDashboard.putData("Autonomous", autoChooser);
 		SmartDashboard.putData("Reset Drive Encoders", new ResetDriveEncoders());
 		SmartDashboard.putData("Rotate90Degrees",new RotateDrivetrain(90,0.5,true));
-<<<<<<< HEAD
 		SmartDashboard.putData("Raise Shooter", new RaiseShooter());
-=======
 		SmartDashboard.putData("Align Shooter", new AlignShooter());
 		SmartDashboard.putNumber("Devation From Target", Variables.degreeDeviationFromTarget);
->>>>>>> refs/remotes/origin/master
 		
     }
 	

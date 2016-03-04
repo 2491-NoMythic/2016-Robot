@@ -1,7 +1,6 @@
 package com._2491nomythic.mars.commands;
 
 
-import com._2491nomythic.mars.settings.Constants;
 //import com._2491nomythic.mars.settings.Constants;
 import com._2491nomythic.mars.settings.Variables;
 //import com.ni.vision.NIVision;
@@ -10,22 +9,20 @@ import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
- * Updates the Values going between the DriverStation, the SmartDashboard, and the roboRIO
+ *
  */
 public class UpdateDriverstation extends CommandBase {
 	private Timer timer;
 	private double nextRun;
-	private int numOfParticles;
+//	private int numOfParticles;
 	public class ParticleInfo {
+		double Area;
 		double Width;
 		double Height;
 		double CenterX;
 		double CenterY;
 	}
 
-	/**
-	 * Updates the Values going between the DriverStation, the SmartDashboard, and the roboRIO
-	 */
     public UpdateDriverstation() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
@@ -47,17 +44,22 @@ public class UpdateDriverstation extends CommandBase {
 			nextRun = nextRun + 0.1;
 //			SmartDashboard.putBoolean("Tower in range: ", (Math.abs(Constants.visionCenterXValue - grip.getCenterX()[0]) < Constants.acceptableVisionCenterXDifference) && (Math.abs(Constants.visionCenterYValue - grip.getCenterY()[0]) < Constants.acceptableVisionCenterYDifference) && (Math.abs(Constants.visionAreaValue - grip.getArea()[0]) < Constants.acceptableVisionAreaDifference));
 			Variables.shooterSpeed = SmartDashboard.getNumber("Shooter Speed");
-			SmartDashboard
+			//SmartDashboard
 			//Vision code starts here
 			//It runs off of grip, so we are simply taking the biggest target
-			numOfParticles = grip.getArea().length;
-			if(numOfParticles == 0) {
-				//do nothing	    		
-	    	}
-			else {
-				SmartDashboard.putNumber("Deviation From Target", (-1.0 * (grip.getCenterX()[0] - 400) * Constants.degreesPerPixel) + (Constants.degreesPerPixel * Constants.visionHorizontalCompensation));
-				SmartDashboard.putNumber("Pixel Deviation From Target", (grip.getCenterX()[0] - 400));
-			}
+//			numOfParticles = grip.getArea().length;
+//			if(numOfParticles == 0) {
+//				//do nothing	    		
+//	    	}
+//			else {
+//				//grab the data values of the largest particle
+//				ParticleInfo particleInfo = new ParticleInfo();
+//				particleInfo.Area = grip.getArea()[0];
+//				particleInfo.CenterX = grip.getCenterX()[0];
+//				particleInfo.CenterY = grip.getCenterY()[0];
+//				particleInfo.Height = grip.getHeight()[0];
+//				particleInfo.Width = grip.getWidth()[0];
+//			}
     	}
     }
 
