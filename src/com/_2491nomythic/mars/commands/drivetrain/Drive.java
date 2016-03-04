@@ -30,26 +30,25 @@ public class Drive extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-
-    	lastLeftPower = oi.getAxisDeadzonedSquared(ControllerMap.driveController, ControllerMap.driveLeftAxis);
-    	lastRightPower = oi.getAxisDeadzonedSquared(ControllerMap.driveController, ControllerMap.driveRightAxis);
-    	drivetrain.drive(lastLeftPower, lastRightPower);
     	lastLeftPower = currentLeftPower;
     	lastRightPower = currentRightPower;
     	currentLeftPower = oi.getAxisDeadzonedSquared(ControllerMap.driveController, ControllerMap.driveLeftAxis);
     	currentRightPower = oi.getAxisDeadzonedSquared(ControllerMap.driveController, ControllerMap.driveRightAxis);
-    	if(Math.abs(lastLeftPower - currentLeftPower) > 0.05) {
-    		currentLeftPower = lastLeftPower + 0.05;
-    	}
-    	else {
-    		//...the power is below 0.05 accel and is fine
-    	}
-    	if(Math.abs(lastRightPower - currentRightPower) > 0.05) {
-    		currentRightPower = lastLeftPower + 0.05;
-    	}
-    	else {
-    		//...the power is below 0.05 accel and is fine
-    	}
+//    	if(Math.abs(lastLeftPower - currentLeftPower) > 0.05) {
+//    		currentLeftPower = (lastLeftPower - currentLeftPower > 0) ? lastLeftPower - 0.05 : lastLeftPower + 0.05;
+//    		//if the difference between the numbers is positive it is going up
+//    			
+//    	}
+//    	else {
+//    		//...the power is below 0.05 accel and is fine
+//    	}
+//    	if(Math.abs(lastRightPower - currentRightPower) > 0.05) {
+//    		currentRightPower = (lastRightPower - currentRightPower > 0) ? lastRightPower - 0.05: lastRightPower + 0.05;
+//    		//if the difference between the numbers is positive it is going up
+//    	}
+//    	else {
+//    		//...the power is below 0.05 accel and is fine
+//    	}
     	drivetrain.drive(currentLeftPower, currentRightPower);
     	
     	System.out.println(drivetrain.getLeftEncoderDistance());
