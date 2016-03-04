@@ -22,7 +22,7 @@ public class RotateDrivetrain extends CommandBase {
 		requires(drivetrain);
 		initialLeftEncoder = drivetrain.getLeftEncoderDistance();
 		initialRightEncoder = drivetrain.getRightEncoderDistance();
-		distance = (angleInDegrees * (Math.PI / 180)) * 24.42;
+		distance = (angleInDegrees * (Math.PI / 180)) * 1.431; //radius in ft
 		this.power = power;
 	}
 
