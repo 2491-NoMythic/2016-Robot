@@ -8,7 +8,7 @@ import com._2491nomythic.mars.settings.Constants;
 import edu.wpi.first.wpilibj.Timer;
 
 /**
- *
+ * An autonomous that drives under the Portcullis, starting from directly in front of it on the starting line
  */
 public class DriveUnderPortcullis extends CommandBase {
 	private ArmaturePositionSet lowerArmature;
@@ -18,6 +18,9 @@ public class DriveUnderPortcullis extends CommandBase {
 	private int state;
 	Timer timer;
 
+	/**
+	 * An autonomous that drives under the Portcullis, starting from directly in front of it on the starting line
+	 */
     public DriveUnderPortcullis() {
     	lowerArmature = new ArmaturePositionSet(Constants.armatureDownPositionValue);
     	driveToPortcullis = new DriveToPosition(5.5, 0.5);

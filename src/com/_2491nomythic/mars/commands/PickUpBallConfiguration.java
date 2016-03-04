@@ -6,10 +6,13 @@ import com._2491nomythic.mars.settings.Constants;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
- *
+ * Sets the robot up to pick up a boulder
  */
 public class PickUpBallConfiguration extends CommandGroup {
     
+	/**
+	 * Sets the robot up to pick up a boulder
+	 */
     public  PickUpBallConfiguration() {
     	addSequential(new ArmaturePositionSet(Constants.armatureIntakePositionValue));
     	

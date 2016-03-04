@@ -7,10 +7,13 @@ import com._2491nomythic.mars.settings.Constants;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
- *
+ * Sets the robot up to go under the low bar
  */
 public class LowBarConfiguration extends CommandGroup {
     
+	/**
+	 * Sets the robot up to go under the low bar
+	 */
     public  LowBarConfiguration() {
     	addParallel(new ArmaturePositionSet(Constants.armatureLowBarPositionValue));
     	addSequential(new LowerShooter());

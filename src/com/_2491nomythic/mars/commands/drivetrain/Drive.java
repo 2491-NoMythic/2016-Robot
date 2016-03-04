@@ -4,13 +4,18 @@ import com._2491nomythic.mars.commands.CommandBase;
 import com._2491nomythic.mars.settings.ControllerMap;
 
 /**
- *
+ * Moves the robot based on joystick tank drive control
  */
 public class Drive extends CommandBase {
-	double leftPower, rightPower;
+	double currentLeftPower, currentRightPower;
 	double directionMultiplierLeft;
 	double directionMultiplierRight;
+	double lastRightPower;
+	double lastLeftPower;
 
+	/**
+	 * Moves the robot based on joystick tank drive control
+	 */
     public Drive() {
         // Use requires() here to declare subsystem dependencies
         requires(drivetrain);
@@ -18,13 +23,36 @@ public class Drive extends CommandBase {
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	//When the command first starts up the current power should be zero so that it always accelerates smoothly
+    	currentLeftPower = 0;
+    	currentRightPower = 0;
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+<<<<<<< HEAD
     	leftPower = oi.getAxisDeadzonedSquared(ControllerMap.driveController, ControllerMap.driveLeftAxis);
     	rightPower = oi.getAxisDeadzonedSquared(ControllerMap.driveController, ControllerMap.driveRightAxis);
     	drivetrain.drive(leftPower, rightPower);
+=======
+    	lastLeftPower = currentLeftPower;
+    	lastRightPower = currentRightPower;
+    	currentLeftPower = oi.getAxisDeadzonedSquared(ControllerMap.driveController, ControllerMap.driveLeftAxis);
+    	currentRightPower = oi.getAxisDeadzonedSquared(ControllerMap.driveController, ControllerMap.driveRightAxis);
+    	if(Math.abs(lastLeftPower - currentLeftPower) > 0.05) {
+    		currentLeftPower = lastLeftPower + 0.05;
+    	}
+    	else {
+    		//...the power is below 0.05 accel and is fine
+    	}
+    	if(Math.abs(lastRightPower - currentRightPower) > 0.05) {
+    		currentRightPower = lastLeftPower + 0.05;
+    	}
+    	else {
+    		//...the power is below 0.05 accel and is fine
+    	}
+    	drivetrain.drive(currentLeftPower, currentRightPower);
+>>>>>>> refs/remotes/origin/master
     	
     	System.out.println(drivetrain.getLeftEncoderDistance());
     	System.out.println(drivetrain.getRightEncoderDistance());

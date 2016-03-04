@@ -3,10 +3,13 @@ package com._2491nomythic.mars.commands.drivetrain;
 import com._2491nomythic.mars.commands.CommandBase;
 
 /**
- *
+ * Resets the encoders on the drive motors
  */
 public class ResetDriveEncoders extends CommandBase {
 
+	/**
+	 * Resets the encoders on the drive motors
+	 */
     public ResetDriveEncoders() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);

@@ -1,9 +1,10 @@
 package com._2491nomythic.mars;
 
+import com._2491nomythic.mars.commands.AlignShooter;
 import com._2491nomythic.mars.commands.ChevalDeFriseConfiguration;
 import com._2491nomythic.mars.commands.LowBarConfiguration;
 import com._2491nomythic.mars.commands.PickUpBallConfiguration;
-//import com._2491nomythic.mars.commands.Shoot;
+import com._2491nomythic.mars.commands.Shoot;
 import com._2491nomythic.mars.commands.StartingConfiguration;
 import com._2491nomythic.mars.commands.armature.ManualArmatureControl;
 //import com._2491nomythic.mars.commands.drivetrain.ShiftGearVelocity;
@@ -37,8 +38,12 @@ public class OI {
     // Button button = new JoystickButton(stick, buttonNumber);
     
 	private final Joystick[] controllers = new Joystick[2];
+<<<<<<< HEAD
 	Button shoot, chevalDeFriseConfiguration, lowBarConfiguration, pickUpBallConfiguration, startingConfiguration, shiftGear, manualShooterControl, manualTakeIn, manualSpitOut, raiseShooter, lowerShooter, intakeBall, manualArmatureUpControl, manualArmatureDownControl;
 	private SendableChooser shiftVelocityOrDelay;
+=======
+	Button shoot, chevalDeFriseConfiguration, lowBarConfiguration, pickUpBallConfiguration, startingConfiguration, alignShooter, shiftGear, manualShooterControl, manualTakeIn, manualSpitOut, raiseShooter, lowerShooter, intakeBall, manualArmatureUpControl, manualArmatureDownControl;
+>>>>>>> refs/remotes/origin/master
 	
 	/**
 	 * Initiates some joysticks and buttons.
@@ -50,8 +55,8 @@ public class OI {
 		shiftVelocityOrDelay = new SendableChooser();
 		
 		//Commands
-//		shoot = new JoystickButton(controllers[ControllerMap.shooterController], ControllerMap.shootButton);
-//		shoot.whenPressed(new Shoot());
+		shoot = new JoystickButton(controllers[ControllerMap.shooterController], ControllerMap.shootButton);
+		shoot.whenPressed(new Shoot());
 		
 		chevalDeFriseConfiguration = new JoystickButton(controllers[ControllerMap.configurationController], ControllerMap.chevalDeFriseConfigutationButton);
 		chevalDeFriseConfiguration.whenPressed(new ChevalDeFriseConfiguration());
@@ -65,6 +70,9 @@ public class OI {
 		startingConfiguration = new  JoystickButton(controllers[ControllerMap.configurationController], ControllerMap.startingConfigurationButton);
 		startingConfiguration.whenPressed(new StartingConfiguration());
 		
+		alignShooter = new JoystickButton(controllers[ControllerMap.shooterController], ControllerMap.alignShooterButton);
+		alignShooter.whenPressed(new AlignShooter());
+		
 		//Drivetrain
 		shiftGear = new JoystickButton(controllers[ControllerMap.driveController], ControllerMap.driveShiftButton);
 		shiftGear.whileHeld(new ShiftGearWithDelay());
@@ -75,7 +83,11 @@ public class OI {
 		
 		raiseShooter = new JoystickPOVButton(controllers[ControllerMap.manualShooterController], ControllerMap.manualShooterPositionUpPOV);
 		raiseShooter.whenPressed(new RaiseShooter());
+<<<<<<< HEAD
 		
+=======
+//		
+>>>>>>> refs/remotes/origin/master
 		lowerShooter = new JoystickPOVButton(controllers[ControllerMap.manualShooterController], ControllerMap.manualShooterPositionDownPOV);
 		lowerShooter.whenPressed(new LowerShooter());
 		

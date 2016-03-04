@@ -3,10 +3,13 @@ package com._2491nomythic.mars.commands.shooter;
 import com._2491nomythic.mars.commands.CommandBase;
 
 /**
- *
+ * Raises the shooter using the solenoid
  */
 public class RaiseShooter extends CommandBase {
 
+	/**
+	 * Raises the shooter using the solenoid
+	 */
     public RaiseShooter() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);

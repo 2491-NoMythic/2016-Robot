@@ -1,8 +1,6 @@
 package com._2491nomythic.mars.subsystems;
 
 import com._2491nomythic.mars.commands.UpdateDriverstation;
-import com._2491nomythic.mars.settings.Constants;
-
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.networktables.NetworkTable;
 
@@ -71,12 +69,6 @@ public class GRIP extends Subsystem {
 		return getTable().getNumberArray("width", defaultValue);
 	}
 	
-	public double distanceFromTarget(double pixelWidth) {
-		double targetWidth = 1.6667; //ft
-		double FOVPixel = 800;
-		double targetPixelWidth = pixelWidth;
-		return (targetWidth*FOVPixel)/(targetPixelWidth * 2 * Math.tan(Constants.cameraHorizontalViewAngle * (Math.PI / 180)));
-	}
     
     // Put methods for controlling this subsystem
     // here. Call these from Commands.

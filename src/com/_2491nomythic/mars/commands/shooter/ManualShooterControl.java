@@ -4,10 +4,13 @@ import com._2491nomythic.mars.commands.CommandBase;
 import edu.wpi.first.wpilibj.CANTalon.TalonControlMode;
 
 /**
- *
+ * Runs the shooter with a two second ramp-up
  */
 public class ManualShooterControl extends CommandBase {
 
+	/**
+	 * Runs the shooter with a two second ramp-up
+	 */
     public ManualShooterControl() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);

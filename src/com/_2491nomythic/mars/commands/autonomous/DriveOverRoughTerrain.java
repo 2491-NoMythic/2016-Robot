@@ -5,11 +5,14 @@ import com._2491nomythic.mars.commands.drivetrain.DriveToPosition;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- *
+ * An autonomous that drives over the rough terrain, starting from directly in front of it on the starting line
  */
 public class DriveOverRoughTerrain extends Command {
 	DriveToPosition drive13Feet;
 
+	/**
+	 * An autonomous that drives over the rough terrain, starting from directly in front of it on the starting line
+	 */
     public DriveOverRoughTerrain() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);

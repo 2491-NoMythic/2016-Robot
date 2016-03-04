@@ -6,12 +6,16 @@ import com._2491nomythic.mars.settings.Constants;
 import edu.wpi.first.wpilibj.Timer;
 
 /**
- *
+ * Runs the intake forwards for a specified amount of time
  */
 public class RunIntakeTime extends CommandBase {
 	double time;
 	Timer timer;
 
+	/**
+	 * Runs the intake forwards for a specified amount of time
+	 * @param time The time for the intake to run
+	 */
 	public RunIntakeTime(double time) {
 		// Use requires() here to declare subsystem dependencies
 		// eg. requires(chassis);

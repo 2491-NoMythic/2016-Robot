@@ -1,5 +1,8 @@
 package com._2491nomythic.mars.settings;
 
+/**
+ * All of the constants that we use to control the robot
+ */
 public class Constants {
 	//Regular Encoder ticks (non-talon)
 	public static final int ticksPerRev = 256;
@@ -37,7 +40,7 @@ public class Constants {
 	//Computation Constants
 	public static final double driveEncoderToFeet = 0.095720401164064;
 	public static final double driveHighGearDelay = 1;
-	public static final double driveHighGearShiftSpeed = 500; //TODO find actual speed
+	public static final double driveHighGearShiftSpeed = 3; //TODO find actual speed
 	public static final double acceptableArmatureDifference = 5;
 	public static final double intakeSpeed = 1;
 	public static final double armatureSpeed = 0.3;
@@ -58,10 +61,10 @@ public class Constants {
 //	public static final double acceptableVisionAreaDifference = 1; //TODO
 //	public static final double acceptableVisionHeightDifference = 1; //TODO
 //	public static final double acceptableVisionWidthDifference = 1; //TODO
-//  public static final double areaMinimum = 1; //TODO will filter out all the particles that are below a certain
-												//Percentage of the camera's area
+	public static final double visionHorizontalCompensation = 1; //TODO
 	public static final double cameraArea = 800 * 600;
 	public static final double cameraHorizontalViewAngle = 67; //degrees
 	public static final double targetWidthToHeightAspectRatio = 10/7; //width / height in feet
+	public static final double degreesPerPixel = 67/800;
 
 }

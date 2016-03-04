@@ -4,10 +4,13 @@ import com._2491nomythic.mars.commands.CommandBase;
 import com._2491nomythic.mars.settings.Constants;
 
 /**
- *
+ * Runs the intake backwards
  */
 public class ManualSpitOut extends CommandBase {
 
+	/**
+	 * Runs the intake backwards
+	 */
     public ManualSpitOut() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);

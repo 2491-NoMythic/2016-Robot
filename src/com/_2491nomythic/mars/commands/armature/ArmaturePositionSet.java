@@ -4,11 +4,14 @@ import com._2491nomythic.mars.commands.CommandBase;
 import com._2491nomythic.mars.settings.Constants;
 
 /**
- *
+ * Moves the armature to a specified encoder position	
  */
 public class ArmaturePositionSet extends CommandBase {
 	double position;
 	
+	/**
+	 * Moves the armature to a specified encoder position	
+	 */
     public ArmaturePositionSet(double position) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
