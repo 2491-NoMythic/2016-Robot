@@ -65,8 +65,8 @@ public class OI {
 		startingConfiguration = new  JoystickButton(controllers[ControllerMap.configurationController], ControllerMap.startingConfigurationButton);
 		startingConfiguration.whenPressed(new StartingConfiguration());
 		
-		alignShooter = new JoystickButton(controllers[ControllerMap.shooterController], ControllerMap.alignShooterButton);
-		alignShooter.whenPressed(new AlignShooter());
+//		alignShooter = new JoystickButton(controllers[ControllerMap.shooterController], ControllerMap.alignShooterButton);
+//		alignShooter.whenPressed(new AlignShooter());
 		
 		//Drivetrain
 		shiftGear = new JoystickButton(controllers[ControllerMap.driveController], ControllerMap.driveShiftButton);

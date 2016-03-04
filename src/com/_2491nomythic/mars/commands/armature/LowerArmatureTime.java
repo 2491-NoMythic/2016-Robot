@@ -1,21 +1,31 @@
-package com._2491nomythic.mars.commands;
+package com._2491nomythic.mars.commands.armature;
 
+import com._2491nomythic.mars.commands.CommandBase;
+
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
  *
  */
-public class AlignShooterUsingPixels extends CommandBase {
-	private double pixelsFromTarget;
-    public AlignShooterUsingPixels() {
+public class LowerArmatureTime extends CommandBase {
+	Timer timer;
+	double power;
+	double time;
+    public LowerArmatureTime(double power, double time) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-//    	requires(grip);
+    	requires(armature);
+    	timer = new Timer();
+    	this.power = power;
+    	this.time = time;
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	
+    	timer.start();
+    	timer.reset();
+    	armature.set(-1.0 * power);
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -24,7 +34,7 @@ public class AlignShooterUsingPixels extends CommandBase {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        return (timer.get() > time);
     }
 
     // Called once after isFinished returns true
