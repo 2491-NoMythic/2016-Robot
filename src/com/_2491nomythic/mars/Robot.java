@@ -75,7 +75,6 @@ public class Robot extends IterativeRobot {
         // continue until interrupted by another command, remove
         // this line or comment it out.
         if (autoCommand != null) autoCommand.cancel();
-        oi = new OI();
     }
 
     /**
