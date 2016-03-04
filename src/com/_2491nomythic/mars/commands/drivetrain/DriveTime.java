@@ -47,7 +47,7 @@ public class DriveTime extends CommandBase {
     protected void initialize() {
     	timer.start();
     	timer.reset();
-		drivetrain.drive(leftPower, rightPower);
+		drivetrain.drive(-1.0 * leftPower, -1.0 * rightPower);
     }
 
     // Called repeatedly when this Command is scheduled to run
