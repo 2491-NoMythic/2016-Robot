@@ -14,7 +14,6 @@ public class ShiftGearWithDelay extends CommandBase {
     public ShiftGearWithDelay() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	requires(drivetrain);
     	timer = new Timer();
     }
 
