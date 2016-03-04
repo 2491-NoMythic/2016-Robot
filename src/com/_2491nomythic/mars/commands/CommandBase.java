@@ -21,6 +21,7 @@ public abstract class CommandBase extends Command {
 	protected static Shooter shooter;
 	protected static Intake intake;
 	protected static Armature armature;
+	protected static double initialPosition;
 //	protected static GRIP grip;
 	
 	public static void init() {

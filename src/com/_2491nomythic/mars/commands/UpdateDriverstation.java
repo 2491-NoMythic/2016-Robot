@@ -44,7 +44,7 @@ public class UpdateDriverstation extends CommandBase {
 			nextRun = nextRun + 0.1;
 //			SmartDashboard.putBoolean("Tower in range: ", (Math.abs(Constants.visionCenterXValue - grip.getCenterX()[0]) < Constants.acceptableVisionCenterXDifference) && (Math.abs(Constants.visionCenterYValue - grip.getCenterY()[0]) < Constants.acceptableVisionCenterYDifference) && (Math.abs(Constants.visionAreaValue - grip.getArea()[0]) < Constants.acceptableVisionAreaDifference));
 			Variables.shooterSpeed = SmartDashboard.getNumber("Shooter Speed");
-			
+			SmartDashboard
 			//Vision code starts here
 			//It runs off of grip, so we are simply taking the biggest target
 //			numOfParticles = grip.getArea().length;
