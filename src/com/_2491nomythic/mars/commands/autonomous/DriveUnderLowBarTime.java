@@ -21,7 +21,7 @@ public class DriveUnderLowBarTime extends Command {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	drive5SecsForeward = new DriveTime(5, 0.7);
-    	lowerArmature = new LowerArmatureTime(0.5, 2); //takes in positive power
+    	lowerArmature = new LowerArmatureTime(0.5, 0.8); //takes in positive power
     	hasRun = false;
     }
 
