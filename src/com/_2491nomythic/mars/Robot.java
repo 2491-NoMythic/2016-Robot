@@ -42,8 +42,8 @@ public class Robot extends IterativeRobot {
 		autoChooser = new SendableChooser();
 		autoChooser.addDefault("Do Nothing", new DoNothing());
 		autoChooser.addObject("Drive Under Low Bar Time", new DriveUnderLowBarTime());
-		autoChooser.addObject("Drive Over Rock Wall", new DriveOverRockWall());
-		autoChooser.addObject("Drive Under Portcullis", new DriveUnderPortcullis());
+		//autoChooser.addObject("Drive Over Rock Wall", new DriveOverRockWall());
+		//autoChooser.addObject("Drive Under Portcullis", new DriveUnderPortcullis());
 		SmartDashboard.putData("Autonomous", autoChooser);
 		SmartDashboard.putData("Reset Drive Encoders", new ResetDriveEncoders());
 		SmartDashboard.putData("Rotate90Degrees",new RotateDrivetrain(90,0.5,true));

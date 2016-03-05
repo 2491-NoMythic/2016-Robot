@@ -51,8 +51,8 @@ public class Drive extends CommandBase {
 //    	}
     	drivetrain.drive(currentLeftPower, currentRightPower);
     	
-    	System.out.println(drivetrain.getLeftEncoderDistance());
-    	System.out.println(drivetrain.getRightEncoderDistance());
+    	//System.out.println(drivetrain.getLeftEncoderDistance());
+    	//System.out.println(drivetrain.getRightEncoderDistance());
     }
 
     // Make this return true when this Command no longer needs to run execute()

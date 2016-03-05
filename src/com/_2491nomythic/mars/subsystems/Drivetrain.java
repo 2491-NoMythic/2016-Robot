@@ -15,7 +15,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  */
 public class Drivetrain extends Subsystem {
     private CANTalon left1, left2, left3, right1, right2, right3;
-    private Encoder encoderLeft, encoderRight;
+   // private Encoder encoderLeft, encoderRight;
     private Solenoid solenoid;
     private double currentLeftSpeed, currentRightSpeed;
     
@@ -39,12 +39,12 @@ public class Drivetrain extends Subsystem {
 		right2 = new CANTalon(Constants.driveTalonRight2Channel);
 		right3 = new CANTalon(Constants.driveTalonRight3Channel);
 		
-		encoderLeft = new Encoder(Constants.driveEncoderLeftChannel1, Constants.driveEncoderLeftChannel2,  false, CounterBase.EncodingType.k1X);
-		encoderRight = new Encoder(Constants.driveEncoderRightChannel1, Constants.driveEncoderRightChannel2, false, CounterBase.EncodingType.k1X);
-		encoderLeft.setDistancePerPulse(Constants.driveEncoderToFeet);
-		encoderRight.setDistancePerPulse(Constants.driveEncoderToFeet);
-		encoderLeft.reset();
-		encoderRight.reset();
+//		encoderLeft = new Encoder(Constants.driveEncoderLeftChannel1, Constants.driveEncoderLeftChannel2,  false, CounterBase.EncodingType.k1X);
+//		encoderRight = new Encoder(Constants.driveEncoderRightChannel1, Constants.driveEncoderRightChannel2, false, CounterBase.EncodingType.k1X);
+//		encoderLeft.setDistancePerPulse(Constants.driveEncoderToFeet);
+//		encoderRight.setDistancePerPulse(Constants.driveEncoderToFeet);
+//		encoderLeft.reset();
+//		encoderRight.reset();
 		
 //		left1.configEncoderCodesPerRev(360);
 //		right1.configEncoderCodesPerRev(360);
@@ -114,58 +114,58 @@ public class Drivetrain extends Subsystem {
 	/**
 	 * Resets the left drive encoder value to 0
 	 */
-	public void resetLeftEncoder() {
-		encoderLeft.reset();
-	}
+//	public void resetLeftEncoder() {
+//		encoderLeft.reset();
+//	}
 	
 	/**
 	 * Resets the right drive encoder value to 0
 	 */
-	public void resetRightEncoder() {
-		encoderRight.reset();
-	}
+//	public void resetRightEncoder() {
+//		encoderRight.reset();
+//	}
 	
 	/**
 	 * @return The left drive encoder
 	 */
-	public Encoder getLeftEncoder() {
-		return encoderLeft;
-	}
+//	public Encoder getLeftEncoder() {
+//		return encoderLeft;
+//	}
 	
 	/**
 	 * @return the right drive encoder
 	 */
-	public Encoder getRightEncoder() {
-		return encoderRight;
-	}
+//	public Encoder getRightEncoder() {
+//		return encoderRight;
+//	}
 	
 	/**
 	 * @return The value of the left drive encoder
 	 */
-	public double getLeftEncoderDistance() {
-		return encoderLeft.getDistance();
-	}
+//	public double getLeftEncoderDistance() {
+//		return encoderLeft.getDistance();
+//	}
 	
 	/**
 	 * @return The value of the right drive encoder
 	 */
-	public double getRightEncoderDistance() {
-		return encoderRight.getDistance();
-	}
+//	public double getRightEncoderDistance() {
+//		return encoderRight.getDistance();
+//	}
 	
 	/**
 	 * @return The speed of the left motor in feet per second
 	 */
-	public double getLeftEncoderRate() {
-		return encoderLeft.getRate();
-	}
+//	public double getLeftEncoderRate() {
+//		return encoderLeft.getRate();
+//	}
 	
 	/**
 	 * @return The speed of the right motor in feet per second
 	 */
-	public double getRightEncoderRate() {
-		return encoderRight.getRate();
-	}
+//	public double getRightEncoderRate() {
+//		return encoderRight.getRate();
+//	}
 	
 	/**
 	 * @return The solenoid that shifts the drive gears
