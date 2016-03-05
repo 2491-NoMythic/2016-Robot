@@ -43,9 +43,10 @@ public class ManualArmatureControl extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-//    	if(armature.armLimitSwitch()) {
+//    	if(armature.getLimitSwitch()) {
 //    		armature.set(0);
 //    	}
+    	System.out.println(armature.getEncoderPosition());
     }
 
     // Make this return true when this Command no longer needs to run execute()
