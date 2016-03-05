@@ -43,6 +43,15 @@ public class DriveToPosition extends CommandBase {
     		}
     		//return (drivetrain.getLeftEncoderDistance() < (initialEncoderFeetPos + distance));
     	}
+//    	if(distance + initialEncoderFeetPos > initialEncoderFeetPos) {
+//    		return (drivetrain.getLeftEncoderDistance() > (initialEncoderFeetPos + distance));
+//    	}
+//    	else {
+//    		if(speed > 0) {
+//    			drivetrain.drive(-1.0 * speed);
+//    		}
+//    		return (drivetrain.getLeftEncoderDistance() < (initialEncoderFeetPos + distance));
+//    	}
     	return true;
     }
 
