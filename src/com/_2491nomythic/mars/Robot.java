@@ -1,14 +1,15 @@
 
 package com._2491nomythic.mars;
 
+import com._2491nomythic.mars.commands.AlignShooter;
 import com._2491nomythic.mars.commands.CommandBase;
 import com._2491nomythic.mars.commands.autonomous.DoNothing;
 import com._2491nomythic.mars.commands.autonomous.DriveOverRockWall;
-import com._2491nomythic.mars.commands.autonomous.DriveUnderLowBar;
 import com._2491nomythic.mars.commands.autonomous.DriveUnderLowBarTime;
 import com._2491nomythic.mars.commands.autonomous.DriveUnderPortcullis;
 import com._2491nomythic.mars.commands.drivetrain.ResetDriveEncoders;
 import com._2491nomythic.mars.commands.drivetrain.RotateDrivetrain;
+import com._2491nomythic.mars.commands.shooter.RaiseShooter;
 import com._2491nomythic.mars.settings.Variables;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
@@ -42,11 +43,12 @@ public class Robot extends IterativeRobot {
 		autoChooser.addDefault("Do Nothing", new DoNothing());
 		autoChooser.addObject("Drive Under Low Bar Time", new DriveUnderLowBarTime());
 		autoChooser.addObject("Drive Over Rock Wall", new DriveOverRockWall());
-		autoChooser.addObject("Drive Under Low Bar", new DriveUnderLowBar());
 		autoChooser.addObject("Drive Under Portcullis", new DriveUnderPortcullis());
 		SmartDashboard.putData("Autonomous", autoChooser);
 		SmartDashboard.putData("Reset Drive Encoders", new ResetDriveEncoders());
 		SmartDashboard.putData("Rotate90Degrees",new RotateDrivetrain(90,0.5,true));
+		SmartDashboard.putData("Raise Shooter", new RaiseShooter());
+		SmartDashboard.putData("Align Shooter", new AlignShooter());
 		SmartDashboard.putNumber("Devation From Target", Variables.degreeDeviationFromTarget);
 		
     }
@@ -87,6 +89,7 @@ public class Robot extends IterativeRobot {
      */
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
+        
     }
     
     /**

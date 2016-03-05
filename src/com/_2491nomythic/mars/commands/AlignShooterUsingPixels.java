@@ -1,16 +1,13 @@
 package com._2491nomythic.mars.commands;
 
-import com._2491nomythic.mars.commands.drivetrain.RotateDrivetrain;
-import com._2491nomythic.mars.settings.Constants;
+import edu.wpi.first.wpilibj.command.Command;
 
 /**
  *
  */
-public class AlignShooter extends CommandBase {
-	private double movementInDegrees;
-	private boolean turnLeft;
-	private RotateDrivetrain rotateDrivetrain;
-    public AlignShooter() {
+public class AlignShooterUsingPixels extends CommandBase {
+	private double pixelsFromTarget;
+    public AlignShooterUsingPixels() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
 //    	requires(grip);
@@ -18,11 +15,6 @@ public class AlignShooter extends CommandBase {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-//    	movementInDegrees = -1.0 * ((grip.getCenterX()[0] - 400)) * Constants.degreesPerPixel;
-    	movementInDegrees += Constants.visionHorizontalCompensation * Constants.degreesPerPixel;
-    	turnLeft = (movementInDegrees > 0) ? true : false;
-    	rotateDrivetrain = new RotateDrivetrain(movementInDegrees, 0.5, turnLeft);
-    	rotateDrivetrain.start();
     	
     }
 
@@ -32,7 +24,7 @@ public class AlignShooter extends CommandBase {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return (!rotateDrivetrain.isRunning());
+        return false;
     }
 
     // Called once after isFinished returns true
@@ -42,6 +34,5 @@ public class AlignShooter extends CommandBase {
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-    	rotateDrivetrain.cancel();
     }
 }

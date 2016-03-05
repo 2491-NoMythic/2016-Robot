@@ -1,28 +1,31 @@
-package com._2491nomythic.mars.commands.autonomous;
+package com._2491nomythic.mars.commands.armature;
 
 import com._2491nomythic.mars.commands.CommandBase;
 
-import com._2491nomythic.mars.commands.drivetrain.DriveToPosition;
-
+import edu.wpi.first.wpilibj.Timer;
+import edu.wpi.first.wpilibj.command.Command;
 
 /**
- * An autonomous that drives under the low bar, starting from directly in front of it on the starting line
+ *
  */
-public class DriveUnderLowBar extends CommandBase {
-	DriveToPosition drive13Feet;
-	
-	/**
-	 * An autonomous that drives under the low bar, starting from directly in front of it on the starting line
-	 */
-    public DriveUnderLowBar() {
+public class LowerArmatureTime extends CommandBase {
+	Timer timer;
+	double power;
+	double time;
+    public LowerArmatureTime(double power, double time) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	drive13Feet = new DriveToPosition(13,0.7);
+    	requires(armature);
+    	timer = new Timer();
+    	this.power = power;
+    	this.time = time;
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	drive13Feet.start();
+    	timer.start();
+    	timer.reset();
+    	armature.set(-1.0 * power);
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -31,7 +34,7 @@ public class DriveUnderLowBar extends CommandBase {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return (!drive13Feet.isRunning());
+        return (timer.get() > time);
     }
 
     // Called once after isFinished returns true
@@ -41,6 +44,5 @@ public class DriveUnderLowBar extends CommandBase {
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-    	drive13Feet.cancel();
     }
 }

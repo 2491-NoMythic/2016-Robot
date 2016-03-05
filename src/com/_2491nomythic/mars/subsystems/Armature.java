@@ -32,7 +32,7 @@ public class Armature extends Subsystem {
      */
     private Armature() {
     	motor = new CANTalon(Constants.armatureChannel);
-    	
+    	//motor.setFeedbackDevice();
     	motor.configEncoderCodesPerRev(360);
     	motor.setEncPosition(0);
     	

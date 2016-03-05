@@ -23,6 +23,9 @@ public class Drive extends CommandBase {
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	//When the command first starts up the current power should be zero so that it always accelerates smoothly
+    	currentLeftPower = 0;
+    	currentRightPower = 0;
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -32,7 +35,19 @@ public class Drive extends CommandBase {
     	currentLeftPower = oi.getAxisDeadzonedSquared(ControllerMap.driveController, ControllerMap.driveLeftAxis);
     	currentRightPower = oi.getAxisDeadzonedSquared(ControllerMap.driveController, ControllerMap.driveRightAxis);
 //    	if(Math.abs(lastLeftPower - currentLeftPower) > 0.05) {
-//    		
+//    		currentLeftPower = (lastLeftPower - currentLeftPower > 0) ? lastLeftPower - 0.05 : lastLeftPower + 0.05;
+//    		//if the difference between the numbers is positive it is going up
+//    			
+//    	}
+//    	else {
+//    		//...the power is below 0.05 accel and is fine
+//    	}
+//    	if(Math.abs(lastRightPower - currentRightPower) > 0.05) {
+//    		currentRightPower = (lastRightPower - currentRightPower > 0) ? lastRightPower - 0.05: lastRightPower + 0.05;
+//    		//if the difference between the numbers is positive it is going up
+//    	}
+//    	else {
+//    		//...the power is below 0.05 accel and is fine
 //    	}
     	drivetrain.drive(currentLeftPower, currentRightPower);
     	

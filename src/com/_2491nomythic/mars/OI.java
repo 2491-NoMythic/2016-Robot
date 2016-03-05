@@ -7,7 +7,8 @@ import com._2491nomythic.mars.commands.PickUpBallConfiguration;
 import com._2491nomythic.mars.commands.Shoot;
 import com._2491nomythic.mars.commands.StartingConfiguration;
 import com._2491nomythic.mars.commands.armature.ManualArmatureControl;
-import com._2491nomythic.mars.commands.drivetrain.ShiftGear;
+//import com._2491nomythic.mars.commands.drivetrain.ShiftGearVelocity;
+import com._2491nomythic.mars.commands.drivetrain.ShiftGearWithDelay;
 import com._2491nomythic.mars.commands.intake.IntakeBall;
 import com._2491nomythic.mars.commands.intake.ManualSpitOut;
 import com._2491nomythic.mars.commands.intake.ManualTakeIn;
@@ -22,6 +23,7 @@ import com._2491nomythic.util.JoystickPOVButton;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -36,14 +38,16 @@ public class OI {
     // Button button = new JoystickButton(stick, buttonNumber);
     
 	private final Joystick[] controllers = new Joystick[2];
-	Button shoot, chevalDeFriseConfiguration, lowBarConfiguration, pickUpBallConfiguration, startingConfiguration, alignShooter, shiftGear, manualShooterControl, manualTakeIn, manualSpitOut, raiseShooter, lowerShooter, intakeBall, manualArmatureUpControl, manualArmatureDownControl;
-	
+	Button shoot, chevalDeFriseConfiguration, lowBarConfiguration, alignShooter, pickUpBallConfiguration, startingConfiguration, shiftGear, manualShooterControl, manualTakeIn, manualSpitOut, raiseShooter, lowerShooter, intakeBall, manualArmatureUpControl, manualArmatureDownControl;
+	private SendableChooser shiftVelocityOrDelay;	
 	/**
 	 * Initiates some joysticks and buttons.
 	 */
 	public void init() {
 		controllers[0] = new Joystick(Constants.ControllerOnePort);
 		controllers[1] = new Joystick(Constants.ControllerTwoPort);
+		
+		shiftVelocityOrDelay = new SendableChooser();
 		
 		//Commands
 		shoot = new JoystickButton(controllers[ControllerMap.shooterController], ControllerMap.shootButton);
@@ -61,12 +65,12 @@ public class OI {
 		startingConfiguration = new  JoystickButton(controllers[ControllerMap.configurationController], ControllerMap.startingConfigurationButton);
 		startingConfiguration.whenPressed(new StartingConfiguration());
 		
-		alignShooter = new JoystickButton(controllers[ControllerMap.shooterController], ControllerMap.alignShooterButton);
-		alignShooter.whenPressed(new AlignShooter());
+//		alignShooter = new JoystickButton(controllers[ControllerMap.shooterController], ControllerMap.alignShooterButton);
+//		alignShooter.whenPressed(new AlignShooter());
 		
 		//Drivetrain
 		shiftGear = new JoystickButton(controllers[ControllerMap.driveController], ControllerMap.driveShiftButton);
-		shiftGear.whileHeld(new ShiftGear());
+		shiftGear.whileHeld(new ShiftGearWithDelay());
 		
 		//Shooter
 		manualShooterControl = new JoystickButton(controllers[ControllerMap.manualShooterController], ControllerMap.manualShooterButton);
@@ -74,7 +78,7 @@ public class OI {
 		
 		raiseShooter = new JoystickPOVButton(controllers[ControllerMap.manualShooterController], ControllerMap.manualShooterPositionUpPOV);
 		raiseShooter.whenPressed(new RaiseShooter());
-//		
+
 		lowerShooter = new JoystickPOVButton(controllers[ControllerMap.manualShooterController], ControllerMap.manualShooterPositionDownPOV);
 		lowerShooter.whenPressed(new LowerShooter());
 		
