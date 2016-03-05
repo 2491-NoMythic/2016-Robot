@@ -20,8 +20,8 @@ public class RotateDrivetrain extends CommandBase {
 		// Use requires() here to declare subsystem dependencies
 		// eg. requires(chassis);
 		requires(drivetrain);
-		initialLeftEncoder = drivetrain.getLeftEncoderDistance();
-		initialRightEncoder = drivetrain.getRightEncoderDistance();
+		//initialLeftEncoder = drivetrain.getLeftEncoderDistance();
+		//initialRightEncoder = drivetrain.getRightEncoderDistance();
 		distance = (angleInDegrees * (Math.PI / 180)) * 1.431; //radius in ft
 		this.power = power;
 	}
@@ -43,11 +43,12 @@ public class RotateDrivetrain extends CommandBase {
 	// Make this return true when this Command no longer needs to run execute()
 	protected boolean isFinished() {
 		if(turnLeft) {
-			return Math.abs(drivetrain.getLeftEncoderDistance() - initialLeftEncoder) > distance;
+			//return Math.abs(drivetrain.getLeftEncoderDistance() - initialLeftEncoder) > distance;
 		}
 		else {
-			return Math.abs(drivetrain.getRightEncoderDistance() - initialRightEncoder) > distance;
+			//return Math.abs(drivetrain.getRightEncoderDistance() - initialRightEncoder) > distance;
 		}
+		return true;
 	}
 
 	// Called once after isFinished returns true
