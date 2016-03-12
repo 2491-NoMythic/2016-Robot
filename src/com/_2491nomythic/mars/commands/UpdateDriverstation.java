@@ -48,6 +48,8 @@ public class UpdateDriverstation extends CommandBase {
 			//Vision code starts here
 			//It runs off of grip, so we are simply taking the biggest target
 //			numOfParticles = grip.getArea().length;
+			System.out.println(grip.getCenterX()[0]);
+			System.out.println(grip.getCenterY()[0]);
 //			if(numOfParticles == 0) {
 //				//do nothing	    		
 //	    	}
