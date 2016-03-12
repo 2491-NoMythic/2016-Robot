@@ -58,41 +58,73 @@ public class ShootPickupShoot extends CommandBase {
     protected void execute() {
     	switch(state) {
     	case 0:
-    		drive13ft.start();
+    		armLowBar.start();
+    		state++;
     	case 1:
-    		rotateNeg45.start();
+    		if(!armLowBar.isRunning()) {
+    		drive13ft.start();
+    		state++;
+    		}
     	case 2:
-    		drive5ft.start();
+    		if(!drive13ft.isRunning()){
+    		rotate45.start();
+    		state++;
+    		}
     	case 3:
-    		rotate180.start();
+    		if(!rotate45.isRunning()){
+    		drive5ft.start();
+    		state++;
+    		}
     	case 4:
+    		if(!drive5ft.isRunning()){
     		raiseShooter.start();
+    		state++;
+    		}
     	case 5:
+    		if(!raiseShooter.isRunning()){
     		shoot.start();
+    		state++;
+    		}
     	case 6:
-    		lowerShooter.start();
+    		if(!shoot.isRunning()){
+    		rotate180.start();
+    		state++;
+    		}
     	case 7:
+    		if(!rotate180.isRunning()){
     		drive5ft.start();
+    		state++;
+    		}
     	case 8:
+    		if(!drive5ft.isRunning()){
     		rotate45.start();
+    		state++;
+    		}
     	case 9:
+    		if(!rotate45.isRunning()){
     		drive13ft.start();
+    		state++;
+    		}
     	case 10:
-    		rotate90.start();
+    		if(!drive13ft.isRunning()){
+    		armUp.start();
+    		state++;
+    		}
     	case 11:
-    		intakeBall.start();
-    	case 12:
+    		if(!armUp.isRunning()){
     		rotate90.start();
+    		state++;
+    		}
+    	case 12:
+    		if(!rotate90.isRunning()){
+    		armIntake.start();
+    		state++;
+    		}
     	case 13:
-    		drive13ft.start();
-    	case 14:
-    		rotate45.start();
-    	case 15:
-    		drive5ft.start();
-    	case 16:
-    		raiseShooter.start();
-    	case 17:
-    		shoot.start();
+    		if(!armIntake.isRunning()){
+    		rotate90.start();
+    		state++;
+    		}
     	}
     }
 
