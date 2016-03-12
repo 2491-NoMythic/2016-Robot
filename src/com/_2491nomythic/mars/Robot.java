@@ -3,7 +3,7 @@ package com._2491nomythic.mars;
 
 import com._2491nomythic.mars.commands.AlignShooter;
 import com._2491nomythic.mars.commands.CommandBase;
-import com._2491nomythic.mars.commands.armature.LowerArmatureTime;
+import com._2491nomythic.mars.commands.armature.ArmatureTime;
 import com._2491nomythic.mars.commands.autonomous.DoNothing;
 //import com._2491nomythic.mars.commands.autonomous.DriveOverRockWall;
 import com._2491nomythic.mars.commands.drivetrain.DriveTime;
@@ -53,7 +53,7 @@ public class Robot extends IterativeRobot {
 		SmartDashboard.putData("Raise Shooter", new RaiseShooter());
 		SmartDashboard.putData("Align Shooter", new AlignShooter());
 		SmartDashboard.putNumber("Devation From Target", Variables.degreeDeviationFromTarget);
-		SmartDashboard.putData("Move Armature Down for Half Second", new LowerArmatureTime(0.5, 0.7));
+		SmartDashboard.putData("Move Armature Down for Half Second", new ArmatureTime(0.5, 0.7));
 		
     }
 	
