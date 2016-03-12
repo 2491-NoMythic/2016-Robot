@@ -1,12 +1,10 @@
 package com._2491nomythic.mars.commands;
 
-import edu.wpi.first.wpilibj.command.Command;
-
 /**
  *
  */
 public class AlignShooterUsingPixels extends CommandBase {
-	private double pixelsFromTarget;
+//	private double pixelsFromTarget;
     public AlignShooterUsingPixels() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
