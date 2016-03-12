@@ -11,7 +11,6 @@ import com._2491nomythic.mars.commands.autonomous.DriveUnderLowBarTime;
 //import com._2491nomythic.mars.commands.autonomous.DriveUnderPortcullis;
 import com._2491nomythic.mars.commands.drivetrain.ResetDriveEncoders;
 import com._2491nomythic.mars.commands.drivetrain.RotateDrivetrain;
-import com._2491nomythic.mars.commands.drivetrain.ShiftGear;
 import com._2491nomythic.mars.commands.shooter.RaiseShooter;
 import com._2491nomythic.mars.settings.Variables;
 
@@ -54,7 +53,6 @@ public class Robot extends IterativeRobot {
 		SmartDashboard.putData("Raise Shooter", new RaiseShooter());
 		SmartDashboard.putData("Align Shooter", new AlignShooter());
 		SmartDashboard.putNumber("Devation From Target", Variables.degreeDeviationFromTarget);
-		SmartDashboard.putData("Shift to High Gear", new ShiftGear());
 		SmartDashboard.putData("Move Armature Down for Half Second", new LowerArmatureTime(0.5, 0.7));
 		
     }
