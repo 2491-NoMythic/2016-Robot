@@ -85,7 +85,7 @@ public class Armature extends Subsystem {
      * Stops the armature motor and then starts the KeepArmatureStill command
      */
     public void stop() {
-    	set(0);
+    	armatureSet(0);
     	//keepArmatureStill.start();
     }
     

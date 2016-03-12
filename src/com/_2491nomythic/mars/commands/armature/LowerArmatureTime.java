@@ -5,13 +5,19 @@ import com._2491nomythic.mars.commands.CommandBase;
 import edu.wpi.first.wpilibj.Timer;
 
 /**
- *
+ * Lowers the armature for a specified amount of time at a specified power
  */
 public class LowerArmatureTime extends CommandBase {
 	Timer timer;
 	double power;
 	double time;
-    public LowerArmatureTime(double power, double time) {
+    
+	/**
+	 * Lowers the armature for a specified amount of time at a specified power
+	 * @param power The power fed to the armature motor, ranging from -1 to 1, where negative values run the motor backwards
+	 * @param time The amount of time the armature motor is run for
+	 */
+	public LowerArmatureTime(double power, double time) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(armature);
@@ -44,6 +50,6 @@ public class LowerArmatureTime extends CommandBase {
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-    	armature.stop();
+    	end();
     }
 }

@@ -4,13 +4,17 @@ import com._2491nomythic.mars.commands.drivetrain.RotateDrivetrain;
 import com._2491nomythic.mars.settings.Constants;
 
 /**
- *
+ * Aligns the robot using vision so that we can shoot into the goal
  */
 public class AlignShooter extends CommandBase {
 	private double movementInDegrees;
 	private boolean turnLeft;
 	private RotateDrivetrain rotateDrivetrain;
-    public AlignShooter() {
+    
+	/**
+	 * Aligns the robot using vision so that we can shoot into the goal
+	 */
+	public AlignShooter() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
 //    	requires(grip);

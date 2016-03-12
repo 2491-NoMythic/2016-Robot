@@ -3,7 +3,7 @@ package com._2491nomythic.mars.commands;
 import edu.wpi.first.wpilibj.Timer;
 
 /**
- * Runs the camera. 'nuff said.
+ * Runs the first of two cameras and sends the image to the SmartDashboard
  */
 public class RunCamera1 extends CommandBase {
 	
@@ -11,7 +11,7 @@ public class RunCamera1 extends CommandBase {
 	private double nextRun;
 	
 	/**
-	 * Runs the camera. 'nuff said.
+	 * Runs the first of two cameras and sends the image to the SmartDashboard
 	 */
 	public RunCamera1() {
 		requires(camera1);

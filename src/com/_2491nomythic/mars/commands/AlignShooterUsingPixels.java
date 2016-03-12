@@ -1,11 +1,15 @@
 package com._2491nomythic.mars.commands;
 
 /**
- *
+ * Aligns the robot using vision so that we can shoot into the goal (using pixels)
  */
 public class AlignShooterUsingPixels extends CommandBase {
 //	private double pixelsFromTarget;
-    public AlignShooterUsingPixels() {
+    
+	/**
+	 * Aligns the robot using vision so that we can shoot into the goal (using pixels)
+	 */
+	public AlignShooterUsingPixels() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
 //    	requires(grip);

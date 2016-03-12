@@ -10,7 +10,7 @@ import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
- * <b>[Deprecated]</b> The camera used to help the drivers shoot
+ * The second of two cameras used to help the drivers shoot
  */
 public class Camera2 extends Subsystem {
 	
@@ -27,7 +27,7 @@ public class Camera2 extends Subsystem {
 	}
 	
 	/**
-	 * <b>[Deprecated]</b> The camera used to help the drivers shoot
+	 * The second of two cameras used to help the drivers shoot
 	 */
 	private Camera2() {
 		frame = NIVision.imaqCreateImage(NIVision.ImageType.IMAGE_HSL, 0);

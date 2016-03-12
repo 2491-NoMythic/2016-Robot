@@ -4,10 +4,13 @@ import com._2491nomythic.mars.commands.CommandBase;
 
 
 /**
- *
+ * @deprecated Shifts the drivetrain to high gear, giving it more speed but less torque
  */
 public class ShiftGear extends CommandBase {
 
+	/**
+	 * @deprecated Shifts the drivetrain to high gear, giving it more speed but less torque
+	 */
     public ShiftGear() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);

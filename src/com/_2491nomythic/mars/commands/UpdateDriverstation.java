@@ -9,7 +9,7 @@ import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
- *
+ * Updates the variables being sent to and from the SmartDashboard
  */
 public class UpdateDriverstation extends CommandBase {
 	private Timer timer;
@@ -23,6 +23,9 @@ public class UpdateDriverstation extends CommandBase {
 		double CenterY;
 	}
 
+	/**
+	 * Updates the variables being sent to and from the SmartDashboard
+	 */
     public UpdateDriverstation() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
@@ -48,6 +51,8 @@ public class UpdateDriverstation extends CommandBase {
 			//Vision code starts here
 			//It runs off of grip, so we are simply taking the biggest target
 //			numOfParticles = grip.getArea().length;
+			System.out.println(grip.getCenterX()[0]);
+			System.out.println(grip.getCenterY()[0]);
 //			if(numOfParticles == 0) {
 //				//do nothing	    		
 //	    	}
