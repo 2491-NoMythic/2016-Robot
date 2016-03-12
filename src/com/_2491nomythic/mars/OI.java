@@ -1,6 +1,6 @@
 package com._2491nomythic.mars;
 
-import com._2491nomythic.mars.commands.AlignShooter;
+//import com._2491nomythic.mars.commands.AlignShooter;
 import com._2491nomythic.mars.commands.ChevalDeFriseConfiguration;
 import com._2491nomythic.mars.commands.LowBarConfiguration;
 import com._2491nomythic.mars.commands.PickUpBallConfiguration;
@@ -23,7 +23,7 @@ import com._2491nomythic.util.JoystickPOVButton;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
-import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
+//import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -39,7 +39,7 @@ public class OI {
     
 	private final Joystick[] controllers = new Joystick[2];
 	Button shoot, chevalDeFriseConfiguration, lowBarConfiguration, alignShooter, pickUpBallConfiguration, startingConfiguration, shiftGear, manualShooterControl, manualTakeIn, manualSpitOut, raiseShooter, lowerShooter, intakeBall, manualArmatureUpControl, manualArmatureDownControl;
-	private SendableChooser shiftVelocityOrDelay;	
+//	private SendableChooser shiftVelocityOrDelay;	
 	/**
 	 * Initiates some joysticks and buttons.
 	 */
@@ -47,7 +47,7 @@ public class OI {
 		controllers[0] = new Joystick(Constants.ControllerOnePort);
 		controllers[1] = new Joystick(Constants.ControllerTwoPort);
 		
-		shiftVelocityOrDelay = new SendableChooser();
+//		shiftVelocityOrDelay = new SendableChooser();
 		
 		//Commands
 		shoot = new JoystickButton(controllers[ControllerMap.shooterController], ControllerMap.shootButton);

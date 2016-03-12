@@ -1,17 +1,21 @@
 package com._2491nomythic.mars.commands.drivetrain;
 
 import com._2491nomythic.mars.commands.CommandBase;
-import com._2491nomythic.mars.settings.Constants;
+//import com._2491nomythic.mars.settings.Constants;
 
 import edu.wpi.first.wpilibj.Timer;
 
 /**
- * Shifts the drivetrain to high gear, giving it more speed but less torque
+ * Shifts the drivetrain to high gear, giving it more speed but less torque (using a cutoff velocity)
  */
 public class ShiftGearVelocity extends CommandBase {
 	boolean hasBeenShifted;
 	Timer timer;
-    public ShiftGearVelocity() {
+    
+	/**
+	 * Shifts the drivetrain to high gear, giving it more speed but less torque (using a cutoff velocity)
+	 */
+	public ShiftGearVelocity() {
 
 	/**
 	 * Shifts the drivetrain to high gear, giving it more speed but less torque

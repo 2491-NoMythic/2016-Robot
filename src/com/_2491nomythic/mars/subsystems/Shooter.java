@@ -36,7 +36,9 @@ public class Shooter extends Subsystem {
     	motorRight.configEncoderCodesPerRev(1);//I want one unit per rotation, not 4 units per rotation.
     	motorLeft.setEncPosition(0);
     	solenoid = new Solenoid(Constants.shooterSolenoidChannel);
-    	solenoid.set(false); 
+    	solenoid.set(false);
+    	
+    	lower();
     }
     
     /**

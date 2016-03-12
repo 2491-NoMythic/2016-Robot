@@ -4,11 +4,14 @@ import com._2491nomythic.mars.commands.CommandBase;
 import com._2491nomythic.mars.settings.Constants;
 
 /**
- * <b>[DEPRECATED]</b> Keeps the armature still so that it doesn't fall due to gravity
+ * @deprecated Keeps the armature still so that it doesn't fall due to gravity
  */
 public class KeepArmatureStill extends CommandBase {
 	double initialArmaturePosition;
 
+	/**
+	 * @deprecated Keeps the armature still so that it doesn't fall due to gravity
+	 */
     public KeepArmatureStill() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);

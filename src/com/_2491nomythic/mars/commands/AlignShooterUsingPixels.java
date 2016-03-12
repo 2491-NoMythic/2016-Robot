@@ -1,13 +1,15 @@
 package com._2491nomythic.mars.commands;
 
-import edu.wpi.first.wpilibj.command.Command;
-
 /**
- *
+ * Aligns the robot using vision so that we can shoot into the goal (using pixels)
  */
 public class AlignShooterUsingPixels extends CommandBase {
-	private double pixelsFromTarget;
-    public AlignShooterUsingPixels() {
+//	private double pixelsFromTarget;
+    
+	/**
+	 * Aligns the robot using vision so that we can shoot into the goal (using pixels)
+	 */
+	public AlignShooterUsingPixels() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
 //    	requires(grip);
