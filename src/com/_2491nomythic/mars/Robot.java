@@ -7,6 +7,7 @@ import com._2491nomythic.mars.commands.armature.ArmatureTime;
 import com._2491nomythic.mars.commands.autonomous.DoNothing;
 //import com._2491nomythic.mars.commands.autonomous.DriveOverRockWall;
 import com._2491nomythic.mars.commands.drivetrain.DriveTime;
+import com._2491nomythic.mars.commands.drivetrain.DriveToPosition;
 import com._2491nomythic.mars.commands.autonomous.DriveUnderLowBarTime;
 //import com._2491nomythic.mars.commands.autonomous.DriveUnderPortcullis;
 import com._2491nomythic.mars.commands.drivetrain.ResetDriveEncoders;
@@ -45,6 +46,7 @@ public class Robot extends IterativeRobot {
 		autoChooser.addDefault("Do Nothing", new DoNothing());
 		autoChooser.addObject("Drive Forward Time", new DriveTime(4, 1));
 		autoChooser.addObject("Drive Under Low Bar Time", new DriveUnderLowBarTime());
+		autoChooser.addObject("Drive Forward One Foot (slow af)", new DriveToPosition(1, 0.3));
 		//autoChooser.addObject("Drive Over Rock Wall", new DriveOverRockWall());
 		//autoChooser.addObject("Drive Under Portcullis", new DriveUnderPortcullis());
 		SmartDashboard.putData("Autonomous", autoChooser);
