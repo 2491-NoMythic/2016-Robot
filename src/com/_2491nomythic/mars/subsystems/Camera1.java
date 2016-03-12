@@ -1,5 +1,6 @@
 package com._2491nomythic.mars.subsystems;
 
+import com._2491nomythic.mars.commands.RunCamera1;
 import com.ni.vision.NIVision;
 import com.ni.vision.NIVision.Image;
 
@@ -11,16 +12,16 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 /**
  * <b>[Deprecated]</b> The camera used to help the drivers shoot
  */
-public class Camera extends Subsystem {
+public class Camera1 extends Subsystem {
 	
 	private int session;
 	private Image frame;
 	private boolean cameraFound = true;
-	private static Camera instance;
+	private static Camera1 instance;
 	
-	public static Camera getInstance() {
+	public static Camera1 getInstance() {
 		if (instance == null) {
-			instance = new Camera();
+			instance = new Camera1();
 		}
 		return instance;
 	}
@@ -28,7 +29,7 @@ public class Camera extends Subsystem {
 	/**
 	 * <b>[Deprecated]</b> The camera used to help the drivers shoot
 	 */
-	private Camera() {
+	private Camera1() {
 		frame = NIVision.imaqCreateImage(NIVision.ImageType.IMAGE_HSL, 0);
 		try {
 			session = NIVision.IMAQdxOpenCamera("cam0", NIVision.IMAQdxCameraControlMode.CameraControlModeController);
@@ -71,6 +72,6 @@ public class Camera extends Subsystem {
 	}
 	
 	public void initDefaultCommand() {
-		//setDefaultCommand();
+		setDefaultCommand(new RunCamera1());
 	}
 }
