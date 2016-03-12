@@ -4,7 +4,7 @@ import com._2491nomythic.mars.commands.drivetrain.RotateDrivetrain;
 import com._2491nomythic.mars.settings.Constants;
 
 /**
- *
+ * Aligns the robot using vision so that we can shoot into the goal
  */
 public class AlignShooter extends CommandBase {
 	private double movementInDegrees;
