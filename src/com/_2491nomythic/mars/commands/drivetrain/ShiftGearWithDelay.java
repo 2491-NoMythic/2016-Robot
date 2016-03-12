@@ -5,13 +5,16 @@ import com._2491nomythic.mars.commands.CommandBase;
 import edu.wpi.first.wpilibj.Timer;
 
 /**
- *
+ * Shifts the drivetrain to high gear, giving it more speed but less torque (using a delay)
  */
 public class ShiftGearWithDelay extends CommandBase {
 	private boolean isShifted, isDelayed;
 	private Timer timer;
 	
-    public ShiftGearWithDelay() {
+	/**
+	 * Shifts the drivetrain to high gear, giving it more speed but less torque (using a delay)
+	 */
+	public ShiftGearWithDelay() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	timer = new Timer();
