@@ -3,8 +3,10 @@ package com._2491nomythic.mars;
 
 import com._2491nomythic.mars.commands.AlignShooter;
 import com._2491nomythic.mars.commands.CommandBase;
+import com._2491nomythic.mars.commands.armature.LowerArmatureTime;
 import com._2491nomythic.mars.commands.autonomous.DoNothing;
 import com._2491nomythic.mars.commands.autonomous.DriveOverRockWall;
+import com._2491nomythic.mars.commands.drivetrain.DriveTime;
 import com._2491nomythic.mars.commands.autonomous.DriveUnderLowBarTime;
 import com._2491nomythic.mars.commands.autonomous.DriveUnderPortcullis;
 import com._2491nomythic.mars.commands.drivetrain.ResetDriveEncoders;
@@ -42,6 +44,7 @@ public class Robot extends IterativeRobot {
         // instantiate the command used for the autonomous period
 		autoChooser = new SendableChooser();
 		autoChooser.addDefault("Do Nothing", new DoNothing());
+		autoChooser.addObject("Drive Forward Time", new DriveTime(4, 1));
 		autoChooser.addObject("Drive Under Low Bar Time", new DriveUnderLowBarTime());
 		//autoChooser.addObject("Drive Over Rock Wall", new DriveOverRockWall());
 		//autoChooser.addObject("Drive Under Portcullis", new DriveUnderPortcullis());
@@ -52,6 +55,7 @@ public class Robot extends IterativeRobot {
 		SmartDashboard.putData("Align Shooter", new AlignShooter());
 		SmartDashboard.putNumber("Devation From Target", Variables.degreeDeviationFromTarget);
 		SmartDashboard.putData("Shift to High Gear", new ShiftGear());
+		SmartDashboard.putData("Move Armature Down for Half Second", new LowerArmatureTime(0.5, 0.7));
 		
     }
 	

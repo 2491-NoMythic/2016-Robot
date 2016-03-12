@@ -22,7 +22,7 @@ public class DriveUnderLowBarTime extends Command {
     public DriveUnderLowBarTime() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	drive5SecsForeward = new DriveTime(5, 0.7);
+    	drive5SecsForeward = new DriveTime(5, -0.7);
     	lowerArmature = new LowerArmatureTime(0.5, 0.8); //takes in positive power
     	timer = new Timer();
     	hasRun = false;
@@ -31,6 +31,8 @@ public class DriveUnderLowBarTime extends Command {
     // Called just before this Command runs the first time
     protected void initialize() {
     	drive5SecsForeward.start();
+    	timer.start();
+    	timer.reset();
     }
 
     // Called repeatedly when this Command is scheduled to run
