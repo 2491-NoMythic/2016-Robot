@@ -11,7 +11,7 @@ import edu.wpi.first.wpilibj.command.Command;
  */
 public class DriveUnderLowBarTime extends Command {
 	
-	DriveTime drive5SecsForeward;
+	DriveTime drive5SecsForwards;
 	LowerArmatureTime lowerArmature;
 	Timer timer;
 	boolean hasRun;
@@ -22,7 +22,7 @@ public class DriveUnderLowBarTime extends Command {
     public DriveUnderLowBarTime() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	drive5SecsForeward = new DriveTime(5, 0.7);
+    	drive5SecsForwards = new DriveTime(5, 0.7);
     	lowerArmature = new LowerArmatureTime(0.5, 0.8); //takes in positive power
     	timer = new Timer();
     	hasRun = false;
@@ -30,7 +30,9 @@ public class DriveUnderLowBarTime extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	drive5SecsForeward.start();
+    	timer.start();
+    	timer.reset();
+    	drive5SecsForwards.start();
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -44,7 +46,7 @@ public class DriveUnderLowBarTime extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return (!drive5SecsForeward.isRunning());
+        return (!drive5SecsForwards.isRunning() && !lowerArmature.isRunning());
     }
 
     // Called once after isFinished returns true
@@ -54,7 +56,7 @@ public class DriveUnderLowBarTime extends Command {
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-    	drive5SecsForeward.cancel();
+    	drive5SecsForwards.cancel();
     	lowerArmature.cancel();
     }
 }

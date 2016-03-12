@@ -12,6 +12,7 @@ public class LowerArmatureTime extends CommandBase {
 	Timer timer;
 	double power;
 	double time;
+	
     public LowerArmatureTime(double power, double time) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
@@ -45,6 +46,6 @@ public class LowerArmatureTime extends CommandBase {
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-    	armature.stop();
+    	end();
     }
 }
