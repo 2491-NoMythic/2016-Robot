@@ -140,5 +140,18 @@ public class ShootPickupShoot extends CommandBase {
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
+    	raiseShooter.cancel();
+    	shoot.cancel();
+    	drive13ft.cancel();
+    	lowerShooter.cancel();
+    	rotate45.cancel();
+    	rotateNeg45.cancel();
+    	rotate90.cancel();
+    	drive5ft.cancel();
+    	rotate180.cancel();
+    	armUp.cancel();
+    	armIntake.cancel();
+    	armLowBar.cancel();
+    	intakeBall.cancel();
     }
 }
