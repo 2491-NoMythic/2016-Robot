@@ -21,8 +21,8 @@ public abstract class CommandBase extends Command {
 	protected static Armature armature;
 	protected static Camera1 camera1;
 	protected static Camera2 camera2;
-	protected static double initialPosition;
 	protected static GRIP grip;
+	protected static double initialPosition;
 	
 	public static void init() {
 		drivetrain = Drivetrain.getInstance();
