@@ -51,6 +51,7 @@ public class Robot extends IterativeRobot {
 		//autoChooser.addObject("Drive Over Rock Wall", new DriveOverRockWall());
 		//autoChooser.addObject("Drive Under Portcullis", new DriveUnderPortcullis());
 		SmartDashboard.putData("Autonomous", autoChooser);
+		SmartDashboard.putNumber("Shooter Power", 12);
 		SmartDashboard.putData("Reset Drive Encoders", new ResetDriveEncoders());
 		SmartDashboard.putData("Rotate90Degrees",new RotateDrivetrain(90,0.5,true));
 		SmartDashboard.putData("Test Gyro (rotates 360 degrees)", new RotateDrivetrainWithGyro(360, 0.5, false));

@@ -31,12 +31,12 @@ public class Armature extends Subsystem {
      * The rotating protrusion on the end of the intake system
      */
     private Armature() {
-    	motor = new CANTalon(Constants.armatureChannel);
-    	//motor.setFeedbackDevice();
-    	motor.configEncoderCodesPerRev(360);
-    	motor.setEncPosition(0);
-    	
-    	limitSwitch = new DigitalInput(Constants.armatureLimitSwitchChannel);
+//    	motor = new CANTalon(Constants.armatureChannel);
+//    	motor.setFeedbackDevice();
+//    	motor.configEncoderCodesPerRev(360);
+//    	motor.setEncPosition(0);
+//    	
+//    	limitSwitch = new DigitalInput(Constants.armatureLimitSwitchChannel);
     	
     	//keepArmatureStill = new KeepArmatureStill();
     }

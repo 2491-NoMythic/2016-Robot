@@ -29,7 +29,7 @@ public class UpdateDriverstation extends CommandBase {
     public UpdateDriverstation() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-//    	requires(grip);
+    	requires(grip);
     	timer = new Timer();
     }
 
@@ -46,13 +46,13 @@ public class UpdateDriverstation extends CommandBase {
     	if (timer.get() > nextRun) {
 			nextRun = nextRun + 0.1;
 //			SmartDashboard.putBoolean("Tower in range: ", (Math.abs(Constants.visionCenterXValue - grip.getCenterX()[0]) < Constants.acceptableVisionCenterXDifference) && (Math.abs(Constants.visionCenterYValue - grip.getCenterY()[0]) < Constants.acceptableVisionCenterYDifference) && (Math.abs(Constants.visionAreaValue - grip.getArea()[0]) < Constants.acceptableVisionAreaDifference));
-			Variables.shooterSpeed = SmartDashboard.getNumber("Shooter Speed");
+			Variables.shooterSpeed = SmartDashboard.getNumber("Shooter Power");
 			//SmartDashboard
 			//Vision code starts here
 			//It runs off of grip, so we are simply taking the biggest target
 //			numOfParticles = grip.getArea().length;
-			System.out.println(grip.getCenterX()[0]);
-			System.out.println(grip.getCenterY()[0]);
+//			System.out.println(grip.getCenterX()[0]);
+//			System.out.println(grip.getCenterY()[0]);
 //			if(numOfParticles == 0) {
 //				//do nothing	    		
 //	    	}

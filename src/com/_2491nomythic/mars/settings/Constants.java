@@ -42,7 +42,7 @@ public class Constants {
 	public static final int gyroChannel = 1;
 	
 	//Computation Constants
-	public static final double driveEncoderToFeet = 0.095720401164064;
+	public static final double driveEncoderToFeet = 7.0*Math.PI/12/256;
 	public static final double driveHighGearDelay = 1;
 	public static final double driveHighGearShiftSpeed = 3; //TODO find actual speed
 	public static final double acceptableArmatureDifference = 5;
