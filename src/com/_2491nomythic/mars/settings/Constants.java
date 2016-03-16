@@ -16,26 +16,30 @@ public class Constants {
 	public static final int intakeLimitSwitch1Channel = 1;
 	public static final int intakeLimitSwitch2Channel = 2;
 	
-	//Channels
+	// CAN Channels
 	public static final int driveTalonLeft1Channel = 18;
 	public static final int driveTalonLeft2Channel = 17;
 	public static final int driveTalonLeft3Channel = 16;
 	public static final int driveTalonRight1Channel = 11;
 	public static final int driveTalonRight2Channel = 12;
 	public static final int driveTalonRight3Channel = 13;
+	public static final int intakeChannel = 10;
+	public static final int armatureChannel = 19;
+	public static final int shooterTalonLeftChannel = 15;
+	public static final int shooterTalonRightChannel = 14;
+	
+	// PCM Channels
+	public static final int driveSolenoidChannel = 6;
+	public static final int shooterSolenoidChannel = 7;
+	
+	// Digital Input Channels
 	public static final int driveEncoderLeftChannel1 = 5;
 	public static final int driveEncoderLeftChannel2 = 6;
 	public static final int driveEncoderRightChannel1 = 3;
 	public static final int driveEncoderRightChannel2 = 4;
-	public static final int driveSolenoidChannel = 6;
-
-	public static final int intakeChannel = 10;
-
-	public static final int armatureChannel = 19;
 	
-	public static final int shooterTalonLeftChannel = 15;
-	public static final int shooterTalonRightChannel = 14;
-	public static final int shooterSolenoidChannel = 7;
+	// Analog Input Channels
+	public static final int gyroChannel = 1;
 	
 	//Computation Constants
 	public static final double driveEncoderToFeet = 0.095720401164064;

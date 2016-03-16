@@ -4,16 +4,19 @@ import com._2491nomythic.mars.commands.drivetrain.Drive;
 import com._2491nomythic.mars.settings.Constants;
 import com._2491nomythic.mars.subsystems.Drivetrain;
 
+import edu.wpi.first.wpilibj.AnalogGyro;
 import edu.wpi.first.wpilibj.CANTalon;
 import edu.wpi.first.wpilibj.CounterBase;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.interfaces.Gyro;
 
 /**
  * The system used to move the robot
  */
 public class Drivetrain extends Subsystem {
+	private Gyro gyro;
     private CANTalon left1, left2, left3, right1, right2, right3;
     private Encoder encoderLeft, encoderRight;
     private Solenoid solenoid;
@@ -51,6 +54,9 @@ public class Drivetrain extends Subsystem {
 		
 		solenoid = new Solenoid(Constants.driveSolenoidChannel);
 		solenoid.set(false);
+		
+		gyro = new AnalogGyro(Constants.gyroChannel);
+		gyro.calibrate();
 	}
 	
     // Put methods for controlling this subsystem
@@ -235,6 +241,14 @@ public class Drivetrain extends Subsystem {
 	 */
 	public double getCurrentRightSpeed() {
 		return currentRightSpeed;
+	}
+	
+	public double getCurrentGyroDegrees() {
+		return gyro.getAngle();
+	}
+	
+	public void resetGyro(){
+		gyro.reset();
 	}
 	
 	/**
