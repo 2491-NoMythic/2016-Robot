@@ -29,8 +29,8 @@ public abstract class CommandBase extends Command {
 		shooter = Shooter.getInstance();
 		intake = Intake.getInstance();
 		armature = Armature.getInstance();
-		camera1 = Camera1.getInstance();
-		camera2 = Camera2.getInstance();
+//		camera1 = Camera1.getInstance();
+//		camera2 = Camera2.getInstance();
 		grip = GRIP.getInstance();
 		// This MUST be here. If the OI creates Commands (which it very likely
 		// will), constructing it during the construction of CommandBase (from
