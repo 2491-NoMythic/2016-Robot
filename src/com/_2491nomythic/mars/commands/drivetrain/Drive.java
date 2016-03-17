@@ -39,30 +39,30 @@ public class Drive extends CommandBase {
     	currentRightPower = oi.getAxisDeadzonedSquared(ControllerMap.driveController, ControllerMap.driveRightAxis);
 		double leftAcceleration = (currentLeftPower - lastLeftPower);
 		double signOfLeftAcceleration = leftAcceleration / Math.abs(leftAcceleration);
-//    	if(Math.abs(leftAcceleration) > Variables.accelerationSpeed) {
-//    		if (Math.abs(currentLeftPower) - Math.abs(lastLeftPower) > 0) {
-//    			System.out.println(currentLeftPower + " was too high, setting to " + (lastLeftPower + (Variables.accelerationSpeed * signOfLeftAcceleration)));
-//    			currentLeftPower = lastLeftPower + (Variables.accelerationSpeed * signOfLeftAcceleration);
-//    			
-//    		}
-//    		//if the difference between the numbers is positive it is going up
-//    		
-//    	}
-//    	else {
-//    		//...the power is below accel and is fine
-//    	}
-//    	double rightAcceleration = (currentRightPower - lastRightPower);
-//    	double signOfRightAcceleration = rightAcceleration / Math.abs(rightAcceleration);
-//    	if(Math.abs(rightAcceleration) > Variables.accelerationSpeed) {
-//    		if (Math.abs(currentRightPower) - Math.abs(lastRightPower) > 0) {
-//    			System.out.println(currentRightPower + " was too high, setting to " + (lastRightPower + (Variables.accelerationSpeed * signOfRightAcceleration)));
-//    			currentRightPower = lastRightPower + (Variables.accelerationSpeed * signOfRightAcceleration);
-//    		}
-//    		//if the difference between the numbers is positive it is going up
-//    	}
-//    	else {
-//    		//...the power is below 0.05 accel and is fine
-//    	}
+    	if(Math.abs(leftAcceleration) > Variables.accelerationSpeed) {
+    		if (Math.abs(currentLeftPower) - Math.abs(lastLeftPower) > 0) {
+    			System.out.println(currentLeftPower + " was too high, setting to " + (lastLeftPower + (Variables.accelerationSpeed * signOfLeftAcceleration)));
+    			currentLeftPower = lastLeftPower + (Variables.accelerationSpeed * signOfLeftAcceleration);
+    			
+    		}
+    		//if the difference between the numbers is positive it is going up
+    		
+    	}
+    	else {
+    		//...the power is below accel and is fine
+    	}
+    	double rightAcceleration = (currentRightPower - lastRightPower);
+    	double signOfRightAcceleration = rightAcceleration / Math.abs(rightAcceleration);
+    	if(Math.abs(rightAcceleration) > Variables.accelerationSpeed) {
+    		if (Math.abs(currentRightPower) - Math.abs(lastRightPower) > 0) {
+    			System.out.println(currentRightPower + " was too high, setting to " + (lastRightPower + (Variables.accelerationSpeed * signOfRightAcceleration)));
+    			currentRightPower = lastRightPower + (Variables.accelerationSpeed * signOfRightAcceleration);
+    		}
+    		//if the difference between the numbers is positive it is going up
+    	}
+    	else {
+    		//...the power is below 0.05 accel and is fine
+    	}
     	drivetrain.drive(currentLeftPower, currentRightPower);
     	
     	SmartDashboard.putNumber("Right Encoder Distance", drivetrain.getRightEncoderDistance());
