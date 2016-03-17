@@ -7,6 +7,7 @@ import com._2491nomythic.mars.commands.PickUpBallConfiguration;
 import com._2491nomythic.mars.commands.Shoot;
 import com._2491nomythic.mars.commands.StartingConfiguration;
 import com._2491nomythic.mars.commands.armature.ManualArmatureControl;
+import com._2491nomythic.mars.commands.drivetrain.DriveTime;
 //import com._2491nomythic.mars.commands.drivetrain.ShiftGearVelocity;
 import com._2491nomythic.mars.commands.drivetrain.ShiftGearWithDelay;
 import com._2491nomythic.mars.commands.intake.IntakeBall;
@@ -38,7 +39,7 @@ public class OI {
     // Button button = new JoystickButton(stick, buttonNumber);
     
 	private final Joystick[] controllers = new Joystick[2];
-	Button shoot, chevalDeFriseConfiguration, lowBarConfiguration, alignShooter, pickUpBallConfiguration, startingConfiguration, shiftGear, manualShooterControl, manualTakeIn, manualSpitOut, raiseShooter, lowerShooter, intakeBall, manualArmatureUpControl, manualArmatureDownControl;
+	Button shoot, chevalDeFriseConfiguration, lowBarConfiguration, alignShooter, pickUpBallConfiguration, startingConfiguration, shiftGear, driveStraight, manualShooterControl, manualTakeIn, manualSpitOut, raiseShooter, lowerShooter, intakeBall, manualArmatureUpControl, manualArmatureDownControl;
 //	private SendableChooser shiftVelocityOrDelay;	
 	/**
 	 * Initiates some joysticks and buttons.
@@ -71,6 +72,9 @@ public class OI {
 		//Drivetrain
 		shiftGear = new JoystickButton(controllers[ControllerMap.driveController], ControllerMap.driveShiftButton);
 		shiftGear.whileHeld(new ShiftGearWithDelay());
+		
+		driveStraight = new JoystickPOVButton(controllers[ControllerMap.driveController], ControllerMap.driveStraightPOV);
+		driveStraight.whileHeld(new DriveTime(5, 0.5));
 		
 		//Shooter
 		manualShooterControl = new JoystickButton(controllers[ControllerMap.manualShooterController], ControllerMap.manualShooterButton);
