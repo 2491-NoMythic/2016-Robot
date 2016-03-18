@@ -11,14 +11,14 @@ public class ResetDriveEncoders extends CommandBase {
 	 * Resets the encoders on the drive motors
 	 */
     public ResetDriveEncoders() {
-        // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
+    	requires(drivetrain);
+    	setRunWhenDisabled(true);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-//    	drivetrain.resetLeftEncoder();
-//    	drivetrain.resetRightEncoder();
+    	drivetrain.resetLeftEncoder();
+    	drivetrain.resetRightEncoder();
     }
 
     // Called repeatedly when this Command is scheduled to run

@@ -42,7 +42,7 @@ public class Drivetrain extends Subsystem {
 		right2 = new CANTalon(Constants.driveTalonRight2Channel);
 		right3 = new CANTalon(Constants.driveTalonRight3Channel);
 		
-		encoderLeft = new Encoder(Constants.driveEncoderLeftChannel1, Constants.driveEncoderLeftChannel2,  false, CounterBase.EncodingType.k1X);
+		encoderLeft = new Encoder(Constants.driveEncoderLeftChannel1, Constants.driveEncoderLeftChannel2, true, CounterBase.EncodingType.k1X);
 		encoderRight = new Encoder(Constants.driveEncoderRightChannel1, Constants.driveEncoderRightChannel2, false, CounterBase.EncodingType.k1X);
 		encoderLeft.setDistancePerPulse(Constants.driveEncoderToFeet);
 		encoderRight.setDistancePerPulse(Constants.driveEncoderToFeet);
@@ -86,9 +86,9 @@ public class Drivetrain extends Subsystem {
 	 * @param speed The power fed to the left drive motors, ranging from -1 to 1, where negative values run the motors backwards
 	 */
 	public void driveLeft(double speed) {
-		left1.set(speed);
-		left2.set(-1.0 * speed);
-		left3.set(-1.0 * speed);
+		left1.set(-1.0 * speed);
+		left2.set(speed);
+		left3.set(speed);
 		currentLeftSpeed = speed;
 	}
 	
@@ -97,9 +97,9 @@ public class Drivetrain extends Subsystem {
 	 * @param speed The power fed to the right drive motors, ranging from -1 to 1, where negative values run the motors backwards
 	 */
 	public void driveRight(double speed) {
-		right1.set(-1.0 * speed);
-		right2.set(speed);
-		right3.set(speed);
+		right1.set(speed);
+		right2.set(-1.0 * speed);
+		right3.set(-1.0 * speed);
 		currentRightSpeed = speed;
 	}
 	

@@ -47,11 +47,11 @@ public class Robot extends IterativeRobot {
 		autoChooser.addDefault("Do Nothing", new DoNothing());
 		autoChooser.addObject("Drive Forward Time", new DriveTime(4, 1));
 		autoChooser.addObject("Drive Under Low Bar Time", new DriveUnderLowBarTime());
-		autoChooser.addObject("Drive Forward One Foot (slow af)", new DriveToPosition(1, 0.3));
 		//autoChooser.addObject("Drive Over Rock Wall", new DriveOverRockWall());
 		//autoChooser.addObject("Drive Under Portcullis", new DriveUnderPortcullis());
 		SmartDashboard.putData("Autonomous", autoChooser);
 		SmartDashboard.putNumber("Shooter Power", 12);
+		SmartDashboard.putData("Drive Forward One Foot (slow af)", new DriveToPosition(1, 0.1));
 		SmartDashboard.putData("Reset Drive Encoders", new ResetDriveEncoders());
 		SmartDashboard.putData("Rotate90Degrees",new RotateDrivetrain(90,0.5,true));
 		SmartDashboard.putData("Test Gyro (rotates 360 degrees)", new RotateDrivetrainWithGyro(360, 0.5, false));

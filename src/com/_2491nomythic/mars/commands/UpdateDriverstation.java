@@ -30,6 +30,7 @@ public class UpdateDriverstation extends CommandBase {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(grip);
+    	setRunWhenDisabled(true);
     	timer = new Timer();
     }
 
@@ -47,6 +48,8 @@ public class UpdateDriverstation extends CommandBase {
 			nextRun = nextRun + 0.1;
 //			SmartDashboard.putBoolean("Tower in range: ", (Math.abs(Constants.visionCenterXValue - grip.getCenterX()[0]) < Constants.acceptableVisionCenterXDifference) && (Math.abs(Constants.visionCenterYValue - grip.getCenterY()[0]) < Constants.acceptableVisionCenterYDifference) && (Math.abs(Constants.visionAreaValue - grip.getArea()[0]) < Constants.acceptableVisionAreaDifference));
 			Variables.shooterSpeed = SmartDashboard.getNumber("Shooter Power");
+			SmartDashboard.putNumber("Left Drive Encoder", drivetrain.getLeftEncoderDistance());
+			SmartDashboard.putNumber("Right Drive Encoder", drivetrain.getRightEncoderDistance());
 			//SmartDashboard
 			//Vision code starts here
 			//It runs off of grip, so we are simply taking the biggest target
