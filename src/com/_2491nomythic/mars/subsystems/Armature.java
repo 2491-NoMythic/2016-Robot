@@ -1,7 +1,7 @@
 package com._2491nomythic.mars.subsystems;
 
 //import com._2491nomythic.mars.commands.armature.KeepArmatureStill;
-//import com._2491nomythic.mars.settings.Constants;
+import com._2491nomythic.mars.settings.Constants;
 
 import edu.wpi.first.wpilibj.CANTalon;
 import edu.wpi.first.wpilibj.DigitalInput;
@@ -31,12 +31,12 @@ public class Armature extends Subsystem {
      * The rotating protrusion on the end of the intake system
      */
     private Armature() {
-//    	motor = new CANTalon(Constants.armatureChannel);
+    	motor = new CANTalon(Constants.armatureChannel);
 //    	motor.setFeedbackDevice();
-//    	motor.configEncoderCodesPerRev(360);
-//    	motor.setEncPosition(0);
-//    	
-//    	limitSwitch = new DigitalInput(Constants.armatureLimitSwitchChannel);
+    	motor.configEncoderCodesPerRev(360);
+    	motor.setEncPosition(0);
+    	
+    	limitSwitch = new DigitalInput(Constants.armatureLimitSwitchChannel);
     	
     	//keepArmatureStill = new KeepArmatureStill();
     }
