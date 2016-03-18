@@ -39,10 +39,10 @@ public class Constants {
 	public static final int driveEncoderRightChannel2 = 4;
 	
 	// Analog Input Channels
-	public static final int gyroChannel = 1;
+	public static final int gyroChannel = 0;
 	
 	//Computation Constants
-	public static final double driveEncoderToFeet = 7.0*Math.PI/12/256;
+	public static final double driveEncoderToFeet = 7.0*1.125*Math.PI/12/256;
 	public static final double driveHighGearDelay = 1;
 	public static final double driveHighGearShiftSpeed = 3; //TODO find actual speed
 	public static final double acceptableArmatureDifference = 5;
