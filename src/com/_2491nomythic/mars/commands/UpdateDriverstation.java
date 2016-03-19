@@ -50,6 +50,8 @@ public class UpdateDriverstation extends CommandBase {
 			Variables.shooterSpeed = SmartDashboard.getNumber("Shooter Power");
 			SmartDashboard.putNumber("Left Drive Encoder", drivetrain.getLeftEncoderDistance());
 			SmartDashboard.putNumber("Right Drive Encoder", drivetrain.getRightEncoderDistance());
+			SmartDashboard.putNumber("Gyro Value in Degrees", drivetrain.getCurrentGyroDegrees());
+			SmartDashboard.putNumber("Armature Encoder Value", armature.getEncoderPosition());
 			//SmartDashboard
 			//Vision code starts here
 			//It runs off of grip, so we are simply taking the biggest target
