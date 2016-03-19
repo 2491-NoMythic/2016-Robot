@@ -6,11 +6,13 @@ import com._2491nomythic.mars.commands.CommandBase;
  *
  */
 public class DriveStraightWithGyro extends CommandBase {
+	double speed;
 	
-	public DriveStraightWithGyro() {
+	public DriveStraightWithGyro(double speed) {
 		// Use requires() here to declare subsystem dependencies
 		// eg. requires(chassis);
 		requires(drivetrain);
+		this.speed = speed;
 	}
 	
 	// Called just before this Command runs the first time
@@ -20,7 +22,7 @@ public class DriveStraightWithGyro extends CommandBase {
 	
 	// Called repeatedly when this Command is scheduled to run
 	protected void execute() {
-		drivetrain.drive(Math.min(1, 1 - Math.min(0.5, 0.01 * drivetrain.getCurrentGyroDegrees())), Math.min(1, 1 + Math.max(-0.5, 0.01 * drivetrain.getCurrentGyroDegrees())));
+		drivetrain.drive(Math.min(speed, speed - Math.min(0.5 * speed, 0.01 * drivetrain.getCurrentGyroDegrees())), Math.min(speed, speed + Math.max(-0.5 * speed, 0.01 * drivetrain.getCurrentGyroDegrees())));
 	}
 	
 	// Make this return true when this Command no longer needs to run execute()

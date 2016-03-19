@@ -8,5 +8,5 @@ public class Variables {
 	public static double degreeDeviationFromTarget = 0;
 	public static double accelerationSpeed = 0.15;
 	
-	public static boolean useLinearAcceleration;
+	public static boolean useLinearAcceleration = true;
 }

@@ -6,6 +6,7 @@ import com._2491nomythic.mars.commands.CommandBase;
 import com._2491nomythic.mars.commands.armature.ArmatureTime;
 import com._2491nomythic.mars.commands.autonomous.DoNothing;
 import com._2491nomythic.mars.commands.drivetrain.CalibrateGyro;
+import com._2491nomythic.mars.commands.drivetrain.DriveStraightWithGyro;
 //import com._2491nomythic.mars.commands.autonomous.DriveOverRockWall;
 import com._2491nomythic.mars.commands.drivetrain.DriveTime;
 import com._2491nomythic.mars.commands.drivetrain.DriveToPosition;
@@ -63,8 +64,10 @@ public class Robot extends IterativeRobot {
 		SmartDashboard.putData("Reset Gyro", new ResetGyro());
 		SmartDashboard.putData("Raise Shooter", new RaiseShooter());
 		SmartDashboard.putData("Align Shooter", new AlignShooter());
+		SmartDashboard.putData("Drive Straight With Gyro", new DriveStraightWithGyro(0.3));
 		SmartDashboard.putNumber("Devation From Target", Variables.degreeDeviationFromTarget);
 		SmartDashboard.putData("Move Armature Down for Half Second", new ArmatureTime(0.5, 0.7));
+		SmartDashboard.putBoolean("Use Linear Acceleration", true);
 		
 	}
 	
