@@ -29,8 +29,8 @@ public abstract class CommandBase extends Command {
 		shooter = Shooter.getInstance();
 		intake = Intake.getInstance();
 		armature = Armature.getInstance();
-//		camera1 = Camera1.getInstance();
-//		camera2 = Camera2.getInstance();
+		// camera1 = Camera1.getInstance();
+		// camera2 = Camera2.getInstance();
 		grip = GRIP.getInstance();
 		// This MUST be here. If the OI creates Commands (which it very likely
 		// will), constructing it during the construction of CommandBase (from
@@ -44,24 +44,27 @@ public abstract class CommandBase extends Command {
 		SmartDashboard.putData(drivetrain);
 		SmartDashboard.putData(shooter);
 		SmartDashboard.putData(intake);
-		//SmartDashboard.putData(armature);
+		// SmartDashboard.putData(armature);
 	}
 	
 	/**
-	 * The base for all commands. All atomic commands should subclass CommandBase.
-	 * CommandBase stores creates and stores each control system. To access a
-	 * subsystem elsewhere in your code in your code use
+	 * The base for all commands. All atomic commands should subclass
+	 * CommandBase. CommandBase stores creates and stores each control system.
+	 * To access a subsystem elsewhere in your code in your code use
 	 * CommandBase.exampleSubsystem
-	 * @param name The name that shows up on the SmartDashboard in association with any command created using this parameter.
+	 * 
+	 * @param name
+	 *            The name that shows up on the SmartDashboard in association
+	 *            with any command created using this parameter.
 	 */
 	public CommandBase(String name) {
 		super(name);
 	}
 	
 	/**
-	 * The base for all commands. All atomic commands should subclass CommandBase.
-	 * CommandBase stores creates and stores each control system. To access a
-	 * subsystem elsewhere in your code in your code use
+	 * The base for all commands. All atomic commands should subclass
+	 * CommandBase. CommandBase stores creates and stores each control system.
+	 * To access a subsystem elsewhere in your code in your code use
 	 * CommandBase.exampleSubsystem
 	 */
 	public CommandBase() {

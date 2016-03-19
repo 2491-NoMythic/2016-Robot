@@ -10,7 +10,7 @@ import edu.wpi.first.wpilibj.networktables.NetworkTable;
 public class GRIP extends Subsystem {
 	double[] area, centerX, centerY, defaultValue;
 	NetworkTable table;
-
+	
 	private static GRIP instance;
 	
 	public static GRIP getInstance() {
@@ -24,14 +24,14 @@ public class GRIP extends Subsystem {
 	 * The values sent to us by the GRIP vision system running on the Raspberry Pi
 	 */
 	private GRIP() {
-    	defaultValue = new double[0];
+		defaultValue = new double[0];
 	}
 	
 	/**
 	 * @return The NetworkTable sent to us by the Raspberry Pi
 	 */
 	public NetworkTable getTable() {
-		return NetworkTable.getTable("GRIP/myCountoursReport"); //TODO get path
+		return NetworkTable.getTable("GRIP/myCountoursReport"); // TODO get path
 	}
 	
 	/**
@@ -69,14 +69,14 @@ public class GRIP extends Subsystem {
 		return getTable().getNumberArray("width", defaultValue);
 	}
 	
-    
-    // Put methods for controlling this subsystem
-    // here. Call these from Commands.
-
-    public void initDefaultCommand() {
-        // Set the default command for a subsystem here.
-        //setDefaultCommand(new MySpecialCommand());
-    	setDefaultCommand(new UpdateDriverstation());
-    }
+	
+	// Put methods for controlling this subsystem
+	// here. Call these from Commands.
+	
+	public void initDefaultCommand() {
+		// Set the default command for a subsystem here.
+		// setDefaultCommand(new MySpecialCommand());
+		setDefaultCommand(new UpdateDriverstation());
+	}
 }
 
