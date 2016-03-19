@@ -263,6 +263,10 @@ public class Drivetrain extends Subsystem {
 		gyro.reset();
 	}
 	
+	public void calibrateGyro() {
+		gyro.calibrate();
+	}
+	
 	/**
 	 * Stops the drive motors
 	 */
