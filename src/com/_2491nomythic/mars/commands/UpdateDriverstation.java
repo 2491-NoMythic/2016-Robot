@@ -55,6 +55,7 @@ public class UpdateDriverstation extends CommandBase {
 			// (Math.abs(Constants.visionAreaValue - grip.getArea()[0]) <
 			// Constants.acceptableVisionAreaDifference));
 			Variables.shooterSpeed = SmartDashboard.getNumber("Shooter Power");
+			Variables.useLinearAcceleration = SmartDashboard.getBoolean("Use Linear Acceleration", true);
 			SmartDashboard.putNumber("Left Drive Encoder", drivetrain.getLeftEncoderDistance());
 			SmartDashboard.putNumber("Right Drive Encoder", drivetrain.getRightEncoderDistance());
 			// SmartDashboard
