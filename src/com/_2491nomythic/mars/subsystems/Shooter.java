@@ -11,7 +11,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  */
 public class Shooter extends Subsystem {
     private CANTalon motorLeft, motorRight;
-    private Solenoid solenoid;
+    private Solenoid shootSolenoid, lockSolenoid;
     private double currentLeftSpeed, currentRightSpeed;
     public static Shooter instance;
     
@@ -35,10 +35,9 @@ public class Shooter extends Subsystem {
     	motorLeft.configEncoderCodesPerRev(1); //TODO check empirically if the encoder 4x edge reading impacts this.
     	motorRight.configEncoderCodesPerRev(1);//I want one unit per rotation, not 4 units per rotation.
     	motorLeft.setEncPosition(0);
-    	solenoid = new Solenoid(Constants.shooterSolenoidChannel);
-    	solenoid.set(false);
     	
-    	lower();
+    	shootSolenoid = new Solenoid(Constants.shooterShootSolenoidChannel);
+    	lockSolenoid = new Solenoid(Constants.shooterLockSolenoidChannel);    	
     }
     
     /**
@@ -82,16 +81,30 @@ public class Shooter extends Subsystem {
      * Raises the shooter so that we can shoot
      */
     public void raise() {
-		solenoid.set(true);
+		shootSolenoid.set(true);
 	}
 	
     /**
      * Lowers the shooter so that we can fit under the low bar
      */
 	public void lower() {
-		solenoid.set(false);
+		shootSolenoid.set(false);
 	}
     
+	/**
+	 * Locks the shooter in place to avoid recoil while shooting
+	 */
+	public void lock() {
+		lockSolenoid.set(true);
+	}
+	
+	/**
+	 * Unlocks the shooter so it can be moved by the main solenoid
+	 */
+	public void unlock() {
+		lockSolenoid.set(false);
+	}
+	
 	/**
 	 * @return The current value of the left shooter encoder
 	 */
@@ -123,15 +136,29 @@ public class Shooter extends Subsystem {
     /**
      * @return The solenoid that holds the shooter down
      */
-    public Solenoid getSolenoid() {
-		return solenoid;
+    public Solenoid getShootSolenoid() {
+		return shootSolenoid;
 	}
 	
     /**
+     * @return The solenoid that locks the shooter in place
+     */
+    public Solenoid getLockSolenoid() {
+    	return lockSolenoid;
+    }
+    
+    /**
      * @return Whether the solenoid holding the shooter down is extended
      */
-	public boolean getSolenoidValue() {
-		return solenoid.get();
+	public boolean isRaised() {
+		return shootSolenoid.get();
+	}
+	
+	/**
+	 * @return Whether the solenoid locking the shooter in place is extended
+	 */
+	public boolean isLocked() {
+		return lockSolenoid.get();
 	}
 	
 	/**

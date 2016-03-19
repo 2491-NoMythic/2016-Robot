@@ -30,7 +30,8 @@ public class Constants {
 	
 	// PCM Channels
 	public static final int driveSolenoidChannel = 6;
-	public static final int shooterSolenoidChannel = 7;
+	public static final int shooterShootSolenoidChannel = 7;
+	public static final int shooterLockSolenoidChannel = 5; //TODO make sure this is right
 	
 	// Digital Input Channels
 	public static final int driveEncoderLeftChannel1 = 5;
