@@ -17,11 +17,11 @@ import edu.wpi.first.wpilibj.interfaces.Gyro;
  */
 public class Drivetrain extends Subsystem {
 	private Gyro gyro;
-    private CANTalon left1, left2, left3, right1, right2, right3;
-    private Encoder encoderLeft, encoderRight;
-    private Solenoid solenoid;
-    private double currentLeftSpeed, currentRightSpeed;
-    
+	private CANTalon left1, left2, left3, right1, right2, right3;
+	private Encoder encoderLeft, encoderRight;
+	private Solenoid solenoid;
+	private double currentLeftSpeed, currentRightSpeed;
+	
 	private static Drivetrain instance;
 	
 	public static Drivetrain getInstance() {
@@ -49,8 +49,8 @@ public class Drivetrain extends Subsystem {
 		encoderLeft.reset();
 		encoderRight.reset();
 		
-//		left1.configEncoderCodesPerRev(360);
-//		right1.configEncoderCodesPerRev(360);
+		// left1.configEncoderCodesPerRev(360);
+		// right1.configEncoderCodesPerRev(360);
 		
 		solenoid = new Solenoid(Constants.driveSolenoidChannel);
 		solenoid.set(false);
@@ -59,13 +59,16 @@ public class Drivetrain extends Subsystem {
 		gyro.calibrate();
 	}
 	
-    // Put methods for controlling this subsystem
-    // here. Call these from Commands.
+	// Put methods for controlling this subsystem
+	// here. Call these from Commands.
 	
 	/**
 	 * Sets the drive motors to independent specific speeds
-	 * @param leftSpeed The power fed to the left drive motors, ranging from -1 to 1, where negative values run the motors backwards
-	 * @param rightSpeed The power fed to the right drive motors, ranging from -1 to 1, where negative values run the motors backwards
+	 * 
+	 * @param leftSpeed
+	 *            The power fed to the left drive motors, ranging from -1 to 1, where negative values run the motors backwards
+	 * @param rightSpeed
+	 *            The power fed to the right drive motors, ranging from -1 to 1, where negative values run the motors backwards
 	 */
 	public void drive(double leftSpeed, double rightSpeed) {
 		driveLeft(leftSpeed);
@@ -74,7 +77,9 @@ public class Drivetrain extends Subsystem {
 	
 	/**
 	 * Sets the drive motors to a unified specific speed
-	 * @param speed The power fed to all drive motors, ranging from -1 to 1, where negative values run the motors backwards
+	 * 
+	 * @param speed
+	 *            The power fed to all drive motors, ranging from -1 to 1, where negative values run the motors backwards
 	 */
 	public void drive(double speed) {
 		driveLeft(speed);
@@ -83,7 +88,9 @@ public class Drivetrain extends Subsystem {
 	
 	/**
 	 * Sets the left drive motors to a specific speed
-	 * @param speed The power fed to the left drive motors, ranging from -1 to 1, where negative values run the motors backwards
+	 * 
+	 * @param speed
+	 *            The power fed to the left drive motors, ranging from -1 to 1, where negative values run the motors backwards
 	 */
 	public void driveLeft(double speed) {
 		left1.set(-1.0 * speed);
@@ -94,7 +101,9 @@ public class Drivetrain extends Subsystem {
 	
 	/**
 	 * Sets the right drive motors to a specific speed
-	 * @param speed The power fed to the right drive motors, ranging from -1 to 1, where negative values run the motors backwards
+	 * 
+	 * @param speed
+	 *            The power fed to the right drive motors, ranging from -1 to 1, where negative values run the motors backwards
 	 */
 	public void driveRight(double speed) {
 		right1.set(speed);
@@ -243,11 +252,14 @@ public class Drivetrain extends Subsystem {
 		return currentRightSpeed;
 	}
 	
+	/**
+	 * @return The angle of the gyroscope from last reset or calibration
+	 */
 	public double getCurrentGyroDegrees() {
 		return gyro.getAngle();
 	}
 	
-	public void resetGyro(){
+	public void resetGyro() {
 		gyro.reset();
 	}
 	
@@ -257,11 +269,11 @@ public class Drivetrain extends Subsystem {
 	public void stop() {
 		drive(0);
 	}
-
-    public void initDefaultCommand() {
-        // Set the default command for a subsystem here.
-        //setDefaultCommand(new MySpecialCommand());
-    	setDefaultCommand(new Drive());
-    }
+	
+	public void initDefaultCommand() {
+		// Set the default command for a subsystem here.
+		// setDefaultCommand(new MySpecialCommand());
+		setDefaultCommand(new Drive());
+	}
 }
 

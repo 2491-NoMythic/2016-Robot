@@ -1,45 +1,45 @@
-package com._2491nomythic.mars.commands.intake;
+package com._2491nomythic.mars.commands;
 
-import com._2491nomythic.mars.commands.CommandBase;
-import com._2491nomythic.mars.settings.Constants;
+import edu.wpi.first.wpilibj.Timer;
 
 /**
- * Runs the intake until the ball is loaded
+ * Basically just runs a Timer.delay()
  */
-public class IntakeBall extends CommandBase {
+public class Delay extends CommandBase {
+	Timer timer;
+	double time;
 	
 	/**
-	 * Runs the intake until the ball is loaded
+	 * Basically just runs a Timer.delay()
 	 */
-	public IntakeBall() {
+	public Delay(double time) {
 		// Use requires() here to declare subsystem dependencies
 		// eg. requires(chassis);
-		requires(intake);
+		this.time = time;
+		timer = new Timer();
 	}
 	
 	// Called just before this Command runs the first time
 	protected void initialize() {
-		intake.set(Constants.intakeSpeed);
+		timer.start();
+		timer.reset();
 	}
 	
 	// Called repeatedly when this Command is scheduled to run
 	protected void execute() {
-	
 	}
 	
 	// Make this return true when this Command no longer needs to run execute()
 	protected boolean isFinished() {
-		return intake.getLimitSwitch1Value() || intake.getLimitSwitch2Value();
+		return timer.get() >= time;
 	}
 	
 	// Called once after isFinished returns true
 	protected void end() {
-		intake.stop();
 	}
 	
 	// Called when another command which requires one or more of the same
 	// subsystems is scheduled to run
 	protected void interrupted() {
-		end();
 	}
 }
