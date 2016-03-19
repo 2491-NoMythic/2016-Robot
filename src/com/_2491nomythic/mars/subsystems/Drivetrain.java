@@ -252,6 +252,9 @@ public class Drivetrain extends Subsystem {
 		return currentRightSpeed;
 	}
 	
+	/**
+	 * @return The angle of the gyroscope from last reset or calibration
+	 */
 	public double getCurrentGyroDegrees() {
 		return gyro.getAngle();
 	}
