@@ -4,7 +4,6 @@ import com._2491nomythic.mars.commands.CommandBase;
 import com._2491nomythic.mars.commands.armature.ArmaturePositionSet;
 import com._2491nomythic.mars.commands.drivetrain.DriveToPosition;
 import com._2491nomythic.mars.settings.Constants;
-import edu.wpi.first.wpilibj.command.Command;
 
 /**
  *
