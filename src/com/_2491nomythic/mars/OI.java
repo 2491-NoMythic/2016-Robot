@@ -7,7 +7,8 @@ import com._2491nomythic.mars.commands.PickUpBallConfiguration;
 import com._2491nomythic.mars.commands.Shoot;
 import com._2491nomythic.mars.commands.StartingConfiguration;
 import com._2491nomythic.mars.commands.armature.ManualArmatureControl;
-import com._2491nomythic.mars.commands.drivetrain.DriveTime;
+import com._2491nomythic.mars.commands.drivetrain.DriveStraight;
+import com._2491nomythic.mars.commands.drivetrain.RotateDrivetrainWithGyro;
 //import com._2491nomythic.mars.commands.drivetrain.ShiftGearVelocity;
 import com._2491nomythic.mars.commands.drivetrain.ShiftGearWithDelay;
 import com._2491nomythic.mars.commands.intake.IntakeBall;
@@ -27,8 +28,7 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 //import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 
 /**
- * This class is the glue that binds the controls on the physical operator
- * interface to the commands and command groups that allow control of the robot.
+ * This class is the glue that binds the controls on the physical operator interface to the commands and command groups that allow control of the robot.
  */
 public class OI {
 	//// CREATING BUTTONS
@@ -40,9 +40,8 @@ public class OI {
 	// Button button = new JoystickButton(stick, buttonNumber);
 	
 	private final Joystick[] controllers = new Joystick[2];
-	Button shoot, chevalDeFriseConfiguration, lowBarConfiguration, alignShooter, pickUpBallConfiguration, startingConfiguration, shiftGear, driveStraight,
-			manualShooterControl, manualTakeIn, manualSpitOut, raiseShooter, lowerShooter, intakeBall, manualArmatureUpControl, manualArmatureDownControl;
-			
+	Button shoot, chevalDeFriseConfiguration, lowBarConfiguration, alignShooter, pickUpBallConfiguration, startingConfiguration, shiftGear, driveStraight, turnLeft, turnRight, turnAround, manualShooterControl, manualTakeIn, manualSpitOut, raiseShooter, lowerShooter, intakeBall, manualArmatureUpControl, manualArmatureDownControl;
+	
 	// private SendableChooser shiftVelocityOrDelay;
 	/**
 	 * Initiates some joysticks and buttons.
@@ -79,7 +78,16 @@ public class OI {
 		shiftGear.whileHeld(new ShiftGearWithDelay());
 		
 		driveStraight = new JoystickPOVButton(controllers[ControllerMap.driveController], ControllerMap.driveStraightPOV);
-		driveStraight.whileHeld(new DriveTime(5, 0.5));
+		driveStraight.whileHeld(new DriveStraight());
+		
+		turnLeft = new JoystickPOVButton(controllers[ControllerMap.driveController], ControllerMap.driveTurnLeftPOV);
+		turnLeft.whenPressed(new RotateDrivetrainWithGyro(90, 1, true));
+		
+		turnRight = new JoystickPOVButton(controllers[ControllerMap.driveController], ControllerMap.driveTurnRightPOV);
+		turnRight.whenPressed(new RotateDrivetrainWithGyro(90, 1, false));
+		
+		turnAround = new JoystickPOVButton(controllers[ControllerMap.driveController], ControllerMap.driveTurnAroundPOV);
+		turnAround.whenPressed(new RotateDrivetrainWithGyro(180, 1, false));
 		
 		// Shooter
 		manualShooterControl = new JoystickButton(controllers[ControllerMap.manualShooterController], ControllerMap.manualShooterButton);
@@ -113,8 +121,7 @@ public class OI {
 	 * Get a controller
 	 * 
 	 * @param id
-	 *            the ID of the controller. 0 = left or driver, 1 = right or
-	 *            codriver.
+	 *            the ID of the controller. 0 = left or driver, 1 = right or codriver.
 	 * @return the instance of the controller requested
 	 */
 	public Joystick getController(int id) {
@@ -125,8 +132,7 @@ public class OI {
 	 * Get a button from a controller
 	 * 
 	 * @param joystickID
-	 *            The id of the controller. 0 = left or driver, 1 = right or
-	 *            codriver.
+	 *            The id of the controller. 0 = left or driver, 1 = right or codriver.
 	 * @param axisID
 	 *            The id of the button (for use in getRawButton)
 	 * @return the result from running getRawButton(button)
@@ -139,8 +145,7 @@ public class OI {
 	 * Get an axis from a controller
 	 * 
 	 * @param joystickID
-	 *            The id of the controller. 0 = left or driver, 1 = right or
-	 *            codriver.
+	 *            The id of the controller. 0 = left or driver, 1 = right or codriver.
 	 * @param axisID
 	 *            The id of the axis (for use in getRawAxis)
 	 * @return the result from running getRawAxis(axis)
@@ -153,8 +158,7 @@ public class OI {
 	 * Get an axis from a controller that is automatically deadzoned
 	 * 
 	 * @param joystickID
-	 *            The id of the controller. 0 = left or driver, 1 = right or
-	 *            driver
+	 *            The id of the controller. 0 = left or driver, 1 = right or driver
 	 * @param axisID
 	 *            The id of the axis (for use in getRawAxis)
 	 * @return the deadzoned result from running getRawAxis
@@ -168,8 +172,7 @@ public class OI {
 	 * Get an axis from a controller that is automatically squared and deadzoned
 	 * 
 	 * @param joystickID
-	 *            The id of the controller. 0 = left or driver, 1 = right or
-	 *            driver
+	 *            The id of the controller. 0 = left or driver, 1 = right or driver
 	 * @param axisID
 	 *            The id of the axis (for use in getRawAxis)
 	 * @return the squared, deadzoned result from running getRawAxis
@@ -184,8 +187,7 @@ public class OI {
 	 * Get an axis from a controller that is automatically cubed and deadzoned
 	 * 
 	 * @param joystickID
-	 *            The id of the controller. 0 = left or driver, 1 = right or
-	 *            driver
+	 *            The id of the controller. 0 = left or driver, 1 = right or driver
 	 * @param axisID
 	 *            The id of the axis (for use in getRawAxis)
 	 * @return the cubed, deadzoned result from running getRawAxis
