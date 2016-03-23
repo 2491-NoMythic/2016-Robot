@@ -35,6 +35,7 @@ public class LowerShooter extends CommandBase {
 			shooter.lower();
 			hasBeenLowered = true;
 			setInterruptible(true);
+			System.out.println("Shooter lowered");
 		}
 	}
 	

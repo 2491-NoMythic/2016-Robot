@@ -36,6 +36,7 @@ public class RaiseShooter extends CommandBase {
 			shooter.lock();
 			hasBeenLocked = true;
 			setInterruptible(true);
+			System.out.println("Shooter raised");
 		}
 	}
 	
