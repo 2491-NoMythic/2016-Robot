@@ -24,6 +24,7 @@ public class RaiseShooter extends CommandBase {
 	// Called just before this Command runs the first time
 	protected void initialize() {
 		setInterruptible(false);
+		hasBeenLocked = false;
 		shooter.unlock();
 		shooter.raise();
 		timer.start();
