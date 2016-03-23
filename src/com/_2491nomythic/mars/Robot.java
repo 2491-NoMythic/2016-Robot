@@ -16,7 +16,9 @@ import com._2491nomythic.mars.commands.drivetrain.ResetDriveEncoders;
 import com._2491nomythic.mars.commands.drivetrain.ResetGyro;
 import com._2491nomythic.mars.commands.drivetrain.RotateDrivetrain;
 import com._2491nomythic.mars.commands.drivetrain.RotateDrivetrainWithGyro;
+import com._2491nomythic.mars.commands.shooter.LockPiston;
 import com._2491nomythic.mars.commands.shooter.RaiseShooter;
+import com._2491nomythic.mars.commands.shooter.UnlockPiston;
 import com._2491nomythic.mars.settings.Variables;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
@@ -62,6 +64,8 @@ public class Robot extends IterativeRobot {
 		SmartDashboard.putData("Test Gyro (rotates 360 degrees)", new RotateDrivetrainWithGyro(360, 0.5, false));
 		SmartDashboard.putData("Calibrate Gyro", new CalibrateGyro());
 		SmartDashboard.putData("Reset Gyro", new ResetGyro());
+		SmartDashboard.putData("Unlock Piston", new UnlockPiston());
+		SmartDashboard.putData("Lock Piston", new LockPiston());
 		SmartDashboard.putData("Raise Shooter", new RaiseShooter());
 		SmartDashboard.putData("Align Shooter", new AlignShooter());
 		SmartDashboard.putData("Drive Straight With Gyro", new DriveStraightFixedSpeed(0.3));
