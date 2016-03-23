@@ -81,13 +81,13 @@ public class OI {
 		driveStraight.whileHeld(new DriveStraight());
 		
 		turnLeft = new JoystickPOVButton(controllers[ControllerMap.driveController], ControllerMap.driveTurnLeftPOV);
-		turnLeft.whenPressed(new RotateDrivetrainWithGyro(90, 1, true));
+		turnLeft.whenPressed(new RotateDrivetrainWithGyro(64, 1, true));
 		
 		turnRight = new JoystickPOVButton(controllers[ControllerMap.driveController], ControllerMap.driveTurnRightPOV);
-		turnRight.whenPressed(new RotateDrivetrainWithGyro(90, 1, false));
+		turnRight.whenPressed(new RotateDrivetrainWithGyro(64, 1, false));
 		
 		turnAround = new JoystickPOVButton(controllers[ControllerMap.driveController], ControllerMap.driveTurnAroundPOV);
-		turnAround.whenPressed(new RotateDrivetrainWithGyro(180, 1, false));
+		turnAround.whenPressed(new RotateDrivetrainWithGyro(154, 1, false));
 		
 		// Shooter
 		manualShooterControl = new JoystickButton(controllers[ControllerMap.manualShooterController], ControllerMap.manualShooterButton);
