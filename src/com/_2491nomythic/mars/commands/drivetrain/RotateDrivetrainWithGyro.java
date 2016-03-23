@@ -30,6 +30,7 @@ public class RotateDrivetrainWithGyro extends CommandBase {
 	
 	// Called just before this Command runs the first time
 	protected void initialize() {
+		drivetrain.resetGyro();
 		if (turnLeft) {
 			drivetrain.drive(-1.0 * power, power);
 		}
