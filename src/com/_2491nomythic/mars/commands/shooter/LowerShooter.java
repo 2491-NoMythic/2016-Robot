@@ -24,6 +24,7 @@ public class LowerShooter extends CommandBase {
 	// Called just before this Command runs the first time
 	protected void initialize() {
 		setInterruptible(false);
+		hasBeenLowered = false;
 		shooter.unlock();
 		timer.start();
 		timer.reset();
