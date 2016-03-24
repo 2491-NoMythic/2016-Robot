@@ -3,11 +3,19 @@ package com._2491nomythic.mars.commands.drivetrain;
 import com._2491nomythic.mars.commands.CommandBase;
 
 /**
- *
+ * Drives the robot straight using the gyro to a specified position at a specified power
  */
 public class DriveStraightToPosition extends CommandBase {
 	double speed, distance, initialEncoderFeetPos, currentEncoderFeetPos;
 	
+	/**
+	 * Drives the robot straight using the gyro to a specified position at a specified power
+	 * 
+	 * @param feet
+	 *            The distance for the robot to move (in feet)
+	 * @param speed
+	 *            The power fed to all drive motors, ranging from -1 to 1, where negative values run the motors backwards
+	 */
 	public DriveStraightToPosition(double feet, double speed) {
 		// Use requires() here to declare subsystem dependencies
 		// eg. requires(chassis);

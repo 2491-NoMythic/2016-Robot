@@ -3,11 +3,14 @@ package com._2491nomythic.mars.commands.shooter;
 import com._2491nomythic.mars.commands.CommandBase;
 
 /**
- *
+ * Unlocks the shooter so it can be moved by the main solenoid
  */
 public class UnlockPiston extends CommandBase {
 
-    public UnlockPiston() {
+	/**
+	 * Unlocks the shooter so it can be moved by the main solenoid
+	 */
+	public UnlockPiston() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(shooter);

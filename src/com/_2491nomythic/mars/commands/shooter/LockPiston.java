@@ -4,11 +4,14 @@ import com._2491nomythic.mars.commands.CommandBase;
 
 
 /**
- *
+ * Locks the shooter in place to avoid recoil while shooting
  */
 public class LockPiston extends CommandBase {
 
-    public LockPiston() {
+	/**
+	 * Locks the shooter in place to avoid recoil while shooting
+	 */
+	public LockPiston() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(shooter);

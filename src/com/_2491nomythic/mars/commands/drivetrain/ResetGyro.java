@@ -3,7 +3,7 @@ package com._2491nomythic.mars.commands.drivetrain;
 import com._2491nomythic.mars.commands.CommandBase;
 
 /**
- *
+ * Resets the gyro that measures which direction the robot is facing
  */
 public class ResetGyro extends CommandBase {
 

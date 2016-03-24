@@ -5,12 +5,20 @@ import com._2491nomythic.mars.commands.CommandBase;
 import edu.wpi.first.wpilibj.Timer;
 
 /**
- *
+ * Drives the robot straight using the gyro for a specified amount of time at a specified power
  */
 public class DriveStraightTime extends CommandBase {
 	double speed, timeOut;
 	Timer timer;
 	
+	/**
+	 * Drives the robot straight using the gyro to a specified position at a specified power
+	 * 
+	 * @param timeOut
+	 *            The amount of time for the robot to move
+	 * @param speed
+	 *            The power fed to all drive motors, ranging from -1 to 1, where negative values run the motors backwards
+	 */
 	public DriveStraightTime(double timeOut, double speed) {
 		// Use requires() here to declare subsystem dependencies
 		// eg. requires(chassis);

@@ -3,11 +3,14 @@ package com._2491nomythic.mars.commands.drivetrain;
 import com._2491nomythic.mars.commands.CommandBase;
 
 /**
- *
+ * Drives the robt straight using the gyro at a specified power
  */
 public class DriveStraight extends CommandBase {
 	double speed;
 	
+	/**
+	 * Drives the robt straight using the gyro at a specified power
+	 */
 	public DriveStraight(double speed) {
 		// Use requires() here to declare subsystem dependencies
 		// eg. requires(chassis);

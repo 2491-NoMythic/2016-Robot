@@ -4,11 +4,14 @@ import com._2491nomythic.mars.commands.CommandBase;
 import com._2491nomythic.mars.settings.ControllerMap;
 
 /**
- *
+ * Drives the robot straight using the gyro at a power specified by the right drive axis on the driver controller
  */
 public class DriveStraightManualSpeed extends CommandBase {
 	double speed;
 	
+	/**
+	 * Drives the robot straight using the gyro at a power specified by the right drive axis on the driver controller
+	 */
 	public DriveStraightManualSpeed() {
 		// Use requires() here to declare subsystem dependencies
 		// eg. requires(chassis);
