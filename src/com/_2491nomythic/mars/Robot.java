@@ -17,6 +17,7 @@ import com._2491nomythic.mars.commands.drivetrain.ResetGyro;
 import com._2491nomythic.mars.commands.drivetrain.RotateDrivetrain;
 import com._2491nomythic.mars.commands.drivetrain.RotateDrivetrainWithGyro;
 import com._2491nomythic.mars.commands.shooter.LockPiston;
+import com._2491nomythic.mars.commands.shooter.LowerShooter;
 import com._2491nomythic.mars.commands.shooter.RaiseShooter;
 import com._2491nomythic.mars.commands.shooter.UnlockPiston;
 import com._2491nomythic.mars.settings.Variables;
@@ -39,6 +40,7 @@ public class Robot extends IterativeRobot {
 	public static OI oi;
 	private Command autoCommand;
 	private SendableChooser autoChooser;
+	LowerShooter lowerShooter;
 	
 	/**
 	 * This function is run when the robot is first started up and should be
@@ -72,7 +74,6 @@ public class Robot extends IterativeRobot {
 		SmartDashboard.putNumber("Devation From Target", Variables.degreeDeviationFromTarget);
 		SmartDashboard.putData("Move Armature Down for Half Second", new ArmatureTime(0.5, 0.7));
 		SmartDashboard.putBoolean("Use Linear Acceleration", true);
-		
 	}
 	
 	public void disabledPeriodic() {
@@ -96,8 +97,9 @@ public class Robot extends IterativeRobot {
 		// teleop starts running. If you want the autonomous to
 		// continue until interrupted by another command, remove
 		// this line or comment it out.
-		if (autoCommand != null)
+		if (autoCommand != null) {
 			autoCommand.cancel();
+		}
 	}
 	
 	/**
@@ -105,6 +107,7 @@ public class Robot extends IterativeRobot {
 	 * to reset subsystems before shutting down.
 	 */
 	public void disabledInit() {
+		lowerShooter.start();
 	}
 	
 	/**
