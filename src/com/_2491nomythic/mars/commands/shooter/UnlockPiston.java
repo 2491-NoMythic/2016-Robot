@@ -2,8 +2,6 @@ package com._2491nomythic.mars.commands.shooter;
 
 import com._2491nomythic.mars.commands.CommandBase;
 
-import edu.wpi.first.wpilibj.command.Command;
-
 /**
  *
  */
