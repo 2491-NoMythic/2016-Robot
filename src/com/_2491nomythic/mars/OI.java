@@ -7,7 +7,7 @@ import com._2491nomythic.mars.commands.PickUpBallConfiguration;
 import com._2491nomythic.mars.commands.Shoot;
 import com._2491nomythic.mars.commands.StartingConfiguration;
 import com._2491nomythic.mars.commands.armature.ManualArmatureControl;
-import com._2491nomythic.mars.commands.drivetrain.DriveStraight;
+import com._2491nomythic.mars.commands.drivetrain.DriveStraightManualSpeed;
 import com._2491nomythic.mars.commands.drivetrain.RotateDrivetrainWithGyro;
 //import com._2491nomythic.mars.commands.drivetrain.ShiftGearVelocity;
 import com._2491nomythic.mars.commands.drivetrain.ShiftGearWithDelay;
@@ -78,7 +78,7 @@ public class OI {
 		shiftGear.whileHeld(new ShiftGearWithDelay());
 		
 		driveStraight = new JoystickPOVButton(controllers[ControllerMap.driveController], ControllerMap.driveStraightPOV);
-		driveStraight.whileHeld(new DriveStraight());
+		driveStraight.whileHeld(new DriveStraightManualSpeed());
 		
 		turnLeft = new JoystickPOVButton(controllers[ControllerMap.driveController], ControllerMap.driveTurnLeftPOV);
 		turnLeft.whenPressed(new RotateDrivetrainWithGyro(64, 1, true));

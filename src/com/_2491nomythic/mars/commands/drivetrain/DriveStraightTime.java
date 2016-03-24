@@ -2,22 +2,29 @@ package com._2491nomythic.mars.commands.drivetrain;
 
 import com._2491nomythic.mars.commands.CommandBase;
 
+import edu.wpi.first.wpilibj.Timer;
+
 /**
  *
  */
-public class DriveStraight extends CommandBase {
-	double speed;
+public class DriveStraightTime extends CommandBase {
+	double speed, timeOut;
+	Timer timer;
 	
-	public DriveStraight(double speed) {
+	public DriveStraightTime(double timeOut, double speed) {
 		// Use requires() here to declare subsystem dependencies
 		// eg. requires(chassis);
 		requires(drivetrain);
 		this.speed = speed;
+		this.timeOut = timeOut;
+		timer = new Timer();
 	}
 	
 	// Called just before this Command runs the first time
 	protected void initialize() {
 		drivetrain.resetGyro();
+		timer.start();
+		timer.reset();
 	}
 	
 	// Called repeatedly when this Command is scheduled to run
@@ -27,7 +34,7 @@ public class DriveStraight extends CommandBase {
 	
 	// Make this return true when this Command no longer needs to run execute()
 	protected boolean isFinished() {
-		return false;
+		return timer.get() > timeOut;
 	}
 	
 	// Called once after isFinished returns true
