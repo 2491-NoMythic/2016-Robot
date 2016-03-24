@@ -32,7 +32,12 @@ public class DriveStraightToPosition extends CommandBase {
 	
 	// Called repeatedly when this Command is scheduled to run
 	protected void execute() {
-		drivetrain.drive(Math.min(speed, speed - Math.min(0.5 * speed, 0.01 * drivetrain.getCurrentGyroDegrees())), Math.min(speed, speed + Math.max(-0.5 * speed, 0.01 * drivetrain.getCurrentGyroDegrees())));
+		if (speed > 0) {
+			drivetrain.drive(Math.min(speed, speed - Math.min(0.5 * speed, 0.01 * drivetrain.getCurrentGyroDegrees())), Math.min(speed, speed + Math.max(-0.5 * speed, 0.01 * drivetrain.getCurrentGyroDegrees())));
+		}
+		else {
+			drivetrain.drive(Math.max(speed, speed - Math.max(0.5 * speed, 0.01 * drivetrain.getCurrentGyroDegrees())), Math.max(speed, speed + Math.min(-0.5 * speed, 0.01 * drivetrain.getCurrentGyroDegrees())));
+		}
 		currentEncoderFeetPos = drivetrain.getLeftEncoderDistance();
 	}
 	
