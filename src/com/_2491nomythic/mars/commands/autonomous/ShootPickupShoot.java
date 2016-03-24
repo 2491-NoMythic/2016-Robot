@@ -2,7 +2,7 @@ package com._2491nomythic.mars.commands.autonomous;
 
 import com._2491nomythic.mars.commands.CommandBase;
 import com._2491nomythic.mars.commands.armature.ArmaturePositionSet;
-import com._2491nomythic.mars.commands.drivetrain.DriveToPosition;
+import com._2491nomythic.mars.commands.drivetrain.DriveStraightToPosition;
 import com._2491nomythic.mars.commands.drivetrain.RotateDrivetrain;
 import com._2491nomythic.mars.commands.intake.IntakeBall;
 import com._2491nomythic.mars.commands.shooter.LowerShooter;
@@ -19,7 +19,7 @@ public class ShootPickupShoot extends CommandBase {
 	int state = 0;
 	RaiseShooter raiseShooter;
 	RunShooterTime shoot;
-	DriveToPosition drive13ft, drive5ft;
+	DriveStraightToPosition drive13ft, drive5ft;
 	LowerShooter lowerShooter;
 	RotateDrivetrain rotateNeg45, rotate45, rotate90, rotate180;
 	ArmaturePositionSet armUp, armIntake, armLowBar;
@@ -36,12 +36,12 @@ public class ShootPickupShoot extends CommandBase {
 		timer = new Timer();
 		raiseShooter = new RaiseShooter();
 		shoot = new RunShooterTime(5);
-		drive13ft = new DriveToPosition(13, 0.7);
+		drive13ft = new DriveStraightToPosition(13, 0.7);
 		lowerShooter = new LowerShooter();
 		rotate45 = new RotateDrivetrain(45, 0.7, true);
 		rotateNeg45 = new RotateDrivetrain(45, 0.7, false);
 		rotate90 = new RotateDrivetrain(90, 0.7, true);
-		drive5ft = new DriveToPosition(5, 0.7);
+		drive5ft = new DriveStraightToPosition(5, 0.7);
 		rotate180 = new RotateDrivetrain(180, 0.7, true);
 		armUp = new ArmaturePositionSet(Constants.armatureUpPositionValue);
 		armIntake = new ArmaturePositionSet(Constants.armatureIntakePositionValue);

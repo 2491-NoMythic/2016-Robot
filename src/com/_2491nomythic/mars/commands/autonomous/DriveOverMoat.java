@@ -1,15 +1,14 @@
 package com._2491nomythic.mars.commands.autonomous;
 
 import com._2491nomythic.mars.commands.CommandBase;
-
-import com._2491nomythic.mars.commands.drivetrain.DriveToPosition;
+import com._2491nomythic.mars.commands.drivetrain.DriveStraightToPosition;
 
 
 /**
  * An autonomous that drives over the moat, starting from directly in front of it on the starting line
  */
 public class DriveOverMoat extends CommandBase {
-	DriveToPosition drive7Feet, drive8Feet;
+	DriveStraightToPosition drive7Feet, drive8Feet;
 	boolean highGear;
 	
 	/**
@@ -18,8 +17,8 @@ public class DriveOverMoat extends CommandBase {
 	public DriveOverMoat() {
 		// Use requires() here to declare subsystem dependencies
 		// eg. requires(chassis);
-		drive7Feet = new DriveToPosition(7, 0.5);
-		drive8Feet = new DriveToPosition(8, 1.0);
+		drive7Feet = new DriveStraightToPosition(7, 0.5);
+		drive8Feet = new DriveStraightToPosition(8, 1.0);
 	}
 	
 	// Called just before this Command runs the first time

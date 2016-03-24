@@ -1,7 +1,7 @@
 package com._2491nomythic.mars.commands.autonomous;
 
 import com._2491nomythic.mars.commands.armature.ArmatureTime;
-import com._2491nomythic.mars.commands.drivetrain.DriveTime;
+import com._2491nomythic.mars.commands.drivetrain.DriveStraightTime;
 import com._2491nomythic.mars.commands.shooter.LowerShooter;
 
 import edu.wpi.first.wpilibj.Timer;
@@ -13,7 +13,7 @@ import edu.wpi.first.wpilibj.command.Command;
 public class DriveUnderLowBarTime extends Command {
 	
 	LowerShooter lowerShooter;
-	DriveTime drive5SecsForwards;
+	DriveStraightTime drive5SecsForwards;
 	ArmatureTime lowerArmature;
 	Timer timer;
 	boolean hasRun;
@@ -25,7 +25,7 @@ public class DriveUnderLowBarTime extends Command {
 		// Use requires() here to declare subsystem dependencies
 		// eg. requires(chassis);
 		lowerShooter = new LowerShooter();
-		drive5SecsForwards = new DriveTime(5, -0.7);
+		drive5SecsForwards = new DriveStraightTime(5, -0.7);
 		lowerArmature = new ArmatureTime(0.5, 0.8); // takes in positive power
 		timer = new Timer();
 		hasRun = false;

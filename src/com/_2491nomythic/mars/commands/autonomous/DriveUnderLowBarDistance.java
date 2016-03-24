@@ -2,20 +2,20 @@ package com._2491nomythic.mars.commands.autonomous;
 
 import com._2491nomythic.mars.commands.CommandBase;
 import com._2491nomythic.mars.commands.armature.ArmaturePositionSet;
-import com._2491nomythic.mars.commands.drivetrain.DriveToPosition;
+import com._2491nomythic.mars.commands.drivetrain.DriveStraightToPosition;
 import com._2491nomythic.mars.settings.Constants;
 
 /**
  *
  */
 public class DriveUnderLowBarDistance extends CommandBase {
-	DriveToPosition drive7Feet;
+	DriveStraightToPosition drive7Feet;
 	ArmaturePositionSet moveArmToLowBarConfiguration;
 	boolean hasRun;
     public DriveUnderLowBarDistance() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	drive7Feet = new DriveToPosition(7, -0.8);
+    	drive7Feet = new DriveStraightToPosition(7, -0.8);
     	moveArmToLowBarConfiguration = new ArmaturePositionSet(Constants.armatureLowBarDifference - armature.getEncoderPosition());
     }
 
