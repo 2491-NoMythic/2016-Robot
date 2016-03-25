@@ -74,6 +74,8 @@ public class Robot extends IterativeRobot {
 		SmartDashboard.putNumber("Devation From Target", Variables.degreeDeviationFromTarget);
 		SmartDashboard.putData("Move Armature Down for Half Second", new ArmatureTime(0.5, 0.7));
 		SmartDashboard.putBoolean("Use Linear Acceleration", true);
+		
+		lowerShooter = new LowerShooter();
 	}
 	
 	public void disabledPeriodic() {
