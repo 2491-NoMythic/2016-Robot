@@ -4,6 +4,7 @@ package com._2491nomythic.mars;
 import com._2491nomythic.mars.commands.AlignShooter;
 import com._2491nomythic.mars.commands.CommandBase;
 import com._2491nomythic.mars.commands.armature.ArmatureTime;
+import com._2491nomythic.mars.commands.armature.ResetArmatureEncoder;
 import com._2491nomythic.mars.commands.autonomous.DoNothing;
 import com._2491nomythic.mars.commands.drivetrain.CalibrateGyro;
 import com._2491nomythic.mars.commands.drivetrain.DriveStraight;
@@ -55,6 +56,7 @@ public class Robot extends IterativeRobot {
 		autoChooser.addObject("Drive Straight 13 Feet", new DriveStraightToPosition(13, 1));
 		SmartDashboard.putData("Autonomous", autoChooser);
 		SmartDashboard.putNumber("Shooter Power", 12);
+		SmartDashboard.putData("Reset Armature Encoder", new ResetArmatureEncoder());
 		SmartDashboard.putData("Drive Forward One Foot (slow af)", new DriveToPosition(1, 0.1));
 		SmartDashboard.putData("Reset Drive Encoders", new ResetDriveEncoders());
 		SmartDashboard.putData("Rotate90Degrees", new RotateDrivetrain(90, 0.5, true));
