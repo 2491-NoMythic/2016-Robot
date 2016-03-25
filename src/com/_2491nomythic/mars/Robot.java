@@ -7,11 +7,12 @@ import com._2491nomythic.mars.commands.armature.ArmatureTime;
 import com._2491nomythic.mars.commands.autonomous.DoNothing;
 import com._2491nomythic.mars.commands.drivetrain.CalibrateGyro;
 import com._2491nomythic.mars.commands.drivetrain.DriveStraight;
-//import com._2491nomythic.mars.commands.autonomous.DriveOverRockWall;
+import com._2491nomythic.mars.commands.drivetrain.DriveStraightToPosition;
+import com._2491nomythic.mars.commands.autonomous.DriveOverRockWall;
 import com._2491nomythic.mars.commands.drivetrain.DriveTime;
 import com._2491nomythic.mars.commands.drivetrain.DriveToPosition;
 import com._2491nomythic.mars.commands.autonomous.DriveUnderLowBarTime;
-//import com._2491nomythic.mars.commands.autonomous.DriveUnderPortcullis;
+import com._2491nomythic.mars.commands.autonomous.DriveUnderPortcullis;
 import com._2491nomythic.mars.commands.drivetrain.ResetDriveEncoders;
 import com._2491nomythic.mars.commands.drivetrain.ResetGyro;
 import com._2491nomythic.mars.commands.drivetrain.RotateDrivetrain;
@@ -29,11 +30,7 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.*;
 
 /**
- * The VM is configured to automatically run this class, and to call the
- * functions corresponding to each mode, as described in the IterativeRobot
- * documentation. If you change the name of this class or the package after
- * creating this project, you must also update the manifest file in the resource
- * directory.
+ * The VM is configured to automatically run this class, and to call the functions corresponding to each mode, as described in the IterativeRobot documentation. If you change the name of this class or the package after creating this project, you must also update the manifest file in the resource directory.
  */
 public class Robot extends IterativeRobot {
 	
@@ -43,8 +40,7 @@ public class Robot extends IterativeRobot {
 	LowerShooter lowerShooter;
 	
 	/**
-	 * This function is run when the robot is first started up and should be
-	 * used for any initialization code.
+	 * This function is run when the robot is first started up and should be used for any initialization code.
 	 */
 	public void robotInit() {
 		oi = new OI();
@@ -54,10 +50,9 @@ public class Robot extends IterativeRobot {
 		autoChooser.addDefault("Do Nothing", new DoNothing());
 		autoChooser.addObject("Drive Forward Time", new DriveTime(4, 1));
 		autoChooser.addObject("Drive Under Low Bar Time", new DriveUnderLowBarTime());
-		// autoChooser.addObject("Drive Over Rock Wall", new
-		// DriveOverRockWall());
-		// autoChooser.addObject("Drive Under Portcullis", new
-		// DriveUnderPortcullis());
+		autoChooser.addObject("Drive Over Rock Wall", new DriveOverRockWall());
+		autoChooser.addObject("Drive Under Portcullis", new DriveUnderPortcullis());
+		autoChooser.addObject("Drive Straight 13 Feet", new DriveStraightToPosition(13, 1));
 		SmartDashboard.putData("Autonomous", autoChooser);
 		SmartDashboard.putNumber("Shooter Power", 12);
 		SmartDashboard.putData("Drive Forward One Foot (slow af)", new DriveToPosition(1, 0.1));
@@ -105,8 +100,7 @@ public class Robot extends IterativeRobot {
 	}
 	
 	/**
-	 * This function is called when the disabled button is hit. You can use it
-	 * to reset subsystems before shutting down.
+	 * This function is called when the disabled button is hit. You can use it to reset subsystems before shutting down.
 	 */
 	public void disabledInit() {
 		lowerShooter.start();

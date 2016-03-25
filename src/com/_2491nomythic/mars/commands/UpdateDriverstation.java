@@ -60,40 +60,40 @@ public class UpdateDriverstation extends CommandBase {
 			SmartDashboard.putNumber("Right Drive Encoder", drivetrain.getRightEncoderDistance());
 			SmartDashboard.putNumber("Gyro Value in Degrees", drivetrain.getCurrentGyroDegrees());
 			SmartDashboard.putNumber("Armature Encoder Value", armature.getEncoderPosition());
-			//SmartDashboard
-			//Vision code starts here
-			//It runs off of grip, so we are simply taking the biggest target
-//			numOfParticles = grip.getArea().length;
-//			System.out.println(grip.getCenterX()[0]);
-//			System.out.println(grip.getCenterY()[0]);
-//			if(numOfParticles == 0) {
-//				//do nothing	    		
-//	    	}
-//			else {
-//				//grab the data values of the largest particle
-//				ParticleInfo particleInfo = new ParticleInfo();
-//				particleInfo.Area = grip.getArea()[0];
-//				particleInfo.CenterX = grip.getCenterX()[0];
-//				particleInfo.CenterY = grip.getCenterY()[0];
-//				particleInfo.Height = grip.getHeight()[0];
-//				particleInfo.Width = grip.getWidth()[0];
-//			}
-    	}
-    }
-
-    // Make this return true when this Command no longer needs to run execute()
-    protected boolean isFinished() {
-        return false;
-    }
-
-    // Called once after isFinished returns true
-    protected void end() {
-    	timer.stop();
-    }
-
-    // Called when another command which requires one or more of the same
-    // subsystems is scheduled to run
-    protected void interrupted() {
-    	end();
-    }
+			// SmartDashboard
+			// Vision code starts here
+			// It runs off of grip, so we are simply taking the biggest target
+			// numOfParticles = grip.getArea().length;
+			// System.out.println(grip.getCenterX()[0]);
+			// System.out.println(grip.getCenterY()[0]);
+			// if(numOfParticles == 0) {
+			// //do nothing
+			// }
+			// else {
+			// //grab the data values of the largest particle
+			// ParticleInfo particleInfo = new ParticleInfo();
+			// particleInfo.Area = grip.getArea()[0];
+			// particleInfo.CenterX = grip.getCenterX()[0];
+			// particleInfo.CenterY = grip.getCenterY()[0];
+			// particleInfo.Height = grip.getHeight()[0];
+			// particleInfo.Width = grip.getWidth()[0];
+			// }
+		}
+	}
+	
+	// Make this return true when this Command no longer needs to run execute()
+	protected boolean isFinished() {
+		return false;
+	}
+	
+	// Called once after isFinished returns true
+	protected void end() {
+		timer.stop();
+	}
+	
+	// Called when another command which requires one or more of the same
+	// subsystems is scheduled to run
+	protected void interrupted() {
+		end();
+	}
 }
