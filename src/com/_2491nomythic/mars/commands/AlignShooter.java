@@ -26,7 +26,7 @@ public class AlignShooter extends CommandBase {
 		movementInDegrees = (400 - grip.getCenterX()[0]) * Constants.degreesPerPixel;
 		movementInDegrees += 34 * Constants.degreesPerPixel;
 		turnLeft = (movementInDegrees > 0) ? true : false;
-		rotateDrivetrain = new RotateDrivetrainWithGyro(Math.abs(movementInDegrees), .5, turnLeft);
+		rotateDrivetrain = new RotateDrivetrainWithGyro(Math.abs(movementInDegrees), 0.3, turnLeft);
 		rotateDrivetrain.start();
 	}
 	
