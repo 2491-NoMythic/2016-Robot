@@ -71,6 +71,6 @@ public class Constants {
 	public static final double cameraArea = 800 * 600;
 	public static final double cameraHorizontalViewAngle = 67; // degrees
 	public static final double targetWidthToHeightAspectRatio = 10 / 7; // width / height in feet
-	public static final double degreesPerPixel = 67 / 800;
+	public static final double degreesPerPixel = 67.0 / 800.0;
 	
 }

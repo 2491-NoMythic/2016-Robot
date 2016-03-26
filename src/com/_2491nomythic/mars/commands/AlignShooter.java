@@ -19,17 +19,15 @@ public class AlignShooter extends CommandBase {
 		// Use requires() here to declare subsystem dependencies
 		// eg. requires(chassis);
 		 requires(grip);
-		 requires(drivetrain);
 	}
 	
 	// Called just before this Command runs the first time
 	protected void initialize() {
-		movementInDegrees = -1.0 * ((grip.getCenterX()[0] - 400)) * Constants.degreesPerPixel;
-		movementInDegrees += Variables.visionHorizontalCompensation * Constants.degreesPerPixel;
+		movementInDegrees = (400 - grip.getCenterX()[0]) * Constants.degreesPerPixel;
+		//movementInDegrees += 34 * Constants.degreesPerPixel;
 		turnLeft = (movementInDegrees > 0) ? true : false;
-		rotateDrivetrain = new RotateDrivetrainWithGyro(Math.abs(movementInDegrees), 0.5, turnLeft);
+		rotateDrivetrain = new RotateDrivetrainWithGyro(Math.abs(movementInDegrees), .5, turnLeft);
 		rotateDrivetrain.start();
-		
 	}
 	
 	// Called repeatedly when this Command is scheduled to run
