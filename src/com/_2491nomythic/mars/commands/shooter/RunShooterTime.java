@@ -31,30 +31,16 @@ public class RunShooterTime extends CommandBase {
 	protected void initialize() {
 		timer.start();
 		timer.reset();
-		shooter.set(Variables.shooterSpeed);
 	}
 	
 	// Called repeatedly when this Command is scheduled to run
 	protected void execute() {
-		// if(shooter.getLeftEncoderVelocity() > 5000) {
-		// shooter.setLeft(0);
-		// }
-		// else {
-		// shooter.setLeft(Variables.shooterSpeed);
-		// }
-		// if(shooter.getRightEncoderVelocity() > 5000) {
-		// shooter.setRight(0);
-		// }
-		// else {
-		// shooter.setRight(Variables.shooterSpeed);
-		// }
-		
 		shooter.getLeftMotor().changeControlMode(TalonControlMode.Voltage);
 		shooter.getRightMotor().changeControlMode(TalonControlMode.Voltage);
-		shooter.getLeftMotor().setVoltageCompensationRampRate(6.0);
-		shooter.getRightMotor().setVoltageCompensationRampRate(6.0);
-		shooter.getRightMotor().set(-1.0 * 9.0);
-		shooter.getLeftMotor().set(-1.0 * 9.0);
+		shooter.getLeftMotor().setVoltageCompensationRampRate(4.0); 
+		shooter.getRightMotor().setVoltageCompensationRampRate(4.0);
+		shooter.getRightMotor().set(-1.0 * 12.0);
+		shooter.getLeftMotor().set(-1.0 * 12.0);
 	}
 	
 	// Make this return true when this Command no longer needs to run execute()
