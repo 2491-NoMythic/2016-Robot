@@ -69,6 +69,7 @@ public class Robot extends IterativeRobot {
 		SmartDashboard.putData("Align Shooter", new AlignShooter());
 		SmartDashboard.putData("Drive Straight With Gyro", new DriveStraight(0.3));
 		SmartDashboard.putNumber("Devation From Target", Variables.degreeDeviationFromTarget);
+		SmartDashboard.putNumber("Horizontal Pixel Compensation", Variables.visionHorizontalCompensation);
 		SmartDashboard.putData("Move Armature Down for Half Second", new ArmatureTime(0.5, 0.7));
 		SmartDashboard.putBoolean("Use Linear Acceleration", true);
 		

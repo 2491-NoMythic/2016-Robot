@@ -56,6 +56,7 @@ public class UpdateDriverstation extends CommandBase {
 			// Constants.acceptableVisionAreaDifference));
 			Variables.shooterSpeed = SmartDashboard.getNumber("Shooter Power");
 			Variables.useLinearAcceleration = SmartDashboard.getBoolean("Use Linear Acceleration", true);
+			Variables.visionHorizontalCompensation = SmartDashboard.getNumber("Horizontal Pixel Compensation");
 			SmartDashboard.putNumber("Left Drive Encoder", drivetrain.getLeftEncoderDistance());
 			SmartDashboard.putNumber("Right Drive Encoder", drivetrain.getRightEncoderDistance());
 			SmartDashboard.putNumber("Gyro Value in Degrees", drivetrain.getCurrentGyroDegrees());

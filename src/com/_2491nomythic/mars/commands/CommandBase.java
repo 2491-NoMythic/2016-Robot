@@ -7,10 +7,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
- * The base for all commands. All atomic commands should subclass CommandBase.
- * CommandBase stores creates and stores each control system. To access a
- * subsystem elsewhere in your code in your code use
- * CommandBase.exampleSubsystem
+ * The base for all commands. All atomic commands should subclass CommandBase. CommandBase stores creates and stores each control system. To access a subsystem elsewhere in your code in your code use CommandBase.exampleSubsystem
  */
 public abstract class CommandBase extends Command {
 	
@@ -44,28 +41,21 @@ public abstract class CommandBase extends Command {
 		SmartDashboard.putData(drivetrain);
 		SmartDashboard.putData(shooter);
 		SmartDashboard.putData(intake);
-		// SmartDashboard.putData(armature);
+		SmartDashboard.putData(armature);
 	}
 	
 	/**
-	 * The base for all commands. All atomic commands should subclass
-	 * CommandBase. CommandBase stores creates and stores each control system.
-	 * To access a subsystem elsewhere in your code in your code use
-	 * CommandBase.exampleSubsystem
+	 * The base for all commands. All atomic commands should subclass CommandBase. CommandBase stores creates and stores each control system. To access a subsystem elsewhere in your code in your code use CommandBase.exampleSubsystem
 	 * 
 	 * @param name
-	 *            The name that shows up on the SmartDashboard in association
-	 *            with any command created using this parameter.
+	 *            The name that shows up on the SmartDashboard in association with any command created using this parameter.
 	 */
 	public CommandBase(String name) {
 		super(name);
 	}
 	
 	/**
-	 * The base for all commands. All atomic commands should subclass
-	 * CommandBase. CommandBase stores creates and stores each control system.
-	 * To access a subsystem elsewhere in your code in your code use
-	 * CommandBase.exampleSubsystem
+	 * The base for all commands. All atomic commands should subclass CommandBase. CommandBase stores creates and stores each control system. To access a subsystem elsewhere in your code in your code use CommandBase.exampleSubsystem
 	 */
 	public CommandBase() {
 		super();
