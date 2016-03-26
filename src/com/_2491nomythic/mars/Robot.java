@@ -106,6 +106,7 @@ public class Robot extends IterativeRobot {
 		if (autoCommand != null) {
 			autoCommand.cancel();
 		}
+		lowerShooter.start();
 	}
 	
 	/**
