@@ -31,7 +31,7 @@ public class GRIP extends Subsystem {
 	 * @return The NetworkTable sent to us by the Raspberry Pi
 	 */
 	public NetworkTable getTable() {
-		return NetworkTable.getTable("GRIP/myCountoursReport"); // TODO get path
+		return NetworkTable.getTable("/GRIP/myCountoursReport"); // TODO get path
 	}
 	
 	/**
