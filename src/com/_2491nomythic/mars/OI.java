@@ -1,11 +1,11 @@
 package com._2491nomythic.mars;
 
 import com._2491nomythic.mars.commands.AlignShooter;
-import com._2491nomythic.mars.commands.ChevalDeFriseConfiguration;
-import com._2491nomythic.mars.commands.LowBarConfiguration;
-import com._2491nomythic.mars.commands.PickUpBallConfiguration;
+//import com._2491nomythic.mars.commands.ChevalDeFriseConfiguration;
+//import com._2491nomythic.mars.commands.LowBarConfiguration;
+//import com._2491nomythic.mars.commands.PickUpBallConfiguration;
 import com._2491nomythic.mars.commands.Shoot;
-import com._2491nomythic.mars.commands.StartingConfiguration;
+//import com._2491nomythic.mars.commands.StartingConfiguration;
 import com._2491nomythic.mars.commands.armature.ManualArmatureControl;
 import com._2491nomythic.mars.commands.drivetrain.DriveStraightManualSpeed;
 import com._2491nomythic.mars.commands.drivetrain.RotateDrivetrainWithGyro;
@@ -17,6 +17,7 @@ import com._2491nomythic.mars.commands.intake.ManualTakeIn;
 import com._2491nomythic.mars.commands.shooter.LowerShooter;
 import com._2491nomythic.mars.commands.shooter.ManualShooterControl;
 import com._2491nomythic.mars.commands.shooter.RaiseShooter;
+import com._2491nomythic.mars.commands.shooter.TogglePhotonCannon;
 import com._2491nomythic.mars.settings.Constants;
 import com._2491nomythic.mars.settings.ControllerMap;
 import com._2491nomythic.util.JoystickAxisButton;
@@ -40,7 +41,7 @@ public class OI {
 	// Button button = new JoystickButton(stick, buttonNumber);
 	
 	private final Joystick[] controllers = new Joystick[2];
-	Button shoot, chevalDeFriseConfiguration, lowBarConfiguration, alignShooter, pickUpBallConfiguration, startingConfiguration, shiftGear, driveStraight, turnLeft, turnRight, turnAround, manualShooterControl, manualTakeIn, manualSpitOut, raiseShooter, lowerShooter, intakeBall, manualArmatureUpControl, manualArmatureDownControl;
+	Button shoot, chevalDeFriseConfiguration, lowBarConfiguration, alignShooter, pickUpBallConfiguration, startingConfiguration, shiftGear, driveStraight, turnLeft, turnRight, turnAround, manualShooterControl, manualTakeIn, manualSpitOut, raiseShooter, lowerShooter, photonCannon, intakeBall, manualArmatureUpControl, manualArmatureDownControl;
 	
 	// private SendableChooser shiftVelocityOrDelay;
 	/**
@@ -56,17 +57,17 @@ public class OI {
 		shoot = new JoystickButton(controllers[ControllerMap.shooterController], ControllerMap.shootButton);
 		shoot.whenPressed(new Shoot());
 		
-		chevalDeFriseConfiguration = new JoystickButton(controllers[ControllerMap.configurationController], ControllerMap.chevalDeFriseConfigutationButton);
-		chevalDeFriseConfiguration.whenPressed(new ChevalDeFriseConfiguration());
-		
-		lowBarConfiguration = new JoystickButton(controllers[ControllerMap.configurationController], ControllerMap.lowBarConfigurationButton);
-		lowBarConfiguration.whenPressed(new LowBarConfiguration());
-		
-		pickUpBallConfiguration = new JoystickButton(controllers[ControllerMap.configurationController], ControllerMap.pickUpBallConfigurationButton);
-		pickUpBallConfiguration.whenPressed(new PickUpBallConfiguration());
-		
-		startingConfiguration = new JoystickButton(controllers[ControllerMap.configurationController], ControllerMap.startingConfigurationButton);
-		startingConfiguration.whenPressed(new StartingConfiguration());
+//		chevalDeFriseConfiguration = new JoystickButton(controllers[ControllerMap.configurationController], ControllerMap.chevalDeFriseConfigutationButton);
+//		chevalDeFriseConfiguration.whenPressed(new ChevalDeFriseConfiguration());
+//		
+//		lowBarConfiguration = new JoystickButton(controllers[ControllerMap.configurationController], ControllerMap.lowBarConfigurationButton);
+//		lowBarConfiguration.whenPressed(new LowBarConfiguration());
+//		
+//		pickUpBallConfiguration = new JoystickButton(controllers[ControllerMap.configurationController], ControllerMap.pickUpBallConfigurationButton);
+//		pickUpBallConfiguration.whenPressed(new PickUpBallConfiguration());
+//		
+//		startingConfiguration = new JoystickButton(controllers[ControllerMap.configurationController], ControllerMap.startingConfigurationButton);
+//		startingConfiguration.whenPressed(new StartingConfiguration());
 		
 		alignShooter = new JoystickButton(controllers[ControllerMap.shooterController], ControllerMap.alignShooterButton);
 		alignShooter.whenPressed(new AlignShooter());
@@ -96,6 +97,9 @@ public class OI {
 		
 		lowerShooter = new JoystickPOVButton(controllers[ControllerMap.manualShooterController], ControllerMap.manualShooterPositionDownPOV);
 		lowerShooter.whenPressed(new LowerShooter());
+		
+		photonCannon = new JoystickButton(controllers[ControllerMap.shooterController], ControllerMap.photonCannonButton);
+		photonCannon.whenPressed(new TogglePhotonCannon());
 		
 		// Intake
 		manualTakeIn = new JoystickAxisButton(controllers[ControllerMap.manualIntakeController], ControllerMap.manualIntakeAxis, 0.8);

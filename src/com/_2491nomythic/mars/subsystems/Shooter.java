@@ -3,6 +3,7 @@ package com._2491nomythic.mars.subsystems;
 import com._2491nomythic.mars.settings.Constants;
 
 import edu.wpi.first.wpilibj.CANTalon;
+import edu.wpi.first.wpilibj.Relay;
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
@@ -12,6 +13,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 public class Shooter extends Subsystem {
 	private CANTalon motorLeft, motorRight;
 	private Solenoid shootSolenoid, lockSolenoid;
+	private Relay photonCannon;
 	private double currentLeftSpeed, currentRightSpeed;
 	public static Shooter instance;
 	
@@ -38,6 +40,8 @@ public class Shooter extends Subsystem {
 		
 		shootSolenoid = new Solenoid(Constants.shooterShootSolenoidChannel);
 		lockSolenoid = new Solenoid(Constants.shooterLockSolenoidChannel);
+		
+		photonCannon = new Relay(Constants.shooterPhotonCannonChannel);
 	}
 	
 	/**
@@ -112,6 +116,27 @@ public class Shooter extends Subsystem {
 	 */
 	public void unlock() {
 		lockSolenoid.set(false);
+	}
+	
+	/**
+	 * Turns on the photon cannon that helps the drivers aim
+	 */
+	public void turnOnPhotonCannon() {
+		photonCannon.set(Relay.Value.kForward);
+	}
+	
+	/**
+	 * Turns off the photon cannon that helps the drivers aim
+	 */
+	public void turnOffPhotonCannon() {
+		photonCannon.set(Relay.Value.kOff);
+	}
+	
+	public boolean getPhotonCannonValue() {
+		if (photonCannon.get() == Relay.Value.kForward) {
+			return true;
+		}
+		return false;
 	}
 	
 	/**

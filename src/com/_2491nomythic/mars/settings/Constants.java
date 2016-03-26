@@ -38,6 +38,7 @@ public class Constants {
 	public static final int driveEncoderLeftChannel2 = 6;
 	public static final int driveEncoderRightChannel1 = 3;
 	public static final int driveEncoderRightChannel2 = 4;
+	public static final int shooterPhotonCannonChannel = 7;
 	
 	// Analog Input Channels
 	public static final int gyroChannel = 0;
