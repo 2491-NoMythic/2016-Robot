@@ -20,6 +20,7 @@ public class CrossAndShoot extends CommandBase {
 	DriveStraightToPosition drive2ft;
 	RunShooterTime runShooter5Secs;
 	RunIntakeTime intake;
+	int state = 0;
     public CrossAndShoot() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
@@ -29,14 +30,27 @@ public class CrossAndShoot extends CommandBase {
     	rotate60Degrees = new RotateDrivetrainWithGyro(-60, 0.5, false);
     	drive2ft = new DriveStraightToPosition(2, -0.8);
     	runShooter5Secs = new RunShooterTime(5);
+    	intake = new RunIntakeTime(3);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	timer.start();
+    	timer.reset();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	switch(state) {
+    		case 0:
+    			drive20ft.start();
+    			state++;
+    		case 1:
+    			if(timer.get() > 1) {
+    				
+    			}
+    	}
+    	
     }
 
     // Make this return true when this Command no longer needs to run execute()
