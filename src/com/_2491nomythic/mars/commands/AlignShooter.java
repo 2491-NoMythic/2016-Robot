@@ -2,13 +2,12 @@ package com._2491nomythic.mars.commands;
 
 import com._2491nomythic.mars.commands.drivetrain.RotateDrivetrainWithGyro;
 import com._2491nomythic.mars.settings.Constants;
-import com._2491nomythic.mars.settings.Variables;
 
 /**
  * Aligns the robot using vision so that we can shoot into the goal
  */
 public class AlignShooter extends CommandBase {
-	private double movementInDegrees;
+	private double requiredMovment;
 	private boolean turnLeft;
 	private RotateDrivetrainWithGyro rotateDrivetrain;
 	
@@ -23,10 +22,10 @@ public class AlignShooter extends CommandBase {
 	
 	// Called just before this Command runs the first time
 	protected void initialize() {
-		movementInDegrees = (400 - grip.getCenterX()[0]) * Constants.degreesPerPixel;
-		movementInDegrees += 34 * Constants.degreesPerPixel;
-		turnLeft = (movementInDegrees > 0) ? true : false;
-		rotateDrivetrain = new RotateDrivetrainWithGyro(Math.abs(movementInDegrees), 0.3, turnLeft);
+		// Calculates required movement in degrees 
+		requiredMovment = (400 - grip.getCenterX()[0]) * Constants.degreesPerPixel + 34 * Constants.degreesPerPixel;
+		turnLeft = (requiredMovment > 0) ? true : false;
+		rotateDrivetrain = new RotateDrivetrainWithGyro(Math.abs(requiredMovment), 0.2, turnLeft);
 		rotateDrivetrain.start();
 	}
 	
