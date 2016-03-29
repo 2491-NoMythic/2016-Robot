@@ -23,7 +23,7 @@ public class AlignShooter extends CommandBase {
 	// Called just before this Command runs the first time
 	protected void initialize() {
 		// Calculates required movement in degrees 
-		requiredMovment = (400 - grip.getCenterX()[0]) * Constants.degreesPerPixel + 38 * Constants.degreesPerPixel;
+		requiredMovment = (400 - grip.getCenterX()[0]) * Constants.degreesPerPixel + Constants.pixelCompensationToTargetWidthRatio * grip.getWidth()[0] * Constants.degreesPerPixel;
 		turnLeft = (requiredMovment > 0) ? true : false;
 		rotateDrivetrain = new RotateDrivetrainWithGyro(Math.abs(requiredMovment), 0.2, turnLeft);
 		rotateDrivetrain.start();
