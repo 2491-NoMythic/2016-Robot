@@ -24,7 +24,7 @@ public class GRIP extends Subsystem {
 	 * The values sent to us by the GRIP vision system running on the Raspberry Pi
 	 */
 	private GRIP() {
-		defaultValue = new double[0];
+		defaultValue = new double[1];
 	}
 	
 	/**
