@@ -14,6 +14,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 public class UpdateDriverstation extends CommandBase {
 	private Timer timer;
 	private double nextRun;
+	private double centerX;
 	
 	// private int numOfParticles;
 	public class ParticleInfo {
@@ -61,7 +62,13 @@ public class UpdateDriverstation extends CommandBase {
 			SmartDashboard.putNumber("Right Drive Encoder", drivetrain.getRightEncoderDistance());
 			SmartDashboard.putNumber("Gyro Value in Degrees", drivetrain.getCurrentGyroDegrees());
 			SmartDashboard.putNumber("Armature Encoder Value", armature.getEncoderPosition());
-			SmartDashboard.putNumber("Center X Value", grip.getCenterX()[0]);
+			if(grip.getCenterX().length == 0) {
+				centerX = 0;
+			}
+			else {
+				centerX = grip.getCenterX()[0];
+			}
+			SmartDashboard.putNumber("Center X Value", centerX);
 			// SmartDashboard
 			// Vision code starts here
 			// It runs off of grip, so we are simply taking the biggest target
