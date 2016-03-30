@@ -67,7 +67,11 @@ public class CrossAndShoot extends CommandBase {
     				state++;
     			}
     		case 5:
-    			//if()
+    			if(timer.get() > 2) {
+    				intake.start();
+    			}
+    		default:
+    			System.out.println("Something wrong in code, state: " + state);
     	}
     	
     }
@@ -84,5 +88,11 @@ public class CrossAndShoot extends CommandBase {
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
+    	drive20ft.cancel();
+    	lowerArmature.cancel();
+    	rotate60DegreesRight.cancel();
+    	drive2ft.cancel();
+    	runShooter5Secs.cancel();
+    	intake.cancel();
     }
 }
