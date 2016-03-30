@@ -16,7 +16,7 @@ public class CrossAndShoot extends CommandBase {
 	Timer timer;
 	DriveStraightToPosition drive20ft;
 	ArmatureTime lowerArmature;
-	RotateDrivetrainWithGyro rotate60Degrees;
+	RotateDrivetrainWithGyro rotate60DegreesRight;
 	DriveStraightToPosition drive2ft;
 	RunShooterTime runShooter5Secs;
 	RunIntakeTime intake;
@@ -27,7 +27,7 @@ public class CrossAndShoot extends CommandBase {
     	timer = new Timer();
     	drive20ft = new DriveStraightToPosition(19.88, -0.8);
     	lowerArmature = new ArmatureTime(0.5, 0.8); 
-    	rotate60Degrees = new RotateDrivetrainWithGyro(-60, 0.5, false);
+    	rotate60DegreesRight = new RotateDrivetrainWithGyro(-60, 0.5, false);
     	drive2ft = new DriveStraightToPosition(2, -0.8);
     	runShooter5Secs = new RunShooterTime(5);
     	intake = new RunIntakeTime(3);
@@ -47,8 +47,27 @@ public class CrossAndShoot extends CommandBase {
     			state++;
     		case 1:
     			if(timer.get() > 1) {
-    				
+    				lowerArmature.start();
+    				state++;
     			}
+    		case 2:
+    			if(!drive20ft.isRunning()) {
+    				rotate60DegreesRight.start();
+    				state++;
+    			}
+    		case 3:
+    			if(!rotate60DegreesRight.isRunning()) {
+    				drive2ft.start();
+    				state++;
+    			}
+    		case 4:
+    			if(!drive2ft.isRunning()) {
+    				runShooter5Secs.start();
+    				timer.reset();
+    				state++;
+    			}
+    		case 5:
+    			//if()
     	}
     	
     }
