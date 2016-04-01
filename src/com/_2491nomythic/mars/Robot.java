@@ -54,21 +54,15 @@ public class Robot extends IterativeRobot {
 		autoChooser.addObject("Cross And Shoot", new CrossAndShoot());
 		SmartDashboard.putData("Autonomous", autoChooser);
 		SmartDashboard.putNumber("Shooter Power", 12);
-		SmartDashboard.putData("Reset Armature Encoder", new ResetArmatureEncoder());
-		SmartDashboard.putData("Drive Forward One Foot (slow af)", new DriveToPosition(1, 0.1));
 		SmartDashboard.putData("Reset Drive Encoders", new ResetDriveEncoders());
 		SmartDashboard.putData("Rotate90Degrees", new RotateDrivetrain(90, 0.5, true));
-		SmartDashboard.putData("Test Gyro (rotates 360 degrees)", new RotateDrivetrainWithGyro(360, 0.5, false));
-		SmartDashboard.putData("Calibrate Gyro", new CalibrateGyro());
 		SmartDashboard.putData("Reset Gyro", new ResetGyro());
 		SmartDashboard.putData("Unlock Piston", new UnlockPiston());
 		SmartDashboard.putData("Lock Piston", new LockPiston());
 		SmartDashboard.putData("Raise Shooter", new RaiseShooter());
 		SmartDashboard.putData("Align Shooter", new AlignShooter());
-		SmartDashboard.putData("Drive Straight With Gyro", new DriveStraight(0.3));
 		SmartDashboard.putNumber("Devation From Target", Variables.degreeDeviationFromTarget);
 		SmartDashboard.putNumber("Horizontal Pixel Compensation", Variables.visionHorizontalCompensation);
-		SmartDashboard.putData("Move Armature Down for Half Second", new ArmatureTime(0.5, 0.7));
 		SmartDashboard.putBoolean("Use Linear Acceleration", true);
 		
 		lowerShooter = new LowerShooter();
@@ -115,7 +109,17 @@ public class Robot extends IterativeRobot {
 		Scheduler.getInstance().run();
 		
 	}
-	
+	/**
+	 * This function is called when test mode is enabled
+	 */
+	 public void testInit() {
+		 SmartDashboard.putData("Calibrate Gyro", new CalibrateGyro());
+		 SmartDashboard.putData("Rotate Drive Train 360", new RotateDrivetrainWithGyro(360, 0.34, true));
+		 SmartDashboard.putData("Reset Armature Encoder", new ResetArmatureEncoder());
+		 SmartDashboard.putData("Drive Forward One Foot (slow af)", new DriveToPosition(1, 0.1));
+		 SmartDashboard.putData("Drive Straight With Gyro", new DriveStraight(0.3));
+		 SmartDashboard.putData("Move Armature Down for Half Second", new ArmatureTime(0.5, 0.7));
+		  }
 	/**
 	 * This function is called periodically during test mode
 	 */
