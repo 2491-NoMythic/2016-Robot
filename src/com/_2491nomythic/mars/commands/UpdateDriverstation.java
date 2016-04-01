@@ -69,24 +69,6 @@ public class UpdateDriverstation extends CommandBase {
 				centerX = grip.getCenterX()[0];
 			}
 			SmartDashboard.putNumber("Center X Value", centerX);
-			// SmartDashboard
-			// Vision code starts here
-			// It runs off of grip, so we are simply taking the biggest target
-			// numOfParticles = grip.getArea().length;
-			// System.out.println(grip.getCenterX()[0]);
-			// System.out.println(grip.getCenterY()[0]);
-			// if(numOfParticles == 0) {
-			// //do nothing
-			// }
-			// else {
-			// //grab the data values of the largest particle
-			// ParticleInfo particleInfo = new ParticleInfo();
-			// particleInfo.Area = grip.getArea()[0];
-			// particleInfo.CenterX = grip.getCenterX()[0];
-			// particleInfo.CenterY = grip.getCenterY()[0];
-			// particleInfo.Height = grip.getHeight()[0];
-			// particleInfo.Width = grip.getWidth()[0];
-			// }
 		}
 	}
 	
