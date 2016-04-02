@@ -25,7 +25,6 @@ public class GRIP extends Subsystem {
 	 */
 	private GRIP() {
 		defaultValue = new double[1];
-		defaultValue[0] = 1;
 	}
 	
 	/**

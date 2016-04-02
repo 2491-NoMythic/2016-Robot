@@ -1,6 +1,7 @@
 package com._2491nomythic.mars.commands;
 
 
+import com._2491nomythic.mars.settings.Constants;
 //import com._2491nomythic.mars.settings.Constants;
 import com._2491nomythic.mars.settings.Variables;
 //import com.ni.vision.NIVision;
@@ -15,6 +16,7 @@ public class UpdateDriverstation extends CommandBase {
 	private Timer timer;
 	private double nextRun;
 	private double centerX;
+	private double width;
 	
 	// private int numOfParticles;
 	public class ParticleInfo {
@@ -57,18 +59,23 @@ public class UpdateDriverstation extends CommandBase {
 			// Constants.acceptableVisionAreaDifference));
 			Variables.shooterSpeed = SmartDashboard.getNumber("Shooter Power");
 			Variables.useLinearAcceleration = SmartDashboard.getBoolean("Use Linear Acceleration", true);
-			Variables.visionHorizontalCompensation = SmartDashboard.getNumber("Horizontal Pixel Compensation");
+			Variables.upperPixelLimit = SmartDashboard.getNumber("Upper Pixel Limit");
+			Variables.lowerPixelLimit = SmartDashboard.getNumber("Lower Pixel Limit");
 			SmartDashboard.putNumber("Left Drive Encoder", drivetrain.getLeftEncoderDistance());
 			SmartDashboard.putNumber("Right Drive Encoder", drivetrain.getRightEncoderDistance());
 			SmartDashboard.putNumber("Gyro Value in Degrees", drivetrain.getCurrentGyroDegrees());
 			SmartDashboard.putNumber("Armature Encoder Value", armature.getEncoderPosition());
 			if(grip.getCenterX().length == 0) {
 				centerX = 0;
+				width = 1;
 			}
 			else {
 				centerX = grip.getCenterX()[0];
+				width = grip.getWidth()[0];
 			}
 			SmartDashboard.putNumber("Center X Value", centerX);
+			SmartDashboard.putNumber("Armature Encoder Value", armature.getEncoderPosition());
+			SmartDashboard.putNumber("Distance To Tower", (Constants.targetWidth*Constants.FOVPixelWidth)/(2*width*Constants.tangent0));
 		}
 	}
 	

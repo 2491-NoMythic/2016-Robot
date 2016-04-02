@@ -71,10 +71,11 @@ public class Constants {
 	// public static final double acceptableVisionHeightDifference = 1; //TODO
 	// public static final double acceptableVisionWidthDifference = 1; //TODO
 	public static final double cameraArea = 480 * 360;
-	public static final double pixelCompensationToTargetWidthRatio = 42/67; //TODO
 	public static final double cameraHorizontalViewAngle = 61; // degrees
-	public static final double FOVpixel = 480;
-	public static final double TargetFt = 1.66;
+	public static final double FOVPixelHight = 360;
+	public static final double FOVPixelWidth = 480;
+	public static final double targetWidth = 1.66;
+	public static final double tangent0 = Math.tan(30.522204647079);
 	public static final double degreesPerPixel = 61.0 / 480.0;
 	
 }
