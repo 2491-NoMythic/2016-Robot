@@ -26,10 +26,10 @@ public class HandheldControllerMap {
 	public static final int driveTurnRightPOV = 90;
 	public static final int driveTurnAroundPOV = 180;
 	
-	public static final int chevalDeFriseConfigutationButton = 9001;
-	public static final int lowBarConfigurationButton = 9001;
-	public static final int pickUpBallConfigurationButton = 9001;
-	public static final int startingConfigurationButton = 9001;
+//	public static final int chevalDeFriseConfigutationButton = 9001;
+//	public static final int lowBarConfigurationButton = 9001;
+//	public static final int pickUpBallConfigurationButton = 9001;
+//	public static final int startingConfigurationButton = 9001;
 	
 	// Codriver
 	public static final int manualIntakeAxis = 1;
