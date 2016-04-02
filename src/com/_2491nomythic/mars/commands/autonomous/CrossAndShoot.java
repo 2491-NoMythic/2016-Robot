@@ -20,6 +20,9 @@ public class CrossAndShoot extends CommandBase {
 	DriveStraightToPosition drive2ft;
 	RunShooterTime runShooter5Secs;
 	RunIntakeTime intake;
+	DriveStraightToPosition drive2ftForward;
+	RotateDrivetrainWithGyro rotate60DegreesLeft;
+	DriveStraightToPosition drive20ftForward;
 	int state = 0;
     public CrossAndShoot() {
         // Use requires() here to declare subsystem dependencies
@@ -30,7 +33,11 @@ public class CrossAndShoot extends CommandBase {
     	rotate60DegreesRight = new RotateDrivetrainWithGyro(-60, 0.5, false);
     	drive2ft = new DriveStraightToPosition(2, -0.8);
     	runShooter5Secs = new RunShooterTime(5);
-    	intake = new RunIntakeTime(3);
+    	intake = new RunIntakeTime(2);
+    	rotate60DegreesLeft = new RotateDrivetrainWithGyro(60, 0.5, true);
+    	drive2ftForward = new DriveStraightToPosition(2, 0.8);
+    	drive20ftForward = new DriveStraightToPosition(19.88, 0.8);
+    	
     }
 
     // Called just before this Command runs the first time
@@ -45,40 +52,65 @@ public class CrossAndShoot extends CommandBase {
     		case 0:
     			drive20ft.start();
     			state++;
+    			break;
     		case 1:
     			if(timer.get() > 1) {
     				lowerArmature.start();
     				state++;
     			}
+    			break;
     		case 2:
     			if(!drive20ft.isRunning()) {
     				rotate60DegreesRight.start();
     				state++;
     			}
+    			break;
     		case 3:
     			if(!rotate60DegreesRight.isRunning()) {
     				drive2ft.start();
     				state++;
     			}
+    			break;
     		case 4:
     			if(!drive2ft.isRunning()) {
     				runShooter5Secs.start();
     				timer.reset();
     				state++;
     			}
+    			break;
     		case 5:
     			if(timer.get() > 2) {
     				intake.start();
+    				state++;
     			}
+    			break;
+    		case 6:
+    			if(!intake.isRunning()) {
+    				drive2ftForward.start();
+    				state++;
+    			}
+    			break;
+    		case 7:
+    			if(!drive2ftForward.isRunning()) {
+    				rotate60DegreesLeft.start();
+    				state++;
+    			}
+    			break;
+    		case 8:
+    			if(!rotate60DegreesLeft.isRunning()) {
+    				drive20ftForward.start();
+    			}
+    			break;
     		default:
-    			System.out.println("Something wrong in code, state: " + state);
+    			System.out.println("Something wrong in Autonomous, state: " + state);
+    			break;
     	}
     	
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        return state == 8 && !drive20ftForward.isRunning();
     }
 
     // Called once after isFinished returns true
@@ -94,5 +126,8 @@ public class CrossAndShoot extends CommandBase {
     	drive2ft.cancel();
     	runShooter5Secs.cancel();
     	intake.cancel();
+    	drive2ftForward.cancel();
+    	rotate60DegreesLeft.cancel();
+    	drive20ftForward.cancel();
     }
 }
