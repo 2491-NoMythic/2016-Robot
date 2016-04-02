@@ -72,8 +72,9 @@ public class Constants {
 	// public static final double acceptableVisionWidthDifference = 1; //TODO
 	public static final double cameraArea = 480 * 360;
 	public static final double pixelCompensationToTargetWidthRatio = 42/67; //TODO
-	public static final double cameraHorizontalViewAngle = 67; // degrees
-	public static final double targetWidthToHeightAspectRatio = 10 / 7; // width / height in feet
-	public static final double degreesPerPixel = 67.0 / 480.0;
+	public static final double cameraHorizontalViewAngle = 61; // degrees
+	public static final double FOVpixel = 480;
+	public static final double TargetFt = 1.66;
+	public static final double degreesPerPixel = 61.0 / 480.0;
 	
 }
