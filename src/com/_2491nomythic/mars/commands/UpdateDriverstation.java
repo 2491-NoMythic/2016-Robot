@@ -1,6 +1,7 @@
 package com._2491nomythic.mars.commands;
 
 
+import com._2491nomythic.mars.settings.Constants;
 //import com._2491nomythic.mars.settings.Constants;
 import com._2491nomythic.mars.settings.Variables;
 //import com.ni.vision.NIVision;
@@ -15,6 +16,7 @@ public class UpdateDriverstation extends CommandBase {
 	private Timer timer;
 	private double nextRun;
 	private double centerX;
+	private double width;
 	
 	// private int numOfParticles;
 	public class ParticleInfo {
@@ -69,6 +71,14 @@ public class UpdateDriverstation extends CommandBase {
 				centerX = grip.getCenterX()[0];
 			}
 			SmartDashboard.putNumber("Center X Value", centerX);
+			SmartDashboard.putNumber("Armature Encoder Value", armature.getEncoderPosition());
+			if(grip.getWidth().length == 0) {
+				width = 1;
+			}
+			else {
+				width = grip.getWidth()[0];
+			}
+			SmartDashboard.putNumber("Distance To Tower", (Constants.TargetFt*Constants.FOVpixel)/(2*width*Constants.Tangent0));
 		}
 	}
 	
