@@ -66,18 +66,14 @@ public class UpdateDriverstation extends CommandBase {
 			SmartDashboard.putNumber("Armature Encoder Value", armature.getEncoderPosition());
 			if(grip.getCenterX().length == 0) {
 				centerX = 0;
-			}
-			else {
-				centerX = grip.getCenterX()[0];
-			}
-			SmartDashboard.putNumber("Center X Value", centerX);
-			SmartDashboard.putNumber("Armature Encoder Value", armature.getEncoderPosition());
-			if(grip.getWidth().length == 0) {
 				width = 1;
 			}
 			else {
+				centerX = grip.getCenterX()[0];
 				width = grip.getWidth()[0];
 			}
+			SmartDashboard.putNumber("Center X Value", centerX);
+			SmartDashboard.putNumber("Armature Encoder Value", armature.getEncoderPosition());
 			SmartDashboard.putNumber("Distance To Tower", (Constants.TargetFt*Constants.FOVpixel)/(2*width*Constants.Tangent0));
 		}
 	}

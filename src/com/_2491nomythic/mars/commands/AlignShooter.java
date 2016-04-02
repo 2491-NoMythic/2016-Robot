@@ -7,7 +7,7 @@ import com._2491nomythic.mars.settings.Constants;
  * Aligns the robot using vision so that we can shoot into the goal
  */
 public class AlignShooter extends CommandBase {
-	private double requiredMovment;
+	private double requiredMovment, power;
 	private boolean turnLeft;
 	private RotateDrivetrainWithGyro rotateDrivetrain;
 	
@@ -23,9 +23,16 @@ public class AlignShooter extends CommandBase {
 	// Called just before this Command runs the first time
 	protected void initialize() {
 		// Calculates required movement in degrees 
-		requiredMovment = (240 - grip.getCenterX()[0] + grip.getWidth()[0]/2)* Constants.degreesPerPixel;
-		turnLeft = (requiredMovment > 0) ? true : false;
-		rotateDrivetrain = new RotateDrivetrainWithGyro(Math.abs(requiredMovment), 0.2, turnLeft);
+		if (grip.getCenterX().length != 0) {
+			requiredMovment = (240 - grip.getCenterX()[0] + grip.getWidth()[0]/2)* Constants.degreesPerPixel;
+			turnLeft = (requiredMovment > 0) ? true : false;
+			power = 0.2;
+		}
+		else {
+			requiredMovment = 0;
+			power = 0;
+		}
+		rotateDrivetrain = new RotateDrivetrainWithGyro(Math.abs(requiredMovment), power, turnLeft);
 		rotateDrivetrain.start();
 	}
 	
