@@ -7,7 +7,7 @@ import com._2491nomythic.mars.commands.CommandBase;
  */
 public class RotateDrivetrainWithGyro extends CommandBase {
 	double distance, angleInDegrees, power;
-	boolean turnLeft;
+	boolean turnLeft, no;
 	
 	/**
 	 * Rotates the robot by a specified angle in a specified direction
@@ -31,11 +31,16 @@ public class RotateDrivetrainWithGyro extends CommandBase {
 	// Called just before this Command runs the first time
 	protected void initialize() {
 		drivetrain.resetGyro();
-		if (turnLeft) {
-			drivetrain.drive(-1.0 * power, power);
+		if (Math.abs(angleInDegrees) > 1){
+			if (turnLeft) {
+				drivetrain.drive(-1.0 * power, power);
+			}
+			else {
+				drivetrain.drive(power, -1.0 * power);
+			}
 		}
-		else {
-			drivetrain.drive(power, -1.0 * power);
+		else{
+			no = true;
 		}
 	}
 	
@@ -45,7 +50,10 @@ public class RotateDrivetrainWithGyro extends CommandBase {
 	
 	// Make this return true when this Command no longer needs to run execute()
 	protected boolean isFinished() {
-		if (turnLeft) {
+		if (no) {
+			return true;
+		}
+		else if (turnLeft) {
 			return (drivetrain.getCurrentGyroDegrees() < -angleInDegrees);
 		}
 		else {
