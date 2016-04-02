@@ -6,12 +6,12 @@ import com._2491nomythic.mars.settings.Constants;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
- * Sets the robot up to go across the cheval de frise
+ * @deprecated Sets the robot up to go across the cheval de frise
  */
 public class ChevalDeFriseConfiguration extends CommandGroup {
 	
 	/**
-	 * Sets the robot up to go across the cheval de frise
+	 * @deprecated Sets the robot up to go across the cheval de frise
 	 */
 	public ChevalDeFriseConfiguration() {
 		addSequential(new ArmaturePositionSet(Constants.armatureDownPositionValue));
