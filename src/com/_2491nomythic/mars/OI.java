@@ -86,7 +86,7 @@ public class OI {
 		turnRight.whenPressed(new RotateDrivetrainWithGyro(67, 1, false));
 		
 		turnAround = new JoystickPOVButton(controllers[ControllerMap.driveController], ControllerMap.driveTurnAroundPOV);
-		turnAround.whenPressed(new RotateDrivetrainWithGyro(157, 1, false));
+		turnAround.whenPressed(new RotateDrivetrainWithGyro(150, 1, false));
 		
 		// Shooter
 		manualShooterControl = new JoystickButton(controllers[ControllerMap.manualShooterController], ControllerMap.manualShooterButton);
