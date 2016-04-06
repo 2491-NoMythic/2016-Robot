@@ -61,21 +61,12 @@ public class Constants {
 	public static final double armaturePortcullisDifference = -1400;
 	
 	// Vision Constants
-	// public static final double visionCenterXValue = 1; //TODO
-	// public static final double visionCenterYValue = 1; //TODO
-	// public static final double visionAreaValue = 1; //TODO
-	// public static final double visionHeightValue = 1; //TODO
-	// public static final double visionWidthValue = 1; //TODO
-	// public static final double acceptableVisionCenterXDifference = 1; //TODO
-	// public static final double acceptableVisionCenterYDifference = 1; //TODO
-	// public static final double acceptableVisionAreaDifference = 1; //TODO
-	// public static final double acceptableVisionHeightDifference = 1; //TODO
-	// public static final double acceptableVisionWidthDifference = 1; //TODO
 	public static final double cameraArea = 480 * 360;
-	public static final double pixelCompensationToTargetWidthRatio = 42/67; //TODO
 	public static final double cameraHorizontalViewAngle = 61; // degrees
-	public static final double FOVpixel = 480;
-	public static final double TargetFt = 1.66;
+	public static final double FOVpixelWidth = 480;	//pixels
+	public static final double FOVpixelHight = 360; //pixels
+	public static final double TargetWidth = 1.66; //feet
+	public static final double TargetHight = 0; //feet
 	public static final double degreesPerPixel = 61.0 / 480.0;
 	
 }

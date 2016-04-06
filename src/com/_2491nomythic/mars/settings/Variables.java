@@ -9,6 +9,4 @@ public class Variables {
 	public static double accelerationSpeed = 0.15;
 	
 	public static boolean useLinearAcceleration = true;
-	
-	public static double visionHorizontalCompensation = 434;
-}
+	}
