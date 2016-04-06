@@ -64,7 +64,8 @@ public class Robot extends IterativeRobot {
 		SmartDashboard.putNumber("Devation From Target", Variables.degreeDeviationFromTarget);
 		SmartDashboard.putNumber("Horizontal Pixel Compensation", Variables.visionHorizontalCompensation);
 		SmartDashboard.putBoolean("Use Linear Acceleration", true);
-		
+		SmartDashboard.putNumber("Upper Pixel Limit", Variables.upperPixelLimit);
+		SmartDashboard.putNumber("Lower Pixel Limit", Variables.lowerPixelLimit);
 		lowerShooter = new LowerShooter();
 	}
 	
