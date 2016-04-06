@@ -48,7 +48,7 @@ public class Robot extends IterativeRobot {
 		// instantiate the command used for the autonomous period
 		autoChooser = new SendableChooser();
 		autoChooser.addDefault("Do Nothing", new DoNothing());
-		autoChooser.addObject("Drive Straight", new DriveStraightToPosition(13, 1));
+		autoChooser.addObject("Drive Straight", new DriveStraightToPosition(15, 1));
 		autoChooser.addObject("Portcullis", new DriveUnderPortcullis());
 		autoChooser.addObject("Low Bar", new DriveUnderLowBarDistance());
 		autoChooser.addObject("Cross And Shoot", new CrossAndShootLowBar());
