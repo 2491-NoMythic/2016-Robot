@@ -51,9 +51,11 @@ public class CrossAndShootGeneral extends CommandBase {
     			state++;
     			break;
     		case 1:
+    			if(!drive18ft.isRunning()) {
     			rotate180DegreesLeft.start();
     			raiseShooter.start();
     			state++;
+    			}
     			break;
     		case 2:
     			if(grip.getCenterX().length != 0) {

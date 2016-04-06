@@ -58,7 +58,7 @@ public class DriveUnderPortcullis extends CommandBase {
 				break;
 			case 2:
 				if (!driveToPortcullis.isRunning()) {
-					keepArmatureStill.start();
+					//keepArmatureStill.start();
 					driveThroughPortcullis.start();
 					//raiseArmature.start();
 					state = 3;
