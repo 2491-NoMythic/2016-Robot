@@ -16,9 +16,8 @@ public class AlignShooter extends CommandBase {
 	public AlignShooter() {
 		// Use requires() here to declare subsystem dependencies
 		// eg. requires(chassis);
-		requires(grip);
-    }
-	
+        requires(grip);
+	}
 	// Called just before this Command runs the first time
 	protected void initialize() {
 		if (grip.getCenterX().length != 0) {
