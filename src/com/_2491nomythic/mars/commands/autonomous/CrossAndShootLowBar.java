@@ -12,7 +12,7 @@ import edu.wpi.first.wpilibj.Timer;
 /**
  *
  */
-public class CrossAndShoot extends CommandBase {
+public class CrossAndShootLowBar extends CommandBase {
 	Timer timer;
 	DriveStraightToPosition drive20ft;
 	ArmatureTime lowerArmature;
@@ -24,7 +24,7 @@ public class CrossAndShoot extends CommandBase {
 	RotateDrivetrainWithGyro rotate60DegreesLeft;
 	DriveStraightToPosition drive20ftForward;
 	int state = 0;
-    public CrossAndShoot() {
+    public CrossAndShootLowBar() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	timer = new Timer();
