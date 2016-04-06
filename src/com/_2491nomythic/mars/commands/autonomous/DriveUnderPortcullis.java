@@ -24,7 +24,7 @@ public class DriveUnderPortcullis extends CommandBase {
 	 * An autonomous that drives under the Portcullis, starting from directly in front of it on the starting line
 	 */
 	public DriveUnderPortcullis() {
-		lowerArmature = new ArmaturePositionSet(armature.getEncoderPosition() + Constants.armaturePortcullisDifference);
+		lowerArmature = new ArmaturePositionSet(armature.getEncoderPosition() - Constants.armaturePortcullisDifference);
 		driveToPortcullis = new DriveStraightToPosition(5.5, 0.5);
 		raiseArmature = new ArmaturePositionSet(Constants.armatureUpPositionValue);
 		driveThroughPortcullis = new DriveStraightToPosition(7, 0.3);
