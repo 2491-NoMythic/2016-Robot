@@ -2,6 +2,7 @@ package com._2491nomythic.mars.commands.autonomous;
 
 import com._2491nomythic.mars.commands.CommandBase;
 import com._2491nomythic.mars.commands.armature.ArmaturePositionSet;
+import com._2491nomythic.mars.commands.armature.ArmatureTime;
 import com._2491nomythic.mars.commands.armature.KeepArmatureStill;
 import com._2491nomythic.mars.commands.drivetrain.DriveStraightToPosition;
 import com._2491nomythic.mars.settings.Constants;
@@ -12,7 +13,7 @@ import edu.wpi.first.wpilibj.Timer;
  * An autonomous that drives under the Portcullis, starting from directly in front of it on the starting line
  */
 public class DriveUnderPortcullis extends CommandBase {
-	private ArmaturePositionSet lowerArmature;
+	private ArmatureTime lowerArmature;
 	private DriveStraightToPosition driveToPortcullis;
 	private ArmaturePositionSet raiseArmature;
 	private DriveStraightToPosition driveThroughPortcullis;
@@ -24,7 +25,7 @@ public class DriveUnderPortcullis extends CommandBase {
 	 * An autonomous that drives under the Portcullis, starting from directly in front of it on the starting line
 	 */
 	public DriveUnderPortcullis() {
-		lowerArmature = new ArmaturePositionSet(armature.getEncoderPosition() - Constants.armaturePortcullisDifference);
+		lowerArmature = new ArmatureTime(0.5, 0.8);	
 		driveToPortcullis = new DriveStraightToPosition(5.5, 0.5);
 		raiseArmature = new ArmaturePositionSet(Constants.armatureUpPositionValue);
 		driveThroughPortcullis = new DriveStraightToPosition(7, 0.5);
