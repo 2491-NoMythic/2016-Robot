@@ -36,6 +36,7 @@ public class AlignShooter extends CommandBase {
 	// Called repeatedly when this Command is scheduled to run
 	protected void execute() {
 		if (oi.getAxisDeadzoned(ControllerMap.driveController, ControllerMap.driveLeftAxis) != 0 || oi.getAxisDeadzoned(ControllerMap.driveController, ControllerMap.driveRightAxis) != 0) this.cancel();
+
 	}
 	
 	// Make this return true when this Command no longer needs to run execute()
