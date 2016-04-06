@@ -27,7 +27,7 @@ public class DriveUnderPortcullis extends CommandBase {
 		lowerArmature = new ArmaturePositionSet(armature.getEncoderPosition() - Constants.armaturePortcullisDifference);
 		driveToPortcullis = new DriveStraightToPosition(5.5, 0.5);
 		raiseArmature = new ArmaturePositionSet(Constants.armatureUpPositionValue);
-		driveThroughPortcullis = new DriveStraightToPosition(7, 0.2);
+		driveThroughPortcullis = new DriveStraightToPosition(14, 0.2);
 		timer = new Timer();
 		keepArmatureStill = new KeepArmatureStill();
 	}
