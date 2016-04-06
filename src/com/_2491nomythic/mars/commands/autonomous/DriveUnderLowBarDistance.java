@@ -21,7 +21,7 @@ public class DriveUnderLowBarDistance extends CommandBase {
 	public DriveUnderLowBarDistance() {
 		// Use requires() here to declare subsystem dependencies
 		// eg. requires(chassis);
-		drive7Feet = new DriveStraightToPosition(7, -0.8);
+		drive7Feet = new DriveStraightToPosition(-14, -0.8);
 		lowerArmature = new ArmatureTime(0.5, 0.8); // takes in positive power
 //		moveArmToLowBarConfiguration = new ArmaturePositionSet(Constants.armatureLowBarDifference - armature.getEncoderPosition());
 	}
