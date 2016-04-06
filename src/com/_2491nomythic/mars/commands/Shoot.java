@@ -54,7 +54,7 @@ public class Shoot extends CommandBase {
 				}
 				break;
 			case 2:
-				if (timer.get() > 1.5) {
+				if (timer.get() > 2.5) {
 					runIntake2Secs.start();
 					state = 3;
 				}
@@ -62,7 +62,10 @@ public class Shoot extends CommandBase {
 			case 3:
 				if (!runShooter4Secs.isRunning() && !runIntake2Secs.isRunning()) {
 					lowerShooter.start();
+					state++;
 				}
+				break;
+			case 4:
 				break;
 			default:
 				System.out.println("Something went wrong while shooting! The state is " + state);
