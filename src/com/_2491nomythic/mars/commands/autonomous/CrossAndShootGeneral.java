@@ -28,7 +28,7 @@ public class CrossAndShootGeneral extends CommandBase {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	drive18ft = new DriveStraightToPosition(14, 1.0);
-    	rotate180DegreesLeft = new RotateDrivetrainWithGyro(180, 0.5, true);
+    	rotate180DegreesLeft = new RotateDrivetrainWithGyro(180, 0.2, true);
     	alignShooterOne = new AlignShooter();
     	alignShooterTwo = new AlignShooter();
     	raiseShooter = new RaiseShooter();
@@ -77,7 +77,6 @@ public class CrossAndShootGeneral extends CommandBase {
     			if(!alignShooterTwo.isRunning()) {
     				Timer.delay(0.5);
     				runIntake.start();
-    				state++;
     			}
     			break;
     		default:
