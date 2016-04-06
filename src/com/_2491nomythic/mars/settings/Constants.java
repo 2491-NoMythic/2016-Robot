@@ -58,7 +58,7 @@ public class Constants {
 	public static final double armatureIntakePositionValue = -1403;
 	public static final double armatureLowBarPositionValue = -1395;
 	public static final double armatureLowBarDifference = -1000;
-	public static final double armaturePortcullisDifference = -1509;
+	public static final double armaturePortcullisDifference = 1509;
 	
 	// Vision Constants
 	// public static final double visionCenterXValue = 1; //TODO
