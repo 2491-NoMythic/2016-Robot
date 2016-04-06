@@ -38,10 +38,10 @@ public class DriveStraightTime extends CommandBase {
 	// Called repeatedly when this Command is scheduled to run
 	protected void execute() {
 		if (speed > 0) {
-			drivetrain.drive(Math.min(speed, speed - Math.min(0.5 * speed, 0.01 * drivetrain.getCurrentGyroDegrees())), Math.min(speed, speed + Math.max(-0.5 * speed, 0.01 * drivetrain.getCurrentGyroDegrees())));
+			drivetrain.drive(Math.min(speed, speed - Math.min(0.5 * speed, 0.1 * drivetrain.getCurrentGyroDegrees())), Math.min(speed, speed + Math.max(-0.5 * speed, 0.1 * drivetrain.getCurrentGyroDegrees())));
 		}
 		else {
-			drivetrain.drive(Math.max(speed, speed - Math.max(0.5 * speed, 0.01 * drivetrain.getCurrentGyroDegrees())), Math.max(speed, speed + Math.min(-0.5 * speed, 0.01 * drivetrain.getCurrentGyroDegrees())));
+			drivetrain.drive(Math.max(speed, speed - Math.max(0.5 * speed, 0.1 * drivetrain.getCurrentGyroDegrees())), Math.max(speed, speed + Math.min(-0.5 * speed, 0.1 * drivetrain.getCurrentGyroDegrees())));
 		}
 	}
 	
