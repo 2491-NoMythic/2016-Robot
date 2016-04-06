@@ -4,7 +4,7 @@ import com._2491nomythic.mars.commands.CommandBase;
 import com._2491nomythic.mars.settings.Constants;
 
 /**
- *  Keeps the armature still so that it doesn't fall due to gravity
+ * Keeps the armature still so that it doesn't fall due to gravity
  */
 public class KeepArmatureStill extends CommandBase {
 	double initialArmaturePosition;
@@ -28,7 +28,7 @@ public class KeepArmatureStill extends CommandBase {
 		// System.out.println(armature.getEncoderPosition());
 		
 		if (Math.abs(initialArmaturePosition - armature.getEncoderPosition()) > Constants.acceptableArmatureDifference) {
-			armature.armatureSet(-0.1);
+			armature.armatureSet(0.1);
 		}
 		else {
 			armature.armatureSet(0);
