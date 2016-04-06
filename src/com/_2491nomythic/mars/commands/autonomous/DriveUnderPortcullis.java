@@ -61,24 +61,18 @@ public class DriveUnderPortcullis extends CommandBase {
 					keepArmatureStill.start();
 					driveThroughPortcullis.start();
 					//raiseArmature.start();
-					state = 4;
+					state = 3;
 				}
-				break;
-//			case 3:
-//				if (!raiseArmature.isRunning()) {
-//					state = 4;
-//				}
-//				break;
-			case 4:
 				break;
 			default:
 				System.out.println("Something's wrong in autonomous!  State is " + state);
+				break;
 		}
 	}
 	
 	// Make this return true when this Command no longer needs to run execute()
 	protected boolean isFinished() {
-		return state == 4 && !driveThroughPortcullis.isRunning();
+		return state == 3 && !driveThroughPortcullis.isRunning();
 	}
 	
 	// Called once after isFinished returns true
