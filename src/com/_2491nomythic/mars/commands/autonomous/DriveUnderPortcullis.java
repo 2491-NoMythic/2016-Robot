@@ -2,6 +2,7 @@ package com._2491nomythic.mars.commands.autonomous;
 
 import com._2491nomythic.mars.commands.CommandBase;
 import com._2491nomythic.mars.commands.armature.ArmaturePositionSet;
+import com._2491nomythic.mars.commands.armature.KeepArmatureStill;
 import com._2491nomythic.mars.commands.drivetrain.DriveStraightToPosition;
 import com._2491nomythic.mars.settings.Constants;
 
@@ -15,6 +16,7 @@ public class DriveUnderPortcullis extends CommandBase {
 	private DriveStraightToPosition driveToPortcullis;
 	private ArmaturePositionSet raiseArmature;
 	private DriveStraightToPosition driveThroughPortcullis;
+	private KeepArmatureStill keepArmatureStill;
 	private int state;
 	Timer timer;
 	
@@ -27,6 +29,7 @@ public class DriveUnderPortcullis extends CommandBase {
 		raiseArmature = new ArmaturePositionSet(Constants.armatureUpPositionValue);
 		driveThroughPortcullis = new DriveStraightToPosition(7, 0.2);
 		timer = new Timer();
+		keepArmatureStill = new KeepArmatureStill();
 	}
 	
 	// Called just before this Command runs the first time
@@ -36,8 +39,12 @@ public class DriveUnderPortcullis extends CommandBase {
 	
 	// Called repeatedly when this Command is scheduled to run
 	protected void execute() {
+		if(!lowerArmature.isRunning() && !raiseArmature.isRunning()) {
+			keepArmatureStill.start();
+		}
 		switch (state) {
 			case 0:
+				keepArmatureStill.cancel();
 				lowerArmature.start();
 				timer.start();
 				timer.reset();
@@ -51,16 +58,17 @@ public class DriveUnderPortcullis extends CommandBase {
 				break;
 			case 2:
 				if (!driveToPortcullis.isRunning()) {
-					raiseArmature.start();
-					state = 3;
-				}
-				break;
-			case 3:
-				if (!raiseArmature.isRunning()) {
-					driveThroughPortcullis.start();
+					keepArmatureStill.start();
+					//raiseArmature.start();
 					state = 4;
 				}
 				break;
+//			case 3:
+//				if (!raiseArmature.isRunning()) {
+//					driveThroughPortcullis.start();
+//					state = 4;
+//				}
+//				break;
 			case 4:
 				break;
 			default:
