@@ -77,7 +77,10 @@ public class CrossAndShootGeneral extends CommandBase {
     			if(!alignShooterTwo.isRunning()) {
     				Timer.delay(0.5);
     				runIntake.start();
+    				state++;
     			}
+    			break;
+    		case 5:
     			break;
     		default:
     			System.out.println("Something wrong in auto. State: " + state);
