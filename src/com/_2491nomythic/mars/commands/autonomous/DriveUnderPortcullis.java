@@ -64,6 +64,8 @@ public class DriveUnderPortcullis extends CommandBase {
 					state = 3;
 				}
 				break;
+			case 3:
+				break;
 			default:
 				System.out.println("Something's wrong in autonomous!  State is " + state);
 				break;
