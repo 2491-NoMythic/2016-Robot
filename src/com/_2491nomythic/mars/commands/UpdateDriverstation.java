@@ -62,6 +62,7 @@ public class UpdateDriverstation extends CommandBase {
 			SmartDashboard.putNumber("Right Drive Encoder", drivetrain.getRightEncoderDistance());
 			SmartDashboard.putNumber("Gyro Value in Degrees", drivetrain.getCurrentGyroDegrees());
 			SmartDashboard.putNumber("Armature Encoder Value", armature.getEncoderPosition());
+			SmartDashboard.putBoolean("Can Shoot", (grip.getCenterX()[0] >= 262 && grip.getCenterX()[0] <= 279));
 			if(grip.getCenterX().length == 0) {
 				centerX = 0;
 			}
