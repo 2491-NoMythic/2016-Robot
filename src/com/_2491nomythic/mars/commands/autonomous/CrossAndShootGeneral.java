@@ -27,7 +27,7 @@ public class CrossAndShootGeneral extends CommandBase {
     public CrossAndShootGeneral() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	drive18ft = new DriveStraightToPosition(18, 1.0);
+    	drive18ft = new DriveStraightToPosition(16, 1.0);
     	rotate180DegreesLeft = new RotateDrivetrainWithGyro(180, 0.2, true);
     	alignShooterOne = new AlignShooter();
     	alignShooterTwo = new AlignShooter();
