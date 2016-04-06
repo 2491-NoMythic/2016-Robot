@@ -4,6 +4,7 @@ import com._2491nomythic.mars.commands.AlignShooter;
 import com._2491nomythic.mars.commands.CommandBase;
 import com._2491nomythic.mars.commands.drivetrain.DriveStraightToPosition;
 import com._2491nomythic.mars.commands.drivetrain.DriveTime;
+import com._2491nomythic.mars.commands.drivetrain.RotateDrivetrainWithGyro;
 import com._2491nomythic.mars.commands.intake.RunIntakeTime;
 import com._2491nomythic.mars.commands.shooter.RaiseShooter;
 import com._2491nomythic.mars.commands.shooter.RunShooterTime;
@@ -14,9 +15,9 @@ import edu.wpi.first.wpilibj.Timer;
 /**
  *
  */
-public class CrossAndShootLeft extends CommandBase {
+public class CrossAndShootGeneral extends CommandBase {
 	DriveStraightToPosition drive18ft;
-	DriveTime rotateLeft;
+	RotateDrivetrainWithGyro rotate180DegreesLeft;
 	AlignShooter alignShooterOne;
 	AlignShooter alignShooterTwo;
 	RaiseShooter raiseShooter;
@@ -24,11 +25,11 @@ public class CrossAndShootLeft extends CommandBase {
 	RunIntakeTime runIntake;
 	double overallMovement;
 	int state;
-    public CrossAndShootLeft() {
+    public CrossAndShootGeneral() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	drive18ft = new DriveStraightToPosition(13,-1.0);
-    	rotateLeft = new DriveTime(2, -1.0, -1.0);
+    	drive18ft = new DriveStraightToPosition(14, 1.0);
+    	rotate180DegreesLeft = new RotateDrivetrainWithGyro(180, 0.5, true);
     	alignShooterOne = new AlignShooter();
     	alignShooterTwo = new AlignShooter();
     	raiseShooter = new RaiseShooter();
@@ -51,13 +52,13 @@ public class CrossAndShootLeft extends CommandBase {
     			state++;
     			break;
     		case 1:
-    			rotateLeft.start();
+    			rotate180DegreesLeft.start();
     			raiseShooter.start();
     			state++;
     			break;
     		case 2:
     			if(grip.getCenterX().length != 0) {
-    				rotateLeft.cancel();
+    				rotate180DegreesLeft.cancel();
     				Timer.delay(0.5);
     				alignShooterOne.start();
     				runShooter.start();
@@ -78,6 +79,8 @@ public class CrossAndShootLeft extends CommandBase {
     				state++;
     			}
     			break;
+    		default:
+    			System.out.println("Something wrong in auto. State: " + state);
     	}
     }
 

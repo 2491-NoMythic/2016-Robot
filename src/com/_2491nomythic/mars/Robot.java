@@ -5,6 +5,7 @@ import com._2491nomythic.mars.commands.AlignShooter;
 import com._2491nomythic.mars.commands.CommandBase;
 import com._2491nomythic.mars.commands.armature.ArmatureTime;
 import com._2491nomythic.mars.commands.armature.ResetArmatureEncoder;
+import com._2491nomythic.mars.commands.autonomous.CrossAndShootGeneral;
 import com._2491nomythic.mars.commands.autonomous.CrossAndShootLowBar;
 import com._2491nomythic.mars.commands.autonomous.DoNothing;
 import com._2491nomythic.mars.commands.drivetrain.CalibrateGyro;
@@ -51,7 +52,8 @@ public class Robot extends IterativeRobot {
 		autoChooser.addObject("Drive Straight", new DriveStraightToPosition(15, 1));
 		autoChooser.addObject("Portcullis", new DriveUnderPortcullis());
 		autoChooser.addObject("Low Bar", new DriveUnderLowBarDistance());
-		autoChooser.addObject("Cross And Shoot", new CrossAndShootLowBar());
+		autoChooser.addObject("Cross And Shoot Under Low Bar", new CrossAndShootLowBar());
+		autoChooser.addObject("Cross And Shoot General", new CrossAndShootGeneral());
 		SmartDashboard.putData("Autonomous", autoChooser);
 		SmartDashboard.putNumber("Shooter Power", 12);
 		SmartDashboard.putData("Reset Drive Encoders", new ResetDriveEncoders());
