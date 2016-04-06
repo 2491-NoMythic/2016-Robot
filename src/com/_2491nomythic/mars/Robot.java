@@ -73,6 +73,7 @@ public class Robot extends IterativeRobot {
 	}
 	
 	public void autonomousInit() {
+		lowerShooter.start();
 		autoCommand = (Command) autoChooser.getSelected();
 		autoCommand.start();
 	}
