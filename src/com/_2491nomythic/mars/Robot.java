@@ -3,6 +3,7 @@ package com._2491nomythic.mars;
 
 import com._2491nomythic.mars.commands.AlignShooter;
 import com._2491nomythic.mars.commands.CommandBase;
+import com._2491nomythic.mars.commands.Shoot;
 import com._2491nomythic.mars.commands.armature.ArmatureTime;
 import com._2491nomythic.mars.commands.armature.ResetArmatureEncoder;
 import com._2491nomythic.mars.commands.autonomous.CrossAndShootGeneral;
@@ -19,9 +20,11 @@ import com._2491nomythic.mars.commands.drivetrain.ResetDriveEncoders;
 import com._2491nomythic.mars.commands.drivetrain.ResetGyro;
 import com._2491nomythic.mars.commands.drivetrain.RotateDrivetrain;
 import com._2491nomythic.mars.commands.drivetrain.RotateDrivetrainWithGyro;
+import com._2491nomythic.mars.commands.intake.RunIntakeTime;
 import com._2491nomythic.mars.commands.shooter.LockPiston;
 import com._2491nomythic.mars.commands.shooter.LowerShooter;
 import com._2491nomythic.mars.commands.shooter.RaiseShooter;
+import com._2491nomythic.mars.commands.shooter.RunShooterTime;
 import com._2491nomythic.mars.commands.shooter.UnlockPiston;
 import com._2491nomythic.mars.settings.Variables;
 
@@ -50,6 +53,7 @@ public class Robot extends IterativeRobot {
 		// instantiate the command used for the autonomous period
 		autoChooser = new SendableChooser();
 		autoChooser.addDefault("Do Nothing", new DoNothing());
+		autoChooser.addDefault("Drive To Defense", new DriveStraightToPosition(5, 1));
 		autoChooser.addObject("Drive Straight", new DriveStraightToPosition(15, 1));
 		autoChooser.addObject("Portcullis", new DriveUnderPortcullis());
 		autoChooser.addObject("Low Bar", new DriveUnderLowBarDistance());
@@ -66,6 +70,11 @@ public class Robot extends IterativeRobot {
 		SmartDashboard.putData("Raise Shooter", new RaiseShooter());
 		SmartDashboard.putData("Align Shooter", new AlignShooter());
 		SmartDashboard.putNumber("Devation From Target", Variables.degreeDeviationFromTarget);
+		SmartDashboard.putData("Shoot", new Shoot());
+		SmartDashboard.putData("Run Shooter 5 Seconds", new RunShooterTime(5));
+		SmartDashboard.putData("Run Intake 2 Seconds", new RunIntakeTime(2));
+		SmartDashboard.putData("Lower Shooter", new LowerShooter());
+		
 		SmartDashboard.putBoolean("Use Linear Acceleration", true);
 		lowerShooter = new LowerShooter();
 	}

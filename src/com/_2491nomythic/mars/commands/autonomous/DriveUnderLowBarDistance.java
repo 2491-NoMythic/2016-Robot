@@ -34,7 +34,7 @@ public class DriveUnderLowBarDistance extends CommandBase {
 	
 	// Called repeatedly when this Command is scheduled to run
 	protected void execute() {
-		if (drivetrain.getLeftEncoderDistance() > 1.2 && !hasRun) {
+		if (drivetrain.getLeftEncoderDistance() < -1.2 && !hasRun) {
 			lowerArmature.start();
 			hasRun = true;
 		}
