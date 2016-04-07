@@ -22,11 +22,15 @@ public class CrossAndShootGeneral extends CommandBase {
 	RaiseShooter raiseShooter;
 	RunShooterTime runShooter;
 	RunIntakeTime runIntake;
+	Timer timer;
 	double overallMovement;
 	int state;
+	
     public CrossAndShootGeneral() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
+    	timer = new Timer();
+    	
     	drive18ft = new DriveStraightToPosition(16, 1.0);
     	rotate180DegreesLeft = new RotateDrivetrainWithGyro(360, 0.2, true);
     	alignShooterOne = new AlignShooter();
@@ -60,22 +64,27 @@ public class CrossAndShootGeneral extends CommandBase {
     		case 2:
     			if(grip.getCenterX().length != 0) {
     				rotate180DegreesLeft.cancel();
-    				Timer.delay(0.5);
-    				alignShooterOne.start();
-    				runShooter.start();
-    				state++;
+    				timer.start();
+    				timer.reset();
+    				state = 2491;
     			}
     			break;
+    		case 2491:
+    			if(timer.get() > 1) {
+    				alignShooterOne.start();
+    				runShooter.start();
+    				timer.reset();
+    				state = 3;
+    			}
     		case 3:
-    			if(!alignShooterOne.isRunning()) {
-    				Timer.delay(2);
+    			if(!alignShooterOne.isRunning() && timer.get() > 2) {
     				alignShooterTwo.start();
+    				timer.reset();
     				state++;
     			}
     			break;
     		case 4:
-    			if(!alignShooterTwo.isRunning()) {
-    				Timer.delay(0.5);
+    			if(!alignShooterTwo.isRunning() && timer.get() > 0.5) {
     				runIntake.start();
     				state++;
     			}

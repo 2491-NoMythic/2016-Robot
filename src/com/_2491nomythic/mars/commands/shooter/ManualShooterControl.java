@@ -41,7 +41,7 @@ public class ManualShooterControl extends CommandBase {
 		shooter.getLeftMotor().setVoltageCompensationRampRate(4.0);
 		shooter.getRightMotor().setVoltageCompensationRampRate(4.0);
 		shooter.getRightMotor().set(-1.0 * 12.0);
-		shooter.getLeftMotor().set(-1.0 * 12.0);
+		shooter.getLeftMotor().set(12.0);
 	}
 	
 	// Make this return true when this Command no longer needs to run execute()

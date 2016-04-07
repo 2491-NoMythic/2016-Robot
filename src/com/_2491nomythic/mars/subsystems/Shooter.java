@@ -76,7 +76,7 @@ public class Shooter extends Subsystem {
 	 */
 	public void setLeft(double speed) {
 		currentLeftSpeed = speed;
-		motorLeft.set(speed);
+		motorLeft.set(-1.0 * speed);
 	}
 	
 	/**
