@@ -8,6 +8,7 @@ import com._2491nomythic.mars.commands.Shoot;
 //import com._2491nomythic.mars.commands.StartingConfiguration;
 import com._2491nomythic.mars.commands.armature.ManualArmatureControl;
 import com._2491nomythic.mars.commands.drivetrain.DriveStraightManualSpeed;
+import com._2491nomythic.mars.commands.drivetrain.HoldPosition;
 import com._2491nomythic.mars.commands.drivetrain.RotateDrivetrainWithGyro;
 //import com._2491nomythic.mars.commands.drivetrain.ShiftGearVelocity;
 import com._2491nomythic.mars.commands.drivetrain.ShiftGearWithDelay;
@@ -41,7 +42,7 @@ public class OI {
 	// Button button = new JoystickButton(stick, buttonNumber);
 	
 	private final Joystick[] controllers = new Joystick[2];
-	Button shoot, chevalDeFriseConfiguration, lowBarConfiguration, alignShooter, pickUpBallConfiguration, startingConfiguration, shiftGear, driveStraight, turnLeft, turnRight, turnAround, manualShooterControl, manualTakeIn, manualSpitOut, raiseShooter, lowerShooter, photonCannon, intakeBall, manualArmatureUpControl, manualArmatureDownControl;
+	Button shoot, chevalDeFriseConfiguration, lowBarConfiguration, alignShooter, pickUpBallConfiguration, startingConfiguration, shiftGear, driveStraight, turnLeft, turnRight, turnAround, holdPosition, manualShooterControl, manualTakeIn, manualSpitOut, raiseShooter, lowerShooter, photonCannon, intakeBall, manualArmatureUpControl, manualArmatureDownControl;
 	
 	// private SendableChooser shiftVelocityOrDelay;
 	/**
@@ -87,6 +88,9 @@ public class OI {
 		
 		turnAround = new JoystickPOVButton(controllers[ControllerMap.driveController], ControllerMap.driveTurnAroundPOV);
 		turnAround.whenPressed(new RotateDrivetrainWithGyro(150, 1, false));
+		
+		holdPosition = new JoystickButton(controllers[ControllerMap.driveController], ControllerMap.holdPositionButton);
+		holdPosition.whileHeld(new HoldPosition());
 		
 		// Shooter
 		manualShooterControl = new JoystickButton(controllers[ControllerMap.manualShooterController], ControllerMap.manualShooterButton);

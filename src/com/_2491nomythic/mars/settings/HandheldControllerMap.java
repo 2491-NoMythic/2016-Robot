@@ -17,6 +17,7 @@ public class HandheldControllerMap {
 	public static final int driveLeftAxis = 1;
 	public static final int driveRightAxis = 3;
 	public static final int photonCannonButton = 2;
+	public static final int holdPositionButton = 3;
 	public static final int alignShooterButton = 5;
 	public static final int shootButton = 6;
 	public static final int intakeBallButton = 7;
