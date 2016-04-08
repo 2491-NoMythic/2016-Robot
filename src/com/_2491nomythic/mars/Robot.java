@@ -54,7 +54,7 @@ public class Robot extends IterativeRobot {
 		autoChooser = new SendableChooser();
 		autoChooser.addDefault("Do Nothing", new DoNothing());
 		autoChooser.addObject("Drive To Defense", new DriveStraightToPosition(5, 1));
-		autoChooser.addObject("Drive Straight", new DriveStraightToPosition(15, 1));
+		autoChooser.addObject("Drive Straight", new DriveStraightToPosition(16, 1));
 		autoChooser.addObject("Portcullis", new DriveUnderPortcullis());
 		autoChooser.addObject("Low Bar", new DriveUnderLowBarDistance());
 		autoChooser.addObject("Cross And Shoot Under Low Bar", new CrossAndShootLowBarNoVision());
