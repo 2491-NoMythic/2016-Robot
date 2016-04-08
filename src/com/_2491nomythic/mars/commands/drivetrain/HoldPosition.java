@@ -8,16 +8,16 @@ import edu.wpi.first.wpilibj.command.Command;
  *
  */
 public class HoldPosition extends CommandBase {
-	ResetDriveEncoders resetDriveEncoders;
     public HoldPosition() {
         // Use requires() here to declare subsystem dependencies
         requires(drivetrain);
-        resetDriveEncoders = new ResetDriveEncoders();
+
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	resetDriveEncoders.start();
+    	drivetrain.resetLeftEncoder();
+    	drivetrain.resetRightEncoder();
     }
 
     // Called repeatedly when this Command is scheduled to run

@@ -1,6 +1,8 @@
 package com._2491nomythic.mars.commands.shooter;
 
 import com._2491nomythic.mars.commands.CommandBase;
+import com._2491nomythic.mars.settings.Variables;
+
 import edu.wpi.first.wpilibj.CANTalon.TalonControlMode;
 
 /**
@@ -38,10 +40,10 @@ public class ManualShooterControl extends CommandBase {
 		
 		shooter.getLeftMotor().changeControlMode(TalonControlMode.Voltage);
 		shooter.getRightMotor().changeControlMode(TalonControlMode.Voltage);
-		shooter.getLeftMotor().setVoltageCompensationRampRate(4.0);
-		shooter.getRightMotor().setVoltageCompensationRampRate(4.0);
-		shooter.getRightMotor().set(-1.0 * 12.0);
-		shooter.getLeftMotor().set(12.0);
+		shooter.getLeftMotor().setVoltageCompensationRampRate(Variables.shooterRampRate);
+		shooter.getRightMotor().setVoltageCompensationRampRate(Variables.shooterRampRate);
+		shooter.getRightMotor().set(-1.0 * Variables.shooterSpeed);
+		shooter.getLeftMotor().set(Variables.shooterSpeed);
 	}
 	
 	// Make this return true when this Command no longer needs to run execute()

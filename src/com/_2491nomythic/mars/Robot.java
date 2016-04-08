@@ -63,6 +63,7 @@ public class Robot extends IterativeRobot {
 		SmartDashboard.putData("Autonomous", autoChooser);
 		SmartDashboard.putData("Lower Armature", new ArmatureTime(0.5, 0.8));
 		SmartDashboard.putNumber("Shooter Power", 12);
+		SmartDashboard.putNumber("Shooter Ramp Rate", 6.0);
 		SmartDashboard.putData("Reset Drive Encoders", new ResetDriveEncoders());
 		SmartDashboard.putData("Rotate90Degrees", new RotateDrivetrain(90, 0.5, true));
 		SmartDashboard.putData("Reset Gyro", new ResetGyro());
