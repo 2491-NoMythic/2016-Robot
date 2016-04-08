@@ -62,8 +62,8 @@ public class Robot extends IterativeRobot {
 		autoChooser.addObject("Spy Box Shot to Low Bar", new SpyBoxLowBar());
 		SmartDashboard.putData("Autonomous", autoChooser);
 		SmartDashboard.putData("Lower Armature", new ArmatureTime(0.5, 0.8));
-		SmartDashboard.putNumber("Shooter Power", 12);
-		SmartDashboard.putNumber("Shooter Ramp Rate", 6.0);
+		SmartDashboard.putNumber("Shooter Power", Variables.shooterSpeed);
+		SmartDashboard.putNumber("Shooter Ramp Rate", Variables.shooterRampRate);
 		SmartDashboard.putData("Reset Drive Encoders", new ResetDriveEncoders());
 		SmartDashboard.putData("Rotate90Degrees", new RotateDrivetrain(90, 0.5, true));
 		SmartDashboard.putData("Reset Gyro", new ResetGyro());
