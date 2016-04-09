@@ -61,6 +61,7 @@ public class Robot extends IterativeRobot {
 		autoChooser.addObject("Cross And Shoot General", new CrossAndShootGeneral());
 		autoChooser.addObject("Spy Box Shot to Low Bar", new SpyBoxLowBar());
 		SmartDashboard.putData("Autonomous", autoChooser);
+		SmartDashboard.putData("Calibrate Gyro", new CalibrateGyro());
 		SmartDashboard.putData("Lower Armature", new ArmatureTime(0.5, 0.8));
 		SmartDashboard.putNumber("Shooter Power", Variables.shooterSpeed);
 		SmartDashboard.putNumber("Shooter Ramp Rate", Variables.shooterRampRate);
