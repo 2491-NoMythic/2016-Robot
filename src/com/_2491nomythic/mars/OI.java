@@ -113,7 +113,7 @@ public class OI {
 		manualSpitOut.whileHeld(new ManualSpitOut());
 		
 		intakeBall = new JoystickButton(controllers[ControllerMap.intakeController], ControllerMap.intakeBallButton);
-		intakeBall.whileHeld(new IntakeBall());
+		intakeBall.whileHeld(new ManualTakeIn());
 		
 		// Armature
 		manualArmatureUpControl = new JoystickAxisButton(controllers[ControllerMap.manualArmatureController], ControllerMap.manualArmatureAxis, -0.8);

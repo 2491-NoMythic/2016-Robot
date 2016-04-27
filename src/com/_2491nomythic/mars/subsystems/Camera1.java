@@ -32,7 +32,7 @@ public class Camera1 extends Subsystem {
 	private Camera1() {
 		frame = NIVision.imaqCreateImage(NIVision.ImageType.IMAGE_HSL, 0);
 		try {
-			session = NIVision.IMAQdxOpenCamera("cam0", NIVision.IMAQdxCameraControlMode.CameraControlModeController);
+			session = NIVision.IMAQdxOpenCamera("cam2", NIVision.IMAQdxCameraControlMode.CameraControlModeController);
 		}
 		catch (VisionException e) {
 			System.out.println(e.getMessage());

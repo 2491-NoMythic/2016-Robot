@@ -55,6 +55,9 @@ public class UpdateDriverstation extends CommandBase {
 			SmartDashboard.putNumber("Right Drive Encoder", drivetrain.getRightEncoderDistance());
 			SmartDashboard.putNumber("Gyro Value in Degrees", drivetrain.getCurrentGyroDegrees());
 			SmartDashboard.putNumber("Armature Encoder Value", armature.getEncoderPosition());
+			SmartDashboard.putBoolean("Intake Limit Switch One", intake.getLimitSwitch1Value());
+			SmartDashboard.putBoolean("Intake Limit Switch Two", intake.getLimitSwitch2Value());
+
 			if(grip.getCenterX().length == 0) {
 				centerX = 0;
 				width = 0.01;

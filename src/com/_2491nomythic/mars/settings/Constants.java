@@ -36,8 +36,8 @@ public class Constants {
 	// Digital Input Channels
 	public static final int driveEncoderLeftChannel1 = 5;
 	public static final int driveEncoderLeftChannel2 = 6;
-	public static final int driveEncoderRightChannel1 = 3;
-	public static final int driveEncoderRightChannel2 = 4;
+	public static final int driveEncoderRightChannel1 = 4;
+	public static final int driveEncoderRightChannel2 = 3;
 	
 	// Relay Channels
 	public static final int shooterPhotonCannonChannel = 0;

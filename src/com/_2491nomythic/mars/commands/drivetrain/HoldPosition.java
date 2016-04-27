@@ -8,6 +8,7 @@ import edu.wpi.first.wpilibj.command.Command;
  *
  */
 public class HoldPosition extends CommandBase {
+	double speed;
     public HoldPosition() {
         // Use requires() here to declare subsystem dependencies
         requires(drivetrain);
@@ -22,15 +23,22 @@ public class HoldPosition extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	speed = (Math.abs(drivetrain.getLeftEncoderDistance() * 3) > 1) ? 1.0 : Math.abs(drivetrain.getLeftEncoderDistance() * 3.0);
     	if(drivetrain.getLeftEncoderDistance() > 0.05) {
-    		drivetrain.drive(-0.15);
+    		drivetrain.drive(-speed);
     	}
     	else if(drivetrain.getLeftEncoderDistance() < -0.05) {
-    		drivetrain.drive(0.15);
+    		drivetrain.drive(speed);
     	}
     	else {
     		drivetrain.stop();
     	}
+//    	if(drivetrain.getRightEncoderDistance() > 0.05) {
+//    		drivetrain.driveRight(-speed);
+//    	}
+//    	else if(drivetrain.getRightEncoderDistance() < -0.05) {
+//    		drivetrain.driveRight(speed);
+//    	}
     }
 
     // Make this return true when this Command no longer needs to run execute()
