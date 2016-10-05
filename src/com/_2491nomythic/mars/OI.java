@@ -55,8 +55,8 @@ public class OI {
 		// shiftVelocityOrDelay = new SendableChooser();
 		
 		// Commands
-		shoot = new JoystickButton(controllers[ControllerMap.shooterController], ControllerMap.shootButton);
-		shoot.whenPressed(new Shoot());
+//		shoot = new JoystickButton(controllers[ControllerMap.shooterController], ControllerMap.shootButton);
+//		shoot.whenPressed(new Shoot());
 		
 //		chevalDeFriseConfiguration = new JoystickButton(controllers[ControllerMap.configurationController], ControllerMap.chevalDeFriseConfigutationButton);
 //		chevalDeFriseConfiguration.whenPressed(new ChevalDeFriseConfiguration());
@@ -74,8 +74,8 @@ public class OI {
 		alignShooter.whenPressed(new AlignShooter());
 		
 		// Drivetrain
-		shiftGear = new JoystickButton(controllers[ControllerMap.driveController], ControllerMap.driveShiftButton);
-		shiftGear.whileHeld(new ShiftGearWithDelay());
+//		shiftGear = new JoystickButton(controllers[ControllerMap.driveController], ControllerMap.driveShiftButton);
+//		shiftGear.whileHeld(new ShiftGearWithDelay());
 		
 		driveStraight = new JoystickPOVButton(controllers[ControllerMap.driveController], ControllerMap.driveStraightPOV);
 		driveStraight.whileHeld(new DriveStraightManualSpeed());
