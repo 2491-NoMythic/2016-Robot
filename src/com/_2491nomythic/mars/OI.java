@@ -4,14 +4,14 @@ import com._2491nomythic.mars.commands.AlignShooter;
 //import com._2491nomythic.mars.commands.ChevalDeFriseConfiguration;
 //import com._2491nomythic.mars.commands.LowBarConfiguration;
 //import com._2491nomythic.mars.commands.PickUpBallConfiguration;
-import com._2491nomythic.mars.commands.Shoot;
+//import com._2491nomythic.mars.commands.Shoot;
 //import com._2491nomythic.mars.commands.StartingConfiguration;
 import com._2491nomythic.mars.commands.armature.ManualArmatureControl;
 import com._2491nomythic.mars.commands.drivetrain.DriveStraightManualSpeed;
 import com._2491nomythic.mars.commands.drivetrain.HoldPosition;
 import com._2491nomythic.mars.commands.drivetrain.RotateDrivetrainWithGyro;
 //import com._2491nomythic.mars.commands.drivetrain.ShiftGearVelocity;
-import com._2491nomythic.mars.commands.drivetrain.ShiftGearWithDelay;
+//import com._2491nomythic.mars.commands.drivetrain.ShiftGearWithDelay;
 //import com._2491nomythic.mars.commands.intake.IntakeBall;
 import com._2491nomythic.mars.commands.intake.ManualSpitOut;
 import com._2491nomythic.mars.commands.intake.ManualTakeIn;
@@ -55,8 +55,8 @@ public class OI {
 		// shiftVelocityOrDelay = new SendableChooser();
 		
 		// Commands
-		shoot = new JoystickButton(controllers[ControllerMap.shooterController], ControllerMap.shootButton);
-		shoot.whenPressed(new Shoot());
+//		shoot = new JoystickButton(controllers[ControllerMap.shooterController], ControllerMap.shootButton);
+//		shoot.whenPressed(new Shoot());
 		
 //		chevalDeFriseConfiguration = new JoystickButton(controllers[ControllerMap.configurationController], ControllerMap.chevalDeFriseConfigutationButton);
 //		chevalDeFriseConfiguration.whenPressed(new ChevalDeFriseConfiguration());
@@ -74,8 +74,8 @@ public class OI {
 		alignShooter.whenPressed(new AlignShooter());
 		
 		// Drivetrain
-		shiftGear = new JoystickButton(controllers[ControllerMap.driveController], ControllerMap.driveShiftButton);
-		shiftGear.whileHeld(new ShiftGearWithDelay());
+//		shiftGear = new JoystickButton(controllers[ControllerMap.driveController], ControllerMap.driveShiftButton);
+//		shiftGear.whileHeld(new ShiftGearWithDelay());
 		
 		driveStraight = new JoystickPOVButton(controllers[ControllerMap.driveController], ControllerMap.driveStraightPOV);
 		driveStraight.whileHeld(new DriveStraightManualSpeed());
