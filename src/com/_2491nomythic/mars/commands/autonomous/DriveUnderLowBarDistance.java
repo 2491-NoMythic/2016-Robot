@@ -32,6 +32,7 @@ public class DriveUnderLowBarDistance extends CommandBase {
 	// Called just before this Command runs the first time
 	protected void initialize() {
 		armatureHasRun = false;
+		drivetrainHasRun = false;
 		resetDriveEncoders.start();
 	}
 	
