@@ -24,7 +24,7 @@ public class DriveUnderLowBarDistance extends CommandBase {
 		// Use requires() here to declare subsystem dependencies
 		// eg. requires(chassis);
 		drive14Feet = new DriveStraightToPosition(-14, -0.8);
-		lowerArmature = new ArmatureTime(0.5, 0.8); // takes in positive power
+		lowerArmature = new ArmatureTime(0.5, 1.0); // takes in positive power
 		resetDriveEncoders = new ResetDriveEncoders();
 //		moveArmToLowBarConfiguration = new ArmaturePositionSet(Constants.armatureLowBarDifference - armature.getEncoderPosition());
 	}
@@ -42,10 +42,12 @@ public class DriveUnderLowBarDistance extends CommandBase {
 			drive14Feet.start();
 			drivetrainHasRun = true;
 		}
-		if (drivetrain.getLeftEncoderDistance() < -1.2 && !armatureHasRun) {
+		if (!armatureHasRun) {
 			lowerArmature.start();
 			armatureHasRun = true;
 		}
+		
+		System.out.println(drivetrain.getLeftEncoderDistance());
 		
 	}
 	
