@@ -3,7 +3,7 @@ package com._2491nomythic.mars.commands.shooter;
 import com._2491nomythic.mars.commands.CommandBase;
 import com._2491nomythic.mars.settings.Variables;
 
-import edu.wpi.first.wpilibj.CANTalon.TalonControlMode;
+import com.ctre.CANTalon.TalonControlMode;
 
 /**
  * Runs the shooter with a two second ramp-up

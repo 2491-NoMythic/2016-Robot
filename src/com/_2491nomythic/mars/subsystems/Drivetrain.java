@@ -5,7 +5,7 @@ import com._2491nomythic.mars.settings.Constants;
 import com._2491nomythic.mars.subsystems.Drivetrain;
 
 import edu.wpi.first.wpilibj.AnalogGyro;
-import edu.wpi.first.wpilibj.CANTalon;
+import com.ctre.CANTalon;
 import edu.wpi.first.wpilibj.CounterBase;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.Solenoid;

@@ -4,7 +4,7 @@ import com._2491nomythic.mars.commands.CommandBase;
 import com._2491nomythic.mars.settings.Variables;
 
 import edu.wpi.first.wpilibj.Timer;
-import edu.wpi.first.wpilibj.CANTalon.TalonControlMode;
+import com.ctre.CANTalon.TalonControlMode;
 
 /**
  * Runs the shooter for a specified amount of time with a two second ramp-up
