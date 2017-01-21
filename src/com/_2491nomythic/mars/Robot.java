@@ -41,7 +41,7 @@ public class Robot extends IterativeRobot {
 	
 	public static OI oi;
 	private Command autoCommand;
-	private SendableChooser autoChooser;
+	private SendableChooser<Command> autoChooser;
 	LowerShooter lowerShooter;
 	
 	/**
@@ -51,7 +51,7 @@ public class Robot extends IterativeRobot {
 		oi = new OI();
 		CommandBase.init();
 		// instantiate the command used for the autonomous period
-		autoChooser = new SendableChooser();
+		autoChooser = new SendableChooser<Command>();
 		autoChooser.addDefault("Do Nothing", new DoNothing());
 		autoChooser.addObject("Drive To Defense", new DriveStraightToPosition(5, 1));
 		autoChooser.addObject("Drive Straight", new DriveStraightToPosition(16, 1));
