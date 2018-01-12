@@ -12,7 +12,7 @@ import edu.wpi.first.wpilibj.Timer;
 
 
 /**
- *
+ * @deprecated
  */
 public class CrossAndShootGeneral extends CommandBase {
 	DriveStraightToPosition drive18ft;

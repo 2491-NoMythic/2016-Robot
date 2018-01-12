@@ -1,12 +1,10 @@
 
 package com._2491nomythic.mars;
 
-import com._2491nomythic.mars.commands.AlignShooter;
 import com._2491nomythic.mars.commands.CommandBase;
 import com._2491nomythic.mars.commands.Shoot;
 import com._2491nomythic.mars.commands.armature.ArmatureTime;
 import com._2491nomythic.mars.commands.armature.ResetArmatureEncoder;
-import com._2491nomythic.mars.commands.autonomous.CrossAndShootGeneral;
 import com._2491nomythic.mars.commands.autonomous.CrossAndShootLowBarNoVision;
 import com._2491nomythic.mars.commands.autonomous.DoNothing;
 import com._2491nomythic.mars.commands.drivetrain.CalibrateGyro;
@@ -31,7 +29,6 @@ import com._2491nomythic.mars.settings.Variables;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
-import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.*;
 
 /**
@@ -58,7 +55,7 @@ public class Robot extends IterativeRobot {
 		autoChooser.addObject("Portcullis", new DriveUnderPortcullis());
 		autoChooser.addObject("Low Bar", new DriveUnderLowBarDistance());
 		autoChooser.addObject("Cross And Shoot Under Low Bar", new CrossAndShootLowBarNoVision());
-		autoChooser.addObject("Cross And Shoot General", new CrossAndShootGeneral());
+//		autoChooser.addObject("Cross And Shoot General", new CrossAndShootGeneral());
 		autoChooser.addObject("Spy Box Shot to Low Bar", new SpyBoxLowBar());
 		SmartDashboard.putData("Autonomous", autoChooser);
 		SmartDashboard.putData("Calibrate Gyro", new CalibrateGyro());
@@ -71,7 +68,6 @@ public class Robot extends IterativeRobot {
 		SmartDashboard.putData("Unlock Piston", new UnlockPiston());
 		SmartDashboard.putData("Lock Piston", new LockPiston());
 		SmartDashboard.putData("Raise Shooter", new RaiseShooter());
-		SmartDashboard.putData("Align Shooter", new AlignShooter());
 		SmartDashboard.putNumber("Devation From Target", Variables.degreeDeviationFromTarget);
 		SmartDashboard.putData("Shoot", new Shoot());
 		SmartDashboard.putData("Run Shooter 5 Seconds", new RunShooterTime(5));
@@ -139,6 +135,5 @@ public class Robot extends IterativeRobot {
 	 * This function is called periodically during test mode
 	 */
 	public void testPeriodic() {
-		LiveWindow.run();
 	}
 }

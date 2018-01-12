@@ -1,8 +1,10 @@
 package com._2491nomythic.mars.subsystems;
 
 import com._2491nomythic.mars.commands.UpdateDriverstation;
+
+import edu.wpi.first.networktables.NetworkTable;
+import edu.wpi.first.networktables.NetworkTableInstance;
 import edu.wpi.first.wpilibj.command.Subsystem;
-import edu.wpi.first.wpilibj.networktables.NetworkTable;
 
 /**
  * The values sent to us by the GRIP vision system running on the Raspberry Pi
@@ -30,44 +32,50 @@ public class GRIP extends Subsystem {
 	
 	/**
 	 * @return The NetworkTable sent to us by the Raspberry Pi
+	 * @deprecated
 	 */
 	public NetworkTable getTable() {
-		return NetworkTable.getTable("/GRIP/myContoursReport");
+		return NetworkTableInstance.getDefault().getTable("/GRIP/myContoursReport");
 	}
 	
 	/**
 	 * @return An array of the horizontal locations of the center of the identified targets
+	 * @deprecated
 	 */
 	public double[] getCenterX() {
-		return getTable().getNumberArray("centerX", defaultValue);
+		return defaultValue;//getTable().getNumberArray("centerX", defaultValue);
 	}
 	
 	/**
 	 * @return An array of the vertical locations of the center of the identified targets
+	 * @deprecated
 	 */
 	public double[] getCenterY() {
-		return getTable().getNumberArray("centerY", defaultValue);
+		return defaultValue;//getTable().getNumberArray("centerY", defaultValue);
 	}
 	
 	/**
 	 * @return An array of the areas of the identified targets
+	 * @deprecated
 	 */
 	public double[] getArea() {
-		return getTable().getNumberArray("area", defaultValue);
+		return defaultValue;//getTable().getNumberArray("area", defaultValue);
 	}
 	
 	/**
 	 * @return An array of the heights of the identified targets
+	 * @deprecated
 	 */
 	public double[] getHeight() {
-		return getTable().getNumberArray("height", defaultValue);
+		return defaultValue;//getTable().getNumberArray("height", defaultValue);
 	}
 	
 	/**
 	 * @return An array of the widths of the identified targets
+	 * @deprecated
 	 */
 	public double[] getWidth() {
-		return getTable().getNumberArray("width", defaultValue);
+		return defaultValue;//getTable().getNumberArray("width", defaultValue);
 	}
 	
 	

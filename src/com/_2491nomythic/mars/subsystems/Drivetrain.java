@@ -3,9 +3,10 @@ package com._2491nomythic.mars.subsystems;
 import com._2491nomythic.mars.commands.drivetrain.Drive;
 import com._2491nomythic.mars.settings.Constants;
 import com._2491nomythic.mars.subsystems.Drivetrain;
+import com.ctre.phoenix.motorcontrol.ControlMode;
+import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 
 import edu.wpi.first.wpilibj.AnalogGyro;
-import com.ctre.CANTalon;
 import edu.wpi.first.wpilibj.CounterBase;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.Solenoid;
@@ -17,7 +18,7 @@ import edu.wpi.first.wpilibj.interfaces.Gyro;
  */
 public class Drivetrain extends Subsystem {
 	private Gyro gyro;
-	private CANTalon left1, left2, left3, right1, right2, right3;
+	private TalonSRX left1, left2, left3, right1, right2, right3;
 	private Encoder encoderLeft, encoderRight;
 	private Solenoid solenoid;
 	private double currentLeftSpeed, currentRightSpeed;
@@ -35,12 +36,12 @@ public class Drivetrain extends Subsystem {
 	 * The system used to move the robot
 	 */
 	private Drivetrain() {
-		left1 = new CANTalon(Constants.driveTalonLeft1Channel);
-		left2 = new CANTalon(Constants.driveTalonLeft2Channel);
-		left3 = new CANTalon(Constants.driveTalonLeft3Channel);
-		right1 = new CANTalon(Constants.driveTalonRight1Channel);
-		right2 = new CANTalon(Constants.driveTalonRight2Channel);
-		right3 = new CANTalon(Constants.driveTalonRight3Channel);
+		left1 = new TalonSRX(Constants.driveTalonLeft1Channel);
+		left2 = new TalonSRX(Constants.driveTalonLeft2Channel);
+		left3 = new TalonSRX(Constants.driveTalonLeft3Channel);
+		right1 = new TalonSRX(Constants.driveTalonRight1Channel);
+		right2 = new TalonSRX(Constants.driveTalonRight2Channel);
+		right3 = new TalonSRX(Constants.driveTalonRight3Channel);
 		
 		encoderLeft = new Encoder(Constants.driveEncoderLeftChannel1, Constants.driveEncoderLeftChannel2, false, CounterBase.EncodingType.k1X);
 		encoderRight = new Encoder(Constants.driveEncoderRightChannel1, Constants.driveEncoderRightChannel2, false, CounterBase.EncodingType.k1X);
@@ -93,9 +94,9 @@ public class Drivetrain extends Subsystem {
 	 *            The power fed to the left drive motors, ranging from -1 to 1, where negative values run the motors backwards
 	 */
 	public void driveLeft(double speed) {
-		left1.set(-1.0 * speed);
-		left2.set(speed);
-		left3.set(speed);
+		left1.set(ControlMode.PercentOutput, -1.0 * speed);
+		left2.set(ControlMode.PercentOutput, speed);
+		left3.set(ControlMode.PercentOutput, speed);
 		currentLeftSpeed = speed;
 	}
 	
@@ -106,9 +107,9 @@ public class Drivetrain extends Subsystem {
 	 *            The power fed to the right drive motors, ranging from -1 to 1, where negative values run the motors backwards
 	 */
 	public void driveRight(double speed) {
-		right1.set(speed);
-		right2.set(-1.0 * speed);
-		right3.set(-1.0 * speed);
+		right1.set(ControlMode.PercentOutput, speed);
+		right2.set(ControlMode.PercentOutput, -1.0 * speed);
+		right3.set(ControlMode.PercentOutput, -1.0 * speed);
 		currentRightSpeed = speed;
 	}
 	
@@ -199,42 +200,42 @@ public class Drivetrain extends Subsystem {
 	/**
 	 * @return The first of three drive motors on the left side of the robot
 	 */
-	public CANTalon getLeft1Motor() {
+	public TalonSRX getLeft1Motor() {
 		return left1;
 	}
 	
 	/**
 	 * @return The second of three drive motors on the left side of the robot
 	 */
-	public CANTalon getLeft2Motor() {
+	public TalonSRX getLeft2Motor() {
 		return left2;
 	}
 	
 	/**
 	 * @return The third of three drive motors on the left side of the robot
 	 */
-	public CANTalon getLeft3Motor() {
+	public TalonSRX getLeft3Motor() {
 		return left3;
 	}
 	
 	/**
 	 * @return The first of three drive motors on the right side of the robot
 	 */
-	public CANTalon getRight1Motor() {
+	public TalonSRX getRight1Motor() {
 		return right1;
 	}
 	
 	/**
 	 * @return The second of three drive motors on the right side of the robot
 	 */
-	public CANTalon getRight2Motor() {
+	public TalonSRX getRight2Motor() {
 		return right2;
 	}
 	
 	/**
 	 * @return The third of three drive motors on the right side of the robot
 	 */
-	public CANTalon getRight3Motor() {
+	public TalonSRX getRight3Motor() {
 		return right3;
 	}
 	

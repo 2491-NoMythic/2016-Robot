@@ -2,8 +2,7 @@ package com._2491nomythic.mars.commands.shooter;
 
 import com._2491nomythic.mars.commands.CommandBase;
 import com._2491nomythic.mars.settings.Variables;
-
-import com.ctre.CANTalon.TalonControlMode;
+import com.ctre.phoenix.motorcontrol.ControlMode;
 
 /**
  * Runs the shooter with a two second ramp-up
@@ -38,12 +37,12 @@ public class ManualShooterControl extends CommandBase {
 		// shooter.setRight(Variables.shooterSpeed);
 		// }
 		
-		shooter.getLeftMotor().changeControlMode(TalonControlMode.Voltage);
-		shooter.getRightMotor().changeControlMode(TalonControlMode.Voltage);
-		shooter.getLeftMotor().setVoltageCompensationRampRate(Variables.shooterRampRate);
-		shooter.getRightMotor().setVoltageCompensationRampRate(Variables.shooterRampRate);
-		shooter.getRightMotor().set(-1.0 * Variables.shooterSpeed);
-		shooter.getLeftMotor().set(Variables.shooterSpeed);
+		shooter.getLeftMotor().enableVoltageCompensation(true);
+		shooter.getRightMotor().enableVoltageCompensation(true);
+		shooter.getLeftMotor().configOpenloopRamp(Variables.shooterRampRate, 0);
+		shooter.getRightMotor().configOpenloopRamp(Variables.shooterRampRate, 0);
+		shooter.getRightMotor().set(ControlMode.PercentOutput, -1.0 * Variables.shooterSpeed);
+		shooter.getLeftMotor().set(ControlMode.PercentOutput, Variables.shooterSpeed);
 	}
 	
 	// Make this return true when this Command no longer needs to run execute()
@@ -53,8 +52,8 @@ public class ManualShooterControl extends CommandBase {
 	
 	// Called once after isFinished returns true
 	protected void end() {
-		shooter.getLeftMotor().changeControlMode(TalonControlMode.PercentVbus);
-		shooter.getRightMotor().changeControlMode(TalonControlMode.PercentVbus);
+		shooter.getLeftMotor().enableVoltageCompensation(false);
+		shooter.getRightMotor().enableVoltageCompensation(false);
 		shooter.stop();
 	}
 	

@@ -4,7 +4,7 @@ import com._2491nomythic.mars.commands.CommandBase;
 import com._2491nomythic.mars.settings.Variables;
 
 import edu.wpi.first.wpilibj.Timer;
-import com.ctre.CANTalon.TalonControlMode;
+import com.ctre.phoenix.motorcontrol.ControlMode;
 
 /**
  * Runs the shooter for a specified amount of time with a two second ramp-up
@@ -35,12 +35,12 @@ public class RunShooterTime extends CommandBase {
 	
 	// Called repeatedly when this Command is scheduled to run
 	protected void execute() {
-		shooter.getLeftMotor().changeControlMode(TalonControlMode.Voltage);
-		shooter.getRightMotor().changeControlMode(TalonControlMode.Voltage);
-		shooter.getLeftMotor().setVoltageCompensationRampRate(Variables.shooterRampRate); 
-		shooter.getRightMotor().setVoltageCompensationRampRate(Variables.shooterRampRate);
-		shooter.getRightMotor().set(-1.0 * Variables.shooterSpeed);
-		shooter.getLeftMotor().set(Variables.shooterSpeed);
+		shooter.getLeftMotor().enableVoltageCompensation(true);
+		shooter.getRightMotor().enableVoltageCompensation(true);
+		shooter.getLeftMotor().configOpenloopRamp(Variables.shooterRampRate, 0);
+		shooter.getRightMotor().configOpenloopRamp(Variables.shooterRampRate, 0);
+		shooter.getRightMotor().set(ControlMode.PercentOutput, -1.0 * Variables.shooterSpeed);
+		shooter.getLeftMotor().set(ControlMode.PercentOutput, Variables.shooterSpeed);
 	}
 	
 	// Make this return true when this Command no longer needs to run execute()
@@ -51,8 +51,8 @@ public class RunShooterTime extends CommandBase {
 	// Called once after isFinished returns true
 	protected void end() {
 		timer.stop();
-		shooter.getLeftMotor().changeControlMode(TalonControlMode.PercentVbus);
-		shooter.getRightMotor().changeControlMode(TalonControlMode.PercentVbus);
+		shooter.getLeftMotor().enableVoltageCompensation(false);
+		shooter.getRightMotor().enableVoltageCompensation(false);
 		shooter.stop();
 	}
 	

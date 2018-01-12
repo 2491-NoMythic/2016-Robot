@@ -1,8 +1,9 @@
 package com._2491nomythic.mars.subsystems;
 
 import com._2491nomythic.mars.settings.Constants;
+import com.ctre.phoenix.motorcontrol.ControlMode;
+import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 
-import com.ctre.CANTalon;
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
@@ -10,7 +11,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  * The system that loads boulders into the robot
  */
 public class Intake extends Subsystem {
-	private CANTalon motor;
+	private TalonSRX motor;
 	private DigitalInput limitSwitch1, limitSwitch2;
 	
 	public static Intake instance;
@@ -29,7 +30,7 @@ public class Intake extends Subsystem {
 	 * The system that loads boulders into the robot
 	 */
 	private Intake() {
-		motor = new CANTalon(Constants.intakeChannel);
+		motor = new TalonSRX(Constants.intakeChannel);
 		
 		limitSwitch1 = new DigitalInput(Constants.intakeLimitSwitch1Channel);
 		limitSwitch2 = new DigitalInput(Constants.intakeLimitSwitch2Channel);
@@ -42,13 +43,13 @@ public class Intake extends Subsystem {
 	 *            The power fed to the intake motor, ranging from -1 to 1, where negative values run the motor backwards
 	 */
 	public void set(double speed) {
-		motor.set(-1.0 * speed);
+		motor.set(ControlMode.PercentOutput, -1.0 * speed);
 	}
 	
 	/**
 	 * @return The intake motor
 	 */
-	public CANTalon get() {
+	public TalonSRX get() {
 		return motor;
 	}
 	

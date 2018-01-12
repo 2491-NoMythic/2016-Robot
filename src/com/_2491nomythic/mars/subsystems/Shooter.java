@@ -1,8 +1,9 @@
 package com._2491nomythic.mars.subsystems;
 
 import com._2491nomythic.mars.settings.Constants;
+import com.ctre.phoenix.motorcontrol.ControlMode;
+import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 
-import com.ctre.CANTalon;
 import edu.wpi.first.wpilibj.Relay;
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;
@@ -11,7 +12,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  * The system that shoots boulders into the high goal
  */
 public class Shooter extends Subsystem {
-	private CANTalon motorLeft, motorRight;
+	private TalonSRX motorLeft, motorRight;
 	private Solenoid shootSolenoid, lockSolenoid;
 	private Relay photonCannon;
 	private double currentLeftSpeed, currentRightSpeed;
@@ -31,12 +32,10 @@ public class Shooter extends Subsystem {
 	 * The system that shoots boulders into the high goal
 	 */
 	private Shooter() {
-		motorLeft = new CANTalon(Constants.shooterTalonLeftChannel);
-		motorRight = new CANTalon(Constants.shooterTalonRightChannel);
+		motorLeft = new TalonSRX(Constants.shooterTalonLeftChannel);
+		motorRight = new TalonSRX(Constants.shooterTalonRightChannel);
 		
-		motorLeft.configEncoderCodesPerRev(1); // TODO check empirically if the encoder 4x edge reading impacts this.
-		motorRight.configEncoderCodesPerRev(1);// I want one unit per rotation, not 4 units per rotation.
-		motorLeft.setEncPosition(0);
+		motorLeft.setSelectedSensorPosition(0, 0, 0);
 		
 		shootSolenoid = new Solenoid(Constants.shooterShootSolenoidChannel);
 		lockSolenoid = new Solenoid(Constants.shooterLockSolenoidChannel);
@@ -76,7 +75,7 @@ public class Shooter extends Subsystem {
 	 */
 	public void setLeft(double speed) {
 		currentLeftSpeed = speed;
-		motorLeft.set(-1.0 * speed);
+		motorLeft.set(ControlMode.PercentOutput, -1.0 * speed);
 	}
 	
 	/**
@@ -87,7 +86,7 @@ public class Shooter extends Subsystem {
 	 */
 	public void setRight(double speed) {
 		currentRightSpeed = speed;
-		motorRight.set(-1.0 * speed);
+		motorRight.set(ControlMode.PercentOutput, -1.0 * speed);
 	}
 	
 	/**
@@ -143,28 +142,28 @@ public class Shooter extends Subsystem {
 	 * @return The current value of the left shooter encoder
 	 */
 	public double getLeftEncoderPosition() {
-		return motorLeft.getEncPosition();
+		return motorLeft.getSelectedSensorPosition(0);
 	}
 	
 	/**
 	 * @return The current velocity of the left shooter encoder
 	 */
 	public double getLeftEncoderVelocity() {
-		return motorLeft.getEncVelocity();
+		return motorLeft.getSelectedSensorVelocity(0);
 	}
 	
 	/**
 	 * @return The current value of the right shooter encoder
 	 */
 	public double getRightEncoderPosition() {
-		return motorRight.getEncPosition();
+		return motorRight.getSelectedSensorPosition(0);
 	}
 	
 	/**
 	 * @return The current velocity of the right shooter velocity
 	 */
 	public double getRightEncoderVelocity() {
-		return motorRight.getEncVelocity();
+		return motorRight.getSelectedSensorVelocity(0);
 	}
 	
 	/**
@@ -198,14 +197,14 @@ public class Shooter extends Subsystem {
 	/**
 	 * @return The left shooter motor
 	 */
-	public CANTalon getLeftMotor() {
+	public TalonSRX getLeftMotor() {
 		return motorLeft;
 	}
 	
 	/**
 	 * @return the right shooter motor
 	 */
-	public CANTalon getRightMotor() {
+	public TalonSRX getRightMotor() {
 		return motorRight;
 	}
 	

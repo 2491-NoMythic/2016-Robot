@@ -58,14 +58,14 @@ public class UpdateDriverstation extends CommandBase {
 			SmartDashboard.putBoolean("Intake Limit Switch One", intake.getLimitSwitch1Value());
 			SmartDashboard.putBoolean("Intake Limit Switch Two", intake.getLimitSwitch2Value());
 
-			if(grip.getCenterX().length == 0) {
-				centerX = 0;
-				width = 0.01;
-			}
-			else {
-				centerX = grip.getCenterX()[0];
-				width = grip.getWidth()[0];
-			}
+//			if(grip.getCenterX().length == 0) {
+//				centerX = 0;
+//				width = 0.01;
+//			}
+//			else {
+//				centerX = grip.getCenterX()[0];
+//				width = grip.getWidth()[0];
+//			}
 			SmartDashboard.putNumber("Center X Value", centerX);
 			SmartDashboard.putBoolean("Can Shoot", (centerX >= 262 && centerX <= 279));
 			SmartDashboard.putNumber("Distace to Tower", (Constants.TargetWidth*Constants.FOVpixelWidth)/(2*width*Math.tan(Constants.cameraHorizontalViewAngle/2)));

@@ -2,8 +2,9 @@ package com._2491nomythic.mars.subsystems;
 
 import com._2491nomythic.mars.commands.armature.KeepArmatureStill;
 import com._2491nomythic.mars.settings.Constants;
+import com.ctre.phoenix.motorcontrol.ControlMode;
+import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 
-import com.ctre.CANTalon;
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
@@ -11,7 +12,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  * The rotating protrusion on the end of the intake system
  */
 public class Armature extends Subsystem {
-	private CANTalon motor;
+	private TalonSRX motor;
 	private DigitalInput limitSwitch;
 	private KeepArmatureStill keepArmatureStill;
 	
@@ -31,10 +32,9 @@ public class Armature extends Subsystem {
 	 * The rotating protrusion on the end of the intake system
 	 */
 	private Armature() {
-		motor = new CANTalon(Constants.armatureChannel);
+		motor = new TalonSRX(Constants.armatureChannel);
 		// motor.setFeedbackDevice();
-		motor.configEncoderCodesPerRev(360);
-		motor.setEncPosition(0);
+		motor.setSelectedSensorPosition(0, 0, 0);
 		
 		limitSwitch = new DigitalInput(Constants.armatureLimitSwitchChannel);
 		
@@ -51,7 +51,7 @@ public class Armature extends Subsystem {
 		if(keepArmatureStill.isRunning()) {
 			keepArmatureStill.cancel();
 		}
-		motor.set(speed);
+		motor.set(ControlMode.PercentOutput, speed);
 	}
 	
 	/**
@@ -61,27 +61,27 @@ public class Armature extends Subsystem {
 	 *            The power fed to the motor, ranging from -1 to 1, where negative values run the motor backwards
 	 */
 	public void armatureSet(double speed) {
-		motor.set(speed);
+		motor.set(ControlMode.PercentOutput, speed);
 	}
 	
 	/**
 	 * @return The current position of the armature encoder
 	 */
 	public double getEncoderPosition() {
-		return motor.getEncPosition();
+		return motor.getSelectedSensorPosition(0);
 	}
 	
 	/**
 	 * @return The current velocity of the armature encoder
 	 */
 	public double getEncoderVelocity() {
-		return motor.getEncVelocity();
+		return motor.getSelectedSensorVelocity(0);
 	}
 	
 	/**
 	 * @return The armature motor
 	 */
-	public CANTalon get() {
+	public TalonSRX get() {
 		return motor;
 	}
 	
@@ -101,7 +101,7 @@ public class Armature extends Subsystem {
 	}
 	
 	public void resetEncoder() {
-		motor.setEncPosition(0);
+		motor.setSelectedSensorPosition(0, 0, 0);
 	}
 	
 	public void initDefaultCommand() {
